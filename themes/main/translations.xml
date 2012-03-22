@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translations>
+    <virtual-exhibitions>
+        <en>Virtual Exhibitions</en>
+        <nl>Virtuele tentoonstellingen</nl>
+        <de>Virtuelle Ausstellungen</de>
+        <fr>Expositions virtuelles</fr>
+        <pl></pl>
+        <it>Mostre Virtuali</it>
+        <sv>virtuell utställning</sv>
+        <es></es>
+        <lv>Virtuālās izstādes</lv>
+		<ru>Виртуальные выставки</ru>
+
+    </virtual-exhibitions>
+    <choose-a-language>
+        <en>Choose a language</en>
+        <nl>Kies een taal</nl>
+        <de>Wählen Sie eine Sprache</de>
+        <fr>Choisir une langue</fr>
+        <pl>Wybierz język</pl>
+        <it>Scegli una lingua</it>
+        <sv>valj ett språk</sv>
+        <lv>Izvēlēties valodu</lv>
+        <es>Seleccionar un idioma</es>
+		<ru>На других языках</ru>
+
+    </choose-a-language>
+    <exhibits-browse>
+        <en>Browse Exhibitions</en>
+        <nl>Blader door tentoonstelling</nl>
+        <de>Ausstellung ansehen</de>
+        <fr>Consulter les expositions</fr>
+        <pl></pl>
+        <it>Visita le Mostre</it>
+        <sv>Bläddra genom utställningarna</sv>
+        <lv>Pārlūkot izstādes</lv>
+        <es>Consultar las exposiciones</es>
+		<ru>Обзор выставок</ru>
+
+    </exhibits-browse>
+    <exhibit-go-to>
+        <en>Go to Exhibition</en>
+        <nl>Ga naar tentoonstelling</nl>
+        <de>Zur Ausstellung</de>
+        <fr>Aller à l'exposition</fr>
+        <pl></pl>
+        <it>Val alla Mostra</it>
+        <sv>Gå till utställningen</sv>
+        <lv>Skatīt izstādi</lv>
+        <es>Ir a la exposición</es>
+		<ru>К выставке</ru>
+
+    </exhibit-go-to>
+    <exhibit-start>
+        <en>Start Exhibition</en>
+        <nl>Start de tentoonstelling</nl>
+        <de>Ausstellung starten</de>
+        <fr>Démarrer l'exposition</fr>
+        <pl>Start wystawy</pl>
+        <it>Inizia la visita alla mostra</it>
+        <sv>Besök utställningen</sv>
+        <lv>Sākt izstādes apskati</lv>
+        <es>Empezar la exposición</es>
+		<ru>Начало осмотра</ru>
+
+    </exhibit-start>
+    <exhibits-none-this-language>
+        <en>There are currently no exhibitions available in your chosen language</en>
+        <nl>Er zijn momenteel geen tentoonstellingen beschikbaar in uw gekozen taal</nl>
+        <de>Zur Zeit sind keine Ausstellungen in der von Ihnen gewählten Sprache verfügbar</de>
+        <fr>I'l n'y a pas d'exposition disponible dans la langue choisie</fr>
+        <pl></pl>
+        <it>Attualmente non ci sono mostre nella lingua che hai selezionato</it>
+        <sv>Just nu finns det inga utställningar pa det språk du valt</sv>
+        <lv>Izvēlētajā valodā izstādes pašlaik nav pieejamas</lv>
+        <es>Actualmente no hay exposiciones disponibles en el idioma seleccionado</es>
+		<ru>На данный момент выставок на выбраном Вами языке нет</ru>
+
+    </exhibits-none-this-language>
+    <themes>
+        <en>Themes</en>
+        <nl>Thema's</nl>
+        <de>Themen</de>
+        <fr>Thèmes</fr>
+        <pl></pl>
+        <it>Temi</it>
+        <sv>Teman</sv>
+        <lv>Tēmas</lv>
+        <es>Temas</es>
+		<ru>Темы</ru>
+
+    </themes>
+    <sections>
+        <en>Sections</en>
+        <nl>Afdelingen</nl>
+        <de>Kategorien</de>
+        <fr>Chapitres</fr>
+        <pl></pl>
+        <it>Sezioni</it>
+        <sv>sektioner</sv>
+        <lv>Daļas</lv>
+        <es>Secciones</es>
+		<ru>Разделы</ru>
+
+    </sections>
+    <items-browse>
+        <en>Browse Items</en>
+        <nl>Blader door objecten</nl>
+        <de>Objekte ansehen</de>
+        <fr>Consulter les objets</fr>
+        <pl></pl>
+        <it>Sfolgia gli Oggetti</it>
+        <sv>Bläddra genom föremålen</sv>
+        <lv>Pārlūkot vienības</lv>
+        <es>Consultar las piezas</es>
+		<ru>Осмотр экспонатов</ru>
+
+    </items-browse>
+    <items-total>
+        <en>total</en>
+        <nl>totaal</nl>
+        <de>Summe</de>
+        <fr>total</fr>
+        <pl></pl>
+        <it>totale</it>
+        <sv>totalt</sv>
+        <lv>kopā</lv>
+        <es>total</es>
+		<ru>Всего</ru>
+
+    </items-total>
+    <information>
+        <en>Information</en>
+        <nl>Informatie</nl>
+        <de>Informationen</de>
+        <fr>Information</fr>
+        <pl></pl>
+        <it>Informazioni</it>
+        <sv>information</sv>
+        <lv>Informācija</lv>
+        <es>Información</es>
+		<ru>Информация </ru>
+
+    </information>
+    <next>
+        <en>next</en>
+        <nl>volgende</nl>
+        <de>nächstes</de>
+        <fr>prochain</fr>
+        <pl></pl>
+        <it>prossimo</it>
+        <sv>nästa</sv>
+        <lv>nākamais</lv>
+        <es>siguiente</es>
+		<ru>Следующий</ru>
+
+    </next>
+    <previous>
+        <en>previous</en>
+        <nl>vorige</nl>
+        <de>voriges</de>
+        <fr>précédent</fr>
+        <pl></pl>
+        <it>precedente</it>
+        <sv>foregående</sv>
+        <lv>iepriekšējais</lv>
+        <es>anterior</es>
+		<ru>Предудущий</ru>
+
+    </previous>
+    <show-item-details>
+        <en>Show item details</en>
+        <nl>Toon object details</nl>
+        <de>Details anzeigen</de>
+        <fr>Voir les des objets en détail</fr>
+        <pl></pl>
+        <it>Mostra i dettagli dell'oggetto</it>
+        <sv>Visa föremål</sv>
+        <lv>Rādīt vienības informāciju</lv>
+        <es>Mostrar los detalles de la pieza</es>
+		<ru>Подробнее об этом экспонате...</ru>
+
+    </show-item-details>
+    <return-to-exhibit>
+        <en>Return to exhibition</en>
+        <nl>Ga terug naar tentoonstelling</nl>
+        <de>Zurück zur Ausstellung</de>
+        <fr>Retouner à l'exposition </fr>
+        <pl></pl>
+        <it>Ritorna alla mostra</it>
+        <sv>Tillbaka till utställningen</sv>
+        <lv>Atgriezties pie izstādes</lv>
+        <es>Volver a la exposición</es>
+		<ru>Вернуться на выставку</ru>
+
+    </return-to-exhibit>
+    <back>
+        <en>Back</en>
+        <nl>Terug</nl>
+        <de>Zurück</de>
+        <fr>Retour</fr>
+        <pl></pl>
+        <it>Indietro</it>
+        <sv>Tillbaka</sv>
+        <lv>Atpakaļ</lv>
+        <es>Atrás</es>
+		<ru>Назад</ru>
+
+    </back>
+    <description>
+        <en>Description</en>
+        <nl>Beschrijving</nl>
+        <de>Beschreibung</de>
+        <fr>Description</fr>
+        <pl></pl>
+        <it>Descrizione</it>
+        <sv>Beskrivning</sv>
+        <lv>Apraksts</lv>
+        <es>Descripción</es>
+		<ru>Описание</ru>
+
+    </description>
+    <contact-us-title>
+        <en>Contact us</en>
+        <nl>Contact</nl>
+        <de>Kontaktieren Sie uns</de>
+        <fr>Nous contacter</fr>
+        <pl></pl>
+        <it>Contattaci</it>
+        <sv>Kontakta oss</sv>
+        <lv>Sazināties ar mums</lv>
+        <es>Contáctenos</es>
+		<ru>Контакты</ru>
+
+    </contact-us-title>
+    <contact-us-instructions>
+        <en>Please send us your comments and suggestions</en>
+        <nl>Laat ons weten wat u vindt, stuur ons uw opmerkingen en suggesties</nl>
+        <de>Bitte senden Sie uns Kommentare und Anregungen</de>
+        <fr>envoyez nous vos commentaires et vos suggestions s'il vous plaît</fr>
+        <pl></pl>
+        <it>Mandaci I tuoi commenti e suggerimenti</it>
+        <sv>Skicka oss garna dina kommentarer och förslag</sv>
+        <lv>Lūdzu sūtiet mums savus komentārus un ierosinājumus</lv>
+        <es>Por favor, envíenos sus comentarios y sugerencias</es>
+		<ru>Пожалуйтса пришлите Ваши комментарии или предложения</ru>
+
+    </contact-us-instructions>
+    <contact-us-label-name>
+        <en>Your Name</en>
+        <nl>Naam</nl>
+        <de>Ihr Name</de>
+        <fr>Nom</fr>
+        <pl></pl>
+        <it>Il tuo nome</it>
+        <sv>Ditt namn</sv>
+        <lv>Tavs vārds</lv>
+        <es>Su nombre</es>
+		<ru>Ваше имя</ru>
+
+    </contact-us-label-name>
+    <contact-us-label-email>
+        <en>Your Email</en>
+        <nl>Email</nl>
+        <de>Ihre E-Mail</de>
+        <fr>Adresse email</fr>
+        <pl></pl>
+        <it>Il tuo indirizzo e-mail</it>
+        <sv>Din e-postadress</sv>
+        <lv>Tavs e-pasts</lv>
+        <es>Su correo electrónico</es>
+		<ru>Ваш Email</ru>
+
+    </contact-us-label-email>
+    <contact-us-label-message>
+        <en>Your Message</en>
+        <nl>Boodschap</nl>
+        <de>Ihre Bericht</de>
+        <fr>Votre message</fr>
+        <pl>Twoja wiadomość</pl>
+        <it>Il tuo messaggio</it>
+        <sv>Ditt meddelande</sv>
+        <lv>Tava ziņa</lv>
+        <es>Su mensaje</es>
+		<ru>Ваше сообщение</ru>
+
+    </contact-us-label-message>
+    <contact-us-button-send>
+        <en>Send Message</en>
+        <nl>Versturen</nl>
+        <de>Nachricht senden</de>
+        <fr>Envoyer un message</fr>
+        <pl></pl>
+        <it>Manda un messaggio</it>
+        <sv>Skicka meddelande</sv>
+        <lv>Nosūtīt ziņu</lv>
+        <es>Enviar un mensaje</es>
+		<ru>Послать сообщение</ru>
+	</contact-us-button-send>
+	
+	<languages>
+	<en>Languages</en>
+	<nl>Talen</nl>
+	<de>Sprachen</de>
+	<fr>Langues</fr>
+	<pl></pl>
+	<it>Lingue</it>
+	<sv>Språk</sv>
+	<lv>Valodas</lv>
+	<es>Idiomas</es>
+	<ru>Языки</ru>
+	</languages>
+	
+	<about-exhibitions>
+	    <en>About Exhibitions</en>
+        <nl>Over de tentoonstelling</nl>
+        <de>Über die Ausstellungen</de>
+        <fr>En savoir plus sur les expositions</fr>
+        <pl></pl>
+        <it>Circa la mostra</it>
+        <sv>Om utställningarna</sv>
+        <lv>Par izstādēm</lv>
+        <es>Sobre las exposiciones</es>
+		<ru>О выставках</ru>
+	</about-exhibitions>
+	
+	<credits>
+	        <en>Credits</en>
+        <nl></nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>		
+		<ru>Авторы перевода</ru>
+	</credits>
+	
+	<contact-jml>
+	        <en>Feedback</en>
+        <nl></nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+		<ru>Обратная связь</ru>
+	</contact-jml>
+    
+    <!--
+    <label>
+        <en></en>
+        <nl></nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+		<ru></ru>
+    </label>
+    -->
+</translations>
