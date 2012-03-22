@@ -1,0 +1,23 @@
+/* CSS for the gallery-thumbnails-text-bottom layout */
+
+.primary {
+    overflow:hidden;
+    zoom:1;
+}
+
+.secondary {
+    clear:both;
+}
+
+.exhibit-item {
+    display:block; 
+    float:left; 
+    width: 23%; 
+    height:23%; 
+    margin-right:2%;
+    margin-bottom:2%;
+}
+
+.exhibit-item img {
+    max-width: 100%;
+}

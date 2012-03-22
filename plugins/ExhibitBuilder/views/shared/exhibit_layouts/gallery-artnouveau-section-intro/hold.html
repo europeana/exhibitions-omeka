@@ -1,0 +1,49 @@
+<div id="nav-container">
+    <div id="exhibit-breadcrumb-nav" class="grid_16">
+        <?php echo ws_an_main_navigation(); ?>
+    </div>
+</div>
+<?php
+//this image needs to be retreived manually by id, since it is not part of an exhibity section
+set_current_item(get_item_by_id(9));
+?>
+<div class="grid_8">
+    <img src="<?php echo img('an-header-title.png'); ?>" alt="Art Nouvea Virtual Exhibition"/>
+    <?php echo ws_exhibit_builder_exhibit_item_meta_data(1,1, array('class'=>'metadata')); ?>
+    <p>
+        For a brief and brilliant period at the end of the 19th century Ð starting around 1890, and tailing off before World
+        War One Ð Art Nouveau dominated the cultural scene. Everything from domestic furnishings and decorative art to
+        architecture and advertising was characterised by its curvilinear elegance and organic forms inspired by nature.
+        Even today, decades after the emergence of Art Nouveau, artists and designers continue to be inspired by the floral
+        elements, natural features and colours of this enduring style.
+    </p>
+    <p>
+        <a href="themes">Start Exhibition</a>
+    </p>
+</div>
+    <?php
+
+    ?>
+
+    <div class="grid_1 flush">
+            <div id="exhibit-item-link">
+                <?php echo ws_exhibit_builder_link_to_exhibit_item('Link', array('name'=>'exhibit-item-metadata-1')); ?>
+            </div>
+    </div>
+	<div class="grid_6" id="items" style="margin-left: 0px;">
+
+        <div id="exhibit-item-in-focus">
+
+            <div class="exhibit-item">
+                <?php echo exhibit_builder_exhibit_display_item(array('imageSize'=>'fullsize'), array('id'=>'img-large','name'=>'exhibit-item-metadata-1')); ?>
+            </div>
+
+        </div>
+
+	</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        switchStoryImage();
+    });
+
+</script>

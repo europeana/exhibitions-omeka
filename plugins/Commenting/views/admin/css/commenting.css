@@ -1,0 +1,132 @@
+
+
+form#comment-form {
+	clear:both;	
+}
+
+div.comments {
+	
+}
+
+div.comment {
+	margin-left: 12px;
+	margin-top: 3px;
+	margin-bottom: 6px;
+	clear: both;
+	min-height: 120px;
+}
+
+div.comment-author {
+	float: left;	
+	margin: 6px;
+}
+
+div.comment-body {
+	font-size: 1.5em;
+	margin-left: 300px;
+	border: 1px solid grey;
+	border-radius: 15px;
+	min-height: 60px;
+	padding: 6px;	
+}
+
+div.comment-body p {
+	font-size: 1em;	
+}
+
+p.comment-author-name {
+	
+}
+
+div.commenting-admin {
+	float: left;	
+	width: 200px;
+}
+
+div#comment-batch-actions {
+	font-size: 1.2em;
+	line-height: 1.5em;		
+}
+
+ul.comment-batch-actions {
+	display: inline;
+	color: #338899;
+	cursor: pointer;	
+}
+
+ul.comment-batch-actions li {
+	display: inline;
+	margin-left: 12px;
+}
+
+ul.comment-admin-menu {
+	padding-left: 20px;	
+}
+
+ul.comment-admin-menu li {
+	margin-bottom: .5em;	
+	padding-left: 10px;
+}
+
+ul.comment-admin-menu span {
+	background-repeat: no-repeat;
+}
+
+input.batch-select-comment {
+	float: left;	
+	position: relative;
+	left: -12px;
+}
+
+span.approved {
+	position:relative;
+	left: -20px;
+	padding-left: 20px;
+	margin-right: 3px;
+	background-image: url('../../../../../application/views/scripts/images/silk-icons/tick.png');
+}
+
+span.unapproved {
+	position:relative;
+	left: -20px;
+	padding-left: 20px;
+	margin-right: 3px;	
+	background-image: url('../../../../../application/views/scripts/images/silk-icons/exclamation.png');
+
+}
+
+span.ham {
+	position:relative;
+	left: -20px;
+	padding-left: 20px;
+	margin-right: 3px;
+	background-image: url('../../../../../application/views/scripts/images/silk-icons/flag_green.png');		
+}
+
+span.spam {
+	position:relative;
+	left: -20px;
+	padding-left: 20px;
+	margin-right: 3px;
+	background-image: url('../../../../../application/views/scripts/images/silk-icons/flag_red.png');		
+}
+	
+span.approve {
+	color: #338899;
+	cursor: pointer;	
+}
+
+span.unapprove {
+	color: #338899;
+	cursor: pointer;	
+}	
+
+span.report-spam {
+	color: #338899;
+	cursor: pointer;	
+}
+
+span.report-ham {	
+	color: #338899;
+	cursor: pointer;	
+}
