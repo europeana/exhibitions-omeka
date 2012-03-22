@@ -1,0 +1,103 @@
+/* HTML ELEMENTS */
+body {
+ /*  background: #FF8533; */
+   background: #6D7238;
+}
+
+body.summary {
+    background-image: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #1c1c1a;
+}
+
+a:link, a:visited {
+    color: #1c1c1a;
+}
+
+dl {
+    background: #fffff0
+}
+
+dt {
+    background: #ddddd0;
+}
+
+/* PAGE SECTIONS */
+
+#header {
+
+}
+
+#content {
+    /*background-color: #fff;*/
+}
+
+#footer {
+
+}
+
+/* NAVIGATION SECTIONS */
+#top-navigation .inner {
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+}
+
+#bottom-navigation {
+    border-top: 1px solid #666;
+}
+
+#top-navigation a:link,
+#top-navigation a:visited {
+    /*color: #fff;*/
+}
+
+/* EXHIBIT PROVIDERS */
+
+#exhibit-providers a:link,
+#exhibit-providers a:visited{
+    /*color: #fff;*/
+}
+
+/* EXHIBITS THEME PAGE ************************************************/
+
+.exhibit-theme-image-overlay {
+    background: transparent url(../images/circle-overlay-100.png) top left no-repeat;
+
+}
+
+
+/* EXHIBIT INTRO/STORY PAGE ********************************************/
+#in-focus,
+#__seadragon1 {
+    background-color: transparent !important;
+    border: none !important;
+    color: white; /* for error messages, etc. */
+}
+
+#exhibit-item-thumbnails {
+    background: transparent;
+}
+
+#exhibit-image-border {
+    background: transparent url(../images/image-border.png) top left no-repeat;
+}
+
+.icon.arrow {
+    background: transparent url(../images/arrow-right.png) top right no-repeat;
+}
+
+.icon.arrow.left {
+    background: transparent url(../images/arrow-left.png) top left no-repeat;
+    margin-right: .5em;
+}
+
+/* HEADER ***********/
+
+#secondary-branding {
+    text-align: right;
+    margin-top: 10px;
+	padding-left: 130px;
+	
+}
