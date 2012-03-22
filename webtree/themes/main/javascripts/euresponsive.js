@@ -121,21 +121,8 @@
 					if(breadcrumbs){
 						breadcrumbs.html(breadcrumbs.html().replace(/&gt; /g, ''));
 						
-						var crumbs			= breadcrumbs.find("a").filter(function(){
-							if(this.parent().id=="site-title-small"){
-								return false;
-							}
-							return true;
-						});
-						
-						crumbs.each(function(){
-							console.log(this.html());
-						})
-						
-						
+						var crumbs	= jQuery("#main-breadcrumbs > a");
 						var suffixNumber	= parseInt(newSuffix.replace(/[^0-9]/g, ''));
-
-//						site-title-small
 						
 						jQuery.fn.reverse = [].reverse;	// add reverse functionality to "each()"
 						crumbs.reverse().each(function(index, crumb){
