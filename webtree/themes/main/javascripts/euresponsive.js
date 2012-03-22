@@ -116,7 +116,8 @@
 					}
 					lastSuffix = newSuffix;
 					
-					// RESPONSIVE BREADCRUMBS
+					// RESPONSIVE BREADCRUMBS...
+					alert("hello");
 					var breadcrumbs = jQuery("#main-breadcrumbs");
 					if(breadcrumbs){
 						breadcrumbs.html(breadcrumbs.html().replace(/&gt; /g, ''));
