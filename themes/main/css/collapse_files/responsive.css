@@ -1,0 +1,95 @@
+/* html */
+	
+	
+
+  	h3{
+		font-size:		28px;
+	}
+
+
+    /* Note: Design for a width of 320px */
+    @media only screen and (max-width: 767px) {
+    
+    	h3{
+			font-size:		18px;
+		}
+    
+	}
+
+	
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+    
+       	h3{
+			font-size:		22px;
+		}
+    
+	}
+
+
+	@media only screen and (min-width: 768px) and (max-width: 959px) {
+	
+	  	h3{
+			font-size:		24px;
+		}
+	
+	}
+	
+	#site-title-small{
+		display:none;
+		position: relative;
+		top:-5px;
+		float: left;
+		margin-right: 5px;
+
+		/* hide the border underneath */
+		background-color: #381F2A;
+		width:    53px;
+	}
+
+
+	#site-title{
+		display:block;
+	}
+
+	#site-title-small a img{
+		width:    50px;
+		display:	inline;
+	}
+
+
+	@media all and (max-width: 480px) {
+		#site-title-small{
+			display:block;
+		}
+		#header{
+			display: none;
+		}
+	}
+
+	
+	
+	input[type="text"], input[type="password"], input[type="email"], textarea, select {
+	    background: none repeat scroll 0 0 #FFFFFF;
+	    border: 1px solid #CCCCCC;
+	    border-radius: 2px 2px 2px 2px !important;
+	    color: #777777;
+	    display: block;
+	    font: 13px "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+	    margin: 0 0 20px;
+	    max-width: 100%;
+	    outline: medium none;
+	}
+
+/**
+ *	media queries
+ */
+
+	@media (max-width:540px) { 
+		body {
+			xxxxbackground-color: red !important;
+		}
+		.xxxright_on_top {
+			float: none  !important;
+		}
+	}
+	

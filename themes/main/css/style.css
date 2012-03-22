@@ -1,0 +1,433 @@
+/* HTML ELEMENTS *******************************************************************************************************/
+body {
+    margin: .5em auto 4em auto !important;
+}
+
+dt {
+    font-weight: bold;
+    padding: .5em;
+}
+
+dd {
+    padding: .5em;
+}
+
+strong {
+    font-weight: bold
+}
+
+em {
+    font-style: italic;
+}
+
+/* PAGE SECTIONS *******************************************************************************************************/
+
+
+/* HEADER *********************************************************/
+#header {
+    height: 150px;
+    position: relative;
+}
+
+#site-title {
+    font-size: 2em;
+    width: auto;
+    height: 125px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+#site-title a {
+    text-decoration: none;
+    width: 105px;
+    height: 125px;
+}
+
+#secondary-branding {
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* FOOTER *********************************************************/
+
+#footer {
+}
+
+/* CONTENT *********************************************************/
+
+#content {
+    padding: 1em 0;
+}
+
+/* NAVIGATION SECTIONS *********************************************/
+
+#top-navigation .inner,
+#main-breadcrumbs {
+    height: 32px;
+    line-height: 32px;
+}
+
+#top-navigation a:link,
+#top-navigation a:visited {
+    font-weight: bold;
+    margin-right: .5em;
+}
+
+/* CMS SIMPLE PAGES ****************************************************************************************************/
+
+
+/* Simple Pages index pages ******************************************/
+
+.provider-logo {
+    width: inherit;
+    height: 140px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* EXHIBITS ************************************************************************************************************/
+
+
+/* EXHIBIT MAIN PAGE **************************************************/
+
+#exhibit-image-wrapper {
+    height: 412px;
+    position: relative;
+}
+
+#exhibit-image-border {
+    background: transparent url(../images/image-border.png) top left no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 460px;
+    height: 412px;
+    z-index: 1010;
+}
+
+#exhibit-image {
+    background-position: top left;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 460px;
+    height: 412px;
+    z-index: 1000;
+}
+
+.exhibit-summary {
+    width: 25%;
+    float: left;
+    margin: 0 2em 0 0;
+    min-height: 250px;
+}
+
+.exhibit-summary h3 {
+    margin: 1em 0 0 0!important;
+}
+
+/* EXHIBITS THEME PAGE ************************************************/
+
+
+.exhibit-theme-wrapper {
+    text-align: center;
+}
+
+.exhibit-theme-container {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+}
+
+.exhibit-theme-image {
+    margin: 5px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    z-index: 1000;
+}
+
+.exhibit-theme-image-overlay {
+    background: transparent url(../images/circle-overlay-100.png) top left no-repeat;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1010;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+
+}
+
+.right .exhibit-theme-title {
+    position: absolute;
+    top: 45px;
+    left: 120px;
+    width: 200px;
+}
+
+.left .exhibit-theme-title {
+    position: absolute;
+    top: 45px;
+    right: 120px;
+    width: 300px;
+}
+
+.exhibit-theme-container.right{
+    text-align: left;
+
+}
+
+/* EXHIBIT INTRO/STORY PAGE ********************************************/
+
+
+#exhibit-item-infocus {
+    position: relative;
+    z-index: 1000;
+    width: auto !important;
+}
+
+#exhibit-item-infocus-header {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    /*padding: .5em;*/
+    /*z-index: 1010;*/
+	z-index: 2000;
+}
+
+#exhibit-item-infocus-item {
+    z-index: 1001;
+    /*text-align: center;*/
+    /*margin-bottom: .25em;*/
+}
+
+#exhibit-item-infocus-item img {
+    max-width: 460px;
+}
+
+div#in-focus,
+#__seadragon1
+{
+    width: 460px;
+	z-index: 100;
+    text-align: center;
+}
+
+.mejs-container {
+    min-height: 84px;
+    text-align: left !important;
+}
+
+#in-focus img {
+    max-height: 400px !important;
+}
+
+#exhibit-item-infocus a:link,
+#exhibit-item-infocus a:visited,
+#exhibit-item-thumbnails a:link,
+#exhibit-item-thumbnails a:visited{
+    text-decoration: none;
+}
+
+#exhibit-item-thumbnails {
+    display: inline-block;
+    width: 100%;
+    clear: both;
+    padding-top: .5em;
+    text-align: center;
+}
+
+#exhibit-item-thumbnails .exhibit-item {
+    display: inline;
+    margin: 0 0 .25em .25em;
+}
+#exhibit-item-thumbnails .exhibit-item:first-of-type {
+    margin-left: .5em;
+}
+
+#exhibit-item-title {
+    padding: .5em;
+    text-align: center;
+}
+
+#exhibit-item-title h4 {
+    margin: 0;
+}
+
+body.exhibit-item-show #exhibit-item-title {
+    display: none;
+}
+
+/* EXHIBIT NAVIGATION *********************************************************/
+
+.exhibit-page-nav a:link,
+.exhibit-page-nav a.current{
+    margin: 0 1em 0 0;
+}
+
+.exhibit-page-nav a:link.current {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.exhibit-page-nav a:link.current img {
+    margin-bottom: 1em;
+}
+
+/* ITEMS ***************************************************************************************************************/
+
+
+/* ITEM PAGE **********************************************/
+
+.element-set h2 {
+    display: none;
+}
+
+.element h3 {
+    clear: left;
+    float: left;
+    font-size: 1.15em;
+    font-weight: bold;
+    margin: 0 .5em 0 0;
+    padding: 0;
+    line-height: 21px;
+}
+
+.element .element-text {
+    float: left;
+    line-height: 21px;
+}
+
+.element h3:after {
+    content: ":";
+}
+
+.element .element-text p {
+    margin: 0;
+}
+
+.exhibit-item-show #in-focus img {
+    max-width: 460px;
+}
+
+/* ITEMS BROWSE / PAGE NAV ********************************/
+
+ul.pagination_list,
+ul.navigation {
+    display: block;
+    margin-top: 1em;
+}
+
+ul.pagination_list li,
+ul.navigation li {
+    display: inline;
+    margin: 0 1em 0 0;
+}
+
+.item-description  {
+    margin-bottom: 2em;
+}
+
+
+/* AUDIO / VIDEO STYLES ************************************************************************************************/
+
+audio, video, .mejs-container, .mejs-container * {
+    width: 460px;
+    max-width: 460px;
+}
+
+/* CUSTOM DEFS *********************************************************************************************************/
+.t-right {
+    text-align: right;
+}
+.t-left {
+    text-align: left;
+}
+
+.return-nav {
+    display: block;
+    margin: .5em 0;
+    height: 50px;
+}
+
+.widget {
+
+    display: inline-block;
+    position: relative;
+    text-decoration: none !important;
+    text-align: left;
+    min-height: 32px;
+}
+
+.widget.clear-b {
+    clear: both;
+}
+
+.widget img {
+    vertical-align: middle;
+    margin: 0 .5em;
+}
+
+.icon {
+    display: inline-block;
+    width: 32px;
+    min-height: 32px;
+}
+
+.icon.right {
+    float: right;
+}
+
+.icon.left {
+    /*float: left;*/
+}
+
+.icon.arrow {
+    background: transparent url(../images/arrow-right.png) top right no-repeat;
+}
+
+.icon.arrow.left {
+    background: transparent url(../images/arrow-left.png) top left no-repeat;
+    margin-right: .5em;
+    /*display: inline-block;*/
+}
+
+a.nav-arrow.east {
+   background: transparent url(../images/arrow-right.png) top right no-repeat;
+    line-height: 32px;
+    min-height: 32px;
+   padding: 5px 42px 5px 0;
+}
+
+/* SIMPLE CONTACT PAGE *************************************************************************************************/
+
+#simple-contact label {
+    display: block;
+    margin-top: 1em;
+}
+
+/* HELPERS *************************************************************************************************************/
+
+div.error,
+p.error{
+    background: #fffff0;
+    border: 1px solid firebrick;
+    color: firebrick;
+    display: inline-block;
+    padding: .5em;
+    text-align: left;
+    z-index: 2010 !important;
+    margin: 0 0 .5em 0;
+}
+
+p.error {
+    max-width:150px;
+    margin: 0;
+}
+
+

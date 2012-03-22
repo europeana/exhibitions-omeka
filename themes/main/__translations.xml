@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translations>
+    <virtual-exhibitions>
+        <en>Virtual Exhibitions</en>
+        <nl>Virtuele Tentoonstellingen</nl>
+        <de>Virtuelle Ausstellungen</de>
+        <fr>Expositions virtuelles</fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </virtual-exhibitions>
+    <choose-a-language>
+        <en>Choose a language</en>
+        <nl>Kies een taal</nl>
+        <de>Wählen Sie eine Sprache</de>
+        <fr>Choisir une langue</fr>
+        <pl>Wybierz język</pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </choose-a-language>
+    <exhibits-browse>
+        <en>Browse Exhibitions</en>
+        <nl>Tentoonstellingen</nl>
+        <de>Besuche Ausstellungen</de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </exhibits-browse>
+    <exhibit-go-to>
+        <en>Go to Exhibition</en>
+        <nl>Ga naar Tentoonstelling</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </exhibit-go-to>
+    <exhibit-start>
+        <en>Start Exhibition</en>
+        <nl>Begin de Tentoonstelling</nl>
+        <de>Start der Ausstellung</de>
+        <fr>Début de l'exposition</fr>
+        <pl>Start wystawy</pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </exhibit-start>
+    <exhibits-none-this-language>
+        <en>There are currently no exhibitions available in your chosen language</en>
+        <nl>Er zijn momenteel geen tentoonstellingen beschikbaar in uw gekozen taal</nl>
+        <de>Derzeit gibt es keine Ausstellungen in Ihrer Sprache</de>
+        <fr>Il ya actuellement aucune exposition disponible dans votre langue</fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </exhibits-none-this-language>
+    <themes>
+        <en>Themes</en>
+        <nl>Thema's</nl>
+        <de>Themen</de>
+        <fr>Thèmes</fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </themes>
+    <sections>
+        <en>Sections</en>
+        <nl>Onderdelen</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </sections>
+    <items-browse>
+        <en>Browse Items</en>
+        <nl>Items Bladeren</nl>
+        <de>Besuche Begriffe</de>
+        <fr>Voir les articles</fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </items-browse>
+    <items-total>
+        <en>total</en>
+        <nl>totaal</nl>
+        <de>Summe</de>
+        <fr>total</fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </items-total>
+    <information>
+        <en>Information</en>
+        <nl>Informatie</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </information>
+    <next>
+        <en>next</en>
+        <nl>volgende</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </next>
+    <previous>
+        <en>previous</en>
+        <nl>vorige</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </previous>
+    <show-item-details>
+        <en>Show item details</en>
+        <nl>Bekijk de details</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </show-item-details>
+    <return-to-exhibit>
+        <en>Return to exhibition</en>
+        <nl>Terug naar tentoonstelling</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </return-to-exhibit>
+    <back>
+        <en>Back</en>
+        <nl>Terug</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </back>
+    <description>
+        <en>Description</en>
+        <nl>Omschrijving</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </description>
+    <contact-us-title>
+        <en>Contact us</en>
+        <nl>Neem contact op</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </contact-us-title>
+    <contact-us-instructions>
+        <en>Please send us your comments and suggestions.</en>
+        <nl>Stuur ons uw kommentaar en suggesties.</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </contact-us-instructions>
+    <contact-us-label-name>
+        <en>Your Name</en>
+        <nl>Uw Naam</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </contact-us-label-name>
+    <contact-us-label-email>
+        <en>Your Email</en>
+        <nl>Uw Email</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </contact-us-label-email>
+    <contact-us-label-message>
+        <en>Your Message</en>
+        <nl>Uw Boodschap</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </contact-us-label-message>
+    <contact-us-button-send>
+        <en>Send Message</en>
+        <nl>Verstuur Boodschap</nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+	<languages>
+	<en>Languages</en>
+	<nl></nl>
+	<de></de>
+	<fr></fr>
+	<pl></pl>
+	<it></it>
+	<sv></sv>
+	<lv></lv>
+	<es></es>
+	</languages>
+    </contact-us-button-send>
+    <!--
+    <label>
+        <en></en>
+        <nl></nl>
+        <de></de>
+        <fr></fr>
+        <pl></pl>
+        <it></it>
+        <sv></sv>
+        <lv></lv>
+        <es></es>
+        <lv></lv>
+        <es></es>
+    </label>
+    -->
+</translations>

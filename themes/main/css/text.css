@@ -1,0 +1,99 @@
+/*
+TEXT DEFAULTS
+*/
+/* TYPOGRAPHY */
+
+@font-face {
+    font-family: 'Chevin';
+    src: url('fonts/chevin-light.eot');
+    src: url('fonts/chevin-light.eot?iefix') format('eot'), url('fonts/chevin-light.woff') format('woff'), url('fonts/chevin-light.ttf') format('truetype'), url('fonts/chevin-light.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* =Basic HTML
+--------------------------------------------------------------------------------*/
+
+body
+{
+	font: 13px/1.5 Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+}
+
+a:focus
+{
+	outline: 1px dotted invert;
+}
+
+hr
+{
+	border-color: #ccc;
+	border-style: solid;
+	border-width: 1px 0 0;
+	clear: both;
+	height: 0;
+}
+
+/* =Headings
+--------------------------------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+    font: 14px/1.2 Chevin, 'Trebuchet MS', Helvetica, sans-serif;
+}
+
+h1
+{
+	font-size: 32px;
+}
+
+h2
+{
+	font-size: 27px;
+}
+
+h3
+{
+	font-size: 21px;
+}
+
+h4
+{
+	font-size: 15px;
+}
+
+
+/* =Spacing
+--------------------------------------------------------------------------------*/
+
+ol
+{
+	list-style: decimal;
+}
+
+ul
+{
+	list-style: square;
+}
+
+li
+{
+	margin-left: 30px;
+}
+
+p,
+dl,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+pre,
+table,
+address,
+fieldset
+{
+	margin-bottom: 20px;
+}

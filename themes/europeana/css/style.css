@@ -1,0 +1,299 @@
+
+
+
+/*********************** EUROPEANA OMEKA GLOBAL STYLES ***********************/
+
+.inner {
+    padding: 1em;
+}
+
+.flush {
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    position: relative;
+}
+
+/* main navigation */
+
+.navigation li {
+    display: inline;
+    padding: 0 0 0 0;
+    margin: 0 12px 0 0;
+}
+
+.navigation li.current {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.navigation li a{
+    /*text-decoration: none;*/
+}
+
+a.page-next {
+    background: transparent url(../images/icon-page-next.png) no-repeat top right;
+    padding: 15px 40px 15px  0;
+    height: 45px;
+    line-height: 45px;
+}
+
+select#lang {
+    float: right;
+    color: #000;
+    margin: .65em 0;
+}
+
+select#lang option {
+    color: #000;
+}
+
+/*********************** EXHIBIT STYLES **************************************/
+
+#header {
+    margin: 1em 0 0 0;
+}
+
+#header #site-title img {
+    margin: 0 0 0 1em;
+}
+
+#header #exhibit-title img {
+    margin: 1em 1em 0 0;
+}
+
+#footer {
+    margin: 3em 0 0 0;
+}
+
+#footer #communities {
+    text-align: right;
+}
+
+#footer #communities a:link,
+#footer #communities a:visited {
+    text-decoration: none;
+}
+
+/*********************** EXHIBIT SECTION THEME STYLES *************************/
+
+.exhibit-themes h1 {
+    /*background: transparent url(../images/txt-themes.png) no-repeat top center;*/
+    /*text-indent: -9999px;*/
+    height:  30px;
+    text-align: center;
+}
+
+
+.exhibit-themes-list div img{
+    display: inline-block;
+    vertical-align:middle;
+    margin: .5em;
+}
+.exhibit-themes-list div a:link, .exhibit-themes-list div a:visited {
+    text-decoration: none;
+}
+.exhibit-themes-list div.left {
+    float: left;
+    text-align: right;
+}
+.exhibit-themes-list div.right {
+    float: right;
+}
+
+/*********************** EXHIBIT SECTION PAGE STYLES *************************/
+
+/* exhibit section pages navigation */
+
+
+.nav-container {
+    height: 32px;
+    line-height: 32px;
+    margin: 0 0 1em 0;
+    display: inline-block;
+
+}
+
+#exhibit-breadcrumb-nav ul li {
+    background: transparent url(../images/icon-list-arrow.png) no-repeat 0 3px;
+    display: inline;
+    margin: 0;
+    padding: 0 1.25em;
+}
+
+#exhibit-breadcrumb-nav ul li.first {
+    background: none;
+    padding: 0 10px 0 0;
+}
+
+.exhibit-page-nav {
+    height: 32px;
+    line-height: 32px;
+}
+
+.exhibit-page-nav a:link, .exhibit-page-nav a:visited {
+    text-decoration: none;
+    line-height: 32px;
+    float: left;
+}
+
+.exhibit-page-nav a {
+    float: left;
+    padding: 0 1em 0 0;
+}
+
+
+.exhibit-text {
+    margin: 0 0 1em 0;
+}
+
+
+/* Sections specific styles  */
+
+/* Introduction */
+
+#story h1.title {
+    background: transparent url(../images/an-header-title.png) no-repeat top left;
+    text-indent: -9999px;
+    height:  65px;
+}
+
+#story p {
+    margin: 1em 0;
+}
+
+
+/* Fold out metadata information *************************************************************************************/
+
+.exhibit-item-metadata {
+    display: none;
+    position: absolute;
+    top: 100px;
+    right: 380px;
+    /*margin-right: -52px;*/
+    max-width: 500px;
+}
+
+.exhibit-item-metadata .action {
+    margin-top: 100px;
+    cursor: pointer;
+    float: left;
+    width: 20px;
+}
+
+.exhibit-item-metadata img.hidedata {
+    margin: 55px 0 0 0;
+    cursor: pointer;
+}
+
+.exhibit-item-metadata .page-out {
+    float: right;
+    -moz-border-radius: 1em 0 0 1em;
+    border-radius: 1em 0 0 1em;
+    min-width: 475px;
+    min-height: 300px;
+}
+
+.exhibit-item-metadata h2 {
+    display: none;
+}
+
+
+.exhibit-item-metadata .item-metadata {
+    width: inherit;
+    padding: .5em 2em .5em .5em;
+}
+
+.exhibit-item {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+#exhibit-item-in-focus.exhibit-item {
+    width: inherit;
+}
+.exhibit-item .title {
+    padding: 0;
+    margin: 0;
+    width: inherit;
+}
+.exhibit-item .title p {
+    padding: .25em 0 1em 0;
+    margin: 0;
+}
+.exhibit-item img {
+    max-width: 350px;
+    max-height: 500px;
+    margin: 0;
+    padding: 0;
+}
+
+#exhibit-item-link{
+    margin-top: 100px;
+    text-align: right;
+}
+
+#exhibit-item-thumbnails img {
+    clear: both;
+    margin: 0 .5em 0 0;
+}
+
+/* FANCYBOX CUSTOMIZATION *******************************************************************************************/
+
+#fancybox-wrap {
+    background: #4b4b4d;
+    -moz-border-radius: 1em;
+    border-radius: 1em;
+}
+
+#fancybox-left {
+	left: 50px;
+    width: 50px;
+
+}
+
+#fancybox-right {
+	right: 50px;
+    width: 50px;
+}
+
+#fancybox-left-ico, #fancybox-right-ico {
+	position: absolute;
+	top: 100px;
+	left: -9999px;
+	width: 30px;
+	height: 30px;
+	margin-top: -15px;
+	cursor: pointer;
+	z-index: 1102;
+	display: block;
+}
+
+#fancybox-left-ico, #fancybox-left:hover span { left: -20px; }
+#fancybox-right-ico, #fancybox-right:hover span  { right: -20px;left: auto; }
+
+
+ul.pagination_list li {
+    display: inline;
+    padding: 0 1em 0 0;
+    margin: 0;
+
+}
+
+
+.item.entry label {
+    color: #fff;
+}
+
+.item.entry .item-meta {
+    padding: 0 .5em 2em 0;
+}
+
+.item.entry .item-title, .item.entry .item-description, .item.entry item-provider {
+    margin: 0 0 .5em 0;
+}
+
+
+
