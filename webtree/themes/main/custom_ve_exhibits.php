@@ -14,7 +14,6 @@ function ve_exhibit_builder_link_to_exhibit($exhibit, $text = null, $props = arr
 
 function ve_exhibit_builder_exhibit_display_item_info_link($linkProperties = array())
 {
-// test commit
 
     $item = get_current_item();
     $page = exhibit_builder_get_current_page();
