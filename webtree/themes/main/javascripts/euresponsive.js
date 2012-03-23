@@ -33,6 +33,33 @@
 
 
 				if(useZoomit){ // zoomify: here we hard code the sample, integration with current europeana plugin will involve obtaining the correct zoomit url
+					var x = '' + 
+					'<div id="exhibit-item-infocus-item">' +
+						'<div class="image" id="in-focus">' +
+							'<script src="http://zoom.it/p6ff.js?width=auto" language="javascript" type="text/javascript"></script>' +
+							'<div style="width: auto; height: 400px; border: 1px solid black; background: black; color: white; margin: 0px; padding: 0px;" class="__seadragon" id="__seadragon1">' +
+							'<div style="background: none repeat scroll 0% 0% transparent; border: medium none; margin: 0px; padding: 0px; position: static; width: 100%; height: 100%;">' +
+								'<object width="100%" height="100%" data="data:application/x-silverlight," type="application/x-silverlight" id="deepZoomEmbed2139071853">' +
+									'<param value="transparent" name="background">' +
+									'<param value="true" name="enableHtmlAccess">' +
+									'<param value="false" name="windowless">' +
+									'<param value="http://zoom.it/scripts/DeepZoomViewer.xap" name="source">' +
+									'<param value="url=http://cache.zoom.it/content/p6ff.dzi,height=537" name="initParams">' +
+									'<param value="__slEvent0" name="onLoad">' +
+									'<param value="__slEvent1" name="onError">' +
+								'</object>' +
+							'</div>' +
+						'</div>' +
+					'</div>' +
+					'<div id="exhibit-item-title">' +
+						'<h4>The Buddhist Temple in St. Petersburg</h4>' +
+					'</div>';
+					
+					
+					
+					
+					
+					/*
 					var x = ""
 						 + "<div id=\"exhibit-item-infocus-item\">"
 						 +   "<div class=\"image\" id=\"in-focus\">"
@@ -43,13 +70,14 @@
 						 
 						 +       "<div style=\"background: none repeat scroll 0% 0% transparent; border: medium none; margin: 0px; padding: 0px; position: static; width: 100%; height: 100%;\">"
 						 +         "<object width=\"100%\" height=\"100%\" data=\"data:application\/x-silverlight,\" type=\"application\/x-silverlight\" id=\"deepZoomEmbed1898620221\">"
+						 
 						 +           "<param value=\"transparent\" name=\"background\">"
 						 
 						 +           "<param value=\"true\" name=\"enableHtmlAccess\"><param value=\"false\" name=\"windowless\">"
 						 +           "<param value=\"http:\/\/zoom.it\/scripts\/DeepZoomViewer.xap\" name=\"source\">"
 						 
-//						 +           "<param value=\"url=http:\/\/cache.zoom.it\/content\/Omrd.dzi,height=1600\" name=\"initParams\">"
-						 +           "<param value=\"url=http:\/\/cache.zoom.it\/content\/r2a8.dzi,height=1600\" name=\"initParams\">"
+						 +           "<param value=\"url=http:\/\/cache.zoom.it\/content\/Omrd.dzi,height=1600\" name=\"initParams\">"
+//						 +           "<param value=\"url=http:\/\/cache.zoom.it\/content\/r2a8.dzi,height=1600\" name=\"initParams\">"
 						 
 						 
 						 +           "<param value=\"__slEvent0\" name=\"onLoad\"><param value=\"__slEvent1\" name=\"onError\">"
@@ -61,6 +89,7 @@
 						 +     "<h4>Iparmvszeti Mzeum (1070. szm memlk)<\/h4>"
 						 +   "<\/div>"
 						 + "<\/div>";
+					*/
 					this.container.innerHTML = x;	
 				}
 				else{

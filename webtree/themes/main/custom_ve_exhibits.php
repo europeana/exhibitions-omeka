@@ -52,7 +52,44 @@ function ve_exhibit_builder_zoomit_uri()
  */
 function ve_exhibit_builder_exhibit_display_item_responsively($displayFilesOptions = array(), $linkProperties = array())
 {
-	$result = ve_exhibit_builder_exhibit_display_item($displayFilesOptions, $linkProperties);
+	$zoomify = ve_exhibit_builder_zoomit_uri();
+	if(strlen($zoomify) > 0){
+		$result = ve_exhibit_builder_exhibit_display_item($displayFilesOptions, $linkProperties);
+		return $result; 
+	}
+	else{
+	    $item = get_current_item();
+	    $fileIndex = 0; // Always just display the first file (may change this in future).
+	    $linkProperties['href'] = exhibit_builder_exhibit_item_uri($item);
+	    $displayFilesOptions['linkToFile'] = false; // Don't link to the file b/c it overrides the link to the item.
+	    $fileWrapperClass = null; // Pass null as the 3rd arg so that it doesn't output the item-file div.
+	    $file = $item->Files[$fileIndex];
+	    $html = '';
+	
+	    if ($file) {
+	        $mime = $file->getMimeType();
+	        if (preg_match("/^image/", $mime)) {
+	            // IMAGE
+	            $html .= '<div id="in-focus" class="image">';
+                $html .= display_file($file, $displayFilesOptions, $fileWrapperClass);
+	        }
+	        elseif (preg_match("/^audio/", $mime)) {
+	            // AUDIO
+	            $html .= '<div id="in-focus" class="player">';
+	            $html .= '<audio  controls="controls"  type="audio/mp3" src="' . file_display_uri($file, $format = 'archive') . '" width="460" height="84"></audio>';
+	        }
+	        else {
+	            // VIDEO
+	            $html .= '<div id="in-focus" class="player">';
+	            $html .= '<video src="' . file_display_uri($file, $format = 'archive') . '" width="460" height="340"></video>';
+	        }
+	        $html .= '</div>';
+	        $html .= '<div id="exhibit-item-title"><h4>' . item('Dublin Core', 'Title') . '</h4></div>';
+	    } else {
+	        $html .= '<h2>' . item('Dublin Core', 'Title') . '</h2>';
+	    }
+	    $result = $html;		
+	}	
 	
 	$dom = new DOMDocument;
 	$dom->loadHTML($result);
@@ -83,6 +120,7 @@ function ve_exhibit_builder_exhibit_display_item_responsively($displayFilesOptio
 	$result = str_replace("</noscript>", "</noscript -->",	$result);
 	
 	return $result;
+	
 	
 	/*
 	return '<div id="in-focus" class="image">'
@@ -140,8 +178,6 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
     } else {
         $html .= '<h2>' . item('Dublin Core', 'Title') . '</h2>';
     }
-
-
     return $html;
 }
 

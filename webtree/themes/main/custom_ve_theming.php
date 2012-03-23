@@ -40,12 +40,18 @@ function ve_session_vars($lang=null)
 
 function ve_set_exhibits_css()
 {
-    queue_css(('reset'));
+		       
+    queue_css('foundation/stylesheets/foundation');
+    queue_css('foundation/stylesheets/app');
+    
+	queue_css(('reset'));
     queue_css(('text'));
     
     //queue_css(('960'));
-    queue_css('skeleton/stylesheets/base');
-    queue_css('skeleton/stylesheets/skeleton');
+    //queue_css('skeleton/stylesheets/base');
+    //queue_css('skeleton/stylesheets/skeleton');
+
+    
     queue_css('collapse_files/responsive');
     
     

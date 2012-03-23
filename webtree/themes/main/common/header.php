@@ -6,8 +6,8 @@ ve_session_vars();
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
@@ -70,16 +70,16 @@ ve_session_vars();
 
 
 <div id="header" class="container">
-    <div class="sixteen columns">
-        <div id="site-title" class="grid_4 alpha">
+    <div class="row">
+        <div id="site-title" class="three columns">
         
-	        <!--BEGIN RESPONSIVE CODE-->
         	<a href="http://www.europeana.eu" target="_blank" id="site-title"><img src="<?php echo img('logo.png'); ?>"></a>
-	        <!--END RESPONSIVE CODE-->
 	        
         </div>
-        <div id="secondary-branding" class="grid_12 omega">
+        <div id="secondary-branding" class="nine columns">
+        
             <?php echo ve_exhibit_secondary_logo(); ?>
+            
         </div>
     </div>
 </div>
@@ -87,8 +87,8 @@ ve_session_vars();
 <div class="clear"></div>
 
 <div id="top-navigation"  class="container">
-    <div class="sixteen columns inner">
-	    <div id="main-breadcrumbs" class="thirteen columns alpha">
+    <div class="row inner">
+	    <div id="main-breadcrumbs" class="twelve columns">
 	    
 	    
 	        <!--BEGIN RESPONSIVE CODE-->
@@ -101,12 +101,10 @@ ve_session_vars();
 	        
 	         <?php echo ve_exhibit_breadcrumbs(); ?>
 	    </div>
-	    <div class="three columns omega" style="text-align:right">
-	        <?php echo ve_language_select(); ?>
-	    </div>
+	    
      </div>
 </div>
 
 
 <div id="content" class="container">
-    <div xxxclass="container_16"	class="sixteen columns">
+    <div class="row">

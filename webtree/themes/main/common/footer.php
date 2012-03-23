@@ -14,8 +14,8 @@
 <div class="clear"></div>
 
 <div id="footer" class="container">
-    <div class="sixteen columns" id="bottom-navigation"">
-        <div class="eight columns alpha">
+    <div class="row" id="bottom-navigation"">
+        <div class="six columns">
            <ul class="navigation">
                <li>
                    <a href="<?php echo uri('contact');?>"><?php echo ve_translate('contact', 'Contact');?></a>
@@ -46,7 +46,7 @@
 
 
         </div>
-        <div class="eight columns omega" style="text-align: right;">
+        <div class="six columns" style="text-align: right;">
            <ul class="navigation">
             <!--   <li><a href="http://www.facebook.com/Europeana" target="_blank" title="Follow us on Facebook!"><img src="http://exhibitions.europeana.eu/themes/europeana/images/icon_Facebook.png" alt="Follow us on Facebook!"></a></li>
                <li><a href="http://twitter.com/EuropeanaEU" target="_blank" title="Follow us on Twitter!"><img src="http://exhibitions.europeana.eu/themes/europeana/images/icon_Twitter.png" alt="Follow us on Twitter!"></a></li> -->
