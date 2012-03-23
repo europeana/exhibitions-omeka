@@ -17,9 +17,8 @@ $story = $page->title
 <link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
 <link rel="stylesheet" href="<?php echo css('mediaelement/mejs-skins'); ?>"/>
 
-
-
-	<div class="eight columns omega" style="float: right;">
+<div class="row">
+	<div class="six columns push-six">
 	
 	    <?php if (exhibit_builder_use_exhibit_page_item(1)): ?>
 	    
@@ -34,7 +33,8 @@ $story = $page->title
 	        <div id="exhibit-item-infocus-item" style="text-align:center;">
 
 	        	<!-- RESPONSIVE DESIGN CHANGE -->
-	            <?php echo ve_exhibit_builder_exhibit_display_item_responsively(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
+	            <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
+	            <?php //echo ve_exhibit_builder_exhibit_display_item_responsively(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
 	        	<!-- END RESPONSIVE DESIGN CHANGE -->
 	        	
 	        </div>
@@ -47,7 +47,7 @@ $story = $page->title
 	</div>
 	
 	
-	<div class="eight columns alpha" xxxclass="grid_8 alpha" id="story">
+	<div class="six columns pull-six" id="story">
 	
 	  <div id="exhibit-section-title">
 	    <h3>
@@ -73,6 +73,6 @@ $story = $page->title
 	  
 	</div>
 	
-
+</div>
 
 
