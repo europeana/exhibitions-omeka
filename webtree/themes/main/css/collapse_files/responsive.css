@@ -1,5 +1,102 @@
+/* theming */
+
+
+/* centering */
+
+.theme-center-outer{
+	overflow:hidden;
+}
+.theme-center-middle{
+	position:relative;
+	left:50%;
+	float:left;
+}
+.theme-center-inner{
+	position:relative;
+	right:50%;
+	float:left;
+}
+
+
+/* responsive */
+/*
+.themes-left{
+	float: left;
+}
+.themes-right{
+    float: right;
+}
+
+.themes-left .theme-item .theme-image, .themes-left .theme-item .theme-title{
+    float: right;
+}
+.themes-right .theme-item .theme-image, .themes-right .theme-item .theme-title{
+    float: left;
+}
+
+.theme-image{
+	clear:both;
+	margin-left:15px;
+	margin-right:15px;
+}
+.theme-image img{
+	max-width:100%;
+}
+
+@media only screen and (max-width: 767px) {
+    .themes-left .theme-item .theme-image, .themes-left .theme-item .theme-title{
+        float: none;
+    }
+    .themes-right .theme-item .theme-image, .themes-right .theme-item .theme-title{
+        float: none;
+    }
+    
+    .themes-left, .themes-right{
+		max-width:50%;
+	}
+}
+*/
+
+.theme-title, .theme-image{
+    zzborder: 1px solid black;
+    text-align: center;
+}
+
+
+.themes-left, .themes-right{
+    float: left;
+}
+.themes-left .theme-item .theme-image, .themes-left .theme-item .theme-title{
+    float: right;
+    background-color:yellow;
+}
+.themes-right .theme-item .theme-image, .themes-right .theme-item .theme-title{
+    float: left;
+   background-color:yellow;
+}
+.themes-right .theme-item .theme-image{
+    clear:both;
+}
+.themes-left .theme-item .theme-image{
+    clear:both;
+
+}
+@media only screen and (max-width: 767px) {
+    .themes-left .theme-item .theme-image, .themes-left .theme-item .theme-title{
+        float: none;
+    }
+    .themes-right .theme-item .theme-image, .themes-right .theme-item .theme-title{
+        float: none;
+    }           
+}
+
+/* styling */
+
+
+/* end theming */
+
+
 /* html */
-	
 	
 
   	h3{
