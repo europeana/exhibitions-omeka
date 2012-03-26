@@ -1,9 +1,9 @@
 /* theming */
 
 
-
 .theme-title-row-collapsed{
 	display:none;
+    overflow: hidden;
 }
 
 .theme-title-row-expanded{
@@ -19,39 +19,92 @@
 	}
 }
 
-/*
-.theme-title, .theme-image{
-    text-align: center;
+#content{
+	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxoverflow:	hidden;
+	clear:		both;
+	padding:	0!important;
 }
 
+#container {
+	background-color:orange;
+	height:200px;
+    display: table;
+    width: 100%;
+}
+
+.left-text .theme-item-wrapper h4{
+	margin-left: 0.75em;
+}
+
+.right-text .theme-item-wrapper h4{
+	margin-right: 0.75em;
+	
+}
+
+.theme-item-wrapper {
+	display:		inline-block;
+	vertical-align:	middle;
+	margin-bottom:	0.75em
+}
+
+.theme-item-wrapper h4{
+	display:	inline;
+}
+
+.left-text {
+	text-align:left;
+}
+
+.right-text {
+	text-align:right;
+}
+
+.center-text {
+	text-align:center;
+}
+
+
+/* ---------------------------------------- */
+/* ---------------------------------------- */
+/* ---------------------------------------- */
+
+.theme-center-outer{
+	overflow:hidden;
+}
+.theme-center-middle{
+	position:relative;
+	left:50%;
+	float:left;
+}
+.theme-center-inner{
+	position:relative;
+	right:50%;
+	float:left;
+}
+
+/* responsive */
+
+.theme-title{
+    text-align: center;
+}
 
 .themes-left, .themes-right{
     float: left;
 }
-.themes-left .theme-item .theme-image, .themes-left .theme-item .theme-title{
-    float: right;
-    background-color:yellow;
-}
-.themes-right .theme-item .theme-image, .themes-right .theme-item .theme-title{
-    float: left;
-   background-color:yellow;
-}
-.themes-right .theme-item .theme-image{
-    clear:both;
-}
-.themes-left .theme-item .theme-image{
-    clear:both;
 
+
+.theme-image{
+    clear:both;
 }
-@media only screen and (max-width: 767px) {
-    .themes-left .theme-item .theme-image, .themes-left .theme-item .theme-title{
-        float: none;
-    }
-    .themes-right .theme-item .theme-image, .themes-right .theme-item .theme-title{
-        float: none;
-    }           
+
+.theme-item{
+    position:relative;
 }
-*/
+
+
+
+
+
 /* styling */
 
 
@@ -60,10 +113,13 @@
 
 /* html */
 	
+body{
+	font-size:	100% !important;
+}
 
-  	h3{
-		font-size:		28px;
-	}
+h4{
+	font-size:	1.5 em !important;	/*  */
+}
 
 
     /* Note: Design for a width of 320px */
@@ -115,6 +171,9 @@
 		display:	inline;
 	}
 
+	#top-navigation{
+		margin-bottom:	1.75em;
+	}
 
 	@media all and (max-width: 480px) {
 		#site-title-small{
@@ -123,7 +182,10 @@
 		#header{
 			display: none;
 		}
-	}
+		#top-navigation{
+			margin-bottom:	0;
+		}
+}
 
 	
 	

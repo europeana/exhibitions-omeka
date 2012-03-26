@@ -1,9 +1,9 @@
 <?php head(array('bodyid'=>'exhibit','bodyclass'=>'show')); ?>
 
-<div id="primary" class="twelve columns">
+<div id="primary" xxxclass="twelve columns">
 
-	<div class="row">
-	    <div id="content" class="twelve columns">
+	<div xxxclass="row">
+	    <div id="content" xxxxclass="twelve columns">
 	    
 			<?php exhibit_builder_render_exhibit_page(); ?>
 	

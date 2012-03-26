@@ -9,154 +9,19 @@ $_SESSION['themes_uri'] = uri();
 //echo $page->title;
 ?>
 
-<div class="text-full">
-    <div class="primary">
-        <div class="exhibit-text exhibit-theme-wrapper">
-
-        
-<style>
-#container {
-	background-color:orange;
-	height:200px;
-    display: table;
-    width: 100%;
-}
-    
-.middle {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.left-text {
-	text-align:left;
-}
-.right-text {
-	text-align:right;
-}
-.center-text {
-	text-align:center;
-}
 
 
 
 
-</style>
-
-        
-        <br style="clear:both;">
-
-        <!-- 
-        <div class="container">
-			<div class="row theme-title-row-expanded">
-			
-				<div class="six columns right-text">
-					<div class="middle right-text">
-						item one expanded blah blah
-					</div>
-					<div class="middle right-text">
-	        			<img src="http://127.0.0.1/ombad/webtree/archive/square_thumbnails/mastercraft_intro_11e5245b91.jpg"/>
-	        			<div class="theme-img-overlay"></div>
-        			</div>
-       			</div>
-				<div class="six columns left-text">
-				
-					<div class="middle left-text">
-						<img src="http://127.0.0.1/ombad/webtree/archive/square_thumbnails/ip_intro_9debd21edb.jpg"/>
-	        			<div class="theme-img-overlay"></div>
-						</div>
-        			<div class="middle left-text">
-						item 2 expanded
-					</div>
-				</div>
-
-			</div>
-        
-	        <div class="row  theme-title-row-collapsed">
-		        <div class="twelve columns center-text">
-        			<div class="middle">
-	        			<img src="http://127.0.0.1/ombad/webtree/archive/square_thumbnails/mastercraft_intro_11e5245b91.jpg"/>
-	        			<div class="theme-img-overlay"></div>
-        			</div>  
-        			<div class="middle">
-	        			<img src="http://127.0.0.1/ombad/webtree/archive/square_thumbnails/ip_intro_9debd21edb.jpg"/>
-	        			<div class="theme-img-overlay"></div>
-	              	</div> 
-        		</div>
-       		</div>
-	        <div class="row  theme-title-row-collapsed">
-		    	<div class="twelve columns center-text">
-	        		<div  class="middle">
-		            	item one in collapsed		       
-		            </div>  
-	        		<div  class="middle">
-		            	item two in collapsed		       
-		            </div> 
-	        	</div>
-	        </div>
-	        
-	        
-	        
-   			<div class="row theme-title-row-expanded">
-			
-				<div class="six columns" style="background-color:red; text-align:right;">
-					<div class="middle" style="text-align:right;">
-						item one expanded blah blah
-					</div>
-					<div class="middle" style="text-align:right;">
-	        			<img src="http://127.0.0.1/ombad/webtree/archive/square_thumbnails/mastercraft_intro_11e5245b91.jpg"/>
-	        			<div class="theme-img-overlay"></div>
-	        			
-        			</div>
-       			</div>
-				<div class="six columns" style="background-color:red; text-align:left;">
-				
-					<div class="middle" style="text-align:left;">
-						<img src="http://127.0.0.1/ombad/webtree/archive/square_thumbnails/ip_intro_9debd21edb.jpg"/>
-						<div class="theme-img-overlay"></div>
-					</div>
-        			<div class="middle" style="text-align:left;">
-						item 2 expanded
-					</div>
-				</div>
-
-			</div>
-        
-	        <div class="row  theme-title-row-collapsed">
-		        <div class="twelve columns" style="background-color:red;  text-align:center;">
-        			<div class="middle">
-	        			<img src="http://127.0.0.1/ombad/webtree/archive/square_thumbnails/mastercraft_intro_11e5245b91.jpg"/>
-	        			<div class="theme-img-overlay"></div>
-        			</div>  
-        			<div class="middle">
-	        			<img src="http://127.0.0.1/ombad/webtree/archive/square_thumbnails/ip_intro_9debd21edb.jpg"/>
-	        			<div class="theme-img-overlay"></div>
-	              	</div> 
-        		</div>
-       		</div>
-	        <div class="row  theme-title-row-collapsed">
-		    	<div class="twelve columns" zzstyle="background-color:red; width:100%; text-align:center;">
-	        		<div  class="middle">
-		            	item one in collapsed		       
-		            </div>  
-	        		<div  class="middle">
-		            	item two in collapsed		       
-		            </div> 
-	        	</div>
-	        </div>
-        </div>
-        
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        
-         -->
-        
- 
+<div class="text-full" style="width:100%;">
+    <div class="primary" style="width:100%;">
+        <div class="exhibit-text exhibit-theme-wrapper" style="width:100%;">
+      
 
             <h2><?php echo ve_translate('themes', 'Themes');?></h2>
 
+       
+            
             <?php echo exhibit_builder_page_text(); ?>
 
             <?php
@@ -188,6 +53,9 @@ $_SESSION['themes_uri'] = uri();
             $rowCount		= 0;
             $themeHTML		= '';
             
+            $themesRight	= '';
+            $themesLeft		= '';
+            
             // Cycle through all the Exhibit sections and list them as Themes.
             foreach ($exhibit->Sections as $key => $exhibitSection) {
             	
@@ -203,16 +71,61 @@ $_SESSION['themes_uri'] = uri();
             				$themeTitle2	= html_escape($exhibitSection->title, $errors);
             				$themeImage2	= ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors);
             				$themeLink2		= html_escape(exhibit_builder_exhibit_uri($exhibit, $exhibitSection));
+
+            				
+            				// collapsed rows right
+            				$themesRight .= '<div class="theme-item">';
+            				$themesRight .= 	'<div class="theme-image">';            				
+            				$themesRight .=			'<div class="theme-center-outer">';
+            				$themesRight .=				'<div class="theme-center-middle">';
+            				$themesRight .=					'<div class="theme-center-inner">';
+            				$themesRight .=						'<a href="'.$themeLink2.'">';
+            				$themesRight .=     					ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors);
+            				$themesRight .=							'<div class="theme-img-overlay"></div>';
+            				$themesRight .=						'</a>';
+            				$themesRight .=					'</div>';
+            				$themesRight .=				'</div>';
+            				$themesRight .=			'</div>';
+            				$themesRight .=     '</div>';
+            				$themesRight .=		'<div class="theme-title">';
+            				$themesRight .=			'<a href="'.$themeLink2.'">';
+            				$themesRight .=				'<h4>'. html_escape($exhibitSection->title, $errors) .'</h4>';
+            				$themesRight .=			'</a>';
+            				$themesRight .=		'</div>';
+            				$themesRight .=	'</div>';
+
             			}
             			else {
             				$themeTitle1	= html_escape($exhibitSection->title, $errors);
             				$themeImage1	= ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors);
             				$themeLink1		= html_escape(exhibit_builder_exhibit_uri($exhibit, $exhibitSection));
+            				
+            				// collapsed rows left
+            				$themesLeft .=	'<div class="theme-item">';
+            				$themesLeft .=		'<div class="theme-image">';
+            				$themesLeft .=			'<div class="theme-center-outer">';
+            				$themesLeft .=				'<div class="theme-center-middle">';
+            				$themesLeft .=					'<div class="theme-center-inner">';
+            				$themesLeft .=						'<a href="'.$themeLink1.'">';
+            				$themesLeft .=     						ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors);
+            				$themesLeft .=							'<div class="theme-img-overlay"></div>';
+            				$themesLeft .=						'</a>';
+            				$themesLeft .=					'</div>';
+            				$themesLeft .=				'</div>';
+            				$themesLeft .=			'</div>';
+ 	          				$themesLeft .=		'</div>';
+            				$themesLeft .=		'<div class="theme-title">';
+            				$themesLeft .=			'<a href="'.$themeLink1.'">';
+            				$themesLeft .=				'<h4>'. html_escape($exhibitSection->title, $errors) .'</h4>';
+            				$themesLeft .=			'</a>';
+            				$themesLeft .=		'</div>';
+            				$themesLeft .=	'</div>';
             			}
             		}
             		// Odd nr section
             		else {
             			// Display in a row
+            			echo '<h1 style="font-size:26px;">ODD NUMBER SECTION....</h1>';
             			//$html .= '<h1>ANDY: TODO<h1>';
             			//$html .= '<div class="exhibit-theme-container" style="margin: 1em;">';
             			//$html .= $linkOpen . '<div class="exhibit-theme-image">' .  ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title, $errors) . '</div>';
@@ -226,64 +139,75 @@ $_SESSION['themes_uri'] = uri();
             	// output here
             	$rowCount = $rowCount +1;
             	if($rowCount > 0 && $rowCount%2==1){
-            		//echo 'output double rows here ('.$rowCount.')<br style="clear:both;"/>';
-            		//echo '>>'.$themeImage1.'<<';
-            		//echo '>>'.$themeImage2.'<<';
-            		//echo '<br/>';
-            		
             		
 					// expanded rows
 					            		
             		$rowHTML = '';
             		$rowHTML .= '<div class="row theme-title-row-expanded">';
             		$rowHTML .= 	'<div class="six columns right-text">';
-            		$rowHTML .= 		'<div class="middle right-text">';
-            		$rowHTML .= 			$themeTitle1;
+            		$rowHTML .= 		'<div class="theme-item-wrapper right-text">';
+            		$rowHTML .= 			'<a href="'.$themeLink1.'">';
+            		$rowHTML .= 				'<h4>'.$themeTitle1.'</h4>';
+            		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
             		
-            		$rowHTML .= 		'<div class="middle right-text">';
-            		$rowHTML .= 			$themeImage1;
-            		$rowHTML .= 			'<div class="theme-img-overlay"></div>';
+            		$rowHTML .= 		'<div class="theme-item-wrapper right-text">';
+            		$rowHTML .= 			'<a href="'.$themeLink1.'">';
+            		$rowHTML .= 				$themeImage1;
+            		$rowHTML .= 				'<div class="theme-img-overlay"></div>';
+            		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
             		$rowHTML .= 	'</div>';
             		
             		$rowHTML .= 	'<div class="six columns left-text">';
-            		$rowHTML .= 		'<div class="middle left-text">';
-            		$rowHTML .= 			$themeImage2;
-            		$rowHTML .= 			'<div class="theme-img-overlay"></div>';
+            		$rowHTML .= 		'<div class="theme-item-wrapper left-text">';
+            		$rowHTML .= 			'<a href="'.$themeLink2.'">';
+            		$rowHTML .= 				$themeImage2;
+            		$rowHTML .= 				'<div class="theme-img-overlay"></div>';
+            		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
             		
-            		$rowHTML .= 		'<div class="middle left-text">';
-            		$rowHTML .= 			$themeTitle2;
+            		$rowHTML .= 		'<div class="theme-item-wrapper left-text">';
+            		$rowHTML .= 			'<a href="'.$themeLink2.'">';
+            		$rowHTML .= 				'<h4>'.$themeTitle2.'</h4>';
+            		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
             		$rowHTML .= 	'</div>';
             		$rowHTML .= '</div>';
             		
             		// collapsed rows
-  
+  					/*
             		$rowHTML .= '<div class="row  theme-title-row-collapsed">';
             		$rowHTML .= 	'<div class="twelve columns center-text">';
-            		$rowHTML .= 		'<div class="middle">';
-            		$rowHTML .= 			$themeImage1;
-            		$rowHTML .= 			'<div class="theme-img-overlay"></div>';
+            		$rowHTML .= 		'<div class="theme-item-wrapper">';
+            		$rowHTML .= 			'<a href="'.$themeLink1.'">';
+            		$rowHTML .= 				$themeImage1;
+            		$rowHTML .= 				'<div class="theme-img-overlay"></div>';
+            		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
-            		$rowHTML .= 		'<div class="middle">';
-            		$rowHTML .= 			$themeImage2;
-            		$rowHTML .= 			'<div class="theme-img-overlay"></div>';
+            		$rowHTML .= 		'<div class="theme-item-wrapper">';
+            		$rowHTML .= 			'<a href="'.$themeLink2.'">';
+            		$rowHTML .= 				$themeImage2;
+            		$rowHTML .= 				'<div class="theme-img-overlay"></div>';
+            		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
             		$rowHTML .= 	'</div>';
             		$rowHTML .= '</div>';
             		$rowHTML .= '<div class="row  theme-title-row-collapsed">';
             		$rowHTML .= 	'<div class="twelve columns">';
-            		$rowHTML .= 		'<div class="middle">';
-            		$rowHTML .= 			$themeTitle1;
+            		$rowHTML .= 		'<div class="theme-item-wrapper">';
+            		$rowHTML .= 			'<a href="'.$themeLink1.'">';
+            		$rowHTML .= 				'<h4>'.$themeTitle1.'</h4>';
+            		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
-            		$rowHTML .= 		'<div class="middle">';
-            		$rowHTML .= 			$themeTitle2;
+            		$rowHTML .= 		'<div class="theme-item-wrapper">';
+            		$rowHTML .= 			'<a href="'.$themeLink2.'">';
+            		$rowHTML .= 				'<h4>'.$themeTitle2.'</h4>';
+            		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
             		$rowHTML .= 	'</div>';
             		$rowHTML .= '</div>';
-            		
+					*/            		
 
             		$themeHTML .= $rowHTML;
             	}
@@ -292,73 +216,23 @@ $_SESSION['themes_uri'] = uri();
             echo '<div class="container">';
             echo 	$themeHTML;
             echo '</div>';
+
+            echo '<div class="theme-centre-outer theme-title-row-collapsed">';
+            echo 	'<div class="theme-center-middle">';
+            echo 		'<div class="theme-center-inner">';
+            echo 			'<div class="container">';
+            echo 				'<div class="themes-left">';
+            echo 					$themesLeft;
+            echo 				'</div>';
+            echo 				'<div class="themes-right">';
+            echo 					$themesRight;
+            echo 				'</div>';
+            echo 			'</div>';
+            echo 		'</div>';
+            echo 	'</div>';
+            echo '</div>';
             
-
             
-            
-            // Cycle through all the Exhibit sections and list them as Themes.
-            /*
-            foreach ($exhibit->Sections as $key => $exhibitSection) {
-
-                $html = '';
-                
-                // skip the first one because this is the exhibit section (themes) we are currently on
-                if ($exhibitSection->hasPages() && ($exhibitSection->order > 1)) {
-
-                    $linkOpen = '<a class="exhibit-section-title" href="' . html_escape(exhibit_builder_exhibit_uri($exhibit, $exhibitSection)) . '">';
-                    $linkClose = '</a>';
-
-                    // Even nr sections
-                    if (!($nrSections & 1)) {
-                        // Display in two collumns
-                        $colClass = '';
-
-                        
-                        
-                        if($key%2==1){
-                            $html .= '<div class="grid_7 suffix_1 omega" style="text-align: left;">';
-                            $html .= 	'<div class="exhibit-theme-container right">' . $linkOpen ;
-                            $html .= 		'<div class="exhibit-theme-image">' . ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors) . '</div>';
-                            $html .= 		'<div class="exhibit-theme-image-overlay"></div>';
-                            $html .= 		'<div class="exhibit-theme-title"><h4>' . html_escape($exhibitSection->title, $errors) . '</h4></div>';
-                            $html .= 		$linkClose;
-                            $html .= 	'</div>';
-                            $html .= '</div>';
-                        }
-                        else {
-                            $html .= '<div class="grid_7 prefix_1 alpha" style="text-align: right">';
-                            $html .= 	'<div class="exhibit-theme-container left">' . $linkOpen ;
-                            $html .= 		'<div class="exhibit-theme-title"><h4>' . html_escape($exhibitSection->title) . '</h4></div>';
-                            $html .= 		'<div class="exhibit-theme-image">' . ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title, $errors) . '</div>';
-                            $html .= 		'<div class="exhibit-theme-image-overlay"></div>';
-                            $html .= 		$linkClose;
-                            $html .=  	'</div>';
-                            $html .= '</div>';
-                        }
-
-                    }
-                        // Odd nr section
-                    else {
-                        // Display in a row
-                        $html .= '<h1>ANDY: TODO<h1>';
-                        $html .= '<div class="exhibit-theme-container" style="margin: 1em;">';
-                        $html .= $linkOpen . '<div class="exhibit-theme-image">' .  ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title, $errors) . '</div>';
-                        $html .= '<div class="exhibit-theme-image-overlay" id="overlay-'.$exhibitSection->slug.'"></div>';
-                        $html .= '<div class="exhibit-theme-title"><h4>' . html_escape($exhibitSection->title) . '</h4></div>' . $linkClose;;
-                        $html .= '</div>';
-
-                    }
-                    echo $html;
-                }
-            }
-
-            if(count($errors) > 0){
-
-                foreach($errors as $error) {
-                    echo '<div>' .$error . '</div>';
-                }
-            }
-            */
             ?>
         </div>
     </div>

@@ -13,7 +13,7 @@
 
 <div class="clear"></div>
 
-<div id="footer" class="container">
+<div id="footer" class="container andy">
     <div class="row" id="bottom-navigation"">
         <div class="six columns">
            <ul class="navigation">
