@@ -42,7 +42,7 @@ function ve_set_exhibits_css()
 {
 		       
     queue_css('foundation/stylesheets/foundation');
-    //queue_css('foundation/stylesheets/app');
+    queue_css('foundation/stylesheets/app');
     
 	queue_css(('reset'));
     queue_css(('text'));

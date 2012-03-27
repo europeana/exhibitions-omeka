@@ -8,12 +8,10 @@
     $pageSlug = 'credits-' . $eName;
     $creditsPage = ve_get_page_by_slug($pageSlug);
 ?>
-</div><!-- end content  -->
-</div><!-- end container -->
 
-<div class="clear"></div>
 
-<div id="footer" class="container andy">
+
+<div id="footer" class="row">
     <div class="row" id="bottom-navigation"">
         <div class="six columns">
            <ul class="navigation">
@@ -112,3 +110,5 @@
         });
     </script>
 <?php endif; ?>
+
+</div><!-- end container -->

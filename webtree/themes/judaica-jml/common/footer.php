@@ -8,14 +8,12 @@
     $pageSlug = 'credits-' . $eName;
     $creditsPage = ve_get_page_by_slug($pageSlug);
 ?>
-</div><!-- end content  -->
-</div><!-- end container -->
+<!--</div> end content  -->
 
-<div class="clear"></div>
+<div id="footer" class="row">
+    <div class="twelve columns" id="bottom-navigation">
 
-<div id="footer">
-    <div class="container_16" id="bottom-navigation"">
-        <div class="grid_8">
+        <div class="six columns">
            <ul class="navigation">
                <li>
                    <a href="<?php echo uri('contact');?>"><?php echo ve_translate('contact', 'Contact');?></a>
@@ -51,46 +49,58 @@
 
 
         </div>
-        <div class="grid_8" style="text-align: right;">
+        <div class="six columns" style="text-align: right;">
            <ul class="navigation">
             <!--   <li><a href="http://www.facebook.com/Europeana" target="_blank" title="Follow us on Facebook!"><img src="http://exhibitions.europeana.eu/themes/europeana/images/icon_Facebook.png" alt="Follow us on Facebook!"></a></li>
                <li><a href="http://twitter.com/EuropeanaEU" target="_blank" title="Follow us on Twitter!"><img src="http://exhibitions.europeana.eu/themes/europeana/images/icon_Twitter.png" alt="Follow us on Twitter!"></a></li> -->
                <li><!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style " style="float: right; display: inline; padding-left: 30px;">
-<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-<a class="addthis_button_tweet"></a>
-<a class="addthis_counter addthis_pill_style"></a>
-</div>
-</li>
-
+					<div class="addthis_toolbox addthis_default_style " style="float: right; display: inline; padding-left: 30px;">
+					<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+					<a class="addthis_button_tweet"></a>
+					<a class="addthis_counter addthis_pill_style"></a>
+					</div>
+				</li>
            </ul>
 
-           <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d70f66c15fff6d0">
-<!-- AddThis Button END -->
+           	<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d70f66c15fff6d0">
+			<!-- AddThis Button END -->
             var addthis_config = {
-            ui_language: "en",
-            ui_click: true,
-            ui_cobrand: "Europeana"
-
+	            ui_language: "en",
+	            ui_click: true,
+	            ui_cobrand: "Europeana"
             }
             </script>
  
             <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-12776629-3']);
-  _gaq.push(['_trackPageview']);
+			  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-12776629-3']);
+			  _gaq.push(['_trackPageview']);
+			
+			  (function() {
+			    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			  })();
+			</script>
+			
+			<script type="text/javascript">
+				responsiveGallery({
+					scriptClass: 'euresponsive-script',
+					testClass: 'euresponsive',
+					initialSuffix: '_euresponsive_1.jpg',
+					suffixes: {
+						'1': '_euresponsive_1.jpg',
+						'2': '_euresponsive_2.jpg',
+						'3': '_euresponsive_3.jpg',
+						'4': '_euresponsive_4.jpg'
+					}
+				});
+				</script>
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-        </div>
-    </div>
-</div>
+        </div> <!-- end 6 columns -->
+    </div> <!-- end 12 columns -->
+</div> <!-- end row -->
 
 <?php if (isset($_GET['theme'])): ?>
     <script type="text/javascript" language="javascript">
@@ -99,3 +109,5 @@
         });
     </script>
 <?php endif; ?>
+
+</div><!-- end container -->

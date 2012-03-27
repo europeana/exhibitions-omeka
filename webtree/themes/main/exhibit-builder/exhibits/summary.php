@@ -9,10 +9,17 @@ unset($_SESSION['themes_uri']);
 ?>
 <?php head(array('bodyid' => 'exhibit', 'bodyclass' => 'summary')); ?>
 <?php //head(array('title' => html_escape(ve_title_crumbs()), 'bodyid' => 'exhibit', 'bodyclass' => 'summary')); ?>
-<div id="primary" class="grid_16">
-    <div class="grid_8 alpha">
-        <h1><?php echo html_escape(exhibit('title')); ?></h1>
-        <?php echo exhibit('description'); ?>
+
+	<div id="primary" class="twelve columns">
+	    <h1><?php echo html_escape(exhibit('title')); ?></h1>
+	</div>
+</div>
+
+<div class="row">
+
+    <div class="six columns push-six">
+        
+        
         <?php set_exhibit_sections_for_loop_by_exhibit(get_current_exhibit()); ?>
 
         <?php
@@ -21,19 +28,64 @@ unset($_SESSION['themes_uri']);
         while (loop_exhibit_sections() && $firstpage == false):
             ?>
             <?php if (exhibit_builder_section_has_pages()): ?>
-            <?php $firstpage = true; ?>
-            <h3><a class='widget'
-                href="<?php echo exhibit_builder_exhibit_uri(get_current_exhibit(), get_current_exhibit_section()); ?>"><?php echo ve_translate('exhibit-start', 'Start Exhibit'); ?><img src="<?php echo img('arrow-right.png');?>"/></a>
-            </h3>
+            	<?php $firstpage = true; ?>
             <?php endif; ?>
         <?php endwhile; ?>
-
-    </div>
-    <div class="grid_8 omega">
         <div id="exhibit-image-wrapper">
+        
+        
             <div id="exhibit-image-border"></div>
-            <div id="exhibit-image" style="background-image: url('<?php echo $src; ?>')"></div>
-            <div id="exhibit-item-infocus-header">
+     		<img id="exhibit-shadow" src="">
+            <div id="crop-div">
+            	<img src="<?php echo $src; ?>"/>
+            </div>
+            
+            <script type="text/javascript">
+
+            	// set the correct overlay source
+            	var elRef = document.getElementById("exhibit-image-border");
+            	var imgUrl = "";
+            	if(elRef.currentStyle) {		// IE / Opera
+            		imgUrl = elRef.currentStyle.backgroundImage;
+           		}
+           		else {							// Firefox needs the full css code to work
+            		imgUrl = getComputedStyle(elRef,'').getPropertyValue('background-image');
+           		}
+            	var urlVal = imgUrl.replace(/\"/g, '').replace(/url\(/g, '').replace(/\)/g, '');
+            	document.getElementById("exhibit-shadow").src = urlVal; 
+
+				// add resize listener
+				function addListener(elm, type, callback) {
+					if (elm.addEventListener) {
+						elm.addEventListener( type, callback, false );
+					}
+					else if (elm.attachEvent) {
+						elm.attachEvent( 'on' + type, callback );
+					}
+				}
+				
+				// define resize function
+				var adjustOverlay = function(){
+					var shadow  = document.getElementById("exhibit-shadow");
+					var cropDiv = document.getElementById("crop-div");
+					cropDiv.style.height = shadow.offsetHeight-1 + "px";
+				}
+				
+				// attach listener
+				addListener(window, 'resize', function(){
+					adjustOverlay();
+				});
+				
+				addListener(window, 'load', function(){
+					adjustOverlay();
+				});
+
+				// invoke to tidy up initial display
+				adjustOverlay();
+				
+			</script>
+			
+ 			<div id="exhibit-item-infocus-header">
                 <?php
                     try {
                         echo ve_exhibit_builder_exhibit_display_item_info_link(array('imageSize' => 'square_thumbnail'));
@@ -47,8 +99,31 @@ unset($_SESSION['themes_uri']);
 
                 ?>
             </div>
+            
+            
         </div>
+
+
+        
+    </div>
+    
+    
+    
+    
+    <div class="six columns pull-six">
+         <?php echo exhibit('description'); ?>
+		<h3>
+			<a class='widget'
+				href="<?php echo exhibit_builder_exhibit_uri(get_current_exhibit(), get_current_exhibit_section()); ?>">
+				<?php echo ve_translate('exhibit-start', 'Start Exhibit'); ?><img src="<?php echo img('arrow-right.png');?>"/>
+			</a>
+		</h3>
+
+        
+        
+        
     </div>
 </div>
 <div class="clear"></div>
+
 <?php foot(); ?>

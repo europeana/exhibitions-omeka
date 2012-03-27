@@ -91,8 +91,8 @@ em {
 /* EXHIBIT MAIN PAGE **************************************************/
 
 #exhibit-image-wrapper {
-    height: 412px;
-    position: relative;
+	position: relative;
+	margin-bottom: 3em;
 }
 
 #exhibit-image-border {
@@ -103,7 +103,31 @@ em {
     width: 460px;
     height: 412px;
     z-index: 1010;
+    
+    display:	none;	/* never shown - used only to load relevant overlay for js to pick up for "exhibit-shadow" */
 }
+
+#exhibit-shadow{
+	position:	absolute;
+	top:		0px;
+	left:		0px;
+	width:		100%;
+	z-index:	2;
+}
+
+#crop-div{
+	width:		100%;
+	overflow:	hidden;
+	z-index:	1; 
+}
+
+#crop-div img{
+	width:		100%;
+}
+ 
+
+
+
 
 #exhibit-image {
     background-position: top left;

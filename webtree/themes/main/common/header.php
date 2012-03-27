@@ -70,8 +70,8 @@ ve_session_vars();
 <body<?php echo isset($bodyid) ? ' id="' . $bodyid . '"' : ''; ?><?php echo isset($bodyclass) ? ' class="' . $bodyclass . '"' : ''; ?>>
 
 
-<div id="header" class="container">
-    <div class="row">
+<div class="container">
+    <div id="header" class="row">
         <div class="twelve columns">
         	<div id="site-title" class="twelve columns">
 				<a href="http://www.europeana.eu" target="_blank" xxxxid="site-title"><img src="<?php echo img('logo.png'); ?>"></a>
@@ -83,13 +83,12 @@ ve_session_vars();
         	
         </div>
     </div>
-</div>
 
-<div class="clear"></div>
+    
+	<!-- div class="clear"></div-->
 
-<div id="top-navigation"  class="container">
-    <div class="row inner">
-	    <div id="main-breadcrumbs" class="twelve columns">
+	<div id="top-navigation" class="row">
+	    <div id="main-breadcrumbs" class="twelve columns inner">
 	    
 	    
 	        <!--BEGIN RESPONSIVE CODE-->
@@ -104,8 +103,7 @@ ve_session_vars();
 	    </div>
 	    
      </div>
-</div>
 
+ 
+	<div id="content" class="row">
 
-<div id="content" class="container">
-    <div class="row">

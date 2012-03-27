@@ -1,5 +1,6 @@
 
 		(function() {
+			
 			function escapeRegex(text) {
 				return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 			}
@@ -166,9 +167,6 @@
 						});
 					}
 				}
-
-				
-				
 				
 				respond();
 				addListener(window, 'resize', respond);
