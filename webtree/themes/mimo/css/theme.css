@@ -77,6 +77,12 @@ dt {
 }
 
 
+#site-title-small{
+	/* hide the border underneath */
+	background-color: #E8E8E8;
+}
+
+
 
 /* EXHIBIT INTRO/STORY PAGE ********************************************/
 #in-focus,

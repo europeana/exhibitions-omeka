@@ -170,9 +170,6 @@ h4{
 		top:-5px;
 		float: left;
 		margin-right: 5px;
-
-		/* hide the border underneath */
-		background-color: #381F2A;
 		width:    53px;
 	}
 

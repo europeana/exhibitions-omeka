@@ -77,6 +77,11 @@ dt {
     height:100%;
 }
 
+#site-title-small{
+	/* hide the border underneath */
+	background-color: #670000;
+}
+
 
 
 /* EXHIBIT INTRO/STORY PAGE ********************************************/
