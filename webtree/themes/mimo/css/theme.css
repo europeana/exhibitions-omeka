@@ -112,8 +112,13 @@ dt {
 /* HEADER ***********/
 
 #secondary-branding {
-    text-align: right;
-    margin-top: 40px;
-	padding-left: 130px;
-	
+    margin-top:		35px;
+	padding-right:	10px;
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    #secondary-branding{
+	    max-width: 30%;
+	    margin-top: 20px;
+    }
 }

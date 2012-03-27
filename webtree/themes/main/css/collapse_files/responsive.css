@@ -15,6 +15,14 @@ body{
 	width:100%;
 }
 
+#secondary-branding{
+	height:25%;	
+	max-width: 50%;
+}
+#secondary-branding img{
+	width:100%;
+}
+
 
 
 .theme-title-row-collapsed{
@@ -152,6 +160,9 @@ h4{
 	    #site-title{
 		    max-width: 15%;
 	    }
+	    #secondary-branding{
+		    max-width: 15%;
+	    }
        	h3{
 			font-size:		22px;
 		}
@@ -175,7 +186,7 @@ h4{
 
 
 	#site-title{
-		display:block;
+		float:left;
 	}
 
 	#site-title-small a img{
