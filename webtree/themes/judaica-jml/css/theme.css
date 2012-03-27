@@ -103,10 +103,21 @@ dt {
 
 
 /* HEADER ***********/
-
+/*
 #secondary-branding {
     text-align: right;
     margin-top: 10px;
 	padding-left: 100px;
-	*padding-left: 90px;
+	padding-left: 90px;
+}
+*/
+#secondary-branding {
+    margin-top: 10px;
+    padding-right: 10px;	
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    #secondary-branding{
+	    max-width: 22%;
+    }
 }

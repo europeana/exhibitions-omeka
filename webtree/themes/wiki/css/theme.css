@@ -115,8 +115,6 @@ dt {
 /* HEADER ***********/
 
 #secondary-branding {
-    text-align: right;
     margin-top: 10px;
-	padding-left: 130px;
-	
+    padding-right: 10px;	
 }

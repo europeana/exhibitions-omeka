@@ -72,15 +72,15 @@ ve_session_vars();
 
 <div id="header" class="container">
     <div class="row">
-        <div id="site-title" class="three columns">
-        
-        	<a href="http://www.europeana.eu" target="_blank" xxxxid="site-title"><img src="<?php echo img('logo.png'); ?>"></a>
-	        
-        </div>
-        <div id="secondary-branding" class="nine columns">
-        
-            <?php echo ve_exhibit_secondary_logo(); ?>
-            
+        <div class="twelve columns">
+        	<div id="site-title" class="twelve columns">
+				<a href="http://www.europeana.eu" target="_blank" xxxxid="site-title"><img src="<?php echo img('logo.png'); ?>"></a>
+        	</div>
+        	
+	        <div id="secondary-branding" style="float:right;">
+	            <?php echo ve_exhibit_secondary_logo(); ?>
+	        </div>
+        	
         </div>
     </div>
 </div>
