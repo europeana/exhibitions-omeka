@@ -60,6 +60,10 @@ dt {
 
 }
 
+#site-title-small{
+	/* hide the border underneath on the browse-exhibitions page only */
+	background-color: #FFFFFF;
+}
 
 /* EXHIBIT INTRO/STORY PAGE ********************************************/
 
