@@ -15,6 +15,7 @@ ve_session_vars();
 
     <!-- Meta -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"/>
     <meta name="description" content="<?php echo settings('description'); ?>"/>
     <?php echo auto_discovery_link_tag(); ?>
 
@@ -73,7 +74,7 @@ ve_session_vars();
     <div class="row">
         <div id="site-title" class="three columns">
         
-        	<a href="http://www.europeana.eu" target="_blank" id="site-title"><img src="<?php echo img('logo.png'); ?>"></a>
+        	<a href="http://www.europeana.eu" target="_blank" xxxxid="site-title"><img src="<?php echo img('logo.png'); ?>"></a>
 	        
         </div>
         <div id="secondary-branding" class="nine columns">

@@ -73,6 +73,15 @@ dt {
 
 }
 
+.theme-img-overlay {
+    background: transparent url(../images/circle-overlay-100.png) top left no-repeat;
+    position:absolute;
+    top:0px;
+    width:100%;
+    height:100%;
+}
+
+
 
 /* EXHIBIT INTRO/STORY PAGE ********************************************/
 #in-focus,
