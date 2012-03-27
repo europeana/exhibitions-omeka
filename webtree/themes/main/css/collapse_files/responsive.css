@@ -1,5 +1,21 @@
 /* theming */
 
+body{
+	width:	100%;
+}
+
+
+
+
+#site-title{
+	height:25%;	
+	max-width: 50%;
+}
+#site-title img{
+	width:100%;
+}
+
+
 
 .theme-title-row-collapsed{
 	display:none;
@@ -19,6 +35,7 @@
 	}
 }
 
+
 #content{
 	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxoverflow:	hidden;
 	clear:		both;
@@ -26,8 +43,7 @@
 }
 
 #container {
-	background-color:orange;
-	height:200px;
+	xxxheight:200px;
     display: table;
     width: 100%;
 }
@@ -124,29 +140,28 @@ h4{
 
     /* Note: Design for a width of 320px */
     @media only screen and (max-width: 767px) {
-    
     	h3{
 			font-size:		18px;
 		}
-    
 	}
 
 	
+
+
     @media only screen and (min-width: 480px) and (max-width: 767px) {
-    
+	    #site-title{
+		    max-width: 15%;
+	    }
        	h3{
 			font-size:		22px;
 		}
-    
 	}
 
 
 	@media only screen and (min-width: 768px) and (max-width: 959px) {
-	
 	  	h3{
 			font-size:		24px;
 		}
-	
 	}
 	
 	#site-title-small{
@@ -185,7 +200,7 @@ h4{
 		#top-navigation{
 			margin-bottom:	0;
 		}
-}
+	}
 
 	
 	

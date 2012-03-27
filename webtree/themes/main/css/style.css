@@ -25,23 +25,22 @@ em {
 
 /* HEADER *********************************************************/
 #header {
-    height: 150px;
+    xxxxxxxxxheight: 150px;
     position: relative;
 }
 
+
 #site-title {
     font-size: 2em;
-    width: auto;
-    height: 125px;
+    width: 100px;
     margin-top: 10px;
     padding-left: 10px;
 }
 
 #site-title a {
     text-decoration: none;
-    width: 105px;
-    height: 125px;
 }
+
 
 #secondary-branding {
     text-align: right;
