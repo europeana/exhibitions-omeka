@@ -52,7 +52,7 @@ function ve_set_exhibits_css()
     //queue_css('skeleton/stylesheets/skeleton');
 
     
-    queue_css('collapse_files/responsive');
+//    queue_css('collapse_files/responsive');
     
     
     queue_css('style');
@@ -62,10 +62,14 @@ function ve_set_exhibits_css()
     // Dirty way of maintaining the theme. If there's a theme query string than use path to theme css
     if(!isset($_GET['theme'])) {
         queue_css('theme');
+        
+        queue_css('collapse_files/responsive');
         display_css();
     }
     else {
+    	queue_css('collapse_files/responsive');
         display_css();
+        
         echo '<link rel="stylesheet" type="text/css" media="all" href="' . WEB_ROOT . '/themes/' . $_GET['theme'] . '/css/theme.css' . '"/>';
      }
 }

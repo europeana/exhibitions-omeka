@@ -17,62 +17,81 @@ $story = $page->title
 <link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
 <link rel="stylesheet" href="<?php echo css('mediaelement/mejs-skins'); ?>"/>
 
+		
 <div class="row">
 	<div class="six columns push-six">
 	
 	    <?php if (exhibit_builder_use_exhibit_page_item(1)): ?>
-	    
-	    <div id="exhibit-item-infocus" class="exhibit-item" style="margin-left:auto; margin-right: auto; background-color:red;">
-	    
-	    
-	        <div id="exhibit-item-infocus-header">
-	            <?php echo ve_exhibit_builder_exhibit_display_item_info_link(array('imageSize' => 'fullsize')); ?>
-	        </div>
-	        
-	        
-	        <div id="exhibit-item-infocus-item" style="text-align:center;">
 
-	        	<!-- RESPONSIVE DESIGN CHANGE -->
-	            <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
-	            <?php //echo ve_exhibit_builder_exhibit_display_item_responsively(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
-	        	<!-- END RESPONSIVE DESIGN CHANGE -->
-	        	
-	        </div>
-	    </div>
-	    
+	    <div id="exhibit-item-infocus" class="exhibit-item">
+	    	<table id="tbl-exhibit-item">
+	        	<tr>
+	        		<td class="navigate">
+						<?php echo ve_exhibit_builder_link_to_previous_exhibit_page("&larr;", array('class' => 'exhibit-text-nav'));?>
+					</td>
+					
+					<td class="content">
+				        
+				        <div id="exhibit-item-infocus-item" style="text-align:center;">
+					        <div id="exhibit-item-infocus-header">
+					            <?php echo ve_exhibit_builder_exhibit_display_item_info_link(array('imageSize' => 'fullsize')); ?>
+					        </div>
+				        	<!-- RESPONSIVE DESIGN CHANGE -->
+				            <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
+				            <?php //echo ve_exhibit_builder_exhibit_display_item_responsively(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
+				        	<!-- END RESPONSIVE DESIGN CHANGE -->
+				        	
+				        </div>
+				        
+					</td>
+					<td class="navigate">
+				        <?php echo ve_exhibit_builder_link_to_next_exhibit_page("&rarr;", array('class' => 'exhibit-text-nav'));?>
+					</td>
+				</tr>
+			</table>
+		</div>
 	    <?php endif; ?>
-	    
-	    
-	    
 	</div>
 	
+
 	
 	<div class="six columns pull-six" id="story">
 	
-	  <div id="exhibit-section-title">
-	    <h3>
-	      <?php echo $theme . ' - ' . $story; ?>
-	    </h3>
-	  </div>
+		<div id="exhibit-section-title">
+			<h3>
+				<?php echo $theme . ' - ' . $story; ?>
+			</h3>
+		</div>
 	
-	  <div class="exhibit-text">
-	    <?php if ($text = exhibit_builder_page_text(1)) {
-	    echo exhibit_builder_page_text(1);
-	  } ?>
-	  </div>
-	
-	  <div class="exhibit-page-nav">
-	
-	    <?php echo ve_exhibit_builder_link_to_previous_exhibit_page("&larr;", array('class' => 'exhibit-text-nav'));?>
-	
-	    <?php echo ve_exhibit_builder_page_nav(); ?>
-	
-	    <?php echo ve_exhibit_builder_link_to_next_exhibit_page("&rarr;", array('class' => 'exhibit-text-nav'));?>
-	
-	  </div>
+		<div class="exhibit-text">
+			<div id="exhibit-section-title-small">
+				<h3>
+					<?php echo $theme . ' - ' . $story; ?>
+				</h3>
+			</div>
 	  
+			<?php if ($text = exhibit_builder_page_text(1)) {
+				echo exhibit_builder_page_text(1);
+			} ?>
+		</div>
+	
+		<div class="theme-center-outer">
+			<div class="theme-center-middle">
+				<div class="theme-center-inner">
+					<div class="exhibit-page-nav">
+						<?php echo ve_exhibit_builder_link_to_previous_exhibit_page("&larr;", array('class' => 'exhibit-text-nav'));?>
+						<?php echo ve_exhibit_builder_page_nav(); ?>
+						<?php echo ve_exhibit_builder_link_to_next_exhibit_page("&rarr;", array('class' => 'exhibit-text-nav'));?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 	</div>
 	
+</div>
+
 </div>
 
 

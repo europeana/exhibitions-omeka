@@ -53,11 +53,15 @@ else {
 $html .= '</div>';
 ?>
 <?php head(array('title' => html_escape('Browse Exhibits'), 'bodyid' => 'exhibit', 'bodyclass' => 'browse')); ?>
-<div id="primary">
 
-<?php  echo $html; ?>
+<!-- div id="primary" -->
 
+<div class="twelve columns">
+	<?php  echo $html; ?>
 </div>
+
+<!--/div-->
+
 <div class="clear"></div>
 
 <?php foot(); ?>

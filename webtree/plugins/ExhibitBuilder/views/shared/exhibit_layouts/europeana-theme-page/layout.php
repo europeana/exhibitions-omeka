@@ -31,8 +31,6 @@ $_SESSION['themes_uri'] = uri();
                     return;
                 }
             }
-
-            
           
             
             $key = 0;
@@ -172,40 +170,6 @@ $_SESSION['themes_uri'] = uri();
             		$rowHTML .= 	'</div>';
             		$rowHTML .= '</div>';
             		
-            		// collapsed rows
-  					/*
-            		$rowHTML .= '<div class="row  theme-title-row-collapsed">';
-            		$rowHTML .= 	'<div class="twelve columns center-text">';
-            		$rowHTML .= 		'<div class="theme-item-wrapper">';
-            		$rowHTML .= 			'<a href="'.$themeLink1.'">';
-            		$rowHTML .= 				$themeImage1;
-            		$rowHTML .= 				'<div class="theme-img-overlay"></div>';
-            		$rowHTML .= 			'</a>';
-            		$rowHTML .= 		'</div>';
-            		$rowHTML .= 		'<div class="theme-item-wrapper">';
-            		$rowHTML .= 			'<a href="'.$themeLink2.'">';
-            		$rowHTML .= 				$themeImage2;
-            		$rowHTML .= 				'<div class="theme-img-overlay"></div>';
-            		$rowHTML .= 			'</a>';
-            		$rowHTML .= 		'</div>';
-            		$rowHTML .= 	'</div>';
-            		$rowHTML .= '</div>';
-            		$rowHTML .= '<div class="row  theme-title-row-collapsed">';
-            		$rowHTML .= 	'<div class="twelve columns">';
-            		$rowHTML .= 		'<div class="theme-item-wrapper">';
-            		$rowHTML .= 			'<a href="'.$themeLink1.'">';
-            		$rowHTML .= 				'<h4>'.$themeTitle1.'</h4>';
-            		$rowHTML .= 			'</a>';
-            		$rowHTML .= 		'</div>';
-            		$rowHTML .= 		'<div class="theme-item-wrapper">';
-            		$rowHTML .= 			'<a href="'.$themeLink2.'">';
-            		$rowHTML .= 				'<h4>'.$themeTitle2.'</h4>';
-            		$rowHTML .= 			'</a>';
-            		$rowHTML .= 		'</div>';
-            		$rowHTML .= 	'</div>';
-            		$rowHTML .= '</div>';
-					*/            		
-
             		$themeHTML .= $rowHTML;
             	}
             }
@@ -216,35 +180,22 @@ $_SESSION['themes_uri'] = uri();
             echo '</div>';
             echo '</div>';
             echo '</div>';
-            
-            
             echo '<div class="row">';
             echo 	'<div class="twelve columns">';
-            
             echo 		$themeHTML;
-
-//            echo '<div class="row">';
- //           echo '<div class="row">';
-            
-
             echo 		'<div class="theme-centre-outer theme-title-row-collapsed">';
             echo 			'<div class="theme-center-middle">';
             echo 				'<div class="theme-center-inner">';
-            echo 					'<div class="container">';
-            echo 						'<div class="themes-left">';
-            echo 							$themesLeft;
-            echo 						'</div>';
-            echo 						'<div class="themes-right">';
-            echo 							$themesRight;
-            echo 						'</div>';
+            echo 					'<div class="themes-left">';
+            echo 						$themesLeft;
+            echo 					'</div>';
+            echo 					'<div class="themes-right">';
+            echo 						$themesRight;
             echo 					'</div>';
             echo 				'</div>';
             echo 			'</div>';
             echo 		'</div>';
-            
-            
             echo 	'</div>';
-            echo '</div>';
             
             ?>
     
@@ -262,7 +213,6 @@ try {
 		
 ?>
     
-</div>
 
 
 <?php

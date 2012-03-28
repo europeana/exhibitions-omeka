@@ -15,71 +15,86 @@ $story = $page->title
 
 <link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
 <link rel="stylesheet" href="<?php echo css('mediaelement/mejs-skins'); ?>"/>
-<style type="text/css">
 
-
-
-
-</style>
-<div class="grid_8 alpha" id="story">
 
     <div id="exhibit-section-title">
-
         <h3>
             <?php echo $theme . ' - ' . $story; ?>
         </h3>
     </div>
+</div> <!-- end row -->
 
-    <div class="exhibit-text">
-        <?php if ($text = exhibit_builder_page_text(1)) {
-        echo exhibit_builder_page_text(1);
-    } ?>
-    </div>
 
-    <div class="exhibit-page-nav">
 
-        <?php echo ve_exhibit_builder_link_to_previous_exhibit_page("&larr;", array('class' => 'exhibit-text-nav'));?>
+<div class="row">
 
-        <?php echo ve_exhibit_builder_page_nav(); ?>
+	<div class="six columns push-six" id="story">
+		<?php if (exhibit_builder_use_exhibit_page_item(1)): ?>
+		
+		
+		<div id="exhibit-item-infocus" class="exhibit-item">
+			<table id="tbl-exhibit-item"> <!-- yes, a table! -->
+				<tr>
+					<td class="navigate">
+						<?php echo ve_exhibit_builder_link_to_previous_exhibit_page("&larr;", array('class' => 'exhibit-text-nav'));?>
+					</td>
+					<td class="content">
+						<div id="exhibit-item-infocus-item">
+							<div id="exhibit-item-infocus-header">
+								<?php echo ve_exhibit_builder_exhibit_display_item_info_link(array('imageSize' => 'fullsize')); ?>
+							</div>
 
-        <?php echo ve_exhibit_builder_link_to_next_exhibit_page("&rarr;", array('class' => 'exhibit-text-nav'));?>
+							<?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
+				            <!--ve_exhibit_builder_exhibit_display_item_responsively(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1'));-->
+						</div>
+					</td>
+					<td class="navigate">
+						<?php echo ve_exhibit_builder_link_to_next_exhibit_page("&rarr;", array('class' => 'exhibit-text-nav'));?>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<?php endif; ?>
+    
+		<div class="clear"></div>
+		<div id="exhibit-item-thumbnails">
+			<?php echo ve_exhibit_builder_display_exhibit_thumbnail_gallery(1, 5, array('class' => 'thumb')); ?>
+		</div>
+	</div>
 
-    </div>
+    
+	<div class="six columns pull-six" id="items">
+		<div class="exhibit-text">
+			<div id="exhibit-section-title-small">
+				<h3>
+					<?php echo $theme . ' - ' . $story; ?>
+				</h3>
+			</div>
 
-</div>
+			<?php if ($text = exhibit_builder_page_text(1)) {
+				echo exhibit_builder_page_text(1);
+			} ?>
+		</div>
 
-<div class="grid_8 omega" id="items">
-    <?php if (exhibit_builder_use_exhibit_page_item(1)): ?>
+		<div class="theme-center-outer">
+			<div class="theme-center-middle">
+				<div class="theme-center-inner">
+					<div class="exhibit-page-nav">
+						<?php echo ve_exhibit_builder_link_to_previous_exhibit_page("&larr;", array('class' => 'exhibit-text-nav'));?>
+						<?php echo ve_exhibit_builder_page_nav(); ?>
+						<?php echo ve_exhibit_builder_link_to_next_exhibit_page("&rarr;", array('class' => 'exhibit-text-nav'));?>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <div id="exhibit-item-infocus" class="exhibit-item">
-        <div id="exhibit-item-infocus-header">
-            <?php echo ve_exhibit_builder_exhibit_display_item_info_link(array('imageSize' => 'fullsize')); ?>
-        </div>
-        <div id="exhibit-item-infocus-item">
-
-            <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
-            <ve_exhibit_builder_exhibit_display_item_responsively(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1'));>
-            
-        </div>
-    </div>
-    <?php endif; ?>
-    <div class="clear"></div>
-    <div id="exhibit-item-thumbnails">
-        <?php echo ve_exhibit_builder_display_exhibit_thumbnail_gallery(1, 5, array('class' => 'thumb')); ?>
-    </div>
-</div>
+	</div>
+	
+	
 <?php echo js('seadragon-min'); ?>
 <?php echo js('story'); ?>
 
-	<h1>
-		plugins/ExhibitBuilder/views/shared/exhibit_layouts/europeana-section-story-page/layout.php
-	</h1>
-	<h1>
-    	europeana section story page...
-	</h1>
-    <br>
-    ORANGE
-    <br>
 <?php
 /*
 try {
@@ -99,7 +114,7 @@ try {
 
 
 <script type="text/javascript">
-alert("layout\n(plugins ExhibitBuilder views shared exhibit_layouts europeana-story-section)\n\n try to make gallery");
+//alert("layout\n(plugins ExhibitBuilder views shared exhibit_layouts europeana-story-section)\n\n try to make gallery");
 var suffixes = {
 	<?php
 		//$BREAKPOINTS = explode("~", get_option('euresponsive_breakpoints'));
