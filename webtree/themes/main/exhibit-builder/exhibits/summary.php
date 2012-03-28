@@ -1,4 +1,5 @@
 
+
 <?php
 $name = ve_get_exhibit_name_from_slug();
 $itemInfo = ve_get_exhibit_item_info_by_tag($name.'-featured', 'archive');
@@ -29,6 +30,9 @@ unset($_SESSION['themes_uri']);
             ?>
             <?php if (exhibit_builder_section_has_pages()): ?>
             	<?php $firstpage = true; ?>
+            	
+            	<?php $themesUrl = exhibit_builder_exhibit_uri(get_current_exhibit(), get_current_exhibit_section()); ?>
+            	
             <?php endif; ?>
         <?php endwhile; ?>
         <div id="exhibit-image-wrapper">
@@ -114,7 +118,12 @@ unset($_SESSION['themes_uri']);
          <?php echo exhibit('description'); ?>
 		<h3>
 			<a class='widget'
-				href="<?php echo exhibit_builder_exhibit_uri(get_current_exhibit(), get_current_exhibit_section()); ?>">
+				href="<?php echo $themesUrl; ?>">
+				
+				<!-- 
+				 href="<php echo exhibit_builder_exhibit_uri(get_current_exhibit(), get_current_exhibit_section()); >">
+				 -->
+				
 				<?php echo ve_translate('exhibit-start', 'Start Exhibit'); ?><img src="<?php echo img('arrow-right.png');?>"/>
 			</a>
 		</h3>
@@ -127,3 +136,4 @@ unset($_SESSION['themes_uri']);
 <div class="clear"></div>
 
 <?php foot(); ?>
+
