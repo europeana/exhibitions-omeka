@@ -16,11 +16,8 @@ $_SESSION['themes_uri'] = uri();
 <div class="text-full" style="width:100%;">
     <div class="primary" style="width:100%;">
         <div class="exhibit-text exhibit-theme-wrapper" style="width:100%;">
-      
 
             <h2><?php echo ve_translate('themes', 'Themes');?></h2>
-
-       
             
             <?php echo exhibit_builder_page_text(); ?>
 
@@ -213,29 +210,43 @@ $_SESSION['themes_uri'] = uri();
             	}
             }
             
-            echo '<div class="container">';
-            echo 	$themeHTML;
+            
             echo '</div>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+            
+            
+            echo '<div class="row">';
+            echo 	'<div class="twelve columns">';
+            
+            echo 		$themeHTML;
 
-            echo '<div class="theme-centre-outer theme-title-row-collapsed">';
-            echo 	'<div class="theme-center-middle">';
-            echo 		'<div class="theme-center-inner">';
-            echo 			'<div class="container">';
-            echo 				'<div class="themes-left">';
-            echo 					$themesLeft;
-            echo 				'</div>';
-            echo 				'<div class="themes-right">';
-            echo 					$themesRight;
+//            echo '<div class="row">';
+ //           echo '<div class="row">';
+            
+
+            echo 		'<div class="theme-centre-outer theme-title-row-collapsed">';
+            echo 			'<div class="theme-center-middle">';
+            echo 				'<div class="theme-center-inner">';
+            echo 					'<div class="container">';
+            echo 						'<div class="themes-left">';
+            echo 							$themesLeft;
+            echo 						'</div>';
+            echo 						'<div class="themes-right">';
+            echo 							$themesRight;
+            echo 						'</div>';
+            echo 					'</div>';
             echo 				'</div>';
             echo 			'</div>';
             echo 		'</div>';
+            
+            
             echo 	'</div>';
             echo '</div>';
             
-            
             ?>
-        </div>
-    </div>
     
     
     <?php
