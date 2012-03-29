@@ -196,7 +196,12 @@ input[type="text"], input[type="password"], input[type="email"], textarea, selec
 	border:		1px solid #C6C6C6 !important;
 	width:		auto !important;				/* keep info link inside image*/
 }
-			
+
+#in-focus, #in-focus img{
+    max-width:    100%    !important;
+    width:        100%    !important;
+}
+
 #exhibit-item-infocus-item{
 	position:	relative;
 }
