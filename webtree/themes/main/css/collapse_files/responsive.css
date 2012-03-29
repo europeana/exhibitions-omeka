@@ -125,6 +125,20 @@ body{
 }
 
 
+/* ----- browse items ----- */
+
+.browse-items-half-row{
+	display:	table-row;
+}
+
+.browse-items-item{
+	width:		50%;
+	float:		left;
+	text-align:	center;
+	overflow:	hidden; /* from theme-center-outer */
+}
+
+/* ----- end browse items ----- */
 
 
 
