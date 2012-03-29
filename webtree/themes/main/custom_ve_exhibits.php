@@ -136,7 +136,7 @@ function ve_exhibit_builder_exhibit_display_item_responsively($displayFilesOptio
 // RESPONSIVE DESIGN ADDITION
 
 
-function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(), $linkProperties = array())
+function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(), $linkProperties = array(), $titleOnly = false, $withoutTitle = false)
 {
     $item = get_current_item();
     $fileIndex = 0; // Always just display the first file (may change this in future).
@@ -148,7 +148,11 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
     $html = '';
 
     if ($file) {
-
+    	
+    	if($titleOnly){ /* responsive change */
+    		return '<div id="exhibit-item-title-only"><h4>' . item('Dublin Core', 'Title') . '</h4></div>';
+    	}
+    	 
         $mime = $file->getMimeType();
 
         if (preg_match("/^image/", $mime)) {
@@ -175,10 +179,15 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
             $html .= '<video src="' . file_display_uri($file, $format = 'archive') . '" width="460" height="340"></video>';
         }
         $html .= '</div>';
-        $html .= '<div id="exhibit-item-title"><h4>' . item('Dublin Core', 'Title') . '</h4></div>';
+        
+        if(!$withoutTitle){ /* responsive change */
+        	$html .= '<div id="exhibit-item-title"><h4>' . item('Dublin Core', 'Title') . '</h4></div>';
+        }
+        
     } else {
         $html .= '<h2>' . item('Dublin Core', 'Title') . '</h2>';
     }
+    
     return $html;
 }
 

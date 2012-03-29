@@ -230,13 +230,13 @@ em {
 }
 
 #exhibit-item-infocus-item img {
-    max-width: 460px;
+    xxxmax-width: 460px;
 }
 
 div#in-focus,
 #__seadragon1
 {
-    width: 460px;
+    xxxwidth: 460px;
 	z-index: 100;
     text-align: center;
 }
@@ -335,7 +335,7 @@ body.exhibit-item-show #exhibit-item-title {
 }
 
 .exhibit-item-show #in-focus img {
-    max-width: 460px;
+    xxxxxxxxxxxmax-width: 460px;
 }
 
 /* ITEMS BROWSE / PAGE NAV ********************************/

@@ -89,16 +89,25 @@ body{
 /* ----- horizontal centering utility ----- */
 
 .theme-center-outer{
+	
+	max-width: 100% !important;
+	
 	overflow:	hidden;
 }
 
 .theme-center-middle{
+	
+	max-width: 100% !important;
+	
 	position:	relative;
 	left:		50%;
 	float:		left;
 }
 
 .theme-center-inner{
+	max-width: 100% !important;
+	
+	
 	position:	relative;
 	right:		50%;
 	float:		left;
@@ -208,13 +217,36 @@ input[type="text"], input[type="password"], input[type="email"], textarea, selec
 /* zoomit not visible while offline - use border for now */
 #in-focus{
 	border:		1px solid #C6C6C6 !important;
-	width:		auto !important;				/* keep info link inside image*/
+	xxxwidth:		auto !important;				/* keep info link inside image*/
 }
 
-#in-focus, #in-focus img{
+
+#in-focus img{
     max-width:    100%    !important;
-    width:        100%    !important;
 }
+
+
+
+#in-focus{
+	max-width:    100%    !important;
+}
+
+/*
+#exhibit-item-infocus-item{
+	max-width:    100%    !important;
+}
+
+tr, tbody, table{
+	max-width:    100%    !important;
+	
+}
+*/
+
+table{
+	table-layout: fixed;
+}
+
+
 
 #exhibit-item-infocus-item{
 	position:	relative;
@@ -238,6 +270,7 @@ input[type="text"], input[type="password"], input[type="email"], textarea, selec
 
 #tbl-exhibit-item tbody tr td.content{
 	width:		auto;
+	max-width:	100% !important;
 }
 			
 #tbl-exhibit-item tbody tr td.navigate{

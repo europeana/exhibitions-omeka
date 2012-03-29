@@ -5,6 +5,7 @@
 ?>
 
 <link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
+
 	<div class="twelve columns">
 	    <div class="return-nav">
 		    <?php echo ve_return_to_exhbit($queryString); ?>

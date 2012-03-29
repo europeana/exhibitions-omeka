@@ -21,6 +21,21 @@ $story = $page->title
 <div class="row">
 	<div class="six columns push-six">
 	
+	
+		<!-- style>
+			#in-focus {
+			  xxxxmax-width: 100% !important;
+			  
+			  xxxwidth: auto !important; /* remove 100% rule from responsive.css */ 
+			}
+			#in-focus img {
+			  max-width: 100% !important;
+			  
+			  xxxxwidth: auto !important; /* remove 100% rule from responsive.css */ 
+			}
+		</style-->
+	
+		
 	    <?php if (exhibit_builder_use_exhibit_page_item(1)): ?>
 
 	    <div id="exhibit-item-infocus" class="exhibit-item">
@@ -33,14 +48,36 @@ $story = $page->title
 					<td class="content">
 				        
 				        <div id="exhibit-item-infocus-item" style="text-align:center;">
-					        <div id="exhibit-item-infocus-header">
-					            <?php echo ve_exhibit_builder_exhibit_display_item_info_link(array('imageSize' => 'fullsize')); ?>
-					        </div>
-				        	<!-- RESPONSIVE DESIGN CHANGE -->
-				            <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
-				            <?php //echo ve_exhibit_builder_exhibit_display_item_responsively(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
-				        	<!-- END RESPONSIVE DESIGN CHANGE -->
-				        	
+				        
+							<div class="theme-center-outer" andy="section-intro">		
+								<div class="theme-center-middle">		
+									<div class="theme-center-inner">
+				        
+
+																		
+									        <div id="exhibit-item-infocus-header">
+									            <?php echo ve_exhibit_builder_exhibit_display_item_info_link(array('imageSize' => 'fullsize')); ?>
+									        </div>
+				
+								            <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1'), false, true); ?>
+								            <?php //echo ve_exhibit_builder_exhibit_display_item_responsively(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
+
+
+								            							            
+							            
+									</div>
+								</div>
+							</div>
+
+							<!-- long titles can break the layout (by moving the info link out of the image) so displayed separately -->
+							<div class="theme-center-outer">		
+								<div class="theme-center-middle">		
+									<div class="theme-center-inner">		
+										<?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1'), true, false); ?>
+									</div>
+								</div>
+							</div>
+							
 				        </div>
 				        
 					</td>
