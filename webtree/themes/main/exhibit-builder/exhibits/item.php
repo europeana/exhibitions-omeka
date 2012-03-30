@@ -1,44 +1,74 @@
-<?php head(array('bodyid'=>'exhibit','bodyclass'=>'exhibit-item-show')); ?>
+<?php head(array('title' => item('Dublin Core', 'Title'), 'bodyid' => 'items', 'bodyclass'=>'exhibit-item-show')); ?>
+<?php
+  $returnPoint = $_SERVER['HTTP_REFERER'];
+  $queryString = '?tags=' . $_GET['tags'] . '&theme=' . $_GET['theme'];
+?>
 
-<link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
 
-<div class="items grid_16">
-    <div class="return-nav">
+<!-- <div class="row"> opened in header.... -->
 
-           <?php echo ve_return_to_exhbit(); ?>
+	<div class="twelve columns">
+	    <div class="return-nav">
+			<div class="" style="float:left;">
+				<?php echo ve_return_to_exhbit(); ?>
+			</div>
+			
+			<?php if($returnPoint): ?>
+				<div style="float:right;">
+					<a class="widget" href="<?php echo uri('items/browse') . $queryString; ?>">
+						<span class="icon arrow left"></span>
+						<?php echo ve_translate('back', 'Back');?>
+					</a>
+				</div>
+			<?php endif; ?>
+	    
+	    </div>
+	</div>
+	
+</div>	<!-- end row -->
 
+
+<div class="row">
+
+	<div class="six columns"  style="margin-bottom:3em;">
+        <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
     </div>
-<div class="grid_8 alpha">
 
-    <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
+    <div class="six columns" style="margin-bottom:3em;">
 
-    <?php
-        if(!$exhibit){
-            $exhibit = exhibit_builder_get_current_exhibit();
-        }
-        $showComments = ve_get_providers_key($exhibit->credits,'comments');
-    ?>
+<!--        <ul class="item-pagination navigation">-->
+<!--            <li id="previous-item" class="previous">--><?php //echo link_to_previous_item('Previous Item'); ?><!--</li>-->
+<!--            <li id="next-item" class="next">--><?php //echo link_to_next_item('Next Item'); ?><!--</li>-->
+<!--        </ul>-->
 
-    <?php if ($showComments == true): ?>
-
-    <script language="javascript" type="text/javascript">
-	var idcomments_acct = 'd146fd0062a40da4872b2d1fb16aadae';
-    var idcomments_post_id;
-    var idcomments_post_url;
-    </script>
-    <span id="IDCommentsPostTitle" style="display:none"></span>
-    <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
-
-    <?php endif; ?>
+        <!--<?php //echo show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?> -->
+        <?php echo ve_custom_show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?>
+    </div>
 </div>
 
-<div class="grid_8 omega">
-<!--	--><?php //echo show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?>
-	<?php echo ve_custom_show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?>
-</div>
 
-</div>
 
-<div class="clear"></div>
+<?php
+	try {
+		//echo("RECORD ID = " . $_POST['record_id']);
+		//commenting_echo_comments();
+		//commenting_echo_comment_form();	
+	}
+	catch (Exception $e) {
+	    echo('Error: ' . $e->getMessage());
+	}		
+?>
+
+
 
 <?php foot(); ?>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	if(typeof setThemePaths != "undefined"){
+	   setThemePaths("<?php echo $_GET['theme']; ?>");
+	}
+});
+</script>
+
+<link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
