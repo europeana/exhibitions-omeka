@@ -164,7 +164,23 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
                 $html .= display_file($file, $displayFilesOptions, $fileWrapperClass);
             }
             else {
-                $html .= '<script type="text/javascript" language="javascript" src="' . $zoomify . '.js?width=100%"></script>';
+            	/* responsive zoomit needs 100% width and height, together with an invisible image positioned in the same place to lend it dimensions */
+                $html .= '<style>';
+                $html .= '#__seadragon1{';
+                $html .= 	'position:absolute;';
+                $html .= 	'width:100% !important;';
+                $html .= 	'height:100% !important;';
+                $html .= 	'top:0px;';
+                $html .= '}';
+                $html .= '#zoomit_dimensioned_wrapper img{';
+                $html .= 	'visibility:hidden;';
+                $html .= '}';
+                $html .= '</style>';
+                
+                $html .= '<div id="zoomit_dimensioned_wrapper">';
+	                $html .= display_file($file, $displayFilesOptions, $fileWrapperClass);
+	                $html .= '<script type="text/javascript" language="javascript" src="' . $zoomify . '.js?width=100%"></script>';
+                $html .= '</div>';
             }
         }
         elseif (preg_match("/^audio/", $mime)) {
