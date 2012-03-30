@@ -83,6 +83,8 @@ function ve_set_exhibit_js()
         echo '<script type="text/javascript">setThemePaths("'.$_GET['theme'].'")</script>';
     }
 
+    
+    echo js('seadragon-min/seadragon-min');
     echo js('jquery.cookie');
     echo js('mediaelement/build/mediaelement-and-player');
     echo js('global');
