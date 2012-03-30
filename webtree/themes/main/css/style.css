@@ -64,6 +64,11 @@ em {
 #main-breadcrumbs {
     height: 32px;
     line-height: 32px;
+    
+    
+    /* Dean's font size */
+    font-size: 0.813em;
+    
 }
 
 #top-navigation a:link,

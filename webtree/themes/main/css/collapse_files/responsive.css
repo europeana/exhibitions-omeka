@@ -1,10 +1,29 @@
 /* theming */
 
-body{
-	width:		100%;
-	font-size:	100% !important;
+/* Dean's font size */
+html{
+	font-family: Arial, Helvetica, sans-serif;
+	/*
+	font-size: 100%;
+	font-style: normal;
+	font-weight: 400;
+	*/
+	line-height: 1.406;	
 }
 
+
+
+body{
+	width:		100%;
+}
+
+
+/* Dean's font size 
+p {
+      font-size: 0.95em;
+      text-align: justify;
+}
+*/
 
 #site-title{
 	height:		25%;	
@@ -217,7 +236,6 @@ input[type="text"], input[type="password"], input[type="email"], textarea, selec
 /* zoomit not visible while offline - use border for now */
 #in-focus{
 	border:		1px solid #C6C6C6 !important;
-	xxxwidth:		auto !important;				/* keep info link inside image*/
 }
 
 
@@ -231,16 +249,6 @@ input[type="text"], input[type="password"], input[type="email"], textarea, selec
 	max-width:    100%    !important;
 }
 
-/*
-#exhibit-item-infocus-item{
-	max-width:    100%    !important;
-}
-
-tr, tbody, table{
-	max-width:    100%    !important;
-	
-}
-*/
 
 table{
 	table-layout: fixed;
