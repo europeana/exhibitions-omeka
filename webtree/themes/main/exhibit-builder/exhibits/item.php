@@ -10,7 +10,7 @@
 	<div class="twelve columns">
 	    <div class="return-nav">
 			<div class="" style="float:left;">
-				<?php echo ve_return_to_exhbit(); ?>
+				<?php echo ve_return_to_exhbit($queryString); ?>
 			</div>
 			
 			<?php if($returnPoint): ?>
