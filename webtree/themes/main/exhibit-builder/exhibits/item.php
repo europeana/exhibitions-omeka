@@ -10,7 +10,12 @@
 	<div class="twelve columns">
 	    <div class="return-nav">
 			<div class="" style="float:left;">
-				<?php echo ve_return_to_exhbit($queryString); ?>
+			
+				
+				<?php if(strlen($_GET['theme']) > 0 ): ?>
+					<?php echo ve_return_to_exhbit($queryString); ?>
+				<?php endif; ?>
+				
 			</div>
 			
 			<?php if($returnPoint): ?>
