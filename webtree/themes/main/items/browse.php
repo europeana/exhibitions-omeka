@@ -4,7 +4,6 @@
   $queryString = '?tags=' . $_GET['tags'] . '&theme=' . $_GET['theme']; 
 ?>
 
-<link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
 
 	<div class="twelve columns">
 	    <div class="return-nav">
@@ -77,6 +76,7 @@
 </div>
 
 
+<link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
 
 <?php foot(); ?>
 
