@@ -103,8 +103,12 @@
 
 <?php if (isset($_GET['theme'])): ?>
     <script type="text/javascript" language="javascript">
+
         jQuery(document).ready(function() {
-            setThemePaths("<?php echo $_GET['theme']; ?>");
+    		//alert("main/common/footer     setThemePaths();");
+    		if(typeof(setThemePaths) != "undefined"){
+	            setThemePaths("<?php echo $_GET['theme']; ?>");
+       		}
         });
     </script>
 <?php endif; ?>

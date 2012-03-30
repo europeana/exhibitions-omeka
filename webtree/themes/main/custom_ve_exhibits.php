@@ -164,7 +164,7 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
                 $html .= display_file($file, $displayFilesOptions, $fileWrapperClass);
             }
             else {
-                $html .= '<script type="text/javascript" language="javascript" src="' . $zoomify . '.js?width=auto"></script>';
+                $html .= '<script type="text/javascript" language="javascript" src="' . $zoomify . '.js?width=100%"></script>';
             }
         }
         elseif (preg_match("/^audio/", $mime)) {

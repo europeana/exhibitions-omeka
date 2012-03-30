@@ -235,7 +235,7 @@ input[type="text"], input[type="password"], input[type="email"], textarea, selec
 
 /* zoomit not visible while offline - use border for now */
 #in-focus{
-	border:		1px solid #C6C6C6 !important;
+	xxxborder:		1px solid #C6C6C6 !important;
 }
 
 
@@ -248,6 +248,16 @@ input[type="text"], input[type="password"], input[type="email"], textarea, selec
 #in-focus{
 	max-width:    100%    !important;
 }
+
+
+
+/* forces zoomit dimensions but loses centering..... */
+/*
+#in-focus, #__seadragon1, .theme-center-inner, .theme-center-middle{
+	width:    100%    !important;
+}
+*/
+
 
 
 table{

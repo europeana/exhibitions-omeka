@@ -30,11 +30,11 @@
 
 <div class="row">
 
-	<div class="six columns">
+	<div class="six columns"  style="margin-bottom:3em;">
         <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
     </div>
 
-    <div class="six columns">
+    <div class="six columns" style="margin-bottom:3em;">
 
 <!--        <ul class="item-pagination navigation">-->
 <!--            <li id="previous-item" class="previous">--><?php //echo link_to_previous_item('Previous Item'); ?><!--</li>-->
@@ -46,29 +46,27 @@
     </div>
 </div>
 
-	
 <?php
 	try {
 		//echo("RECORD ID = " . $_POST['record_id']);
-		commenting_echo_comments();
-		commenting_echo_comment_form();	
+		//commenting_echo_comments();
+		//commenting_echo_comment_form();	
 	}
 	catch (Exception $e) {
 	    echo('Error: ' . $e->getMessage());
 	}		
 ?>
-	</div>
-</div>
-	
-    
 
-</div><!-- end primary -->
+
+
+<?php foot(); ?>
+
 <script type="text/javascript">
 jQuery(document).ready(function() {
-   setThemePaths("<?php echo $_GET['theme']; ?>");
+	if(typeof setThemePaths != "undefined"){
+	   setThemePaths("<?php echo $_GET['theme']; ?>");
+	}
 });
 </script>
 
 <link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
-
-<?php foot(); ?>
