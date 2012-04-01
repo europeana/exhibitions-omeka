@@ -10,23 +10,8 @@
 	<div class="twelve columns">
 	    <div class="return-nav">
 			<div class="" style="float:left;">
-			
-				
-				<?php if(strlen($_GET['theme']) > 0 ): ?>
-					<?php echo ve_return_to_exhbit($queryString); ?>
-				<?php endif; ?>
-				
+				<?php echo ve_return_to_exhbit(); ?>
 			</div>
-			
-			<?php if($returnPoint): ?>
-				<div style="float:right;">
-					<a class="widget" href="<?php echo uri('items/browse') . $queryString; ?>">
-						<span class="icon arrow left"></span>
-						<?php echo ve_translate('back', 'Back');?>
-					</a>
-				</div>
-			<?php endif; ?>
-	    
 	    </div>
 	</div>
 	
