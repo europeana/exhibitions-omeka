@@ -178,34 +178,3 @@ $story = $page->title
     viewer.openDzi("logo.dzi");
 </script>
 
-
-<script type="text/javascript">
-//alert("layout\n(plugins ExhibitBuilder views shared exhibit_layouts europeana-story-section)\n\n try to make gallery");
-var suffixes = {
-	<?php
-		//$BREAKPOINTS = explode("~", get_option('euresponsive_breakpoints'));
-		$IMAGEWIDTHS = explode("~", get_option('euresponsive_imagewidths'));
-		for ($i = 0; $i < sizeof($IMAGEWIDTHS); $i++) {
-			$j = $i+1;
-			if($IMAGEWIDTHS[$i]>-1){
-			  echo "'".$j."': '_euresponsive_".$j.".jpg'";
-			}
-			else{
-			  echo "'".$j."': 'z'".PHP_EOL;
-			}
-			if($j<sizeof($IMAGEWIDTHS)){
-			 	echo ",";
-			}
-			echo PHP_EOL;
-
-		}
-	?>
-};
-responsiveGallery({
-	scriptClass:	'dirty-script',
-	testClass:		'euresponsive-width',
-	initialSuffix:	'_euresponsive_1.jpg',
-	suffixes :		suffixes
-});
-
-</script>

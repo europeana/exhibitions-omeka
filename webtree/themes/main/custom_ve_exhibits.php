@@ -51,6 +51,7 @@ function ve_exhibit_builder_zoomit_uri()
  * 		<img>		->		gets wrapped in noscript tag
  * 		<script>	->		gets inserted
  */
+/*
 function ve_exhibit_builder_exhibit_display_item_responsively($displayFilesOptions = array(), $linkProperties = array())
 {
 	$zoomify = ve_exhibit_builder_zoomit_uri();
@@ -121,7 +122,8 @@ function ve_exhibit_builder_exhibit_display_item_responsively($displayFilesOptio
 	$result = str_replace("</noscript>", "</noscript -->",	$result);
 	
 	return $result;
-	
+}
+*/
 	
 	/*
 	return '<div id="in-focus" class="image">'
@@ -132,7 +134,8 @@ function ve_exhibit_builder_exhibit_display_item_responsively($displayFilesOptio
 			. '</div>'
 			. '<div id="exhibit-item-title"><h4>Drageoir </h4></div>';
 	*/
-}
+
+
 // RESPONSIVE DESIGN ADDITION
 
 
@@ -161,7 +164,23 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
             //            echo strlen($zoomify);
             // ZOOMABLE? Check if it's a zoomify image on intial load
             if (!strlen($zoomify) > 0) {
-                $html .= display_file($file, $displayFilesOptions, $fileWrapperClass);
+            	
+            	// origianl code (1 line)
+                //$html .= display_file($file, $displayFilesOptions, $fileWrapperClass);
+
+            	// (i.e. <div id="in-focus" class="image"><img src="http://127.0.0.1/ombad/webtree/archive/fullsize/mastercrafts_story1_image2_5cadfdd557.jpg" class="full" alt="Vase : Orph\xc3\xa9e"/>\n</div>)
+            			
+                // new code (wrapped in script)
+
+            	$imgHtml	= display_file($file, $displayFilesOptions, $fileWrapperClass);
+            	$imgHtml	= str_replace(".jpg", "_euresponsive_1.jpg",	$imgHtml);
+            	$imgHtml	= str_replace("/fullsize/", "/euresponsive/",	$imgHtml);
+                
+                $html .= '<script class="euresponsive-script">document.write("<" + "!--")</script>';
+                $html .= '<noscript>';
+                $html .=  $imgHtml; //  '<img src="http://127.0.0.1/ombad/archive/euresponsive/mastercraft_intro_11e5245b91_euresponsive_1.jpg" class="full" alt="Drageoir"/>'
+                $html .= '</noscript -->';
+                
             }
             else {
             	/* responsive zoomit needs 100% width and height, together with an invisible image positioned in the same place to lend it dimensions */
@@ -203,6 +222,8 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
     } else {
         $html .= '<h2>' . item('Dublin Core', 'Title') . '</h2>';
     }
+    
+    error_log (" OUTPUT HTML = " . $html);
     
     return $html;
 }

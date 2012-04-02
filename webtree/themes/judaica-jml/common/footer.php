@@ -85,7 +85,9 @@
 			</script>
 			
 			<script type="text/javascript">
+//				alert("call responsive gallert in judaica-jml/common/footer");
 				responsiveGallery({
+					//scriptClass: 'euresponsive-script',
 					scriptClass: 'euresponsive-script',
 					testClass: 'euresponsive',
 					initialSuffix: '_euresponsive_1.jpg',

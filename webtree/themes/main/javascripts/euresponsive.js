@@ -33,7 +33,7 @@
 				);
 
 
-				if(useZoomit){ // zoomify: here we hard code the sample, integration with current europeana plugin will involve obtaining the correct zoomit url
+				if(false && useZoomit){ // zoomify: here we hard code the sample, integration with current europeana plugin will involve obtaining the correct zoomit url
 					var x = '' + 
 					'<div id="exhibit-item-infocus-item">' +
 						'<div class="image" id="in-focus">' +
@@ -94,6 +94,7 @@
 					this.container.innerHTML = x;	
 				}
 				else{
+//					alert("this.container.innerHTML = \n\n" + newHtmlStr);
 					this.container.innerHTML = newHtmlStr;
 					//this.container.innerHTML = "<img src=\"\/archive\/euresponsive\/" + imageStem + newSuffix + "\" \/>";
 				}
@@ -103,6 +104,7 @@
 			
 			window.responsiveGallery = function(args) {
 				
+//				alert("responsive gallery constructor");
 				// fn to measure the size of the suffixes associative array
 				if(typeof Object.prototype.size == "undefined"){					
 					Object.prototype.size = function () {
@@ -128,6 +130,8 @@
 				for ( var i = scripts.length; i--; ) {
 					var script = scripts[i];
 					
+//					alert("script == args.scriptClass\n\n" + script + " == " + args.scriptClass);
+					
 					if ( hasClass(script, args.scriptClass) ) {
 						galleries.push( new Gallery(script) );
 					}
@@ -135,6 +139,7 @@
 
 				function respond() {
 					var newSuffix = args.suffixes[testDiv.offsetWidth] || args.initialSuffix;
+//					alert("respond.... newSuffix = " + newSuffix + " galleries.length = " + galleries.length);
 					
 					if (newSuffix === lastSuffix) {
 						return;

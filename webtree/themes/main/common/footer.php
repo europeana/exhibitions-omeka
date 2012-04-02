@@ -82,6 +82,7 @@
             
 
    	<script type="text/javascript">
+//	alert("call responsive gallery in main/common/footer");
 	
 	responsiveGallery({
 		scriptClass: 'euresponsive-script',

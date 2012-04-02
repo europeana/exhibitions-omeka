@@ -23,7 +23,7 @@ class EUResponsivePlugin extends Omeka_Plugin_Abstract
     {
     	$BREAKPOINTS = array();
     	$IMAGEWIDTHS = array();
-    	$ZOOMIT		 = 0;
+    	//$ZOOMIT		 = 0;
     	
     	$i = 0;
     	while($_POST['breakpoint_' . $i] && is_numeric($_POST['breakpoint_' . $i])){
@@ -37,13 +37,13 @@ class EUResponsivePlugin extends Omeka_Plugin_Abstract
 	    	$i += 1;
     	}
     	
-    	if( $_POST['zoomit']){
-    		$ZOOMIT = 1;
-    	}
+    	//if( $_POST['zoomit']){
+    	//	$ZOOMIT = 1;
+    	//}
     			
         set_option('euresponsive_breakpoints',	implode("~", $BREAKPOINTS) );
         set_option('euresponsive_imagewidths',	implode("~", $IMAGEWIDTHS) );
-        set_option('euresponsive_zoomit',		$ZOOMIT);
+        //set_option('euresponsive_zoomit',		$ZOOMIT);
         
         $collections = get_collections();
    		for ($i = 0; $i < sizeof($collections); $i++) {
@@ -69,6 +69,8 @@ class EUResponsivePlugin extends Omeka_Plugin_Abstract
     
     protected static function generateResponsiveImagesForItem($item)
 	{
+		error_log("");
+		
 		$IMAGEWIDTHS = explode("~", get_option('euresponsive_imagewidths'));
 	  	$path = item_fullsize(null, 0, $item);
 		$istart = substr($path, stripos($path, '"') + 1);
@@ -84,10 +86,6 @@ class EUResponsivePlugin extends Omeka_Plugin_Abstract
 		$nameStem = $nameStem['filename'];
 
 		for ($i = 0; $i < sizeof($IMAGEWIDTHS); $i++) {
-			//if($i+1==sizeof($IMAGEWIDTHS) && $IMAGEWIDTHS[$i]=="-1"){ // skip the zoomit image width
-	 	    //    error_log("Skipping image creation for zoomit");
-			//	continue;
-			//}
 			
 			if(strlen($nameStem)>0){
 				$j = $i+1;
@@ -98,7 +96,8 @@ class EUResponsivePlugin extends Omeka_Plugin_Abstract
 	        	     '-resize ' . escapeshellarg($IMAGEWIDTHS[$i].'>'),
 	        	     $newFilePath
 	       		));
-	 	       exec($command, $result_array, $result_value);
+				exec($command, $result_array, $result_value);
+				error_log("EURESPONSIVE - generated image " . $IMAGEWIDTHS[$i]);
 			}
 			
  	       

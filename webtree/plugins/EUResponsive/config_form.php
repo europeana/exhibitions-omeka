@@ -21,7 +21,7 @@
 			// load data into js
 			$BREAKPOINTS	= get_option('euresponsive_breakpoints');
 			$IMAGEWIDTHS	= get_option('euresponsive_imagewidths');
-			$ZOOMIT			= get_option('euresponsive_zoomit');
+			//$ZOOMIT			= get_option('euresponsive_zoomit');
 			if($BREAKPOINTS){
 				$BREAKPOINTS = explode("~", $BREAKPOINTS);
 				echo("definedBreakpoints = [".implode(",",$BREAKPOINTS)."];");
@@ -30,12 +30,12 @@
 				$IMAGEWIDTHS = explode("~", $IMAGEWIDTHS);
 				echo("definedImagewidths = [".implode(",",$IMAGEWIDTHS)."];");
 			}
-			if($ZOOMIT){
-				echo("zoomit = true;");
-			}
-			else{
-				echo("zoomit = false;");
-			}
+			//if($ZOOMIT){
+			//	echo("zoomit = true;");
+			//}
+			//else{
+			//	echo("zoomit = false;");
+			//}
 		?>
 		
 		addBreakpoint();
@@ -51,9 +51,9 @@
 			document.getElementById("imagewidth_" + i).value = definedImagewidths[i];
 		}
 
-		if(zoomit){
-			document.getElementById("zoomit").checked = true;
-		}
+		//if(zoomit){
+		//	document.getElementById("zoomit").checked = true;
+		//}
 		
 		// add key listener for enabling/disabling of submit button
 		
@@ -110,7 +110,7 @@
 		document.getElementById("breakpoints").appendChild(elAddLink);
 		
 		// add "zoomit" checkbox
-		configZoomit(elBreakpoint);
+		//configZoomit(elBreakpoint);
 		enableSubmit();
 	}
 
@@ -140,6 +140,7 @@
 
 
 	// add "zoomit" checkbox
+	/*
 	function configZoomit(elBreakpoint){
 		var elZoomitOld = getElementsByClassName("euresponsive_zoomit");
 		var elZoomitCheckVal = false;
@@ -177,6 +178,7 @@
 		elBreakpoint.appendChild(elZoomitLabel);
 		elZoomit.checked = elZoomitCheckVal;
 	}
+	*/
 
 	function removeBreakpoint(number){
 		var breakpoints = getElementsByClassName("breakpoint");
@@ -204,7 +206,7 @@
 				configRemoveLink(elRemove, i);
 			}
 		}		
-		configZoomit();
+		//configZoomit();
 		enableSubmit();
 	}
 
@@ -273,12 +275,24 @@ A single breakpoint is configured with two values:
 </ul>
 <p>
 The former should be greater than the latter, and multiple breakpoints should be listed in ascending order.
-Checking the "zoomit" checkbox will override the image width property for that breakpoint, and will instead load the zoomit plugin.
 </p>
+<p>
+Following this configuration not all images on the website become responsive - only the largest ones do, ie:
+<ul style="list-style: disc inside">
+  <li>The main image on the exhibition overview page</li>
+  <li>The main image on a section intro page</li>
+  <li>The main image on a section page</li>
+  <li>The main image on the view item page</li>
+</ul>
+</p>
+<p>
+Bear in mind too that responsive images will only be generated if the specified size is smaller than that of the original image (the largest image in the system at the time of writing is 520px wide).
+</p>
+
 <br><br>
 <label style="margin-left:187px;">Screen W | Image W</label>
 <br><br>
 <div id="breakpoints"></div>
 <p>
-Note: some omeka themes seem to impose a minimum width on the page: make sure your break points fit within the available viewport width range.
+Finally, be warned: by clicking "Save Changes" you tell Omeka to generate copies of all the images it has in the system.  This may take a while, during which you should not interupt the system until it has finished.
 </p>

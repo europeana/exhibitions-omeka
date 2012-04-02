@@ -1,5 +1,3 @@
-
-
 <?php
 $name = ve_get_exhibit_name_from_slug();
 $itemInfo = ve_get_exhibit_item_info_by_tag($name.'-featured', 'archive');
@@ -40,8 +38,35 @@ unset($_SESSION['themes_uri']);
         
             <div id="exhibit-image-border"></div>
      		<img id="exhibit-shadow" src="">
-            <div id="crop-div">
-            	<img src="<?php echo $src; ?>"/>
+
+            <div id="crop-div" style="line-height:0px;">
+
+            	<?php
+            	echo($src);
+            		//http://127.0.0.1/ombad/webtree/archive/files/ef2e4daf8056f4bf1c6e6138a249438b.jpg
+            	
+            		$imgSrc	= str_replace(".jpg", "_euresponsive_1.jpg",	$src);
+            		$imgSrc	= str_replace("/files/", "/euresponsive/",		$imgSrc);
+            	?>
+            	
+            	
+            	<?php if(! fopen($imgSrc, "r")): ?>
+            			<img src="<?php echo $src ?>"/>
+            	<?php endif; ?>
+            	
+            	<?php if(  fopen($imgSrc, "r")): ?>
+
+            			<script class="euresponsive-script">document.write("<" + "!--")</script>
+						<noscript>
+            			<img src="<?php echo $imgSrc; ?>"/>
+						</noscript -->
+            	
+            	<?php endif; ?>
+            	
+            	
+            	
+            	
+            	
             </div>
             
             <script type="text/javascript">
@@ -103,12 +128,7 @@ unset($_SESSION['themes_uri']);
 
                 ?>
             </div>
-            
-            
         </div>
-
-
-        
     </div>
     
     

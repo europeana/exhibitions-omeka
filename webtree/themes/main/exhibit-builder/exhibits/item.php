@@ -19,7 +19,6 @@
 
 
 <div class="row">
-
 	<div class="six columns"  style="margin-bottom:3em;">
         <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
     </div>
@@ -37,6 +36,9 @@
 </div>
 
 
+<div class="row">
+	<div class="twelve columns">
+
 <?php
 	try {
 		commenting_echo_comments();
@@ -46,7 +48,8 @@
 	    echo('Error: ' . $e->getMessage());
 	}		
 ?>
-
+	</div>
+</div>
 
 
 <?php foot(); ?>
