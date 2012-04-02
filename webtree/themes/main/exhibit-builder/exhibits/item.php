@@ -36,11 +36,9 @@
     </div>
 </div>
 
-COMMENTS...
 
 <?php
 	try {
-		echo("main/exhibit-builder/exhibits/item   RECORD ID = " . $_POST['record_id']);
 		commenting_echo_comments();
 		commenting_echo_comment_form();	
 	}
