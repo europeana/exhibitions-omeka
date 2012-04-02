@@ -56,13 +56,15 @@ function ve_set_exhibits_css()
     
     
     queue_css('style');
+    queue_css('commenting-overrides');
+
+    
     
     //queue_css('blackbird/blackbird');
 
     // Dirty way of maintaining the theme. If there's a theme query string than use path to theme css
     if(!isset($_GET['theme'])) {
         queue_css('theme');
-        
         queue_css('collapse_files/responsive');
         display_css();
     }
@@ -80,7 +82,7 @@ function ve_set_exhibit_js()
     // When browsing items, we move outside of the exhibit themes. The exhibit slug name should be appended to the url
     // so that we can grab the images with the exhibit theme path
     if (isset($_GET['theme'])) {
-        echo '<script type="text/javascript">setThemePaths("'.$_GET['theme'].'")</script>';
+        echo '<script type="text/javascript">if(typeof(setThemePaths) != "undefined"){setThemePaths("'.$_GET['theme'].'");}</script>';
     }
 
     

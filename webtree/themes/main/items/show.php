@@ -47,17 +47,29 @@
 </div>
 
 
-
+<div class="row">
+	<div class="twelve columns">
 <?php
+	echo "themes/main/items/show";
 	try {
-		//echo("RECORD ID = " . $_POST['record_id']);
-		//commenting_echo_comments();
-		//commenting_echo_comment_form();	
+		commenting_echo_comments();
+		commenting_echo_comment_form();	
 	}
 	catch (Exception $e) {
 	    echo('Error: ' . $e->getMessage());
 	}		
 ?>
+	</div>
+</div>
+
+<script type="text/javascript">
+	// fix for disappearing styling bug following comment submission. 
+	var pathField = jQuery("#path");
+	var themeParams = window.document.location.href;
+	themeParams = themeParams.substr(themeParams.indexOf("?"), themeParams.length);
+	pathField.val(pathField.val() + themeParams);
+</script>
+
 
 
 

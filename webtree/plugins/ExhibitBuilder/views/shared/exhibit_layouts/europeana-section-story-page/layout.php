@@ -137,18 +137,42 @@ $story = $page->title
 <?php echo js('seadragon-min'); ?>
 <?php echo js('story'); ?>
 
+
 <?php
-/*
-try {
-	echo("RECORD ID = " . $_POST['record_id']);
-	commenting_echo_comments();
-	commenting_echo_comment_form();
-	
-} catch (Exception $e) {
-    echo('Error: ' . $e->getMessage());
-}
-*/	
+	//echo item('ID');
 ?>
+
+<div class="row">
+	<div class="twelve columns">
+		<?php
+			//echo "plugins/ExhibitBuilder/views/shared/exhibit_layouts/europeana-section-intro-page/layout.php";
+			//try {
+			//	commenting_echo_comments();
+			//	commenting_echo_comment_form();	
+			//}
+			//catch (Exception $e) {
+			//    echo('Error: ' . $e->getMessage());
+			//}		
+		?>
+	</div>
+</div>
+
+<!--script type="text/javascript">
+	// fix for disappearing styling bug following comment submission. 
+	var pathField = jQuery("#path");
+
+	function endsWith(str, suffix) {
+	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+	}
+		
+	alert( endsWith(pathField.val(), "/introduction") );
+//	var themeParams = window.document.location.href;
+//	themeParams = themeParams.substr(themeParams.indexOf("?"), themeParams.length);
+//	pathField.val(pathField.val() + themeParams);
+</script-->
+
+
+
 <script>
     var viewer = new Seadragon.Viewer("div#zoomit-container");
     viewer.openDzi("logo.dzi");

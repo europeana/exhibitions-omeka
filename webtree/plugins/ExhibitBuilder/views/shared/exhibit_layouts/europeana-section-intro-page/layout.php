@@ -90,8 +90,6 @@ $story = $page->title
 	    <?php endif; ?>
 	</div>
 	
-
-	
 	<div class="six columns pull-six" id="story">
 	
 		<div id="exhibit-section-title">
@@ -131,4 +129,43 @@ $story = $page->title
 
 </div>
 
+<div class="row">
+
+<?php
+	//echo item('ID');
+?>
+
+
+	<div class="twelve columns">
+		<?php
+			//echo "plugins/ExhibitBuilder/views/shared/exhibit_layouts/europeana-section-intro-page/layout.php";
+			//try {
+			//	commenting_echo_comments();
+			//	commenting_echo_comment_form();	
+			//}
+			//catch (Exception $e) {
+			//    echo('Error: ' . $e->getMessage());
+			//}		
+		?>
+	</div>
+	
+		
+	<!-- script type="text/javascript">
+		// fix for disappearing styling bug following comment submission.
+		var pathField = jQuery("#path");
+		function endsWith(str, suffix) {
+		    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+		}
+		if(endsWith(pathField.val(), "/introduction")){
+			var newPath = pathField.val().substr(0, pathField.val().length-("/introduction").length);
+			pathField.val(newPath);
+		}
+		
+	//	alert( endsWith(pathField.val(), "/introduction") );
+	//	var themeParams = window.document.location.href;
+	//	themeParams = themeParams.substr(themeParams.indexOf("?"), themeParams.length);
+	//	pathField.val(pathField.val() + themeParams);
+	</script-->
+		
+</div>
 

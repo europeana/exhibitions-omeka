@@ -108,16 +108,12 @@ p {
 /* ----- horizontal centering utility ----- */
 
 .theme-center-outer{
-	
 	max-width: 100% !important;
-	
 	overflow:	hidden;
 }
 
 .theme-center-middle{
-	
-	max-width: 100% !important;
-	
+	max-width: 	100% !important;
 	position:	relative;
 	left:		50%;
 	float:		left;
@@ -125,8 +121,6 @@ p {
 
 .theme-center-inner{
 	max-width: 100% !important;
-	
-	
 	position:	relative;
 	right:		50%;
 	float:		left;
