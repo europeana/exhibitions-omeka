@@ -39,12 +39,9 @@ unset($_SESSION['themes_uri']);
             <div id="exhibit-image-border"></div>
      		<img id="exhibit-shadow" src="">
 
-            <div id="crop-div" style="line-height:0px;">
+            <div id="crop-div" style="line-height:0px; font-size:0px;">
 
             	<?php
-            	echo($src);
-            		//http://127.0.0.1/ombad/webtree/archive/files/ef2e4daf8056f4bf1c6e6138a249438b.jpg
-            	
             		$imgSrc	= str_replace(".jpg", "_euresponsive_1.jpg",	$src);
             		$imgSrc	= str_replace("/files/", "/euresponsive/",		$imgSrc);
             	?>
@@ -55,7 +52,7 @@ unset($_SESSION['themes_uri']);
             	<?php endif; ?>
             	
             	<?php if(  fopen($imgSrc, "r")): ?>
-
+            	
             			<script class="euresponsive-script">document.write("<" + "!--")</script>
 						<noscript>
             			<img src="<?php echo $imgSrc; ?>"/>

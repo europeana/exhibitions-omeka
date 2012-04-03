@@ -59,6 +59,10 @@ $story = $page->title
 									            <?php echo ve_exhibit_builder_exhibit_display_item_info_link(array('imageSize' => 'fullsize')); ?>
 									        </div>
 				
+											<script type="text/javascript">
+											  window.imgUrl = "<?php echo file_display_uri(get_current_item() -> Files[0]); ?>";
+											</script>
+				
 								            <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1'), false, true); ?>
 								            <?php //echo ve_exhibit_builder_exhibit_display_item_responsively(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
 
@@ -131,21 +135,21 @@ $story = $page->title
 
 <div class="row">
 
-<?php
-	//echo item('ID');
-?>
+
+<?php echo js('seadragon-min'); ?>
+<?php echo js('story'); ?>
 
 
 	<div class="twelve columns">
 		<?php
-			//echo "plugins/ExhibitBuilder/views/shared/exhibit_layouts/europeana-section-intro-page/layout.php";
-			//try {
-			//	commenting_echo_comments();
-			//	commenting_echo_comment_form();	
-			//}
-			//catch (Exception $e) {
-			//    echo('Error: ' . $e->getMessage());
-			//}		
+			echo "plugins/ExhibitBuilder/views/shared/exhibit_layouts/europeana-section-intro-page/layout.php";
+			try {
+				commenting_echo_comments();
+				commenting_echo_comment_form();	
+			}
+			catch (Exception $e) {
+			    echo('Error: ' . $e->getMessage());
+			}		
 		?>
 	</div>
 	
@@ -169,3 +173,11 @@ $story = $page->title
 		
 </div>
 
+
+<script type="text/javascript">
+
+	jQuery(document).ready(function(){
+		initZoomit();
+	});
+
+</script>	

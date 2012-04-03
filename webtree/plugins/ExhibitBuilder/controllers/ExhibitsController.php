@@ -136,8 +136,6 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
     
     public function showAction()
     {
-                               	error_log("showAction() exhibits controller");
-
         $exhibit = $this->_findByExhibitSlug();                
         if (!$exhibit) {
             $this->errorAction();    

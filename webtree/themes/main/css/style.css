@@ -270,10 +270,20 @@ div#in-focus,
     text-align: center;
 }
 
+
+
+/*
 #exhibit-item-thumbnails .exhibit-item {
     display: inline;
     margin: 0 0 .25em .25em;
 }
+*/
+#exhibit-item-thumbnails .exhibit-item {
+    margin: 0 0 .25em .25em;
+}
+
+
+
 #exhibit-item-thumbnails .exhibit-item:first-of-type {
     margin-left: .5em;
 }

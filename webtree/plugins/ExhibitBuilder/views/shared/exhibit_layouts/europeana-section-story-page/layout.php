@@ -59,16 +59,23 @@ $story = $page->title
 								<div class="theme-center-middle">		
 									<div class="theme-center-inner">		
 
-										<div style="float:left; position:relative; max-width:100%;">
+										<!--div style="float:left; position:relative; max-width:100%;"-->
 																
 											<div id="exhibit-item-infocus-header">
 												<?php echo ve_exhibit_builder_exhibit_display_item_info_link(array('imageSize' => 'fullsize')); ?>
 											</div>
 											
+											<script type="text/javascript">
+											  window.imgUrl = "<?php echo file_display_uri(get_current_item() -> Files[0]); ?>";
+											</script>
+											
 											<?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1'), false, true); ?>
+
+											
+											
 								            <!--ve_exhibit_builder_exhibit_display_item_responsively(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1'));-->
 								            
-				            			</div>
+				            			<!--/div-->
 				            			
 				            			
 									</div>
@@ -100,9 +107,17 @@ $story = $page->title
 		<?php endif; ?>
     
 		<div class="clear"></div>
-		<div id="exhibit-item-thumbnails">
-			<?php echo ve_exhibit_builder_display_exhibit_thumbnail_gallery(1, 5, array('class' => 'thumb')); ?>
+		<div class="theme-center-outer">		
+			<div class="theme-center-middle">		
+				<div class="theme-center-inner">		
+		
+					<div id="exhibit-item-thumbnails">
+						<?php echo ve_exhibit_builder_display_exhibit_thumbnail_gallery(1, 5, array('class' => 'thumb')); ?>
+					</div>
+				</div>
+			</div>
 		</div>
+					
 	</div>
 
     
@@ -138,21 +153,18 @@ $story = $page->title
 <?php echo js('story'); ?>
 
 
-<?php
-	//echo item('ID');
-?>
 
 <div class="row">
 	<div class="twelve columns">
 		<?php
-			//echo "plugins/ExhibitBuilder/views/shared/exhibit_layouts/europeana-section-intro-page/layout.php";
-			//try {
-			//	commenting_echo_comments();
-			//	commenting_echo_comment_form();	
-			//}
-			//catch (Exception $e) {
-			//    echo('Error: ' . $e->getMessage());
-			//}		
+			echo "plugins/ExhibitBuilder/views/shared/exhibit_layouts/europeana-section-intro-page/layout.php";
+			try {
+				commenting_echo_comments();
+				commenting_echo_comment_form();	
+			}
+			catch (Exception $e) {
+			    echo('Error: ' . $e->getMessage());
+			}		
 		?>
 	</div>
 </div>
@@ -174,47 +186,8 @@ $story = $page->title
 
 
 <script type="text/javascript">
-
-    var viewer = new Seadragon.Viewer("zoomit_window");
-
-
-
-    function onZoomitResponse(resp) {
-            if(resp.error) {
-                // e.g. the URL is malformed or the service is down
-                alert(resp.error);
-                return;
-            }
-    
-        var content = resp.content;
-    
-            if(content.ready) {
-                viewer.openDzi(content.dzi);
-
-            var maxHeight = jQuery("#items").height();
-            var height = content.dzi.height < maxHeight ? content.dzi.height : maxHeight;
-
-            var width = content.dzi.width / (content.dzi.height / height);
-
-            jQuery("#zoomit_window").height(height);
-            jQuery("#zoomit_window").width(width);
-            }
-        else if (content.failed) {
-                alert(content.url + " failed to convert.");
-         }
-        else{
-            alert(content.url + " is " + Math.round(100 * content.progress) + "% done.");
-        }
-    }
-
-    var imgUrl = "<?php echo file_display_uri(get_current_item() -> Files[0]); ?>";
-    jQuery.ajax({
-        url: "http://api.zoom.it/v1/content/?url=" +
-       //encodeURIComponent("http://exhibitions.europeana.eu/archive/files/muse_story1_image2_4bdd98753e.jpg"),
-        encodeURIComponent(imgUrl),
-        dataType: "jsonp",
-        success: onZoomitResponse
-    });
-
-
+	jQuery(document).ready(function(){
+		initZoomit();
+	});
 </script>
+

@@ -86,7 +86,7 @@ function ve_set_exhibit_js()
     }
 
     
-    echo js('seadragon-min/seadragon-min');
+//    echo js('seadragon-min/seadragon-min');
     echo js('jquery.cookie');
     echo js('mediaelement/build/mediaelement-and-player');
     echo js('global');

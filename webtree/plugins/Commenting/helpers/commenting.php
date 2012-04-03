@@ -175,6 +175,14 @@ function commenting_get_model($request = null)
             case 'exhibit-builder':
                 //ExhibitBuilder uses slugs in the params, so need to negotiate around those
                 //to dig up the record_id and model
+                
+            	
+            	error_log("");
+            	error_log("params['page_slug']  " .  $params['page_slug']);
+            	error_log("params['item_id']    " . $params['item_id']);
+            	//error_log("exhibit_builder_get_current_page  " . (exhibit_builder_get_current_page()==NULL) );
+            	//error_log("exhibit_builder_get_current_section  " . (exhibit_builder_get_current_section()==NULL) );
+            	
                 if(!empty($params['page_slug'])) {
                     $page = exhibit_builder_get_current_page();
                     $model = 'ExhibitPage';
@@ -182,6 +190,7 @@ function commenting_get_model($request = null)
                     $model = 'Item';
                 } else {
                     $section = exhibit_builder_get_current_section();
+                    //$model = 'ExhibitPage';
                     $model = 'ExhibitSection';
                 }
                 break;

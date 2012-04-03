@@ -26,7 +26,7 @@ p {
 */
 
 #site-title{
-	height:		25%;	
+	max-height:	25%;	
 	max-width:	50%;
 }
 
@@ -136,7 +136,10 @@ p {
 
 .themes-left, .themes-right{
     float:		left;
+    max-width:	50%;	
 }
+
+
 
 .theme-image{
     clear:		both;
@@ -179,10 +182,14 @@ p {
 #site-title-small{
 	display:		none;
 	position:		relative;
-	top:			-5px;
+	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxtop:			-5px;
+	top:			-2%;
 	float:			left;
 	margin-right:	5px;
-	width:    		53px;
+	
+	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxwidth:    		53px;
+	width:    		13%;
+	
 }
 
 #site-title{
@@ -190,26 +197,75 @@ p {
 }
 
 #site-title-small a img{
-	width:    50px;
+	xwidth:    50px;
 	display:	inline;
+	max-height:	100%;	
+	max-width:	100%;
 }
 
-#top-navigation{
-	margin-bottom:	1.75em;
+
+@media all and (max-width: 320px) {
+
+	#site-title-small{
+		display:		block;
+		top:			0px;
+		margin-right:	5px;
+		margin-top:		2px;
+		height:    		100%;
+		min-width:    	15%;
+	}
+	
+	#site-title-small a img{
+		max-height:	100%;	
+		max-width:	100%;
+	}
+	
+	#main-breadcrumbs{
+		overflow:	hidden;
+	}
+	
+	h1{
+		font-size:	1.2em;
+	}	
 }
 
 @media all and (max-width: 480px) {
+	
 	#site-title-small{
 		display:		block;
 	}
 	#header{
 		display:		none;
 	}
+	
 	#top-navigation{
 		margin-bottom:	0;
 	}
+	
+	/*
+	#main-breadcrumbs{
+		xxbackground-color: orange;
+	}
+	*/
+	
+	#site-title-small{
+		top:			-1px;
+		margin-right:	5px;
+		width:				9%;
+	}
+	
+	#site-title-small a img{
+		max-height:	95%;	
+		max-width:	95%;
+	}
+	
+	
 }
 
+
+#top-navigation{
+	margin-bottom:	1.75em;
+}
 /* ----- end of header & logos ----- */
 
 
@@ -277,7 +333,6 @@ table{
 	vertical-align:		middle !important;
 	padding:			0px !important;
 	background-color:	transparent;
-	width:				0;
 }
 
 #tbl-exhibit-item tbody tr td.content{
@@ -287,6 +342,7 @@ table{
 			
 #tbl-exhibit-item tbody tr td.navigate{
 	display:	none;
+	width:		30px;
 }			
 
 #exhibit-section-title-small{
@@ -302,7 +358,8 @@ table{
 #exhibit-item-thumbnails{
 	margin-bottom:	2em;
 }
-			
+
+					
 @media only screen and (max-width: 767px){
 	#tbl-exhibit-item tbody tr td.navigate{
 		display:	table-cell;
@@ -320,8 +377,40 @@ table{
 		margin-bottom:	0em;
 	}
 }
+
+
+@media only screen and (max-width: 320px){
+	#main-breadcrumbs{
+		font-size: 0.4em;
+		height: 15px;
+		line-height: 15px;
+	}
 	
+	#top-navigation a:link, #top-navigation a:visited{
+		font-weight:	normal;
+	}
+	
+	#top-navigation a{
+		xdisplay: block;
+	}
 }
 
+
+
+#exhibit-item-thumbnails .exhibit-item {
+	display: inline;
+	float:left;	
+}
+
+#exhibit-item-thumbnails img{
+	xxborder:	2px solid red !important;
+	max-width:	100%;
+}
+
+
+
+
+
 /* ----- end of landing page(s) ----- */
+	
 	
