@@ -173,8 +173,48 @@ $story = $page->title
 
 
 
-<script>
-    var viewer = new Seadragon.Viewer("div#zoomit-container");
-    viewer.openDzi("logo.dzi");
-</script>
+<script type="text/javascript">
 
+    var viewer = new Seadragon.Viewer("zoomit_window");
+
+
+
+    function onZoomitResponse(resp) {
+            if(resp.error) {
+                // e.g. the URL is malformed or the service is down
+                alert(resp.error);
+                return;
+            }
+    
+        var content = resp.content;
+    
+            if(content.ready) {
+                viewer.openDzi(content.dzi);
+
+            var maxHeight = jQuery("#items").height();
+            var height = content.dzi.height < maxHeight ? content.dzi.height : maxHeight;
+
+            var width = content.dzi.width / (content.dzi.height / height);
+
+            jQuery("#zoomit_window").height(height);
+            jQuery("#zoomit_window").width(width);
+            }
+        else if (content.failed) {
+                alert(content.url + " failed to convert.");
+         }
+        else{
+            alert(content.url + " is " + Math.round(100 * content.progress) + "% done.");
+        }
+    }
+
+    var imgUrl = "<?php echo file_display_uri(get_current_item() -> Files[0]); ?>";
+    jQuery.ajax({
+        url: "http://api.zoom.it/v1/content/?url=" +
+       //encodeURIComponent("http://exhibitions.europeana.eu/archive/files/muse_story1_image2_4bdd98753e.jpg"),
+        encodeURIComponent(imgUrl),
+        dataType: "jsonp",
+        success: onZoomitResponse
+    });
+
+
+</script>
