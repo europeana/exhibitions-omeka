@@ -153,7 +153,8 @@ $story = $page->title
 		?>
 	</div>
 	
-		
+
+	
 	<!-- script type="text/javascript">
 		// fix for disappearing styling bug following comment submission.
 		var pathField = jQuery("#path");

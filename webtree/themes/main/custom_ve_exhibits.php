@@ -165,7 +165,7 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
             
             //            echo strlen($zoomify);
             // ZOOMABLE? Check if it's a zoomify image on intial load
-            if (!strlen($zoomify) > 0 ){// && false) {
+            //if (!strlen($zoomify) > 0 ){// && false) {
             	
             	// original code (1 line)
                 //$html .= display_file($file, $displayFilesOptions, $fileWrapperClass);
@@ -191,7 +191,7 @@ $html .= 	'<div id="zoomit_window" style="width: 100%; height: 100%; border: 1px
 $html .= 	'</div>';
 $html .= '</div>';
                 
-            }
+            //}
             
             //else {
             	/* responsive zoomit needs 100% width and height, together with an invisible image positioned in the same place to lend it dimensions */
