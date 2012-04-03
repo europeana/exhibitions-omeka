@@ -170,19 +170,16 @@ function commenting_get_model($request = null)
         $request = Omeka_Context::getInstance()->getRequest();
     }
     $params = $request->getParams();
+    
+    // EUROPEANA CHANGE (original code commented below)
+    return 'Europeana Comment';
+
+    /*
     if(isset($params['module'])) {
         switch($params['module']) {
             case 'exhibit-builder':
                 //ExhibitBuilder uses slugs in the params, so need to negotiate around those
                 //to dig up the record_id and model
-                
-            	
-            	error_log("");
-            	error_log("params['page_slug']  " .  $params['page_slug']);
-            	error_log("params['item_id']    " . $params['item_id']);
-            	//error_log("exhibit_builder_get_current_page  " . (exhibit_builder_get_current_page()==NULL) );
-            	//error_log("exhibit_builder_get_current_section  " . (exhibit_builder_get_current_section()==NULL) );
-            	
                 if(!empty($params['page_slug'])) {
                     $page = exhibit_builder_get_current_page();
                     $model = 'ExhibitPage';
@@ -190,7 +187,6 @@ function commenting_get_model($request = null)
                     $model = 'Item';
                 } else {
                     $section = exhibit_builder_get_current_section();
-                    //$model = 'ExhibitPage';
                     $model = 'ExhibitSection';
                 }
                 break;
@@ -203,6 +199,7 @@ function commenting_get_model($request = null)
         $model = ucfirst(Inflector::singularize($params['controller']));
     }
     return $model;
+    */
 }
 
 function commenting_get_record_id($request = null)
@@ -211,7 +208,21 @@ function commenting_get_record_id($request = null)
         $request = Omeka_Context::getInstance()->getRequest();
     }
     $params = $request->getParams();
+   
+    // EUROPEANA CHANGE
+    if($params['record_id']){
+    	error_log("EURO record " . $params['europeana_id']);
+    	return $params['europeana_id'];
+    }
+    else{
+    	error_log("EURO id " . get_current_item()->id );
+        return get_current_item()->id ;    	
+    }
 
+    
+    // END EUROPEANA CHANGE (original code commented below)
+
+/*
     if(isset($params['module'])) {
         switch($params['module']) {
             case 'exhibit-builder':
@@ -236,4 +247,5 @@ function commenting_get_record_id($request = null)
         $id = $params['id'];
     }
     return $id;
+ */
 }
