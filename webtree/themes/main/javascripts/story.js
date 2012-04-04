@@ -117,7 +117,7 @@ function switchMediaElement() {
            		
                	newObjSrc = newObjSrc.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
                	newObjSrc = newObjSrc.replace("http://localhost/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
-               	http://localhost/webtree/
+               	
                	ajaxUrl = "http://api.zoom.it/v1/content/?url=" + encodeURIComponent(newObjSrc);
 
                	jQuery.ajax({
