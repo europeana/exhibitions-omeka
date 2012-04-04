@@ -11,7 +11,7 @@
 
 
 
-<div class="row" id="bottom-navigation"  style="background-color:red!important">
+<div class="row" id="bottom-navigation">
 	<div class="six columns">
 		<ul class="navigation">
 			<li>
@@ -62,57 +62,52 @@
 						}
  					
  					*/
+	 					table.uiGrid{
+	 						width:	26.8333px !important;
+							height:	17.8333px !important;
+	 					}
+	 					
+	 					td.connect_widget_button_count_excluding{
+	 						width:	26.8333px !important;
+							height:	19.8333px !important;
+	 					}
  					</style>
  
 						 
+						 
+					<!-- 
+					<div class="addthis_toolbox addthis_default_style " style="float:right; display: inline; padding-left: 30px;"
+					      	expr:addthis:title='Photo' 
+     						expr:addthis:url='http://www.facebook.com/photo.php?fbid=10150115644909972&set=a.10150115644754972.329183.55239684971'>
+     				-->
+     						
 					<div class="addthis_toolbox addthis_default_style " style="float:right; display: inline; padding-left: 30px;">
-						<a class="addthis_button_facebook"></a>
-						<a class="addthis_button_twitter"></a>
-						<a class="addthis_button_facebook_like"></a>
-						
-						<!-- a class="addthis_button_google_plusone at300b" g:plusone:count="false" g:plusone:size="small"></a-->
-						
-						<a class="addthis_button_google_plusone" g:plusone:size="medium"></a> 
-						  <!-- Place this tag where you want the +1 button to render -->
-						<!-- g:plusone size="small" annotation="inline"></g:plusone-->
-						
-						<a class="addthis_counter addthis_pill_style"></a>  <!--  "addthis_pill_style" -->
+
+						<!-- a class="addthis_button_facebook_like" fb:like:layout="button_count"></a-->
+						<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+						<a class="addthis_button_tweet"></a>
+						<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+						<a class="addthis_counter addthis_pill_style"></a>
 					</div>
   
-
-  
- <!-- 
-					<div class="addthis_toolbox addthis_default_style ">
-						<a class="addthis_button_preferred_1"></a>
-						<a class="addthis_button_preferred_2"></a>
-
-												<a class="addthis_button_preferred_4"></a>
-						<a class="addthis_button_compact"></a>
-						<a class="addthis_counter addthis_bubble_style"></a>
-					</div>
-  -->
-  
-  
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f7c39d46532bd4d"></script>
-<!-- AddThis Button END -->
-
-<!-- Place this render call where appropriate -->
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-
+					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f7c39d46532bd4d"></script>
+					<!-- AddThis Button END -->
 				</li>
 			</ul>
-	
- 
 
-
-
-
+			
+			<script type="text/javascript">
+				var _gaq = _gaq || [];
+				_gaq.push(['_setAccount', 'UA-12776629-3']);
+				_gaq.push(['_trackPageview']);
+			
+				(function() {
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				})();
+			</script>
+			
 			<script type="text/javascript">
 	            var addthis_config = {
 	            	"pubid":				'ra-4d70f66c15fff6d0',	// xa-4b4f08de468caf36 
@@ -120,25 +115,13 @@
 		            "ui_click":				false,					// click to reveal men or show on  mouse over?
 		            "ui_cobrand":			'Europeana',
 					"data_track_clickback":	true,
-					"data_ga_tracker":		null					// Google Analytics tracking object, or the name of a global variable that references it. If set, we'll send AddThis tracking events to Google, so you can have integrated reporting.
+					"data_ga_tracker":		_gaq					// Google Analytics tracking object, or the name of a global variable that references it. If set, we'll send AddThis tracking events to Google, so you can have integrated reporting.
 	            }
 	            
 			</script>
 			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d70f66c15fff6d0"></script>
 
-
 						
-            <script type="text/javascript">
-			  var _gaq = _gaq || [];
-			  _gaq.push(['_setAccount', 'UA-12776629-3']);
-			  _gaq.push(['_trackPageview']);
-			
-			  (function() {
-			    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			  })();
-			</script>
 
             
 
