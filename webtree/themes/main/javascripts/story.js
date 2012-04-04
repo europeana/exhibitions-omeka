@@ -4,53 +4,52 @@ var ajaxUrl;
 
 function onZoomitResponse(resp) {
 	if(resp.error){
+		
+		var tmpImg = jQuery('#zoomit_dimensioned_wrapper img.tmp-img');
+		tmpImg.css("visibility", "visible");
+
+		//console.log("make default image visible...(error)");
 		return;
 	}
 	
 	var content = resp.content;
+	
 	if(content.ready){
+
+		var tmpImg	= jQuery('#zoomit_dimensioned_wrapper img.tmp-img'); // scale viewport to placeholder image
+		var width	= 0;
+		var height	= 0;
 		
-
-
-		var tmpImg = jQuery('#zoomit_dimensioned_wrapper img.tmp-img'); // scale viewport to placeholder image
 		if(tmpImg.width()>0 && tmpImg.height() > 0){
-			jQuery("#zoomit_window").height(tmpImg.height());				
-			jQuery("#zoomit_window").width(tmpImg.width());			
+			//console.log("get dimension from tmp-img");
+			height	= tmpImg.height();
+			width	= tmpImg.width();
 		}
 		else{ // scale viewport according to calculation
-			var maxHeight = jQuery("#items").height();
-			var height = content.dzi.height < maxHeight ? content.dzi.height : maxHeight;
-			var width = content.dzi.width / (content.dzi.height / height);
-
-			jQuery("#zoomit_window").height(height);				
-			jQuery("#zoomit_window").width(width);			
-		}
-		if(!viewer){
 			
-			viewer = new Seadragon.Viewer("zoomit_window");
-			viewer.setVisible(false);
-			 
+			//console.log("get dimension from calculation");
+
+			var maxHeight = jQuery("#items").height();
+			height = content.dzi.height < maxHeight ? content.dzi.height : maxHeight;
+			width = content.dzi.width / (content.dzi.height / height);
 		}
 		
-		Seadragon.Config.animationTime = 0;
-		Seadragon.Config.blendTime = 0;
+		jQuery("#zoomit_window").height(height);				
+		jQuery("#zoomit_window").width(width);			
 
+		if(!viewer){
+			viewer = new Seadragon.Viewer("zoomit_window");
+		}
+		
+		Seadragon.Config.autoHideControls = false;
 		viewer.openDzi(content.dzi);
 		
-		
-			tmpImg.remove();	// hide temp image
-			viewer.setVisible(true);
-			jQuery('#zoomit_window').show();
-
-		var restoreAnimation = function(){
-			Seadragon.Config.animationTime = 1.5;
-			Seadragon.Config.blendTime = 0.5;
-		}
-		setTimeout(restoreAnimation, 500);
-		
+		tmpImg.remove();	// hide temp image (remove)
 	}
 	else if(content.failed){
-		//alert(content.url + " failed to convert.");
+		var tmpImg = jQuery('#zoomit_dimensioned_wrapper img.tmp-img');
+		tmpImg.css("visibility", "visible");
+		//console.log("make default image visible...(content.failed)");
 	}
 	else{
 		var poll = function(){
@@ -61,7 +60,6 @@ function onZoomitResponse(resp) {
 			});
 		}
 		setTimeout(poll, 1000);
-		
 	}
 }
 

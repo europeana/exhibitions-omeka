@@ -135,8 +135,11 @@ p {
 	float:		left;
 }
 
-/* ----- end of horizontal centering utility ----- */
+/* ----- exhibition top page ----- */
 
+.tmp-img{
+	visibility: hidden;	
+}
 
 
 .theme-title{
