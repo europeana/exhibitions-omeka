@@ -113,8 +113,6 @@ function switchMediaElement() {
             	
            		if(viewer){
            			viewer.setVisible(false);
-        			Seadragon.Config.animationTime = 0;
-        			Seadragon.Config.blendTime = 0;
            		}
            		
                	newObjSrc = newObjSrc.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
