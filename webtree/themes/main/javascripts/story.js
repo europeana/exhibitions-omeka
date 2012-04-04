@@ -21,7 +21,9 @@ function onZoomitResponse(resp) {
 		var height	= 0;
 		
 		if(tmpImg.width()>0 && tmpImg.height() > 0){
+			
 			//console.log("get dimension from tmp-img");
+			
 			height	= tmpImg.height();
 			width	= tmpImg.width();
 		}
@@ -106,18 +108,18 @@ function switchMediaElement() {
             var regexImage = /^image/;
             if (mimeType.match(regexImage)) { // all images a zoomit-able
 
-        		jQuery('#zoomit_dimensioned_wrapper img.tmp-img').remove();	// hide temp image
-           		jQuery('#zoomit_dimensioned_wrapper').append('<img src="' + newObjSrc + '" class="tmp-img"/>');
-           		jQuery('#exhibit-item-title-only h4').html(newObjTitle);
-           		jQuery('#zoomit_window').hide();
-            	
-           		if(viewer){
-           			viewer.setVisible(false);
-           		}
-           		
                	newObjSrc = newObjSrc.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
                	newObjSrc = newObjSrc.replace("http://localhost/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
-               	
+
+        		jQuery('#zoomit_dimensioned_wrapper img.tmp-img').remove();	// remove old temp image
+           		jQuery('#zoomit_dimensioned_wrapper').append('<img src="' + newObjSrc + '" class="tmp-img"/>');
+           		jQuery('#exhibit-item-title-only h4').html(newObjTitle);
+           		//jQuery('#zoomit_window').hide();
+            	
+           		if(viewer){
+           			//viewer.setVisible(false);
+           		}
+           		
                	ajaxUrl = "http://api.zoom.it/v1/content/?url=" + encodeURIComponent(newObjSrc);
 
                	jQuery.ajax({
