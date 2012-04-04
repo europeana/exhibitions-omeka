@@ -48,18 +48,18 @@ $_SESSION['themes_uri'] = uri();
             	.themes-right{				/* margin works with overlays!  */
             		margin:1%;
             		margin:2%;
-        			margin:20%;
+        			xxxmargin:20%;
             	}
             	.themes-left{				/* margin works with overlays!  */
             		margin:1%;
         			margin:2%;
-        			margin:20%;
+        			xxxmargin:20%;
             	}
             	
             	.themes-left, .themes-right{
             		max-width:48%;			/* simulate restricted real estate */
             		max-width:46%;			/* simulate restricted real estate */
-        			max-width:10%;			/* simulate restricted real estate */
+        			xxxmax-width:10%;			/* simulate restricted real estate */
             	}
             	
             	.theme-title-row-collapsed{
