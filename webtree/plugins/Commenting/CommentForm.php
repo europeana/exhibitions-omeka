@@ -12,6 +12,7 @@ class Commenting_CommentForm extends Omeka_Form
         $user = current_user();
 
         //assume registered users are trusted and don't make them play recaptcha
+        /*
         if(!$user) {
             $this->addElement('captcha', 'captcha',  array(
                 'class' => 'hidden',
@@ -24,6 +25,7 @@ class Commenting_CommentForm extends Omeka_Form
             ));
 
         }
+        */
 
         $urlOptions = array(
         		'label'=>'Website',

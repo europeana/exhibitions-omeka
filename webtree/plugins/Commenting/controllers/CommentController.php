@@ -62,20 +62,25 @@ class Commenting_CommentController extends Omeka_Controller_Action
         $spam = $_POST['spam'];
         $table = $this->getTable();
         $wordPressAPIKey = get_option('commenting_wpapi_key');
-        $ak = new Zend_Service_Akismet($wordPressAPIKey, WEB_ROOT );
+        //$ak = new Zend_Service_Akismet($wordPressAPIKey, WEB_ROOT );
         $response = array('errors'=> array());
         foreach($commentIds as $commentId) {
             $comment = $table->find($commentId);
             $data = $comment->getAkismetData();
+            /*
             if($spam) {
                 $submitMethod = 'submitSpam';
             } else {
                 $submitMethod = 'submitHam';
             }
+            */
+            // EUROPEANA CHANGE
+            $submitMethod = 'submitHam';
+
             try{
-                $ak->$submitMethod($data);
+                //$ak->$submitMethod($data);
                 //only save the update if updating to Akismet is successful
-                $comment->is_spam = $spam;
+                //$comment->is_spam = $spam;
                 $comment->save();
                 $response['status'] = 'ok';
             } catch (Exception $e){
@@ -105,6 +110,11 @@ class Commenting_CommentController extends Omeka_Controller_Action
                 $comment->is_spam = 0;
                 $ak = new Zend_Service_Akismet($wordPressAPIKey, WEB_ROOT );
                 $data = $comment->getAkismetData();
+
+                // EUROPEANA CHANGE
+                $response = array('status'=>'ok');
+
+                /*
                 try {
                     $ak->submitHam($data);
                     $response = array('status'=>'ok');
@@ -113,6 +123,7 @@ class Commenting_CommentController extends Omeka_Controller_Action
                     _log($e->getMessage());
                     $response = array('status'=>'fail', 'message'=>$e->getMessage());
                 }
+                */
 
             } else {
                 try {
