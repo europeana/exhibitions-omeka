@@ -161,16 +161,10 @@ p {
 
 /* ----- browse items ----- */
 
-.browse-items-half-row{
-	display:	table-row;
+.browsed-item-wrapper{
+	text-align:center;
 }
 
-.browse-items-item{
-	width:		50%;
-	float:		left;
-	text-align:	center;
-	overflow:	hidden; /* from theme-center-outer */
-}
 
 /* ----- end browse items ----- */
 

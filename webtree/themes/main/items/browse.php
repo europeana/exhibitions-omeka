@@ -26,71 +26,57 @@
 	</div>
 </div>
 
-<style>
-	.browse-items-half-row{
-		xbackground-color:red;
-		xxborder:			1px solid #CCCCCC !important;
-	}
-	
-	
-	.theme-center-inner h4{
-		height:	20px;
-	}
-	
-	@media only screen and (max-width: 767px) {
-		.theme-center-inner h4{
-			height:	40px;
-		}
-		
-		.browse-items-half-row{
-			width:	100% !important;
-		}
-		.browse-items-item{
-			width:	50%;
-			max-width:	50%;
-			min-width:	50%;
-		}
-	}
-</style>
-	        
+
 <div class="row">
-    <div class="six columns centered browse-items-half-row">
+    <div class="six columns">
+    	<ul class="block-grid two-up">
+    	
         <?php $count = 0?>
 	    <?php while (loop_items()): ?>
+	    
 	        <?php if($count>0):?>
+	        
 		        <?php if($count%4==0):?>
-		        		</div>
-		        	</div>
-		        	<div class="row">
-					    <div class="six columns centered browse-items-half-row">
+		        
+		        				</ul>		<!-- close ul-->
+		        			</div>			<!-- close six columns-->
+		        		</div>				<!-- close row -->
+		        		<div class="row">
+		        			<div class="six columns">
+		        				<ul class="block-grid two-up">
+					    
 	        	<?php elseif($count%2==0):?>
-		        		</div>
-					    <div class="six columns centered browse-items-half-row">
+	        	
+	        					</ul>		<!-- close ul-->
+	        				</div>			<!-- close six columns-->
+		        			<div class="six columns">
+		        				<ul class="block-grid two-up">
+					    
 		        <?php endif; ?>
+		         
 	        <?php endif; ?>
+	        
 		    <?php $count++; ?>
 
-		    
-			<div class="browse-items-item">
-				<div class="theme-center-outer">
-					<div class="theme-center-middle">
-						<div class="theme-center-inner">
-					        <h4>
-					            <a href="<?php echo uri('items/show') . '/' . item('id') . $queryString; ?>"><?php echo item('Dublin Core', 'Title');?></a>
-					        </h4>
-					        <?php if (item_has_thumbnail()): ?>
-					            <a href="<?php echo uri('items/show') . '/' . item('id') . $queryString; ?>">
-					                <?php echo item_square_thumbnail(); ?>
-					            </a>
-					        <?php endif; ?>
-					        <?php echo plugin_append_to_items_browse_each(); ?>
-						</div>
-					</div>
-				</div>
-			</div>
+			<li class="browsed-item-wrapper">
+		        <?php if (item_has_thumbnail()): ?>
+		            <a href="<?php echo uri('items/show') . '/' . item('id') . $queryString; ?>">
+		                <?php echo item_square_thumbnail(); ?>
+		            </a>
+		        <?php endif; ?>
+		        <?php echo plugin_append_to_items_browse_each(); ?>
+		        
+		        <!-- moved the text to underneath - TODO: confirm ok with David -->
+		        <h4>
+		            <a href="<?php echo uri('items/show') . '/' . item('id') . $queryString; ?>"><?php echo item('Dublin Core', 'Title');?></a>
+		        </h4>
+			</li>
+			
 	    <?php endwhile; ?>
 	</div>
 </div>
+
+
 
 <div class="row">
 	<div class="twelve columns">
