@@ -70,11 +70,16 @@
 						<a class="addthis_button_twitter"></a>
 						<a class="addthis_button_facebook_like"></a>
 						
-						<a class="addthis_button_google_plusone at300b" g:plusone:count="false" g:plusone:size="small"></a>
-						<!-- a class="addthis_button_google_plusone" g:plusone:annotation="bubble" g:plusone:size="small"></a--> 
+						<!-- a class="addthis_button_google_plusone at300b" g:plusone:count="false" g:plusone:size="small"></a-->
+						
+						<a class="addthis_button_google_plusone" g:plusone:size="medium"></a> 
+						  <!-- Place this tag where you want the +1 button to render -->
+						<!-- g:plusone size="small" annotation="inline"></g:plusone-->
 						
 						<a class="addthis_counter addthis_pill_style"></a>  <!--  "addthis_pill_style" -->
 					</div>
+  
+
   
  <!-- 
 					<div class="addthis_toolbox addthis_default_style ">
@@ -90,6 +95,16 @@
   
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f7c39d46532bd4d"></script>
 <!-- AddThis Button END -->
+
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
 				</li>
 			</ul>
 	
@@ -100,7 +115,7 @@
 
 			<script type="text/javascript">
 	            var addthis_config = {
-	            	"pubid":				'xa-4b4f08de468caf36',	// ra-4d70f66c15fff6d0 
+	            	"pubid":				'ra-4d70f66c15fff6d0',	// xa-4b4f08de468caf36 
 		            "ui_language":			'en',
 		            "ui_click":				false,					// click to reveal men or show on  mouse over?
 		            "ui_cobrand":			'Europeana',
