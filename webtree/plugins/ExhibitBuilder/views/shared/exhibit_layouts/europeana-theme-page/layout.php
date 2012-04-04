@@ -11,7 +11,25 @@ $_SESSION['themes_uri'] = uri();
 
 
 
+<script type="text/javascript">
 
+	jQuery(document).ready(function(){
+		var elRef  = document.getElementById("elRefStyle");
+		var imgUrl = "";
+		if(elRef.currentStyle) {		// IE / Opera
+			imgUrl = elRef.currentStyle.backgroundImage;
+		}
+		else {							// Firefox needs the full css code to work
+			imgUrl = getComputedStyle(elRef,'').getPropertyValue('background-image');
+		}
+		imgUrl = imgUrl.replace(/\"/g, '').replace(/url\(/g, '').replace(/\)/g, '');
+		jQuery(".new_overlay img").attr("src", imgUrl);
+	});
+	
+</script>
+
+<!-- reference element for dynamic style application -->
+<div id="elRefStyle" class="theme-img-overlay" style="display:none;"></div>
 
 <div class="text-full" style="width:100%;">
     <div class="primary" style="width:100%;">
@@ -21,27 +39,33 @@ $_SESSION['themes_uri'] = uri();
             
             <?php echo exhibit_builder_page_text(); ?>
 
-            <!--style>
-            	.andy{
+            <style>
+            	.new_overlay{
             		position:	absolute;
               		max-width:	100%;
             	}
 
             	.themes-right{				/* margin works with overlays!  */
-            		margin-left:3px;	
+            		margin:1%;	
+            	}
+            	.themes-left{				/* margin works with overlays!  */
+            		margin:1%;	
             	}
             	
             	.themes-left, .themes-right{
-            		max-width:30%;					/* simulate restricted real estate */
+            		max-width:48%;					/* simulate restricted real estate */
             	}
             	
+            	.theme-title-row-collapsed{
+            		max-width:	100%;
+            	}
             	/* further rules for scaling the images...... */
             	
             	.theme-center-inner, .theme-center-inner a img{
             		max-width:	100%;
             	}
             	
-            </style-->
+            </style>
             
             <?php
          /**
@@ -90,18 +114,17 @@ $_SESSION['themes_uri'] = uri();
             				$themeLink2		= html_escape(exhibit_builder_exhibit_uri($exhibit, $exhibitSection));
 
             				
-            				/*
+            				
             				$themesRight .= '<div class="theme-item">';
             				$themesRight .= 	'<div class="theme-image">';
             				$themesRight .=			'<div class="theme-center-outer">';
             				$themesRight .=				'<div class="theme-center-middle">';
             				$themesRight .=					'<div class="theme-center-inner">';
             				$themesRight .=						'<a href="'.$themeLink2.'">';
-
             				
             				$themesRight .=     					ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors); // force some space
-            				$themesRight .=						'<div class="andy" style="z-index:2; top:0px;">';
-            				$themesRight .=							'<img src="http://127.0.0.1/ombad/webtree/themes/judaica/images/circle-overlay-100.png" />';
+            				$themesRight .=						'<div class="new_overlay" style="z-index:2; top:0px;">';
+            				$themesRight .=							'<img src=""/>';
             				$themesRight .=						'</div>';
             				
             				
@@ -117,10 +140,10 @@ $_SESSION['themes_uri'] = uri();
             				$themesRight .=			'</a>';
             				$themesRight .=		'</div>';
             				$themesRight .=	'</div>';
-            				*/
+            				
             				
             				// collapsed rows right
-            				
+            				/*
             				$themesRight .= '<div class="theme-item">';
             				$themesRight .= 	'<div class="theme-image">';            				
             				$themesRight .=			'<div class="theme-center-outer">';
@@ -140,14 +163,41 @@ $_SESSION['themes_uri'] = uri();
             				$themesRight .=			'</a>';
             				$themesRight .=		'</div>';
             				$themesRight .=	'</div>';
-
+							*/
             			}
             			else {
             				$themeTitle1	= html_escape($exhibitSection->title, $errors);
             				$themeImage1	= ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors);
             				$themeLink1		= html_escape(exhibit_builder_exhibit_uri($exhibit, $exhibitSection));
             				
+            				
+            				$themesLeft .=	'<div class="theme-item">';
+            				$themesLeft .=		'<div class="theme-image">';
+            				$themesLeft .=			'<div class="theme-center-outer">';
+            				$themesLeft .=				'<div class="theme-center-middle">';
+            				$themesLeft .=					'<div class="theme-center-inner">';
+
+            				$themesLeft .=						'<a href="'.$themeLink2.'">';
+            				$themesLeft .=     					ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors); // force some space
+            				$themesLeft .=						'<div class="new_overlay" style="z-index:2; top:0px;">';
+            				$themesLeft .=							'<img src=""/>';
+            				$themesLeft .=						'</div>';
+            				$themesLeft .=						'</a>';
+
+            				
+            				$themesLeft .=					'</div>';
+            				$themesLeft .=				'</div>';
+            				$themesLeft .=			'</div>';
+ 	          				$themesLeft .=		'</div>';
+            				$themesLeft .=		'<div class="theme-title">';
+            				$themesLeft .=			'<a href="'.$themeLink1.'">';
+            				$themesLeft .=				'<h4>'. html_escape($exhibitSection->title, $errors) .'</h4>';
+            				$themesLeft .=			'</a>';
+            				$themesLeft .=		'</div>';
+            				$themesLeft .=	'</div>';
+            				
             				// collapsed rows left
+            				/*
             				$themesLeft .=	'<div class="theme-item">';
             				$themesLeft .=		'<div class="theme-image">';
             				$themesLeft .=			'<div class="theme-center-outer">';
@@ -167,6 +217,7 @@ $_SESSION['themes_uri'] = uri();
             				$themesLeft .=			'</a>';
             				$themesLeft .=		'</div>';
             				$themesLeft .=	'</div>';
+            				*/
             			}
             		}
             		// Odd nr section
