@@ -21,6 +21,28 @@ $_SESSION['themes_uri'] = uri();
             
             <?php echo exhibit_builder_page_text(); ?>
 
+            <!--style>
+            	.andy{
+            		position:	absolute;
+              		max-width:	100%;
+            	}
+
+            	.themes-right{				/* margin works with overlays!  */
+            		margin-left:3px;	
+            	}
+            	
+            	.themes-left, .themes-right{
+            		max-width:30%;					/* simulate restricted real estate */
+            	}
+            	
+            	/* further rules for scaling the images...... */
+            	
+            	.theme-center-inner, .theme-center-inner a img{
+            		max-width:	100%;
+            	}
+            	
+            </style-->
+            
             <?php
          /**
          * Get the current exhibit and find the first section.
@@ -68,7 +90,37 @@ $_SESSION['themes_uri'] = uri();
             				$themeLink2		= html_escape(exhibit_builder_exhibit_uri($exhibit, $exhibitSection));
 
             				
+            				/*
+            				$themesRight .= '<div class="theme-item">';
+            				$themesRight .= 	'<div class="theme-image">';
+            				$themesRight .=			'<div class="theme-center-outer">';
+            				$themesRight .=				'<div class="theme-center-middle">';
+            				$themesRight .=					'<div class="theme-center-inner">';
+            				$themesRight .=						'<a href="'.$themeLink2.'">';
+
+            				
+            				$themesRight .=     					ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors); // force some space
+            				$themesRight .=						'<div class="andy" style="z-index:2; top:0px;">';
+            				$themesRight .=							'<img src="http://127.0.0.1/ombad/webtree/themes/judaica/images/circle-overlay-100.png" />';
+            				$themesRight .=						'</div>';
+            				
+            				
+            				
+            				$themesRight .=						'</a>';
+            				$themesRight .=					'</div>';
+            				$themesRight .=				'</div>';
+            				$themesRight .=			'</div>';
+            				$themesRight .=     '</div>';
+            				$themesRight .=		'<div class="theme-title">';
+            				$themesRight .=			'<a href="'.$themeLink2.'">';
+            				$themesRight .=				'<h4>'. html_escape($exhibitSection->title, $errors) .'</h4>';
+            				$themesRight .=			'</a>';
+            				$themesRight .=		'</div>';
+            				$themesRight .=	'</div>';
+            				*/
+            				
             				// collapsed rows right
+            				
             				$themesRight .= '<div class="theme-item">';
             				$themesRight .= 	'<div class="theme-image">';            				
             				$themesRight .=			'<div class="theme-center-outer">';
@@ -196,10 +248,58 @@ $_SESSION['themes_uri'] = uri();
             echo 			'</div>';
             echo 		'</div>';
             echo 	'</div>';
+            echo '</div>';
             
             ?>
     
-    
+
+
+
+<div class="row">
+	<div id="mobile_shares" class="twelve columns">
+
+		<div class="theme-center-outer">
+			<div class="theme-center-middle">
+    	    	<div class="theme-center-inner">
+	
+					<?php echo getAddThisMobile(); ?>
+					<!-- COPIED FROM PORTAL MOBILE -->
+					<!--The following snippet is needed to nake the google icon appear (but doesn't work)-->
+					<!-- 
+					<script type="text/javascript" src="http://apis.google.com/js/plusone.js">
+					  {lang: 'en'}
+					</script>
+					<div id="wrapper" class="addthis addthis_32x32_style addthis_default_style">
+						<a	class="addthis_button_facebook"
+							href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a>
+							    
+						<a	class="addthis_button_twitter"
+							href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a>
+					
+						<a	class="addthis_button_compact"
+							href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a>
+					</div>
+				
+						
+					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b4f08de468caf36"></script>
+					<script type="text/javascript">
+					    //ui_language: "${model.locale}",
+					    //alert("${model.locale}");
+					    var addthis_config = {
+					        ui_language: "nl",
+					        ui_click: true
+					    }
+					</script>
+					-->
+					<!-- END COPY FROM PORTAL MOBILE -->
+				</div>
+			</div>
+		</div>
+		
+	</div> <!-- leave row open for foter to close -->
+
+
+
     <?php
 try {
 	
@@ -208,9 +308,7 @@ try {
 	
 } catch (Exception $e) {
  //   echo('Error: ' . $e->getMessage());
-}
-
-		
+}		
 ?>
     
 

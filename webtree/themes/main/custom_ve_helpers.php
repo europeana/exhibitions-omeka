@@ -173,3 +173,37 @@ function ve_get_exhibit_item_info_by_tag($tag = null, $format = 'square_thumbnai
     }
     return $itemInfo;
 }
+
+function getAddThisMobile(){
+	// The following snippet is needed to nake the google icon appear (but doesn't work)
+	$html = '';
+	$html .=	'<script type="text/javascript" src="http://apis.google.com/js/plusone.js">';
+	$html .=		'{lang: "en"}';
+	$html .=	'</script>';
+	$html .=	'<div id="wrapper" class="addthis addthis_32x32_style addthis_default_style">';
+	$html .=		'<a	class="addthis_button_facebook"';
+	$html .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a>';
+	$html .=		'<a	class="addthis_button_twitter"';
+	$html .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a>';
+				
+			//<!--a class="addthis_button_google_plusone" g:plusone:size="standard" g:plusone:count="false"
+			//href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a-->
+				
+	$html .=		'<a	class="addthis_button_compact"';
+	$html .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a>';
+	$html .=	'</div>';
+	
+	$html .=	'<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b4f08de468caf36"></script>';
+	$html .=	'<script type="text/javascript">';
+			
+			//ui_language: "${model.locale}",
+			//alert("${model.locale}");
+			
+	$html .=		'var addthis_config = {';
+	$html .=			'ui_language: \'nl\',';
+	$html .=			'ui_click: true';
+	$html .=		'}';
+	$html .=	'</script>';
+	
+	return $html;
+}

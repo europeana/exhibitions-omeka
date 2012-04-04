@@ -52,13 +52,22 @@ p {
 	display:	block;
 }
 
+#mobile_shares{
+	margin-bottom:	12px;	
+	display:		none;
+}
+
 @media only screen and (max-width: 767px) {
 	.theme-title-row-collapsed{
-		display:block;
+		display:	block;
 	}
 	.theme-title-row-expanded{
-		display:none;
+		display:	none;
 	}
+	#mobile_shares{
+		display:	block;
+	}
+	
 }
 
 
