@@ -46,14 +46,20 @@ $_SESSION['themes_uri'] = uri();
             	}
 
             	.themes-right{				/* margin works with overlays!  */
-            		margin:1%;	
+            		margin:1%;
+            		margin:2%;
+        			margin:20%;
             	}
             	.themes-left{				/* margin works with overlays!  */
-            		margin:1%;	
+            		margin:1%;
+        			margin:2%;
+        			margin:20%;
             	}
             	
             	.themes-left, .themes-right{
-            		max-width:48%;					/* simulate restricted real estate */
+            		max-width:48%;			/* simulate restricted real estate */
+            		max-width:46%;			/* simulate restricted real estate */
+        			max-width:10%;			/* simulate restricted real estate */
             	}
             	
             	.theme-title-row-collapsed{
@@ -116,7 +122,7 @@ $_SESSION['themes_uri'] = uri();
             				
             				
             				$themesRight .= '<div class="theme-item">';
-            				$themesRight .= 	'<div class="theme-image">';
+            				//$themesRight .= 	'<div class="theme-image">';
             				$themesRight .=			'<div class="theme-center-outer">';
             				$themesRight .=				'<div class="theme-center-middle">';
             				$themesRight .=					'<div class="theme-center-inner">';
@@ -138,7 +144,7 @@ $_SESSION['themes_uri'] = uri();
             				$themesRight .=			'<a href="'.$themeLink2.'">';
             				$themesRight .=				'<h4>'. html_escape($exhibitSection->title, $errors) .'</h4>';
             				$themesRight .=			'</a>';
-            				$themesRight .=		'</div>';
+            				//$themesRight .=		'</div>';
             				$themesRight .=	'</div>';
             				
             				
@@ -172,7 +178,7 @@ $_SESSION['themes_uri'] = uri();
             				
             				
             				$themesLeft .=	'<div class="theme-item">';
-            				$themesLeft .=		'<div class="theme-image">';
+            				//$themesLeft .=		'<div class="theme-image">';
             				$themesLeft .=			'<div class="theme-center-outer">';
             				$themesLeft .=				'<div class="theme-center-middle">';
             				$themesLeft .=					'<div class="theme-center-inner">';
@@ -193,7 +199,7 @@ $_SESSION['themes_uri'] = uri();
             				$themesLeft .=			'<a href="'.$themeLink1.'">';
             				$themesLeft .=				'<h4>'. html_escape($exhibitSection->title, $errors) .'</h4>';
             				$themesLeft .=			'</a>';
-            				$themesLeft .=		'</div>';
+            				//$themesLeft .=		'</div>';
             				$themesLeft .=	'</div>';
             				
             				// collapsed rows left
