@@ -33,7 +33,7 @@ $_SESSION['themes_uri'] = uri();
 
 <div class="text-full" style="width:100%;">
     <div class="primary" style="width:100%;">
-        <div class="exhibit-text exhibit-theme-wrapper" style="width:100%;">
+        <div class="exhibit-text exhibit-theme-wrapper">
 
             <h2><?php echo ve_translate('themes', 'Themes');?></h2>
             
@@ -44,46 +44,12 @@ $_SESSION['themes_uri'] = uri();
             		position:	absolute;
               		max-width:	100%;
             	}
-
-            	/*
-            	.themes-right{	
-            		margin:1%;
-            		margin:2%;
-        			xxxmargin:20%;
-            	}
-            	.themes-left{	
-            		margin:1%;
-        			margin:2%;
-        			xxxmargin:20%;
-            	}
             	
-            	.themes-left, .themes-right{
-            		max-width:48%;			
-            		max-width:46%;			
-        			xxxmax-width:10%;		
-            	}
-            	*/
-            	
-            	.theme-title-row-collapsed{
-            		max-width:	100%;
-            	}
-            	/* further rules for scaling the images...... */
-            	
-            	.theme-center-inner, .theme-center-inner a img{
-            		max-width:	100%;
-            	}
             	
             	.item-li{
-            		text-align:	center;
+            		xxxxxtext-align:	center;
             	}
-            	/*
-            	DISCARD:
             	
-            	.theme-image
-            	.themes-left
-            	.themes-right
-            	
-            	*/
             </style>
             
             <?php
@@ -241,46 +207,14 @@ $_SESSION['themes_uri'] = uri();
 
 <div class="row">
 	<div id="mobile_shares" class="twelve columns">
-
 		<div class="theme-center-outer">
 			<div class="theme-center-middle">
     	    	<div class="theme-center-inner">
-	
 					<?php echo getAddThisMobile(); ?>
-					<!-- COPIED FROM PORTAL MOBILE -->
-					<!--The following snippet is needed to nake the google icon appear (but doesn't work)-->
-					<!-- 
-					<script type="text/javascript" src="http://apis.google.com/js/plusone.js">
-					  {lang: 'en'}
-					</script>
-					<div id="wrapper" class="addthis addthis_32x32_style addthis_default_style">
-						<a	class="addthis_button_facebook"
-							href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a>
-							    
-						<a	class="addthis_button_twitter"
-							href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a>
-					
-						<a	class="addthis_button_compact"
-							href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a>
-					</div>
-				
-						
-					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b4f08de468caf36"></script>
-					<script type="text/javascript">
-					    //ui_language: "${model.locale}",
-					    //alert("${model.locale}");
-					    var addthis_config = {
-					        ui_language: "nl",
-					        ui_click: true
-					    }
-					</script>
-					-->
-					<!-- END COPY FROM PORTAL MOBILE -->
 				</div>
 			</div>
 		</div>
-		
-	</div> <!-- leave row open for foter to close -->
+	</div> <!-- leave row open for footer to close -->
 
 
 

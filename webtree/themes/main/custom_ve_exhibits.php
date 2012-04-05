@@ -160,65 +160,21 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
 
         if (preg_match("/^image/", $mime)) {
             // IMAGE
+			$imgHtml	= display_file($file, $displayFilesOptions, $fileWrapperClass);
+			$imgHtml	= str_replace('.jpg', '_euresponsive_1.jpg',	$imgHtml);
+			$imgHtml	= str_replace('/fullsize/', '/euresponsive/',	$imgHtml);
+			$imgHtml	= str_replace('class="full"', 'class="full tmp-img"',	$imgHtml);
+
             $html .= '<div id="in-focus" class="image">';
-            
-            
-            //            echo strlen($zoomify);
-            // ZOOMABLE? Check if it's a zoomify image on intial load
-            //if (!strlen($zoomify) > 0 ){// && false) {
-            	
-            	// original code (1 line)
-                //$html .= display_file($file, $displayFilesOptions, $fileWrapperClass);
+			$html .= '<div id="zoomit_dimensioned_wrapper">';
+			$html .= 	'<div id="zoomit_window" style="width: 100%; height: 100%;">';
+			$html .= 		'<script class="euresponsive-script">document.write("<" + "!--")</script>';
+			$html .= 			'<noscript>';
+			$html .=				$imgHtml;
+			$html .=			'</noscript -->';                
+			$html .=	'</div>';
+			$html .= '</div>';
 
-            	// (i.e. <div id="in-focus" class="image"><img src="http://127.0.0.1/ombad/webtree/archive/fullsize/mastercrafts_story1_image2_5cadfdd557.jpg" class="full" alt="Vase : Orph\xc3\xa9e"/>\n</div>)
-            			
-                // new code (wrapped in script)
-
-            	$imgHtml	= display_file($file, $displayFilesOptions, $fileWrapperClass);
-            	$imgHtml	= str_replace('.jpg', '_euresponsive_1.jpg',	$imgHtml);
-            	$imgHtml	= str_replace('/fullsize/', '/euresponsive/',	$imgHtml);
-            	$imgHtml	= str_replace('class="full"', 'class="full tmp-img"',	$imgHtml);
-
-$html .= '<div id="zoomit_dimensioned_wrapper">';
-$html .= 	'<div id="zoomit_window" style="width: 100%; height: 100%; border: 1px solid black;">';
-            	 
-                $html .= '<script class="euresponsive-script">document.write("<" + "!--")</script>';
-                
-                $html .= '<noscript>';
-                $html .=   $imgHtml; //  '<img src="http://127.0.0.1/ombad/archive/euresponsive/mastercraft_intro_11e5245b91_euresponsive_1.jpg" class="full" alt="Drageoir"/>'
-                $html .= '</noscript -->';
-                
-$html .= 	'</div>';
-$html .= '</div>';
-                
-            //}
-            
-            //else {
-            	/* responsive zoomit needs 100% width and height, together with an invisible image positioned in the same place to lend it dimensions */
-            	/*
-                //$html .= '<style>';
-                //$html .= '#__seadragon1{';
-                //$html .= 	'position:absolute;';
-                //$html .= 	'width:100% !important;';
-                //$html .= 	'height:100% !important;';
-                //$html .= 	'top:0px;';
-                //$html .= '}';
-                //$html .= '#zoomit_dimensioned_wrapper img{';
-                //$html .= 	'visibility:hidden;';
-                //$html .= '}';
-                //$html .= '</style>';
-                */
-            //    $html .= '<div id="zoomit_dimensioned_wrapper">';
-            //    $html .= 	'<div id="zoomit_window" style="width: 100%; height: 100%; border: 1px solid black;">';
-                
-                
-	         //   $html .= display_file($file, $displayFilesOptions, $fileWrapperClass);
-	                
-	              //  $html .= '<script type="text/javascript" language="javascript" src="' . $zoomify . '.js?width=100%"></script>';
-	              
-           //     $html .= 	'</div>';
-           //     $html .= '</div>';
-          //  }
         }
         elseif (preg_match("/^audio/", $mime)) {
             // AUDIO

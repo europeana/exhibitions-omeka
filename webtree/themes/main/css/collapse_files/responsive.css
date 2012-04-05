@@ -60,6 +60,7 @@ p {
 @media only screen and (max-width: 767px) {
 	.theme-title-row-collapsed{
 		display:	block;
+		max-width:	100%;
 	}
 	.theme-title-row-expanded{
 		display:	none;
@@ -135,27 +136,34 @@ p {
 	float:		left;
 }
 
+.theme-center-inner a img{
+	max-width:	100%;
+}
+            	
 /* ----- exhibition top page ----- */
 
 .tmp-img{
 	visibility: hidden;	
 }
 
+.single-item .tmp-img{
+	visibility: visible;	
+}
+
+#zoomit_window{
+	border: 1px solid black;	/* TODO move this to theme.css files for theme-specific colours */	
+}
+
+.single-item #zoomit_window{
+	border:	none;	
+}
 
 .theme-title{
     text-align:	center;
 }
 
-.themes-left, .themes-right{
-    float:		left;
-    max-width:	50%;	
-}
 
 
-
-.theme-image{
-    clear:		both;
-}
 
 .theme-item{
     position:	relative;

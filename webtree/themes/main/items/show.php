@@ -30,8 +30,22 @@
 
 <div class="row">
 
-	<div class="six columns"  style="margin-bottom:3em;">
+	<div class="six columns single-item"  style="margin-bottom:3em;">
         <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
+        
+        <div class="row">
+	        <div id="mobile_shares" class="twelve columns">
+				<div class="theme-center-outer">
+					<div class="theme-center-middle">
+	    	    		<div class="theme-center-inner">
+							<?php echo getAddThisMobile(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+        
     </div>
 
     <div class="six columns" style="margin-bottom:3em;">
@@ -49,16 +63,15 @@
 
 <div class="row">
 	<div class="twelve columns">
-<?php
-	echo "themes/main/items/show";
-	try {
-		commenting_echo_comments();
-		commenting_echo_comment_form();	
-	}
-	catch (Exception $e) {
-	    echo('Error: ' . $e->getMessage());
-	}		
-?>
+		<?php
+			try {
+				commenting_echo_comments();
+				commenting_echo_comment_form();	
+			}
+			catch (Exception $e) {
+			    echo('Error: ' . $e->getMessage());
+			}		
+		?>
 	</div>
 </div>
 

@@ -17,6 +17,10 @@
 	
 </div>	<!-- end row -->
 
+<script type="text/javascript">
+	alert("main exhibit builder exhibits item\n\n(not used afaik)");
+</script>
+
 
 <div class="row">
 	<div class="six columns"  style="margin-bottom:3em;">
