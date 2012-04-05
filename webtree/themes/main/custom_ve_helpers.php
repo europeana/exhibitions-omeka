@@ -234,7 +234,7 @@ function getAddThis($buttons){
 	$html .=	'<script type="text/javascript">';
 	$html .=		'var addthis_config = {';
 	$html .=			'"ui_language": "en",';
-	$html .=			'"ui_click": false,';
+	$html .=			'"ui_click": true,';
 	$html .=			'"pubid": "' . $appId . '",';
 	$html .=			'"ui_cobrand": "Europeana",';
 	$html .=			'"data_track_clickback": true,';
