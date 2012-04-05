@@ -14,19 +14,9 @@
                 <a href="http://www.facebook.com/Europeana" target="_blank" title="Follow us on Facebook!"><img src="<?php echo img('icon_Facebook.png'); ?>" alt="Follow us on Facebook!" /></a>
                 <a href="http://twitter.com/EuropeanaEU" target="_blank" title="Follow us on Twitter!"><img src="<?php echo img('icon_Twitter.png'); ?>" alt="Follow us on Twitter!" /></a>
 
-                <!-- AddThis Button BEGIN -->
-                <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36" title="Bookmark and Share this page">
-                <img src="<?php echo img('sm-share-en.gif'); ?>" alt="Bookmark and Share" style="border: 0pt none;"></a>
-                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b4f08de468caf36"></script>
-                <script type="text/javascript">
-                var addthis_config = {
-                ui_language: "en",
-                ui_click: true,
-                ui_cobrand: "Europeana"
 
-                }
-                </script>
-
+                <?php echo getAddThisStandard(); ?>					 
+                
             </div>
 	     </div>
 	</div><!-- end footer -->

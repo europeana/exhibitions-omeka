@@ -174,36 +174,74 @@ function ve_get_exhibit_item_info_by_tag($tag = null, $format = 'square_thumbnai
     return $itemInfo;
 }
 
-function getAddThisMobile(){
-	// The following snippet is needed to nake the google icon appear (but doesn't work)
-	$html = '';
-	$html .=	'<script type="text/javascript" src="http://apis.google.com/js/plusone.js">';
-	$html .=		'{lang: "en"}';
-	$html .=	'</script>';
-	$html .=	'<div id="wrapper" class="addthis addthis_32x32_style addthis_default_style">';
-	$html .=		'<a	class="addthis_button_facebook"';
-	$html .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a>';
-	$html .=		'<a	class="addthis_button_twitter"';
-	$html .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a>';
-				
-			//<!--a class="addthis_button_google_plusone" g:plusone:size="standard" g:plusone:count="false"
-			//href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a-->
-				
-	$html .=		'<a	class="addthis_button_compact"';
-	$html .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b4f08de468caf36"></a>';
-	$html .=	'</div>';
+function getAddThisAppId(){
+	return 'ra-4d70f66c15fff6d0';
+}
+
+function getGoogleAnalyticsTrackerObjectJS(){
+	$gaAccount = 'UA-12776629-3';
 	
-	$html .=	'<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b4f08de468caf36"></script>';
+	$js	= 'var _gaq = _gaq || [];'.PHP_EOL;
+	$js	.= '_gaq.push(["_setAccount", "' . $gaAccount . '"]);'.PHP_EOL;	
+	$js	.= '_gaq.push(["_trackPageview"]);'.PHP_EOL;
+		
+	$js	.= '(function() {'.PHP_EOL;
+	$js	.= 'var ga = document.createElement("script");'.PHP_EOL;	
+	$js	.= 'ga.type = "text/javascript";'.PHP_EOL;
+	$js	.= 'ga.async = true;'.PHP_EOL;
+	$js	.= 'ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";'.PHP_EOL;	
+	$js	.= 'var s = document.getElementsByTagName("script")[0];'.PHP_EOL;
+	$js	.= 's.parentNode.insertBefore(ga, s);'.PHP_EOL;
+	$js	.= '})();'.PHP_EOL;
+	return $js;	
+}
+
+function getAddThisMobile(){
+	$buttons = '';
+	$buttons .=	'<div id="wrapper" class="addthis addthis_32x32_style addthis_default_style">';
+	$buttons .=		'<a	class="addthis_button_facebook"';
+	$buttons .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=' . $appId . '"></a>';
+	$buttons .=		'<a	class="addthis_button_twitter"';
+	$buttons .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=' . $appId . '"></a>';
+	$buttons .=		'<a	class="addthis_button_compact"';
+	$buttons .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=' . $appId . '"></a>';	
+	$buttons .=	'</div>';
+	
+	return getAddThis($buttons);
+}
+
+function getAddThisStandard($style = 'float:right; display:inline; padding-left:30px;'){
+	$buttons = '';	
+	$buttons .=	'<div class="addthis_toolbox addthis_default_style" style="' . $style . '">';
+	$buttons .= 	'<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>';
+	$buttons .= 	'<a class="addthis_button_tweet"></a>';
+	$buttons .= 	'<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>';
+	$buttons .= 	'<a class="addthis_counter addthis_pill_style"></a>';
+	$buttons .=	'</div>';
+	
+	return getAddThis($buttons);	
+}
+
+
+function getAddThis($buttons){
+	$appId = getAddThisAppId();
+	
+	$html = '';
 	$html .=	'<script type="text/javascript">';
-			
-			//ui_language: "${model.locale}",
-			//alert("${model.locale}");
-			
+	$html .=		getGoogleAnalyticsTrackerObjectJS();
+	$html .=	'</script>';
+	$html .= 	$buttons;
+	$html .=	'<script type="text/javascript">';
 	$html .=		'var addthis_config = {';
-	$html .=			'ui_language: \'nl\',';
-	$html .=			'ui_click: false';
+	$html .=			'"ui_language": "en",';
+	$html .=			'"ui_click": false,';
+	$html .=			'"pubid": "' . $appId . '",';
+	$html .=			'"ui_cobrand": "Europeana",';
+	$html .=			'"data_track_clickback": true,';
+	$html .=			'"data_ga_tracker": _gaq';	// Google Analytics tracking object, or the name of a global variable that references it. If set, we'll send AddThis tracking events to Google, so you can have integrated reporting.
 	$html .=		'}';
 	$html .=	'</script>';
-	
+	$html .=	'<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=' . $appId .'"></script>';
 	return $html;
 }
+

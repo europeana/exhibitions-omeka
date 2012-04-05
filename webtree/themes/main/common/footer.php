@@ -44,24 +44,12 @@
         </div>
 		<div class="six columns" style="text-align: right;">
 			<ul class="navigation">
-				<!--   <li><a href="http://www.facebook.com/Europeana" target="_blank" title="Follow us on Facebook!"><img src="http://exhibitions.europeana.eu/themes/europeana/images/icon_Facebook.png" alt="Follow us on Facebook!"></a></li>
-				<li><a href="http://twitter.com/EuropeanaEU" target="_blank" title="Follow us on Twitter!"><img src="http://exhibitions.europeana.eu/themes/europeana/images/icon_Twitter.png" alt="Follow us on Twitter!"></a></li> -->
-				<li><!-- AddThis Button BEGIN -->
- 
- 
- <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f7c39d46532bd4d"></script>
- 
- 
- 
-
- 
+				<!-- 
+				<li><a href="http://www.facebook.com/Europeana" target="_blank" title="Follow us on Facebook!"><img src="http://exhibitions.europeana.eu/themes/europeana/images/icon_Facebook.png" alt="Follow us on Facebook!"></a></li>
+				<li><a href="http://twitter.com/EuropeanaEU" target="_blank" title="Follow us on Twitter!"><img src="http://exhibitions.europeana.eu/themes/europeana/images/icon_Twitter.png" alt="Follow us on Twitter!"></a></li>
+				-->
+				<li>
  					<style type="text/css">
- 					/*
-						.addthis_toolbox .at15t_compact {
- 							margin-right: 0;
-						}
- 					
- 					*/
 	 					table.uiGrid{
 	 						width:	26.8333px !important;
 							height:	17.8333px !important;
@@ -72,56 +60,14 @@
 							height:	19.8333px !important;
 	 					}
  					</style>
- 
-						 
-						 
-					<!-- 
-					<div class="addthis_toolbox addthis_default_style " style="float:right; display: inline; padding-left: 30px;"
-					      	expr:addthis:title='Photo' 
-     						expr:addthis:url='http://www.facebook.com/photo.php?fbid=10150115644909972&set=a.10150115644754972.329183.55239684971'>
-     				-->
-     						
-					<div class="addthis_toolbox addthis_default_style " style="float:right; display: inline; padding-left: 30px;">
-
-						<!-- a class="addthis_button_facebook_like" fb:like:layout="button_count"></a-->
-						<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-						<a class="addthis_button_tweet"></a>
-						<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-						<a class="addthis_counter addthis_pill_style"></a>
+ 					
+ 					<div id="standard_shares">
+ 						<?php echo getAddThisStandard(); ?>					 
 					</div>
-  
-					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f7c39d46532bd4d"></script>
-					<!-- AddThis Button END -->
 				</li>
 			</ul>
 
-			
-			<script type="text/javascript">
-				var _gaq = _gaq || [];
-				_gaq.push(['_setAccount', 'UA-12776629-3']);
-				_gaq.push(['_trackPageview']);
-			
-				(function() {
-					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-				})();
-			</script>
-			
-			<script type="text/javascript">
-	            var addthis_config = {
-	            	"pubid":				'ra-4d70f66c15fff6d0',	// xa-4b4f08de468caf36 
-		            "ui_language":			'en',
-		            "ui_click":				false,					// click to reveal men or show on  mouse over?
-		            "ui_cobrand":			'Europeana',
-					"data_track_clickback":	true,
-					"data_ga_tracker":		_gaq					// Google Analytics tracking object, or the name of a global variable that references it. If set, we'll send AddThis tracking events to Google, so you can have integrated reporting.
-	            }
-	            
-			</script>
-			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d70f66c15fff6d0"></script>
-
-						
+					
 
             
 

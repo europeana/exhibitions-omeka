@@ -68,6 +68,9 @@ p {
 	#mobile_shares{
 		display:	block;
 	}
+	#standard_shares{
+		display:	none;
+	}
 	
 }
 
