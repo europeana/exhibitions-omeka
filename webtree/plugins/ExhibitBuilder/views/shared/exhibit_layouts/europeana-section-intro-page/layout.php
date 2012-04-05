@@ -40,12 +40,7 @@ $story = $page->title
 
 									        <div id="exhibit-item-infocus-header">
 									            <?php echo ve_exhibit_builder_exhibit_display_item_info_link(array('imageSize' => 'fullsize')); ?>
-									        </div>
-				
-											<script type="text/javascript">
-											  window.imgUrl = "<?php echo file_display_uri(get_current_item() -> Files[0]); ?>";
-											</script>
-				
+									        </div>				
 								            <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1'), false, true); ?>
 							            
 									</div>
@@ -171,7 +166,7 @@ $story = $page->title
 <script type="text/javascript">
 
 	jQuery(document).ready(function(){
-		initZoomit();
+		story.initZoomit("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>");
 	});
 
 </script>	

@@ -153,8 +153,9 @@ p {
 	visibility: visible;	
 }
 
-#zoomit_window{
-	border: 1px solid black;	/* TODO move this to theme.css files for theme-specific colours */	
+#media_wrapper{
+	width:	auto;
+	height: auto;
 }
 
 .single-item #zoomit_window{

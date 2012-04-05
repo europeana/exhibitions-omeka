@@ -115,3 +115,9 @@ dt {
     margin-top: 10px;
     padding-right: 10px;
 }
+
+
+/* ZOOMIT ETC. */
+#media_wrapper {
+  border: 1px solid #f4f5d9;
+}

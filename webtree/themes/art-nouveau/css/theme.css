@@ -100,3 +100,8 @@ dt {
     margin-right: .5em;
 }
 
+/* ZOOMIT ETC. */
+#media_wrapper {
+  border: 1px solid #e3d6b6;
+}
+

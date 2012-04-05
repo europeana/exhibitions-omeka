@@ -17,11 +17,6 @@
 	
 </div>	<!-- end row -->
 
-<script type="text/javascript">
-	alert("main exhibit builder exhibits item\n\n(not used afaik)");
-</script>
-
-
 <div class="row">
 	<div class="six columns"  style="margin-bottom:3em;">
         <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
@@ -34,7 +29,6 @@
 <!--            <li id="next-item" class="next">--><?php //echo link_to_next_item('Next Item'); ?><!--</li>-->
 <!--        </ul>-->
 
-        <!--<?php //echo show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?> -->
         <?php echo ve_custom_show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?>
     </div>
 </div>

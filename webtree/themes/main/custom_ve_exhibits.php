@@ -166,13 +166,13 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
 			$imgHtml	= str_replace('class="full"', 'class="full tmp-img"',	$imgHtml);
 
             $html .= '<div id="in-focus" class="image">';
-			$html .= '<div id="zoomit_dimensioned_wrapper">';
+			$html .= '<div id="media_wrapper">';
 			$html .= 	'<div id="zoomit_window" style="width: 100%; height: 100%;">';
-			$html .= 		'<script class="euresponsive-script">document.write("<" + "!--")</script>';
-			$html .= 			'<noscript>';
-			$html .=				$imgHtml;
-			$html .=			'</noscript -->';                
 			$html .=	'</div>';
+			$html .= 	'<script class="euresponsive-script">document.write("<" + "!--")</script>';
+			$html .= 		'<noscript>';
+			$html .=			$imgHtml;
+			$html .=	'</noscript -->';                
 			$html .= '</div>';
 
         }

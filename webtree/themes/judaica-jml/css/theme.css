@@ -116,8 +116,14 @@ dt {
     padding-right: 10px;	
 }
 
+/* RESPONSIVE */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
     #secondary-branding{
 	    max-width: 22%;
     }
+}
+
+/* ZOOMIT ETC. */
+#media_wrapper {
+	border: 1px solid #e3d6b6;
 }
