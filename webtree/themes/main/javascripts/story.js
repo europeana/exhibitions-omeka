@@ -44,8 +44,12 @@ function onZoomitResponse(resp) {
 		}
 		
 		Seadragon.Config.autoHideControls = false;
+		viewer.addEventListener("open",
+			function(){
+				viewer.viewport.goHome();	
+			}
+		);
 		viewer.openDzi(content.dzi);
-		
 		tmpImg.remove();	// hide temp image (remove)
 	}
 	else if(content.failed){
