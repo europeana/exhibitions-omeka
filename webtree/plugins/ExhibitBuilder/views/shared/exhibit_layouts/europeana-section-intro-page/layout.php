@@ -135,7 +135,7 @@ $story = $page->title
 
 	<div class="twelve columns">
 		<?php
-			echo "plugins/ExhibitBuilder/views/shared/exhibit_layouts/europeana-section-intro-page/layout.php";
+			//echo "plugins/ExhibitBuilder/views/shared/exhibit_layouts/europeana-section-intro-page/layout.php";
 			try {
 				commenting_echo_comments();
 				commenting_echo_comment_form();	
