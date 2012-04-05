@@ -46,7 +46,6 @@ unset($_SESSION['themes_uri']);
             		$imgSrc	= str_replace("/files/", "/euresponsive/",		$imgSrc);
             	?>
             	
-            	
             	<?php if(! fopen($imgSrc, "r")): ?>
             			<img src="<?php echo $src ?>"/>
             	<?php endif; ?>
@@ -59,11 +58,6 @@ unset($_SESSION['themes_uri']);
 						</noscript -->
             	
             	<?php endif; ?>
-            	
-            	
-            	
-            	
-            	
             </div>
             
             <script type="text/javascript">
@@ -126,6 +120,22 @@ unset($_SESSION['themes_uri']);
                 ?>
             </div>
         </div>
+        
+        
+        		
+		<div class="row">
+			<div id="mobile_shares" class="twelve columns">
+				<div class="theme-center-outer">
+					<div class="theme-center-middle">
+	    	    		<div class="theme-center-inner">
+							<?php echo getAddThisMobile(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+        
     </div>
     
     

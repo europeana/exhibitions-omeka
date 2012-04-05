@@ -201,7 +201,7 @@ function getAddThisMobile(){
 			
 	$html .=		'var addthis_config = {';
 	$html .=			'ui_language: \'nl\',';
-	$html .=			'ui_click: true';
+	$html .=			'ui_click: false';
 	$html .=		'}';
 	$html .=	'</script>';
 	

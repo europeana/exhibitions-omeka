@@ -78,9 +78,19 @@ $story = $page->title
 				</tr>
 			</table>
 		</div>
-
 		
-		
+				
+		<div class="row">
+			<div id="mobile_shares" class="twelve columns">
+				<div class="theme-center-outer">
+					<div class="theme-center-middle">
+	    	    		<div class="theme-center-inner">
+							<?php echo getAddThisMobile(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		<?php endif; ?>
     
