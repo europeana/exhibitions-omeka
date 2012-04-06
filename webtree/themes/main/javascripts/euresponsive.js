@@ -37,10 +37,24 @@
 					'$1' + newSuffix + '"'
 				);
 
+				//console.log("changelayout called this.container  = " + this.container.outerHTML);
+				
+				
+				
 				console.log("changelayout called this.container  = " + this.container.outerHTML);
-//				alert("this.container.innerHTML = \n\n" + newHtmlStr);
+				
+				
+				var img = jQuery(this.container).find("img");
+				var display		= img.css("display");
+				var visibility	= img.css("visibility");
+				
+				console.log("original display values:  " + display + "   " + visibility);
+
 				this.container.innerHTML = newHtmlStr;
-				//this.container.innerHTML = "<img src=\"\/archive\/euresponsive\/" + imageStem + newSuffix + "\" \/>";
+				
+				img = jQuery(this.container).find("img");
+				img.css("display", display);
+				img.css("visibility", visibility);
 				
 				console.log("changelayout called, new html = " + newHtmlStr);
 			};

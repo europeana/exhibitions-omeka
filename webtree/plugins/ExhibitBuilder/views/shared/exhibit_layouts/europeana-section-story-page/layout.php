@@ -27,12 +27,8 @@ $story = $page->title
 
 
 <div class="row">
-
 	<div class="six columns push-six" id="story">
-		
 		<?php if (exhibit_builder_use_exhibit_page_item(1)): ?>
-		
-		
 		<div id="exhibit-item-infocus" class="exhibit-item">
 			<table id="tbl-exhibit-item"> <!-- yes, a table! -->
 				<tr>
@@ -41,17 +37,13 @@ $story = $page->title
 					</td>
 					<td class="content">
 						<div id="exhibit-item-infocus-item">
-			
 							<div class="theme-center-outer">		
 								<div class="theme-center-middle">		
 									<div class="theme-center-inner">		
-
 										<div id="exhibit-item-infocus-header">
 											<?php echo ve_exhibit_builder_exhibit_display_item_info_link(array('imageSize' => 'fullsize')); ?>
 										</div>
-										
 										<?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1'), false, true); ?>
-
 									</div>
 								</div>
 							</div>
@@ -73,10 +65,9 @@ $story = $page->title
 					</td>
 				</tr>
 			</table>
-		</div>
+		</div> <!--  end exhibit-item-infocus -->
 		
-				
-		<div class="row">
+		<div class="row"> <!-- embedded row -->
 			<div id="mobile_shares" class="twelve columns">
 				<div class="theme-center-outer">
 					<div class="theme-center-middle">
@@ -86,23 +77,23 @@ $story = $page->title
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> <!-- embedded row -->
 		
 		<?php endif; ?>
     
 		<div class="clear"></div>
+		
 		<div class="theme-center-outer">		
 			<div class="theme-center-middle">		
-				<div class="theme-center-inner">		
-		
+				<div class="theme-center-inner">
 					<div id="exhibit-item-thumbnails">
 						<?php echo ve_exhibit_builder_display_exhibit_thumbnail_gallery(1, 5, array('class' => 'thumb')); ?>
 					</div>
 				</div>
 			</div>
 		</div>
-					
-	</div>
+		
+	</div> <!-- end six columns -->
 
     
 	<div class="six columns pull-six" id="items">
@@ -130,9 +121,9 @@ $story = $page->title
 			</div>
 		</div>
 
-	</div>
+	</div> <!-- end six columns -->
 	
-	
+</div>	
 <?php echo js('seadragon-min'); ?>
 <?php echo js('story'); ?>
 
@@ -160,16 +151,10 @@ $story = $page->title
 	jQuery(document).ready(function(){
 		
 		var zoomitEnabled = "<?php echo ve_exhibit_builder_is_zoomit_enabled() ?>";
+		zoomitEnabled = false;
 		zoomitEnabled = true;
-		//zoomitEnabled = false;
+		story.initStory("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>", zoomitEnabled);
 		
-//		if(zoomitEnabled){
-			story.initStory("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>", zoomitEnabled);
-	//	}
-		//else{
-			// responsive image is being shown
-		//	jQuery("#media_wrapper img.full").removeClass("tmp-img");
-	//	}
 	});
 </script>
 
