@@ -22,7 +22,11 @@ var story = function() {
 			}
 			else{
 				
-		        if (initialUrl.match(/^image/)) {
+				function endsWith(str, suffix) {
+				    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+				}
+
+		        if ( endsWith(initialUrl, "jpg") || endsWith(initialUrl, "jpeg")) {
 		        	if(zoomitEnabled){		        		
 						zoomitAjaxUrl = initialUrl;
 						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
@@ -33,6 +37,9 @@ var story = function() {
 		        	else{
 		        		showTmpImg();
 		        	}
+		        }
+		        else{
+		        	log("not an image: " + initialUrl);
 		        }
 			}
 		}
