@@ -18,7 +18,7 @@ var story = function() {
 			switchMediaElement();
 			var firstThumbnail = jQuery('div#exhibit-item-thumbnails div.exhibit-item a.thumb');
 			if(firstThumbnail.length > 0){
-				firstThumbnail[0].click();
+				jQuery(firstThumbnail[0]).click();
 			}
 			else{
 				
@@ -30,6 +30,7 @@ var story = function() {
 		        	if(zoomitEnabled){		        		
 						zoomitAjaxUrl = initialUrl;
 						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
+						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://10.101.28.3/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
 						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://localhost/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
 				       	zoomitAjaxUrl = zoomitAjaxUrlPrefix + encodeURIComponent(zoomitAjaxUrl);
 						poll();
@@ -68,6 +69,7 @@ var story = function() {
 	};
 
 	function hideTmpImg(remove){
+		log("hideTmpImg " + remove);
 		if(remove){
 			tmpImg.css("display", "none");		// we don't really "remove" it, just put it out of sight
 		}
@@ -242,6 +244,7 @@ var story = function() {
 	            	
 
 	               	newObjSrc = newObjSrc.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
+	               	newObjSrc = newObjSrc.replace("http://10.101.28.3/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
 	               	newObjSrc = newObjSrc.replace("http://localhost/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
 	               	//newObjSrc += "?c=" + new Date().getTime();
 	               	markup("image", newObjSrc);
