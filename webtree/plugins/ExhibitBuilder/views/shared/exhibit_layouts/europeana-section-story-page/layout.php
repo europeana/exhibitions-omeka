@@ -48,22 +48,31 @@ $story = $page->title
 								</div>
 							</div>
 			
-							<!-- long titles can break the layout (by moving the info link out of the image) so displayed separately -->
-			
-							<div class="theme-center-outer">		
-								<div class="theme-center-middle">		
-									<div class="theme-center-inner">		
-										<?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1'), true, false); ?>
-									</div>
-								</div>
-							</div>
-			
 						</div>
 					</td>
 					<td class="navigate">
 						<?php echo ve_exhibit_builder_link_to_next_exhibit_page("&rarr;", array('class' => 'exhibit-text-nav'));?>
 					</td>
 				</tr>
+				
+				<tr>
+					<td class="navigate">
+					</td>
+					<td class="content">
+						<br>
+						<div class="theme-center-outer">		
+							<div class="theme-center-middle">		
+								<div class="theme-center-inner"  style="text-align:center;">		
+									<?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1'), true, false); ?>
+								</div>
+							</div>
+						</div>
+			
+					</td>
+					<td class="navigate">
+					</td>
+				</tr>
+				
 			</table>
 		</div> <!--  end exhibit-item-infocus -->
 		
