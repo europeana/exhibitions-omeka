@@ -168,7 +168,7 @@ $story = $page->title
 	jQuery(document).ready(function(){
 
 		var zoomitEnabled = "<?php echo ve_exhibit_builder_is_zoomit_enabled() ?>";
-		zoomitEnabled = false;
+		zoomitEnabled = true;
 	
 		story.initStory("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>", zoomitEnabled);
 	});
