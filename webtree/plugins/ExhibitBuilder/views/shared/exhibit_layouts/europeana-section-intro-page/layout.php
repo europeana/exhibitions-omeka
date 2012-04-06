@@ -166,7 +166,11 @@ $story = $page->title
 <script type="text/javascript">
 
 	jQuery(document).ready(function(){
-		story.initZoomit("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>");
+
+		var zoomitEnabled = "<?php echo ve_exhibit_builder_is_zoomit_enabled() ?>";
+		zoomitEnabled = false;
+	
+		story.initStory("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>", zoomitEnabled);
 	});
 
 </script>	

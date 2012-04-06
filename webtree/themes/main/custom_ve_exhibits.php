@@ -42,6 +42,24 @@ function ve_exhibit_builder_zoomit_uri()
     return $zoomURI;
 }
 
+
+function ve_exhibit_builder_is_zoomit_enabled()
+{
+	$item = get_current_item();
+	
+//	echo "ITEM ID IS $item->id";
+	// check if this item has a 'zoom.it URI' metadata element
+	$elements = $item->getItemTypeElements();
+	$zoomEnabled = false;
+	foreach ($elements as $element) {
+		if (strtolower($element->name) == "zoomit_enabled") {
+			$zoomEnabled = $elementText[$element->name] = item(ELEMENT_SET_ITEM_TYPE, $element->name);
+		}
+	}
+	return $zoomEnabled;
+}
+
+
 /* RESPONSIVE DESIGN ADDITION
  * 
  * Takes the result of ve_exhibit_builder_exhibit_display_item() and transforms it in the following way:

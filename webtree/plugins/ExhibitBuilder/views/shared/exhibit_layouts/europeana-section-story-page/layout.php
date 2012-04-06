@@ -158,7 +158,18 @@ $story = $page->title
 <script type="text/javascript">
 	// TODO: check europeana object property
 	jQuery(document).ready(function(){
-		story.initZoomit("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>");
+		
+		var zoomitEnabled = "<?php echo ve_exhibit_builder_is_zoomit_enabled() ?>";
+		zoomitEnabled = true;
+		//zoomitEnabled = false;
+		
+//		if(zoomitEnabled){
+			story.initStory("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>", zoomitEnabled);
+	//	}
+		//else{
+			// responsive image is being shown
+		//	jQuery("#media_wrapper img.full").removeClass("tmp-img");
+	//	}
 	});
 </script>
 
