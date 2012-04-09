@@ -19,12 +19,7 @@
 			}
 
 			function Gallery(script) {
-				console.log("GALLERY PRE-INIT: " + script.nextSibling.nodeName  ); // the img tag
-				console.log("GALLERY PRE-INIT: " + script.nextSibling.nodeValue ); // the img tag
 				this.htmlStr = script.nextSibling.nodeValue.slice( 10, -11 );
-				
-				console.log("GALLERY INIT: " + this.htmlStr); // the img tag
-				
 				this.container = document.createElement( 'div' );
 				script.parentNode.insertBefore( this.container, script.nextSibling );
 			}

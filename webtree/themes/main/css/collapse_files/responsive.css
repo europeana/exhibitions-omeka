@@ -156,6 +156,7 @@ p {
 #media_wrapper{
 	width:	auto;
 	height: auto;
+	max-width:100%;
 }
 
 .single-item #zoomit_window{
@@ -318,6 +319,9 @@ input[type="text"], input[type="password"], input[type="email"], textarea, selec
 }
 
 
+#zoomit_window, #media_wrapper{
+	max-width:100%;
+}
 
 /* forces zoomit dimensions but loses centering..... */
 /*

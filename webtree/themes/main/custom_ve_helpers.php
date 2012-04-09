@@ -220,6 +220,7 @@ function getAddThisStandard($style = 'float:right; display:inline; padding-left:
 	$buttons .=	'</div>';
 	
 	return getAddThis($buttons);	
+	
 }
 
 
@@ -241,7 +242,6 @@ function getAddThis($buttons){
 	$html .=			'"data_ga_tracker": _gaq';	// Google Analytics tracking object, or the name of a global variable that references it. If set, we'll send AddThis tracking events to Google, so you can have integrated reporting.
 	$html .=		'}';
 	$html .=	'</script>';
-	$html .=	'<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=' . $appId .'"></script>';
 	return $html;
 }
 
