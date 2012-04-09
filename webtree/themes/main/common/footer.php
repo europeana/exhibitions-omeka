@@ -48,7 +48,8 @@
 				
 				<!-- If this script tag is closed it makes the google icon bigger -->
 				<!-- php messes this up, so put outside of custom_ve_helper for now -->
-				<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d70f66c15fff6d0">
+				<!--script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d70f66c15fff6d0"-->
+				<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=ra-4d70f66c15fff6d0">
 
 			</li>
 		</ul>
