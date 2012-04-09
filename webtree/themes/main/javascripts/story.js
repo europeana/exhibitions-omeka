@@ -21,19 +21,19 @@ var story = function() {
 				jQuery(firstThumbnail[0]).click();
 			}
 			else{
-				
 				function endsWith(str, suffix) {
 				    return str.indexOf(suffix, str.length - suffix.length) !== -1;
 				}
 
 		        if ( endsWith(initialUrl, "jpg") || endsWith(initialUrl, "jpeg")) {
-		        	if(zoomitEnabled){		        		
+	               	markup("image", initialUrl);
+	               	if(zoomitEnabled){		        		
 						zoomitAjaxUrl = initialUrl;
 						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
 						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://10.101.28.3/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
 						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://localhost/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
 				       	zoomitAjaxUrl = zoomitAjaxUrlPrefix + encodeURIComponent(zoomitAjaxUrl);
-						poll();
+		               	poll();
 		        	}
 		        	else{
 		        		showTmpImg();
@@ -69,7 +69,7 @@ var story = function() {
 	};
 
 	function hideTmpImg(remove){
-		log("hideTmpImg " + remove);
+		//log("hideTmpImg " + remove + jQuery(tmpImg)[0]);
 		if(remove){
 			tmpImg.css("display", "none");		// we don't really "remove" it, just put it out of sight
 		}
@@ -167,14 +167,6 @@ var story = function() {
 				+			'<img class="' + defImgClass + '" src="' + url + '"/>' + responsiveHTML2 
 				+		'</div>\n';
 
-			/*
-			var html =	'<div id="media_wrapper">\n'
-				+			'<div id="zoomit_window"></div>\n'
-				+			'<script class="euresponsive-script"></script><!--<noscript>'
-				+			'<img class="' + defImgClass + '" src="' + url + '"/></noscript -->'
-				+		'</div>\n';
-			*/
-			
 			jQuery("#in-focus")[0].innerHTML = html;
 			zoomitWindow = jQuery("#zoomit_window");
 			tmpImg = jQuery('#media_wrapper img.tmp-img');
@@ -228,8 +220,6 @@ var story = function() {
 	        var targetObjTitle = jQuery('div#exhibit-item-title h4');
 	        var targetZoomitHref = jQuery('div#in-focus');
 	
-	        
-	        
 	        // CLICK THE THUMBNAIL
 	        jQuery(this).click(function() {
 	        	
