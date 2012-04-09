@@ -19,10 +19,22 @@
 			}
 
 			function Gallery(script) {
+				/*
 				this.htmlStr = script.nextSibling.nodeValue.slice( 10, -11 );
 				this.container = document.createElement( 'div' );
 				script.parentNode.insertBefore( this.container, script.nextSibling );
+				*/
+				console.log("GALLERY PRE-INIT: " + script.nextSibling.nodeName  ); // the img tag
+				console.log("GALLERY PRE-INIT: " + script.nextSibling.nodeValue ); // the img tag
+				this.htmlStr = script.nextSibling.nodeValue.slice( 10, -11 );
+				
+				console.log("GALLERY INIT: " + this.htmlStr); // the img tag
+				
+				this.container = document.createElement( 'div' );
+				script.parentNode.insertBefore( this.container, script.nextSibling );
+
 			}
+			
 
 			
 			Gallery.prototype.changeLayout = function(escapedInitialSuffix, newSuffix, useZoomit) {

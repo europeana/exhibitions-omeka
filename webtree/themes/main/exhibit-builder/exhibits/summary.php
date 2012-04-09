@@ -103,6 +103,20 @@ unset($_SESSION['themes_uri']);
 				// invoke to tidy up initial display
 				adjustOverlay();
 				
+				(jQuery)(document).ready(function(){
+					responsiveGallery({
+						scriptClass: 'euresponsive-script',
+						testClass: 'euresponsive',
+						initialSuffix: '_euresponsive_1.jpg',
+						suffixes: {
+							'1': '_euresponsive_1.jpg',
+							'2': '_euresponsive_2.jpg',
+							'3': '_euresponsive_3.jpg',
+							'4': '_euresponsive_4.jpg'
+						}
+					});
+				});
+				
 			</script>
 			
  			<div id="exhibit-item-infocus-header">

@@ -45,30 +45,15 @@
 				<div id="standard_shares">
 					<?php echo getAddThisStandard(); ?>					 
 				</div>
-				
 				<!-- If this script tag is closed it makes the google icon bigger -->
 				<!-- php messes this up, so put outside of custom_ve_helper for now -->
 				<!--script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d70f66c15fff6d0"-->
 				<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=ra-4d70f66c15fff6d0">
-
+				</script>
 			</li>
 		</ul>
 	</div>
 
-
-   	<script type="text/javascript">
-	responsiveGallery({
-		scriptClass: 'euresponsive-script',
-		testClass: 'euresponsive',
-		initialSuffix: '_euresponsive_1.jpg',
-		suffixes: {
-			'1': '_euresponsive_1.jpg',
-			'2': '_euresponsive_2.jpg',
-			'3': '_euresponsive_3.jpg',
-			'4': '_euresponsive_4.jpg'
-		}
-	});
-	</script>
             
             
         </div>
@@ -79,7 +64,6 @@
     <script type="text/javascript" language="javascript">
 
         jQuery(document).ready(function() {
-    		//alert("main/common/footer     setThemePaths();");
     		if(typeof(setThemePaths) != "undefined"){
 	            setThemePaths("<?php echo $_GET['theme']; ?>");
        		}

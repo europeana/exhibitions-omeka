@@ -124,6 +124,7 @@ dt {
 }
 
 /* ZOOMIT ETC. */
-#media_wrapper {
-	border: 1px solid #e3d6b6;
+
+#media_wrapper .full, #media_wrapper .tmp-img, #zoomit_window{
+  border: 1px solid #e3d6b6;
 }

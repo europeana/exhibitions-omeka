@@ -323,6 +323,12 @@ input[type="text"], input[type="password"], input[type="email"], textarea, selec
 	max-width:100%;
 }
 
+/* these 2 are to stop the right-hand border from disappearing on the story page */
+#media_wrapper{
+	position:	relative;
+	left:		-1px;
+}
+
 /* forces zoomit dimensions but loses centering..... */
 /*
 #in-focus, #__seadragon1, .theme-center-inner, .theme-center-middle{

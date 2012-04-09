@@ -172,7 +172,8 @@ var story = function() {
 			tmpImg = jQuery('#media_wrapper img.tmp-img');
 
 			if(!zoomitEnabled){
-				//showTmpImg();
+				
+				zoomitWindow.hide();
 				responsiveGallery({
 					scriptClass: 'euresponsive-script',
 					testClass: 'euresponsive',

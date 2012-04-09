@@ -89,11 +89,24 @@
 <?php foot(); ?>
 
 <script type="text/javascript">
-jQuery(document).ready(function() {
-	if(typeof setThemePaths != "undefined"){
-	   setThemePaths("<?php echo $_GET['theme']; ?>");
-	}
-});
+	jQuery(document).ready(function() {
+		
+		if(typeof setThemePaths != "undefined"){
+			setThemePaths("<?php echo $_GET['theme']; ?>");
+		}
+		
+		responsiveGallery({
+			scriptClass: 'euresponsive-script',
+			testClass: 'euresponsive',
+			initialSuffix: '_euresponsive_1.jpg',
+			suffixes: {
+				'1': '_euresponsive_1.jpg',
+				'2': '_euresponsive_2.jpg',
+				'3': '_euresponsive_3.jpg',
+				'4': '_euresponsive_4.jpg'
+			}
+		});
+	});
 </script>
 
 <link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
