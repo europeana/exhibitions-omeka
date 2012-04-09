@@ -48,6 +48,7 @@ jQuery(document).ready(function() {
 
 function setThemePaths(theme){
     if(theme){
+        jQuery('#site-title-small img').attr('src',web_root+'/themes/'+theme+'/images/logo.png');
         jQuery('#site-title img').attr('src',web_root+'/themes/'+theme+'/images/logo.png');
         jQuery('img.arrow-left').attr('src',web_root+'/themes/'+theme+'/images/arrow-left.png');
         jQuery('img.arrow-right').attr('src',web_root+'/themes/'+theme+'/images/arrow-right.png');
