@@ -213,10 +213,7 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
         
     } else {
         $html .= '<h2>' . item('Dublin Core', 'Title') . '</h2>';
-    }
-    
-    error_log (" OUTPUT HTML = " . $html);
-    
+    }    
     return $html;
 }
 
