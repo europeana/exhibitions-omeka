@@ -42,7 +42,8 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
                 $navCrumbs[] = $titleCrumbs[] = $_SESSION["collection"];
             }
             else {
-//                $navCrumbs[] = $titleCrumbs[] = ve_translate("exhibits-browse", "Browse Exhibits");
+            	//error_log("ANDY: skip adding 'Browse Exhibits'");
+                $navCrumbs[] = $titleCrumbs[] = ve_translate("exhibits-browse", "Browse Exhibits");
             }
         }
 
@@ -57,11 +58,19 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
                 $iamtheme = strpos($sectionSlug, $findme);
 
                 $navCrumbs[] = '<a href="' . WEB_ROOT . '">' . ve_translate("virtual-exhibitions", "Virtual Exhibitions") . '</a>';
-//                $navCrumbs[] = '<a href="' . uri('exhibits/browse') . '">' . $_SESSION["collection"] . '</a>';
-
+                
+                
+                
+                error_log("session coillection is " .   $_SESSION["collection"]  );
+                
+                
+                $navCrumbs[] = '<a href="' . uri('exhibits/browse') . '">' . $_SESSION["collection"] . '</a>';
                 $titleCrumbs [] = ve_translate("virtual-exhibitions", "Virtual Exhibitions");
                 $titleCrumbs[] = $_SESSION["collection"];
 
+                
+                
+                
                 // Exhibit Summary Page
                 if ($exhibit->title && !$section->title) {
                     $navCrumbs[] = $titleCrumbs[] = $exhibit->title;
