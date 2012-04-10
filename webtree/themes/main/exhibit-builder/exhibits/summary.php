@@ -63,8 +63,8 @@ unset($_SESSION['themes_uri']);
             <script type="text/javascript">
 
 	            var cropDiv = document.getElementById("crop-div");
-	            jQuery(cropDiv).find("img").css("visibility", "hidden");
-
+	            
+	            jQuery("#exhibit-image-wrapper").css("visibility", "hidden");
 	            
             	// set the correct overlay source
             	var elRef = document.getElementById("exhibit-image-border");
@@ -91,9 +91,8 @@ unset($_SESSION['themes_uri']);
 				// define resize function
 				var adjustOverlay = function(){
 					var shadow  = document.getElementById("exhibit-shadow");
-					console.log("shadow.offsetHeight-1 = " + shadow.offsetHeight-1);
 					cropDiv.style.height = shadow.offsetHeight-1 + "px";
-		            jQuery(cropDiv).find("img").css("visibility", "visible");
+		            jQuery("#exhibit-image-wrapper").css("visibility", "visible");
 				}
 				
 				// attach listener
