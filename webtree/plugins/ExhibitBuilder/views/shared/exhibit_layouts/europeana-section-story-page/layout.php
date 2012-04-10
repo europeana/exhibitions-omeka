@@ -136,6 +136,7 @@ $story = $page->title
 <?php echo js('seadragon-min'); ?>
 <?php echo js('story'); ?>
 
+<?php echo( "this is the id...." . get_current_item()->id ); ?>
 
 
 <div class="row">
@@ -161,7 +162,7 @@ $story = $page->title
 		
 		var zoomitEnabled = "<?php echo ve_exhibit_builder_is_zoomit_enabled() ?>";
 		zoomitEnabled = false;
-		zoomitEnabled = true;
+		//zoomitEnabled = true;
 		story.initStory("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>", zoomitEnabled);
 		
 	});

@@ -117,8 +117,8 @@ $story = $page->title
 	
 </div> <!-- end row -->
 
-
-
+<!--? //php echo( "this is the id...." .  $item->id ); ? -->
+<?php wikicite_for_item(); ?>
 <div class="row">
 	<?php echo js('seadragon-min'); ?>
 	<?php echo js('story'); ?>
@@ -136,6 +136,7 @@ $story = $page->title
 		?>
 	</div>	
 </div>
+
 
 
 <script type="text/javascript">
