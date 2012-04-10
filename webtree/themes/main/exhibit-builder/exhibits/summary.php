@@ -62,6 +62,10 @@ unset($_SESSION['themes_uri']);
             
             <script type="text/javascript">
 
+	            var cropDiv = document.getElementById("crop-div");
+	            jQuery(cropDiv).find("img").css("visibility", "hidden");
+
+	            
             	// set the correct overlay source
             	var elRef = document.getElementById("exhibit-image-border");
             	var imgUrl = "";
@@ -87,8 +91,9 @@ unset($_SESSION['themes_uri']);
 				// define resize function
 				var adjustOverlay = function(){
 					var shadow  = document.getElementById("exhibit-shadow");
-					var cropDiv = document.getElementById("crop-div");
+					console.log("shadow.offsetHeight-1 = " + shadow.offsetHeight-1);
 					cropDiv.style.height = shadow.offsetHeight-1 + "px";
+		            jQuery(cropDiv).find("img").css("visibility", "visible");
 				}
 				
 				// attach listener
@@ -100,10 +105,11 @@ unset($_SESSION['themes_uri']);
 					adjustOverlay();
 				});
 
-				// invoke to tidy up initial display
-				adjustOverlay();
 				
 				(jQuery)(document).ready(function(){
+				// invoke to tidy up initial display
+					//adjustOverlay();
+					
 					responsiveGallery({
 						scriptClass: 'euresponsive-script',
 						testClass: 'euresponsive',
