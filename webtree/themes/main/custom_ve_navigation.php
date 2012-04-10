@@ -9,6 +9,16 @@
  * Returns Breadcrumb navigation
  * @return html string
  */
+		
+/*
+ * PAGE			USES
+ * info			3 & 7
+ * themes		3 & 6
+ * item			numeric
+ * summary		3 & 4
+ * browse		3
+ * 
+*/
 function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null, $showAsTitle=null)
 {
     $current = ve_get_current_page_name();
@@ -24,7 +34,6 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
         unset($_SESSION['collection']);
         unset($_SESSION['themes_uri']);
         $navCrumbs[] = $titleCrumbs[] = ve_translate("virtual-exhibitions", "Virtual Exhibitions");
-
     }
     elseif ($current == 'contact') {
         $navCrumbs[] = '<a href="' . WEB_ROOT . '">' . ve_translate("virtual-exhibitions", "Virtual Exhibitions") . '</a>';
@@ -38,11 +47,12 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
 
             $navCrumbs[] = '<a href="' . WEB_ROOT . '">' . ve_translate("virtual-exhibitions", "Virtual Exhibitions") . '</a>';
             $titleCrumbs[] =  ve_translate("virtual-exhibitions", "Virtual Exhibitions");
+            
+            
             if(isset($_SESSION["collection"])){
                 $navCrumbs[] = $titleCrumbs[] = $_SESSION["collection"];
             }
             else {
-            	//error_log("ANDY: skip adding 'Browse Exhibits'");
                 $navCrumbs[] = $titleCrumbs[] = ve_translate("exhibits-browse", "Browse Exhibits");
             }
         }
@@ -59,17 +69,15 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
 
                 $navCrumbs[] = '<a href="' . WEB_ROOT . '">' . ve_translate("virtual-exhibitions", "Virtual Exhibitions") . '</a>';
                 
-                
-                
-                error_log("session coillection is " .   $_SESSION["collection"]  );
-                
-                
-                $navCrumbs[] = '<a href="' . uri('exhibits/browse') . '">' . $_SESSION["collection"] . '</a>';
-                $titleCrumbs [] = ve_translate("virtual-exhibitions", "Virtual Exhibitions");
-                $titleCrumbs[] = $_SESSION["collection"];
 
+                // Remove wiki/mimo/dismark etc.
+                //$navCrumbs[] = '<a href="' . uri('exhibits/browse') . '">' . $_SESSION["collection"] . '</a>';
                 
+                $titleCrumbs [] = ve_translate("virtual-exhibitions", "Virtual Exhibitions");
                 
+                // Remove wiki/mimo/dismark etc.
+                //$titleCrumbs[] = $_SESSION["collection"];
+
                 
                 // Exhibit Summary Page
                 if ($exhibit->title && !$section->title) {
@@ -86,19 +94,52 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
                         $navCrumbs[] = $titleCrumbs[] = $section->title;
                     }
                     // on themes page
-                    else {
+                    else { 
                         $navCrumbs[] =  $titleCrumbs[] = ve_translate('themes', 'Themes');
                     }
 
-
                 }
                  if ($exhibit->title && $section->title && $iamtheme==false && isset($_SESSION['themes_uri'])) {
-                    $navCrumbs[] = '<a href="' . WEB_ROOT . '/exhibits/show/' . $exhibit->slug . '">' . $exhibit->title . '</a>';
-                     $navCrumbs[] = '<a href="' . $_SESSION['themes_uri']  . '">' . ve_translate('themes', 'Themes') . '</a>';
-                     $titleCrumbs[] = $exhibit->title;
-                     $titleCrumbs[] = ve_translate('themes', 'Themes');
-                     $navCrumbs[] = $titleCrumbs[] = $section->title;
+                	 // start original code
+                	 /*
+                     $navCrumbs[] = '<a href="' . WEB_ROOT . '/exhibits/show/' . $exhibit->slug . '">' . $exhibit->title . " iamtheme:". $iamtheme  . '</a>';
 
+                     $navCrumbs[] = '<a href="' . $_SESSION['themes_uri']  . '">' . ve_translate('themes', 'Themes')."5" . '</a>';  // used in mimo story intro & page 
+
+                     $titleCrumbs[] = $exhibit->title ."(1.5)";
+                     
+                     $titleCrumbs[] = ve_translate('themes', 'Themes') ."(2)";
+                     
+                     
+                     $navCrumbs[] = $titleCrumbs[] = $section->title ."(3)-sec";
+					*/
+                	 // end original code
+                	 
+                	 // start mimo/connect fix code
+                	 if($section->title == 'Themes'){
+                         $navCrumbs[] = '<a href="' . WEB_ROOT . '/exhibits/show/' . $exhibit->slug . '">' . $exhibit->title . '</a>';
+                         $titleCrumbs[] = $exhibit->title;
+                         $navCrumbs[] = $titleCrumbs[] = $section->title;
+                		 
+                	 }
+                	 else{
+                         $navCrumbs[] = '<a href="' . WEB_ROOT . '/exhibits/show/' . $exhibit->slug . '">' . $exhibit->title . '</a>';
+                         $navCrumbs[] = '<a href="' . $_SESSION['themes_uri']  . '">' . ve_translate('themes', 'Themes') . '</a>';  // used in mimo story intro & page
+                         $titleCrumbs[] = $exhibit->title;
+                         
+                         $titleCrumbs[] = ve_translate('themes', 'Themes');
+                         $navCrumbs[] = $titleCrumbs[] = $section->title;
+                		 
+                	 }
+                	 // end mimo/connect fix code
+
+                 }
+                 else{
+                	 if($exhibit->title && count($navCrumbs) == 1 && !$iamtheme && $section->title ){
+                         
+                         $navCrumbs[] = '<a href="' . WEB_ROOT . '/exhibits/show/' . $exhibit->slug . '">' . $exhibit->title . '</a>';
+                         $navCrumbs[] =  $titleCrumbs[] = ve_translate('themes', 'Themes');
+                	 }
                  }
 
             }
