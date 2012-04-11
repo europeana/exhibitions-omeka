@@ -18,18 +18,39 @@
 </div>	<!-- end row -->
 
 <div class="row">
-	<div class="six columns"  style="margin-bottom:3em;">
-        <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
-    </div>
-
+	<div class="six columns single-item"  style="margin-bottom:3em;">
+		<?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
+		
+		<div class="row">
+			<div id="mobile_shares" class="twelve columns">
+				<div class="theme-center-outer">
+					<div class="theme-center-middle">
+						<div class="theme-center-inner">
+							<?php echo getAddThisMobile(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
     <div class="six columns" style="margin-bottom:3em;">
 
-<!--        <ul class="item-pagination navigation">-->
-<!--            <li id="previous-item" class="previous">--><?php //echo link_to_previous_item('Previous Item'); ?><!--</li>-->
-<!--            <li id="next-item" class="next">--><?php //echo link_to_next_item('Next Item'); ?><!--</li>-->
-<!--        </ul>-->
-
         <?php echo ve_custom_show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?>
+        
+		<div class="wiki-citation">
+			<h2>Cite on Wikipedia</h2>
+			<?php
+				try {
+					wikicite_for_item();
+				}
+				catch (Exception $e) {
+				    echo('Error: ' . $e->getMessage());
+				}		
+			?>
+		</div>
+
     </div>
 </div>
 
@@ -52,13 +73,28 @@
 
 <?php foot(); ?>
 
-
 <script type="text/javascript">
-jQuery(document).ready(function() {
-	if(typeof setThemePaths != "undefined"){
-	   setThemePaths("<?php echo $_GET['theme']; ?>");
-	}
-});
+	jQuery(document).ready(function() {
+		
+		if(typeof setThemePaths != "undefined"){
+			setThemePaths("<?php echo $_GET['theme']; ?>");
+		}
+		
+		responsiveGallery({
+			scriptClass: 'euresponsive-script',
+			testClass: 'euresponsive',
+			initialSuffix: '_euresponsive_1.jpg',
+			suffixes: {
+				'1': '_euresponsive_1.jpg',
+				'2': '_euresponsive_2.jpg',
+				'3': '_euresponsive_3.jpg',
+				'4': '_euresponsive_4.jpg'
+			}
+		});
+	});
 </script>
+
+
+
 
 <link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>

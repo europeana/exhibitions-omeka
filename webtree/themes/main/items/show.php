@@ -50,13 +50,20 @@
 
     <div class="six columns" style="margin-bottom:3em;">
 
-<!--        <ul class="item-pagination navigation">-->
-<!--            <li id="previous-item" class="previous">--><?php //echo link_to_previous_item('Previous Item'); ?><!--</li>-->
-<!--            <li id="next-item" class="next">--><?php //echo link_to_next_item('Next Item'); ?><!--</li>-->
-<!--        </ul>-->
-
-        <!--<?php //echo show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?> -->
         <?php echo ve_custom_show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?>
+        
+		<div class="wiki-citation">
+    		<h2>Cite on Wikipedia</h2>
+    		<?php
+    			try {
+    				wikicite_for_item();
+    			}
+    			catch (Exception $e) {
+    			    echo('Error: ' . $e->getMessage());
+    			}		
+    		?>
+		</div>
+
     </div>
 </div>
 

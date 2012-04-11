@@ -163,6 +163,12 @@ p {
 	border:	none;	
 }
 
+.wiki-citation{
+	padding-top:	2em;
+	clear:			both;	
+}
+
+
 .theme-title{
     text-align:	center;
 }
