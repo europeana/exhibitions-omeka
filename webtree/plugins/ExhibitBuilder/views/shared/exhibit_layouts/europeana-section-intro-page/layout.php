@@ -118,12 +118,13 @@ $story = $page->title
 </div> <!-- end row -->
 
 <!--? //php echo( "this is the id...." .  $item->id ); ? -->
-<?php wikicite_for_item(); ?>
+		
 <div class="row">
 	<?php echo js('seadragon-min'); ?>
 	<?php echo js('story'); ?>
 
 	<div class="twelve columns">
+
 		<?php
 			//echo "plugins/ExhibitBuilder/views/shared/exhibit_layouts/europeana-section-intro-page/layout.php";
 			try {

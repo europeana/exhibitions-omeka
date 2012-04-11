@@ -136,7 +136,7 @@ $story = $page->title
 <?php echo js('seadragon-min'); ?>
 <?php echo js('story'); ?>
 
-<?php echo( "this is the id...." . get_current_item()->id ); ?>
+<!-- ?//php echo( "this is the id...." . get_current_item()->id ); ?-->
 
 
 <div class="row">
