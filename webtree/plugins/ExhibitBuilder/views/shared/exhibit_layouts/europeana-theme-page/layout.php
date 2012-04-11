@@ -90,14 +90,20 @@ $_SESSION['themes_uri'] = uri();
             // Cycle through all the Exhibit sections and list them as Themes.
             foreach ($exhibit->Sections as $key => $exhibitSection) {
             	
+
+				$themeTitle	= html_escape($exhibitSection->title, $errors);
+				$themeImage	= ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors);
+				$themeLink	= html_escape(exhibit_builder_exhibit_uri($exhibit, $exhibitSection));
+            	
             	// skip the first one because this is the exhibit section (themes) we are currently on
             	if ($exhibitSection->hasPages() && ($exhibitSection->order > 1)) {
 
+            		
             		$themesCollapsed .=					'<li class="item-li">';
 					$themesCollapsed .=						'<div class="theme-center-outer">';
 					$themesCollapsed .=							'<div class="theme-center-middle">';
 					$themesCollapsed .=								'<div class="theme-center-inner">';
-            		$themesCollapsed .=									'<a href="'.$themeLink2.'">';
+            		$themesCollapsed .=									'<a href="'.$themeLink.'">';
             		$themesCollapsed .=     								ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors); // force some space
             		$themesCollapsed .=										'<div class="new_overlay" style="z-index:2; top:0px;">';
             		$themesCollapsed .=											'<img src=""/>';
@@ -106,7 +112,7 @@ $_SESSION['themes_uri'] = uri();
 					$themesCollapsed .=								'</div>';
 					$themesCollapsed .=							'</div>';
 					$themesCollapsed .=						'</div>';
-					$themesCollapsed .=						'<a href="'.$themeLink2.'">';
+					$themesCollapsed .=						'<a href="'.$themeLink.'">';
 					$themesCollapsed .=							'<h4>'. html_escape($exhibitSection->title, $errors) .'</h4>';
 					$themesCollapsed .=						'</a>';
             		$themesCollapsed .=					'</li>';
