@@ -55,8 +55,6 @@ var story = function() {
 	}
 
 	function log(msg){
-		alert("excuse the alerts: emergency fixing underway...\n\n\n" + msg);
-		
 		if(typeof console != "undefined" && typeof console.log != "undefined"){
 			console.log(msg);
 		}
