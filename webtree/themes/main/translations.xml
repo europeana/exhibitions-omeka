@@ -365,4 +365,30 @@
 		<ru></ru>
     </label>
     -->
+     <embed-code>
+        <en>Embed Code (EN)</en>
+        <nl>Embed Code (NL)</nl>
+        <de>Embed Code (DE)</de>
+        <fr>Embed Code (FR)</fr>
+        <pl>Embed Code (PL)</pl>
+        <it>Embed Code (IT)</it>
+        <sv>Embed Code (SV)</sv>
+        <es>Embed Code (ES)</es>
+        <lv>Embed Code (LV)</lv>
+		<ru>Embed Code (Ru)</ru>
+    </embed-code>
+    
+    <cite-on-wikipeia>
+        <en>Cite on Wikipedia (EN)</en>
+        <nl>Cite on Wikipedia (NL)</nl>
+        <de>Cite on Wikipedia (DE)</de>
+        <fr>Cite on Wikipedia (FR)</fr>
+        <pl>Cite on Wikipedia (PL)</pl>
+        <it>Cite on Wikipedia (IT)</it>
+        <sv>Cite on Wikipedia (SV)</sv>
+        <es>Cite on Wikipedia (ES)</es>
+        <lv>Cite on Wikipedia (LV)</lv>
+		<ru>Cite on Wikipedia (Ru)</ru>
+
+    </cite-on-wikipeia>
 </translations>

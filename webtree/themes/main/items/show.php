@@ -54,9 +54,8 @@
         
         <?php echo ve_custom_show_embed(); ?>
         
-        
 		<div class="wiki-citation">
-    		<h2>Cite on Wikipedia</h2>
+			<h2><?php echo ve_translate("cite-on-wikipeia", "Cite on Wikipedia"); ?></h2>
     		<?php
     			try {
     				wikicite_for_item();

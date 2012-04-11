@@ -164,15 +164,20 @@ p {
 }
 
 .wiki-citation{
-	padding-top:	2em;
+	padding-top:	1em;
 	clear:			both;	
 }
 
 #embedded{	
-	clear:				both;
-	background-color:	orange;	
-	padding:			20px;	
+	padding-top:	1em;
+	clear:			both;
+	width:			100%;
 }
+
+#embedded textarea{
+	width:			100%;
+}
+
 
 #embedded span{
 	font-weight:		bold;
