@@ -55,9 +55,10 @@ var story = function() {
 	}
 
 	function log(msg){
-		if(console){
-			console.log(msg);
-		}
+		//alert(msg);
+		//if(console){
+		//	console.log(msg);
+		//}
 	}
 	
 	function showTmpImg(){
