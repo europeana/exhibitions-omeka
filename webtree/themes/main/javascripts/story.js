@@ -55,10 +55,9 @@ var story = function() {
 	}
 
 	function log(msg){
-		//alert(msg);
-		//if(console){
-		//	console.log(msg);
-		//}
+		if(typeof console != "undefined" && typeof console.log != "undefined"){
+			console.log(msg);
+		}
 	}
 	
 	function showTmpImg(){
