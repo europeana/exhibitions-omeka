@@ -52,6 +52,9 @@
 
         <?php echo ve_custom_show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?>
         
+        <?php echo ve_custom_show_embed(); ?>
+        
+        
 		<div class="wiki-citation">
     		<h2>Cite on Wikipedia</h2>
     		<?php

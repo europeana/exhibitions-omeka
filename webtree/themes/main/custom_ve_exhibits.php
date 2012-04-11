@@ -60,102 +60,6 @@ function ve_exhibit_builder_is_zoomit_enabled()
 }
 
 
-/* RESPONSIVE DESIGN ADDITION
- * 
- * Takes the result of ve_exhibit_builder_exhibit_display_item() and transforms it in the following way:
- * 		.jpg		->		_euresponsive_1.jpg
- * 		/fullsize/	->		/euresponsive/
- * 		/fullsize/	->		/euresponsive/
- * 		<img>		->		gets wrapped in noscript tag
- * 		<script>	->		gets inserted
- */
-/*
-function ve_exhibit_builder_exhibit_display_item_responsively($displayFilesOptions = array(), $linkProperties = array())
-{
-	$zoomify = ve_exhibit_builder_zoomit_uri();
-	if(strlen($zoomify) > 0){
-		$result = ve_exhibit_builder_exhibit_display_item($displayFilesOptions, $linkProperties);
-		return $result; 
-	}
-	else{
-	    $item = get_current_item();
-	    $fileIndex = 0; // Always just display the first file (may change this in future).
-	    $linkProperties['href'] = exhibit_builder_exhibit_item_uri($item);
-	    $displayFilesOptions['linkToFile'] = false; // Don't link to the file b/c it overrides the link to the item.
-	    $fileWrapperClass = null; // Pass null as the 3rd arg so that it doesn't output the item-file div.
-	    $file = $item->Files[$fileIndex];
-	    $html = '';
-	
-	    if ($file) {
-	        $mime = $file->getMimeType();
-	        if (preg_match("/^image/", $mime)) {
-	            // IMAGE
-	            $html .= '<div id="in-focus" class="image">';
-                $html .= display_file($file, $displayFilesOptions, $fileWrapperClass);
-	        }
-	        elseif (preg_match("/^audio/", $mime)) {
-	            // AUDIO
-	            $html .= '<div id="in-focus" class="player">';
-	            $html .= '<audio  controls="controls"  type="audio/mp3" src="' . file_display_uri($file, $format = 'archive') . '" width="460" height="84"></audio>';
-	        }
-	        else {
-	            // VIDEO
-	            $html .= '<div id="in-focus" class="player">';
-	            $html .= '<video src="' . file_display_uri($file, $format = 'archive') . '" width="460" height="340"></video>';
-	        }
-	        $html .= '</div>';
-	        $html .= '<div id="exhibit-item-title"><h4>' . item('Dublin Core', 'Title') . '</h4></div>';
-	    } else {
-	        $html .= '<h2>' . item('Dublin Core', 'Title') . '</h2>';
-	    }
-	    $result = $html;		
-	}	
-	
-	$dom = new DOMDocument;
-	$dom->loadHTML($result);
-	
-	$xpath			= new DOMXpath($dom);
-	$divNode1		= $xpath->query("//html/body/div")->item(0);
-	$divNode2		= $xpath->query("//html/body/div")->item(1);
-	$imageNode		= $xpath->query("//html/body/div/img")->item(0);
-	$scriptNode		= $dom->createElement('script', 'document.write("<" + "!--")');
-	$noScriptNode	= $dom->createElement('noscript');
-	
-	$scriptNode		->setAttribute('class', 'euresponsive-script');
-	$noScriptNode	->appendChild($imageNode);
-	
-	$divNode1->appendChild($scriptNode);
-	$divNode1->appendChild($noScriptNode);
-	
-	$dom2 = new DOMDocument();
-	$imported1 = $dom2->importNode($divNode1, true);
-	$imported2 = $dom2->importNode($divNode2, true);
-	$dom2->appendChild($imported1);
-	$dom2->appendChild($imported2);
-	
-	$result = $dom2->saveHTML();
-	
-	$result = str_replace(".jpg", "_euresponsive_1.jpg",	$result);
-	$result = str_replace("/fullsize/", "/euresponsive/",	$result);
-	$result = str_replace("</noscript>", "</noscript -->",	$result);
-	
-	return $result;
-}
-*/
-	
-	/*
-	return '<div id="in-focus" class="image">'
-				. '<script class="dirty-script">document.write("<" + "!--")</script>'
-				. '<noscript>'
-			 		. '<img src="http://127.0.0.1/ombad/archive/euresponsive/mastercraft_intro_11e5245b91_euresponsive_1.jpg" class="full" alt="Drageoir"/>'
-				. '</noscript -->'
-			. '</div>'
-			. '<div id="exhibit-item-title"><h4>Drageoir </h4></div>';
-	*/
-
-
-// RESPONSIVE DESIGN ADDITION
-
 
 function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(), $linkProperties = array(), $titleOnly = false, $withoutTitle = false)
 {
@@ -179,8 +83,8 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
         if (preg_match("/^image/", $mime)) {
             // IMAGE
 			$imgHtml	= display_file($file, $displayFilesOptions, $fileWrapperClass);
-			$imgHtml	= str_replace('.jpg', '_euresponsive_1.jpg',	$imgHtml);
-			$imgHtml	= str_replace('/fullsize/', '/euresponsive/',	$imgHtml);
+			$imgHtml	= str_replace('.jpg', '_euresponsive_1.jpg',			$imgHtml);
+			$imgHtml	= str_replace('/fullsize/', '/euresponsive/',			$imgHtml);
 			$imgHtml	= str_replace('class="full"', 'class="full tmp-img"',	$imgHtml);
 
             $html .= '<div id="in-focus" class="image">';
@@ -273,6 +177,106 @@ function ve_link_to_item($text = null, $props = array(), $action = 'show', $item
     echo $item->getMimeType();
     $text = (!empty($text) ? $text : strip_formatting(item('Dublin Core', 'Title', array(), $item)));
     return link_to($item, $action, $text, $props);
+}
+
+
+/*
+ *  Display the embed button only for items with a Creative Commons license. 
+    Display embed button only when the item is an image
+    In the embedded item display the creative commons license as a badge with a link to its license statement and also include the correct CC-rel markup
+    Add a GA-tracking code to the URL-back to exhibition.
+        (Dean will create a tracking code)
+        
+        
+    The following metadata per item needs to be included (when extant): Title, Creator, Data Provider, Provider, CC-license.
+    When the item is tiled the embed functions must include an untiled image
+        So we need to be able to call for that in the Omeka backend
+        
+ * */
+if(!function_exists('ve_custom_show_embed')){
+	function ve_custom_show_embed(){
+		
+		$item		= get_current_item();
+		$html		= '';
+		$fileIndex	= 0; // Always just display the first file (may change this in future).
+		$file		= $item->Files[$fileIndex];
+
+		if($file){
+			$mime = $file->getMimeType();
+			if (preg_match("/^image/", $mime)) {
+				if($dcFieldsList = get_theme_option('display_dublin_core_fields')){
+					
+					$embedEligible = false;
+					$dcFields = explode(',', $dcFieldsList);
+					
+					foreach($dcFields as $field){
+						$field = trim($field);
+
+						if (element_exists('Dublin Core', $field)){
+							if(strtolower($field) == 'rights'){
+								if($fieldValues = item('Dublin Core', $field, 'all')){
+									foreach ($fieldValues as $key => $fieldValue){
+										if(!item_field_uses_html('Dublin Core', $field, $key)){
+											$fieldValue = nls2p($fieldValue);
+										}
+
+										if(strrpos($fieldValue, "creativecommons")>-1){
+											$embedEligible = true;
+										}
+									}
+								}
+							}
+						}
+					}
+
+					if($embedEligible){
+
+						// Title, Creator, Data Provider, Provider, CC-license.
+						
+						$html	.=	'<ul id="embedded">';
+						$html	.=		'<textarea>';
+						$html	.=			'<style type="text/css">';
+						$html	.=				'#embedded span.field-name{';
+						$html	.=					'font-weight:bold;';
+						$html	.=				'}';
+						$html	.=			'</style>';
+						$html	.=			'<div id="embedded">';
+						$html	.=				item_fullsize($file);
+						
+						$embedFields = array("title", "creator", "data provider", "provider", "rights");
+						
+						foreach($dcFields as $field){
+							$field = trim($field);
+							if (element_exists('Dublin Core', $field)){
+								if( in_array(strtolower($field), $embedFields)  ){
+									if($fieldValues = item('Dublin Core', $field, 'all')){
+										foreach ($fieldValues as $key => $fieldValue){
+											if(!item_field_uses_html('Dublin Core', $field, $key)){
+												$fieldValue = nls2p($fieldValue);
+											}
+											$val = $fieldValue;
+											$val = str_replace('<p>', '',			$val);
+											$val = str_replace('</p>', '',			$val);
+											$val = str_replace('<br>', '',			$val);
+											$val = str_replace('<br/>', '',			$val);
+											$val = str_replace('<br />', '',		$val);
+											
+											$html .= '<li><span class="field-name">'.$field.':</span> '.$val.'</li>';
+										}
+									}
+								}
+							}
+						}
+						$html	.=			'</ul>';
+						$html	.=		'</textarea>';
+						$html	.=	'</div>';
+					}
+				}
+			}
+		}
+
+		return $html;
+	}
 }
 
 /*

@@ -168,7 +168,16 @@ p {
 	clear:			both;	
 }
 
+#embedded{	
+	clear:				both;
+	background-color:	orange;	
+	padding:			20px;	
+}
 
+#embedded span{
+	font-weight:		bold;
+}
+	
 .theme-title{
     text-align:	center;
 }

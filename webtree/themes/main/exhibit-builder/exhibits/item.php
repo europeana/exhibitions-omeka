@@ -39,6 +39,10 @@
 
         <?php echo ve_custom_show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?>
         
+        HERE"S THE EMBED
+        <?php echo ve_custom_show_embed(); ?>
+        END OF THE EMBED
+        
 		<div class="wiki-citation">
 			<h2>Cite on Wikipedia</h2>
 			<?php
