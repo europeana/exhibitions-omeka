@@ -208,9 +208,9 @@ var story = function() {
 
 	function switchMediaElement() {
 	    jQuery('div#exhibit-item-thumbnails div.exhibit-item a.thumb').each(function(index) {
-	    	
 	        //VALUES
 	        var mimeType = jQuery(this).find('img:first').attr('rel');
+	        
 	        var newObjHref = jQuery(this).attr('href');
 	        var newObjSrc = jQuery(this).find('img:first').attr('src').replace('square_thumbnails', 'fullsize');
 	        var newObjTitle = jQuery(this).find('img:first').attr('alt');
@@ -223,16 +223,18 @@ var story = function() {
 	
 	        // CLICK THE THUMBNAIL
 	        jQuery(this).click(function() {
+	        
 	        	
 	            var mediaURI = jQuery(this).find('img:first').attr('accesskey');
 	            
-	            var regexAudio = /^audio/;
-	            var regexVideo = /^video/;
-	            var regexImage = /^image/;
+	            var regexAudio	= /^audio/;
+	            var regexVideo	= /^video/;
+	            var regexImage	= /^image/;
+	            var regexPdf	= /^application/;
+	            
 	            if (mimeType.match(regexImage)) { // all images a zoomit-able
 	
 	            	log("we have an image...zoomitEnabled = " + zoomitEnabled);
-	            	
 
 	               	newObjSrc = newObjSrc.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
 	               	newObjSrc = newObjSrc.replace("http://10.101.28.3/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
@@ -279,7 +281,6 @@ var story = function() {
 	            	
 	            	log("we have a video...");
 	            	
-	            	
 	                jQuery('div#in-focus').html('<video controls="controls" src="' + mediaURI + '"></video>');
 	                jQuery('div#in-focus video').mediaelementplayer({
 	                    enableAutosize: false,//true,
@@ -300,6 +301,14 @@ var story = function() {
 	                    features: ['playpause','progress','current','duration','volume','fullscreen']
 	                });
 	            }
+	            if (mimeType.match(regexPdf)) {
+	            	
+	            	log("we have a pdf...");
+	            	
+	            	jQuery('div#in-focus').html('<iframe width="100%" height="100%" style="border:none; min-height:275px;" src="http://docs.google.com/viewer?url=' + encodeURIComponent(mediaURI) + '&amp;embedded=true"></iframe>');
+	            	
+	            }
+	            
 	            // Replace the url for the link to the item page
 	            targetObjHref.attr('href', newObjHref);
 	            // Replace the title
