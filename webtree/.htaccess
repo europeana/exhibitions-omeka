@@ -83,7 +83,10 @@ RewriteRule !\.(js|ico|gif|jpg|png|css)$ index.php
 
 
 
-
+## europeana
+## addtype for correct font mime type interpretation by apache
+AddType application/octet-stream .otf .ttf
+AddType application/x-woff .woff
 
 
 <FilesMatch "\.(php|ini)$">
