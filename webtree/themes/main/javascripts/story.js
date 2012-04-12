@@ -304,7 +304,6 @@ var story = function() {
 	            if (mimeType.match(regexPdf)) {
 	            	
 	            	log("we have a pdf...");
-	            	
 	            	jQuery('div#in-focus').html('<iframe width="100%" height="100%" style="border:none; min-height:275px;" src="http://docs.google.com/viewer?url=' + encodeURIComponent(mediaURI) + '&amp;embedded=true"></iframe>');
 	            	
 	            }
