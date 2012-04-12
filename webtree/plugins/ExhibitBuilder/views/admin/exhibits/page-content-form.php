@@ -23,8 +23,11 @@
 		// Set the paginated exhibit items uri
 		exhibitBuilder.paginatedItemsUri = <?php echo js_escape(uri('exhibits/items')); ?>;
 		
+		
+		
 		// Set the remove item background image uri
-		exhibitBuilder.removeItemBackgroundImageUri = <?php echo js_escape(img('delete.gif')); ?>;
+		exhibitBuilder.removeItemBackgroundImageUri = <?php echo js_escape(img('silk-icons/delete.png')); ?>;
+		
 		
 		// Get the paginated items
 		exhibitBuilder.getItems();
