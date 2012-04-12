@@ -104,6 +104,13 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
             //            $html .= '<audio  controls="controls"  poster="' . file_display_uri($file, $format = 'fullsize') . '" type="audio/mp3" src="' . file_display_uri($file, $format = 'archive') . '" width="460" height="84"></audio>';
             $html .= '<audio  controls="controls"  type="audio/mp3" src="' . file_display_uri($file, $format = 'archive') . '" width="460" height="84"></audio>';
         }
+        elseif (preg_match("/^application/", $mime)) {
+        	$html .= '<div id="in-focus" class="pdf-viewer">';
+       		if (class_exists('DocsViewerPlugin')):
+       		   $docsViewer = new DocsViewerPlugin;
+       			$html .= $docsViewer->embed();
+       		endif;
+        }
         else {
             // VIDEO
             $html .= '<div id="in-focus" class="player">';
