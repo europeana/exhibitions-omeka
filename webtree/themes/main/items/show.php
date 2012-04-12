@@ -50,6 +50,23 @@
 
     <div class="six columns" style="margin-bottom:3em;">
 
+    
+    
+    
+    
+    <!-- DOCVIEWER-->
+    <?php
+    		if (class_exists('DocsViewerPlugin')):
+    		   $docsViewer = new DocsViewerPlugin;
+    		   $docsViewer->embed();
+    		endif;
+    ?>
+    <!-- DOCVIEWER-->
+
+    
+    
+    
+    
         <?php echo ve_custom_show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?>
         
         <?php echo ve_custom_show_embed(); ?>

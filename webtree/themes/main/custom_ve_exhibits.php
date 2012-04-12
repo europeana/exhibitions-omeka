@@ -141,11 +141,10 @@ function ve_exhibit_builder_display_exhibit_thumbnail_gallery($start, $end, $pro
             if (item_has_files()) {
                 while (loop_files_for_item()) {
 
-
                     $file = get_current_file();
 
                     $thumbnail = item_image($thumbnail_type, array('alt' => item('Dublin Core', 'Title'), 'rel' => $file->getMimeType(), 'accesskey' => file_display_uri($file, $format = 'archive')));
-                    //                    $hiddenInput = '<input type="hidden" name="zoomit" class="zoomit" value="' . $zoomURI . '"/>';
+
                     $hiddenInput = '<input type="hidden" name="zoomit" class="zoomit" value="' . str_replace("http://zoom.it/", "", $zoomURI) . '"/>';
 
                     if (preg_match("/^audio/", $file->getMimeType())) {
@@ -154,13 +153,12 @@ function ve_exhibit_builder_display_exhibit_thumbnail_gallery($start, $end, $pro
                     if (preg_match("/^video/", $file->getMimeType())) {
                         $thumbnail .= '<img src="' . img('icon-video.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
                     }
+                    if (preg_match("/^application/", $file->getMimeType())) {
+                        $thumbnail = '<img src="' . img('pdf-icon.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
+                    }
                     $html .= exhibit_builder_link_to_exhibit_item($thumbnail, $props) . $hiddenInput;
-
-
                 }
-
             }
-
             $html .= '</div>';
         }
     }
