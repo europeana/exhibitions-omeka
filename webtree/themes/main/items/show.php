@@ -31,6 +31,7 @@
 <div class="row">
 
 	<div class="six columns single-item"  style="margin-bottom:3em;">
+	
         <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
         
         <div class="row">
@@ -50,23 +51,6 @@
 
     <div class="six columns" style="margin-bottom:3em;">
 
-    
-    
-    
-    
-    <!-- DOCVIEWER-->
-    <?php
-    		if (class_exists('DocsViewerPlugin')):
-    		   $docsViewer = new DocsViewerPlugin;
-    		   $docsViewer->embed();
-    		endif;
-    ?>
-    <!-- DOCVIEWER-->
-
-    
-    
-    
-    
         <?php echo ve_custom_show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?>
         
         <?php echo ve_custom_show_embed(); ?>
