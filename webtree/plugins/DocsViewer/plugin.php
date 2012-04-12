@@ -72,12 +72,12 @@ class DocsViewerPlugin
             }
 ?>
 <div>
-	<h2>File: <?php echo $file->original_filename; ?></h2>
-	<h2>File: <?php echo $this->_getUrl($file); ?></h2>
+	<!--h2>File: <?php echo $file->original_filename; ?></h2-->
     <iframe src="<?php echo $this->_getUrl($file); ?>" 
             width="<?php echo is_admin_theme() ? get_option('docsviewer_width_admin') : get_option('docsviewer_width_public'); ?>" 
             height="<?php echo is_admin_theme() ? get_option('docsviewer_height_admin') : get_option('docsviewer_height_public'); ?>" 
-            style="border: none;"></iframe>
+             
+            style="border:none; max-height:100%; max-width:100%;"></iframe>
 </div>
 <?php
         }
