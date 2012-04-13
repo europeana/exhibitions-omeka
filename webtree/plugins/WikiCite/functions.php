@@ -24,7 +24,8 @@ function wikicite_for_item($textarea = true, $item = null)
 
     $html = wikicite_string(array(
                 'url' => html_escape(abs_item_uri($item)),
-                'title' => item('Dublin Core', 'Title', array(), $item)
+                'title' => item('Dublin Core', 'Title', array(), $item),
+                'creator' => item('Dublin Core', 'Creator', array(), $item)
                 ), $textarea);
 
     echo $html;
@@ -47,7 +48,8 @@ function wikicite_for_collection($textarea = true, $collection = null)
 
     $html = wikicite_string(array(
                 'url' => html_escape(abs_uri(array('controller'=>'collections', 'action'=>'show', 'id'=>$collection->id), 'id')),
-                'title' => collection('Name', array(), $collection)
+                'title' => collection('Name', array(), $collection),
+                'creator' => item('Dublin Core', 'Creator', array(), $item)
                 ), $textarea);
 
     echo $html;
@@ -64,7 +66,9 @@ function wikicite_for_collection($textarea = true, $collection = null)
 function wikicite_string($props = array(), $textarea = true)
 {
     $html = '';
-
+    
+    // Original code
+    /*
     if ($props) {
         $html = '{{cite web'
               . ' |url='.$props['url']
@@ -75,6 +79,21 @@ function wikicite_string($props = array(), $textarea = true)
         if ($textarea) {
             $html = '<textarea rows="3" style="width:100%;" id="wikcite-code">'.$html.'</textarea>';
         }
+    }
+    */
+    
+    // Europeana changes
+    if ($props) {
+    	$html = '{{cite web'
+    		. ' |url='.$props['url']
+    	. ' |title='.$props['title']
+    	. ' |author='.$props['creator']
+    	. ' |accessdate='.date('d F Y')
+    	. ' |publisher=Europeana'
+    	. '}}';
+    	if ($textarea) {
+    		$html = '<textarea rows="3" style="width:100%;" id="wikcite-code">'.$html.'</textarea>';
+    	}
     }
 
     return $html;
