@@ -248,31 +248,22 @@ if(!function_exists('ve_custom_show_embed')){
 		if($file){
 			$mime = $file->getMimeType();
 			if (preg_match("/^image/", $mime)) {
-				if($dcFieldsList = get_theme_option('display_dublin_core_fields')){
-					
-					$embedEligible = false;
-					$dcFields = explode(',', $dcFieldsList);
-					
-					foreach($dcFields as $field){
-						$field = trim($field);
 
-						if (element_exists('Dublin Core', $field)){
-							if(strtolower($field) == 'rights'){
-								if($fieldValues = item('Dublin Core', $field, 'all')){
-									foreach ($fieldValues as $key => $fieldValue){
-										if(!item_field_uses_html('Dublin Core', $field, $key)){
-											$fieldValue = nls2p($fieldValue);
-										}
 
-										if(strrpos($fieldValue, "creativecommons")>-1){
-											$embedEligible = true;
-										}
-									}
-								}
-							}
+				$embedEligible = false;
+				
+			    $elements = $item->getItemTypeElements();
+			    foreach ($elements as $element) {
+			        if (strtolower($element->name) == "license"){
+			        	$licenseVal = item(ELEMENT_SET_ITEM_TYPE, $element->name);
+						if(strrpos( strtolower($licenseVal), "creativecommons")>-1){
+							$embedEligible = true;
 						}
-					}
-
+			        }
+			    }
+				
+				if($dcFieldsList = get_theme_option('display_dublin_core_fields')){
+					$dcFields = explode(',', $dcFieldsList);
 					if($embedEligible){
 
 						// Title, Creator, Data Provider, Provider, CC-license.
@@ -280,6 +271,7 @@ if(!function_exists('ve_custom_show_embed')){
 						$html	.=	'<div id="embedded">';
 						$html	.=		'<h2>' . ve_translate("embed-code", "Embed Code") .'</h2>';
 						$html	.=		'<textarea rows="5">';	// start embed code
+						/*
 						$html	.=			'<style type="text/css">';
 						
 						$html	.=				'#embedded span.field-name{';
@@ -303,9 +295,14 @@ if(!function_exists('ve_custom_show_embed')){
 						$html	.=					'font-family:Chevin,"Trebuchet MS",Helvetica,sans-serif;';
 						$html	.=				'}';
 						$html	.=			'</style>';
+						*/
 						
-						$html	.=			'<ul id="embedded">';
-						$html	.=				item_fullsize($file);
+						$html	.=		'<div style="position:relative;">';
+						$html	.=			'<ul style="list-style-type: none; padding: 0px; margin: 0px; line-height: 1em; font-family: Chevin,\'Trebuchet MS\',Helvetica,sans-serif;">';
+						
+						$html	.=				'<li>';
+						$html	.=					item_fullsize($file);
+						$html	.=				'</li>';
 						
 						$embedFields = array("title", "creator", "data provider", "provider", "rights");
 						
@@ -324,18 +321,22 @@ if(!function_exists('ve_custom_show_embed')){
 											$val = str_replace('<br>', '',			$val);
 											$val = str_replace('<br/>', '',			$val);
 											$val = str_replace('<br />', '',		$val);
-											
-											$html .= '<li><span class="field-name">'.$field.':</span> '.$val.'</li>';
+											$val = str_replace('<img ', '<img style="border-width: 0; position: absolute; display: block; top: 1em; left: 1em;"', $val);
+											$html .= '<li><span style="font-weight:bold;">'.$field.':</span> '.$val.'</li>';
 										}
 									}
 								}
 							}
 						}
-						$html	.=			'</ul>';
+						$html	.=				'</ul>';
+						$html	.=			'</div>';
 						$html	.=		'</textarea>';	// end embed code
 						$html	.=	'</div>';
 					}
 				}
+				
+				
+				
 			}
 		}
 
