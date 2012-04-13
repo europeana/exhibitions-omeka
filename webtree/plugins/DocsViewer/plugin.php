@@ -62,7 +62,24 @@ class DocsViewerPlugin
         $docsViewer = new DocsViewerPlugin;
         $docsViewer->embed();
     }
-    
+
+    // Added by Europeana
+    public function getEmbed(){
+    	$html = '';
+        foreach (__v()->item->Files as $file) {
+            $extension = pathinfo($file->archive_filename, PATHINFO_EXTENSION);
+            if (!in_array($extension, $this->_supportedFiles)) {
+                continue;
+            }
+            $width = is_admin_theme() ? get_option("docsviewer_width_admin") : get_option("docsviewer_width_public");
+            $height = is_admin_theme() ? get_option("docsviewer_height_admin") : get_option("docsviewer_height_public");
+            
+            $html .= '<script type="text/javascript"> var pdfWidth=' . $width . '; var pdfHeight=' . $height  . ';</script>';
+            $html .= '<iframe src="' . $this->_getUrl($file) . '" width="' . $width . '" height="' . $height  . '" style="border:none; max-height:100%; max-width:100%;"></iframe>';
+        }
+    	return $html;
+    }
+
     public function embed()
     {
         foreach (__v()->item->Files as $file) {
