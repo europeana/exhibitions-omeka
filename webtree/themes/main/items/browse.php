@@ -63,10 +63,28 @@
 		            <a href="<?php echo uri('items/show') . '/' . item('id') . $queryString; ?>">
 		                <?php echo item_square_thumbnail(); ?>
 		            </a>
+	        	<?php else:?>
+	        	
+	        		<?php
+	        			$item = get_current_item();
+	        			$file = $item->Files[0];
+	        			$mime = $file->getMimeType();
+	        			
+	        			if (preg_match("/^application/", $mime)){
+	        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img src="' . img('pdf-icon.png') . '"/></a>';
+	        			}
+	        			elseif (preg_match("/^video/", $mime)){
+	        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img src="' . img('icon-video.png') . '"/></a>';
+	        			}
+	        			elseif (preg_match("/^audio/", $mime)){
+	        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img src="' . img('icon-audio.png') . '"/></a>';
+	        			}
+	        		?>
+	        		
 		        <?php endif; ?>
 		        <?php echo plugin_append_to_items_browse_each(); ?>
 		        
-		        <!-- moved the text to underneath - TODO: confirm ok with David -->
+
 		        <h4>
 		            <a href="<?php echo uri('items/show') . '/' . item('id') . $queryString; ?>"><?php echo item('Dublin Core', 'Title');?></a>
 		        </h4>
