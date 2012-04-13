@@ -1,6 +1,6 @@
 # Remember to enable display_errors on development environments only.
 <IfModule mod_php5.c>
-	php_value display_errors 0
+	php_value display_errors 1
 	php_flag register_globals off
 </IfModule>
 
@@ -83,10 +83,7 @@ RewriteRule !\.(js|ico|gif|jpg|png|css)$ index.php
 
 
 
-## europeana
-## addtype for correct font mime type interpretation by apache
-AddType application/octet-stream .otf .ttf
-AddType application/x-woff .woff
+
 
 
 <FilesMatch "\.(php|ini)$">

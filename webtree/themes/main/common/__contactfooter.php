@@ -1,6 +1,7 @@
 <?php
 
-   error_log("ANDY: themes/main/common conactfooter 2 underscores");
+   // commented out by dan entous 2012-04-12
+   // error_log("ANDY: themes/main/common conactfooter 2 underscores");
 
 /**
  * File: Footer.php

@@ -202,7 +202,8 @@ function img($file, $dir = 'images')
  */
 function js($file, $dir = 'javascripts', $scriptaculousLibraries = array('effects', 'dragdrop'))
 {
-	error_log("load file ".$file);
+	// commented out by dan entous 2012-04-12
+    // error_log("load file ".$file);
 	
     if ($file == 'default') {
         $output = '';

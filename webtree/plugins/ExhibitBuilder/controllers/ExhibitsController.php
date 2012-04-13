@@ -17,7 +17,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
     
     public function init()
     {
-    	error_log("init() exhibits controller");
+    	// commented out by dan entous 2012-04-12
+		// error_log("init() exhibits controller");
         if (version_compare(OMEKA_VERSION, '2.0-dev', '>=')) {
             $this->_helper->db->setDefaultModelName('Exhibit');        
         } else {
@@ -31,7 +32,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
     
     public function browseAction()
     {
-        	error_log("browseAction() exhibits controller");
+        // commented out by dan entous 2012-04-12
+		// error_log("browseAction() exhibits controller");
 
         $request = $this->getRequest();
         $sortParam = $request->getParam('sort');
@@ -53,14 +55,16 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
     
     protected function _findByExhibitSlug($exhibitSlug = null) 
     {        
-               	error_log("_findByExhibitSlug() exhibits controller");
+        // commented out by dan entous 2012-04-12
+		// error_log("_findByExhibitSlug() exhibits controller");
 
         if (!$exhibitSlug) {
             $exhibitSlug = $this->_getParam('slug');
         }
         $exhibit = $this->getTable('Exhibit')->findBySlug($exhibitSlug);        
         
-       	error_log("_findByExhibitSlug() exhibits controller, $exhibitSlug = " . $exhibitSlug . ", exhibit = ");
+		// commented out by dan entous 2012-04-12
+       	// error_log("_findByExhibitSlug() exhibits controller, $exhibitSlug = " . $exhibitSlug . ", exhibit = ");
 
 
         return $exhibit;
@@ -68,7 +72,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
         
     public function tagsAction()
     {
-                       	error_log("tagsAction() exhibits controller");
+        // commented out by dan entous 2012-04-12
+		// error_log("tagsAction() exhibits controller");
 
         $params = array_merge($this->_getAllParams(), array('type'=>'Exhibit'));
         $tags = $this->getTable('Tag')->findBy($params);
@@ -77,7 +82,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
     
     public function showitemAction()
     {
-               	error_log("showitemAction() exhibits controller");
+        // commented out by dan entous 2012-04-12
+		// error_log("showitemAction() exhibits controller");
 
         $itemId = $this->_getParam('item_id');
         $item = $this->findById($itemId, 'Item');   
@@ -108,7 +114,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
      **/
     public function itemsAction()
     {        
-                       	error_log("itemsAction() exhibits controller");
+        // commented out by dan entous 2012-04-12
+		// error_log("itemsAction() exhibits controller");
 
         $results = $this->_helper->searchItems();
 
@@ -124,7 +131,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
     
     public function itemContainerAction()
     {        
-                               	error_log("itemContainerAction() exhibits controller");
+		// commented out by dan entous 2012-04-12
+		// error_log("itemContainerAction() exhibits controller");
 
 
         $itemId = (int)$this->_getParam('item_id');        
@@ -166,7 +174,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
     
     public function summaryAction()
     {
-                                       	error_log("summaryAction() exhibits controller");
+        // commented out by dan entous 2012-04-12
+		// error_log("summaryAction() exhibits controller");
 
         $exhibit = $this->_findByExhibitSlug();
         if (!$exhibit) {
@@ -187,7 +196,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
      **/
     protected function renderExhibit($vars, $toRender = 'show') 
     {   
-       	error_log("renderExhibit() exhibits controller   vars ---> " . $vars .  extract($vars));
+       	// commented out by dan entous 2012-04-12
+		// error_log("renderExhibit() exhibits controller   vars ---> " . $vars .  extract($vars));
 
 
         extract($vars);
@@ -204,19 +214,23 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
             
             $this->view->addScriptPath($scriptPath);
             
-            error_log("added path " . $scriptPath);
+			// commented out by dan entous 2012-04-12
+            // error_log("added path " . $scriptPath);
             
             $this->view->addAssetPath($scriptPath, $assetPath);
             
-            error_log("added path " . $assetPath);
+			// commented out by dan entous 2012-04-12
+            // error_log("added path " . $assetPath);
 
             $this->view->addScriptPath($pluginScriptPath);
             
-            error_log("added path " . $pluginScriptPath);
+			// commented out by dan entous 2012-04-12
+            // error_log("added path " . $pluginScriptPath);
 
             $this->view->addAssetPath($pluginScriptPath, $pluginAssetPath);
             
-            error_log("added path " . $pluginAssetPath);
+            // commented out by dan entous 2012-04-12
+			// error_log("added path " . $pluginAssetPath);
 
         }
 
@@ -224,18 +238,21 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
         if (!in_array($toRender, array('show', 'summary', 'item'))) {
             throw new Exception( 'You gotta render some stuff because whatever!' );
             
-               	error_log("renderExhibit() EXCEPTION ");
+            // commented out by dan entous 2012-04-12
+			// error_log("renderExhibit() EXCEPTION ");
 
         }
         
-       	error_log("renderExhibit() $toRender  " . $toRender);
+		// commented out by dan entous 2012-04-12
+       	// error_log("renderExhibit() $toRender  " . $toRender);
         return $this->render($toRender);
         
     }
     
     public function addAction()
     {       
-                                               	error_log("addAction() exhibits controller");
+        // commented out by dan entous 2012-04-12
+		// error_log("addAction() exhibits controller");
 
         $exhibit = new Exhibit;     
         return $this->processExhibitForm($exhibit, 'Add');
@@ -260,7 +277,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
     protected function processExhibitForm($exhibit, $actionName)
     {
     
-                                               	error_log("processExhibitForm() exhibits controller");
+		// commented out by dan entous 2012-04-12
+        // error_log("processExhibitForm() exhibits controller");
 
         try {
             $retVal = $exhibit->saveForm($_POST);
@@ -282,7 +300,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
 
         if ($themeName = $exhibit->theme) {
         
-       	error_log("processExhibitForm() exhibits controller $themeNam  = " . $themeName);
+       	// commented out by dan entous 2012-04-12
+		// error_log("processExhibitForm() exhibits controller $themeNam  = " . $themeName);
 
             $theme = Theme::getAvailable($themeName);
         } else {
@@ -300,7 +319,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
     
     public function themeConfigAction()
     {
-                                                       	error_log("themeConfigAction() exhibits controller");
+        // commented out by dan entous 2012-04-12
+		// error_log("themeConfigAction() exhibits controller");
 
         $exhibit = $this->findById();
         $themeName = (string)$exhibit->theme;
@@ -434,7 +454,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
      **/
     public function addSectionAction()
     {
-                                                       	error_log("addSectionAction() exhibits controller");
+        // commented out by dan entous 2012-04-12
+		// error_log("addSectionAction() exhibits controller");
 
         $exhibit = $this->findById();
         $exhibitSection = new ExhibitSection;
@@ -452,7 +473,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
     
     protected function processSectionForm($exhibitSection, $actionName, $exhibit = null)
     {   
-                                                               	error_log("processSectionForm() exhibits controller");
+		// commented out by dan entous 2012-04-12
+		// error_log("processSectionForm() exhibits controller");
 
 
         $retVal = false;
@@ -517,7 +539,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
      **/
     public function addPageAction()
     {
-                                                                   	error_log("addPageAction() exhibits controller");
+        // commented out by dan entous 2012-04-12
+		// error_log("addPageAction() exhibits controller");
 
         $exhibitSection = $this->findById(null,'ExhibitSection');
         $exhibit = $exhibitSection->Exhibit;
@@ -584,7 +607,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
 
     protected function processPageForm($exhibitPage, $actionName, $exhibitSection = null, $exhibit = null) 
     {        
-       	error_log("processPageForm() exhibits controller");
+       	// commented out by dan entous 2012-04-12
+		// error_log("processPageForm() exhibits controller");
 
         $this->view->assign(compact('exhibit', 'exhibitSection', 'exhibitPage', 'actionName'));        
         if (!empty($_POST)) {
@@ -673,7 +697,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
     {
         $iniPath = EXHIBIT_LAYOUTS_DIR . DIRECTORY_SEPARATOR. "$layout" . DIRECTORY_SEPARATOR . "layout.ini";
         
-       	error_log("layoutIni() exhibits controller " . $iniPath);
+       	// commented out by dan entous 2012-04-12
+		// error_log("layoutIni() exhibits controller " . $iniPath);
 
         if (file_exists($iniPath) && is_readable($iniPath)) {
             $ini = new Zend_Config_Ini($iniPath, 'layout');

@@ -16,8 +16,8 @@
  *
  *
  */
-
-   error_log("ANDY: themes/main/custom ve providers 1 underscore");
+	// commented out by dan entous 2012-04-12
+	// error_log("ANDY: themes/main/custom ve providers 1 underscore");
 
 $providers = array();
 

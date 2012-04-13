@@ -1,6 +1,7 @@
 <?php
 
-   error_log("ANDY: plugins/exhibitbuilder/views/shared/exhibit_layouts/layout.php");
+   // commented out by dan entous 2012-04-12
+   // error_log("ANDY: plugins/exhibitbuilder/views/shared/exhibit_layouts/layout.php");
 
 
 $_SESSION['themes_uri'] = uri();

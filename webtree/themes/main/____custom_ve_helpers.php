@@ -5,8 +5,8 @@
  * Time: 17:11 PM
  */
 
-
-   error_log("ANDY: themes/main/custom ve helpers 4 underscores");
+	// commented out by dan entous 2012-04-12
+	// error_log("ANDY: themes/main/custom ve helpers 4 underscores");
 
 
 /*

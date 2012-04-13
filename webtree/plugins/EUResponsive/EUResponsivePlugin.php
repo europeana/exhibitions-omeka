@@ -48,6 +48,7 @@ class EUResponsivePlugin extends Omeka_Plugin_Abstract
         $collections = get_collections();
    		for ($i = 0; $i < sizeof($collections); $i++) {
  			$items = get_items($collections[$i], 500);
+			
 			error_log ('Generate responsive images for collection: ' .  $collections[$i]['name'] . " (" . sizeof($items) . " items)");
  			for ($j = 0; $j < sizeof($items); $j++) {
     			$this->generateResponsiveImagesForItem($items[$j]); 			
@@ -69,7 +70,8 @@ class EUResponsivePlugin extends Omeka_Plugin_Abstract
     
     protected static function generateResponsiveImagesForItem($item)
 	{
-		error_log("");
+		// commented out by dan entous 2012-04-12
+		// error_log("");
 		
 		$IMAGEWIDTHS = explode("~", get_option('euresponsive_imagewidths'));
 	  	$path = item_fullsize(null, 0, $item);
