@@ -1,0 +1,2 @@
+this file summarizes all modifications to the db that deviate from the standard install
+e.g., added item objects and elements for those objects
