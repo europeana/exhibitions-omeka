@@ -36,18 +36,27 @@ function ve_exhibit_builder_exhibit_display_item_info_link($linkProperties = arr
 }
 
 
-function ve_exhibit_builder_zoomit_uri()
+//function ve_exhibit_builder_zoomit_uri()
+function ve_exhibit_builder_zoomit_enabled()
 {
     $item = get_current_item();
     // check if this item has a 'zoom.it URI' metadata element
     $elements = $item->getItemTypeElements();
-    $zoomURI = '';
+    $zoomitEnabled = false;
     foreach ($elements as $element) {
+    	/*
         if (strtolower($element->name) == "zoom.it uri") {
             $zoomURI = $elementText[$element->name] = item(ELEMENT_SET_ITEM_TYPE, $element->name);
         }
+        */
+        if (strtolower($element->name) == "zoomit_enabled"){
+        	//$zoomURI = $elementText[$element->name] = 
+        	if( item(ELEMENT_SET_ITEM_TYPE, $element->name) ){
+        		$zoomitEnabled = true;
+        	}
+        }
     }
-    return $zoomURI;
+    return $zoomitEnabled;
 }
 
 
@@ -77,7 +86,7 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
     $displayFilesOptions['linkToFile'] = false; // Don't link to the file b/c it overrides the link to the item.
     $fileWrapperClass = null; // Pass null as the 3rd arg so that it doesn't output the item-file div.
     $file = $item->Files[$fileIndex];
-    $zoomify = ve_exhibit_builder_zoomit_uri();
+    $zoomit_enabled = ve_exhibit_builder_zoomit_enabled();
     $html = '';
 
     if ($file) {
@@ -163,12 +172,15 @@ function ve_exhibit_builder_display_exhibit_thumbnail_gallery($start, $end, $pro
 
             // check if this item has a 'zoom.it URI' metadata element
             $elements = $item->getItemTypeElements();
+            /*
             $zoomURI = '';
             foreach ($elements as $element) {
                 if (strtolower($element->name) == "zoom.it uri") {
                     $zoomURI = $elementText[$element->name] = item(ELEMENT_SET_ITEM_TYPE, $element->name);
                 }
             }
+            */
+            $zoomitEnabled = ve_exhibit_builder_zoomit_enabled();
 
             if (item_has_files()) {
                 while (loop_files_for_item()) {
@@ -177,8 +189,10 @@ function ve_exhibit_builder_display_exhibit_thumbnail_gallery($start, $end, $pro
 
                     $thumbnail = item_image($thumbnail_type, array('alt' => item('Dublin Core', 'Title'), 'rel' => $file->getMimeType(), 'accesskey' => file_display_uri($file, $format = 'archive')));
 
-                    $hiddenInput = '<input type="hidden" name="zoomit" class="zoomit" value="' . str_replace("http://zoom.it/", "", $zoomURI) . '"/>';
-
+                    //$hiddenInput = '<input type="hidden" name="zoomit" class="zoomit" value="' . str_replace("http://zoom.it/", "", $zoomURI) . '"/>';
+                    $hiddenInput = '<input type="hidden" name="zoomit" class="zoomit" value="' . $zoomitEnabled . '"/>';
+                    
+                    
                     if (preg_match("/^audio/", $file->getMimeType())) {
                         $thumbnail .= '<img src="' . img('icon-audio.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
                     }

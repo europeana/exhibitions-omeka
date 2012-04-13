@@ -209,12 +209,15 @@ var story = function() {
 	    jQuery('div#exhibit-item-thumbnails div.exhibit-item a.thumb').each(function(index) {
 	        //VALUES
 	        var mimeType = jQuery(this).find('img:first').attr('rel');
+	        var zoomitIsEnabled = jQuery(this).next('input.zoomit').first().val() == "1";
+
 	        
 	        var newObjHref = jQuery(this).attr('href');
 	        var newObjSrc = jQuery(this).find('img:first').attr('src').replace('square_thumbnails', 'fullsize');
 	        var newObjTitle = jQuery(this).find('img:first').attr('alt');
 	        //var newZoomURI = jQuery(this).next('input.zoomit').first().val();
 	
+	        
 	        // PLACEHOLDERS
 	        var targetObjHref = jQuery('a#info-link');
 	        var targetObjTitle = jQuery('div#exhibit-item-title h4');
@@ -222,7 +225,6 @@ var story = function() {
 	
 	        // CLICK THE THUMBNAIL
 	        jQuery(this).click(function() {
-	        
 	        	
 	            var mediaURI = jQuery(this).find('img:first').attr('accesskey');
 	            
@@ -233,6 +235,7 @@ var story = function() {
 	            
 	            if (mimeType.match(regexImage)) { // all images a zoomit-able
 	
+	            	zoomitEnabled = zoomitIsEnabled;
 	            	log("we have an image...zoomitEnabled = " + zoomitEnabled);
 
 	               	newObjSrc = newObjSrc.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
