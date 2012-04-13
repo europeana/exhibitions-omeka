@@ -174,6 +174,41 @@ function ve_get_exhibit_item_info_by_tag($tag = null, $format = 'square_thumbnai
     return $itemInfo;
 }
 
+/* Return a json object containing:
+ *   any image tag $val contains (img)
+ *   the href of any anchor wrapping the image (lnk)
+ *   the $val with the image tag removed (rem)
+ *   the src attribute of any image tag (src)
+ * */
+function parseRightsValue($val = ""){
+    $src = array();
+    $img = array();
+    $lnk = array();
+    $rem = "";
+    
+    preg_match_all('~<img [^>]*/>~', $val, $img ) ;
+    $rem = preg_replace( '/<img[^>]+\>/i', '', $val ) ;
+    preg_match( '/src="([^"]*)"/i', $val, $src ) ;
+
+    preg_match( '~<a [^>]*>(.*)</a>~', $val, $lnk );	// 1st pass gets the <a...><img /></a>
+    preg_match( '/href="([^"]*)"/i', $lnk[0], $lnk );	// 1st pass gets the @href
+
+    if($lnk){
+    	// TODO: rem still contains empty anchor tag...
+    }
+    
+    return array(
+    	    'rem' => str_replace('"', '\"', $rem),
+    	    'img' => str_replace('"', '\"', $img[0][0]),
+    	    'lnk' => str_replace('"', '\"', $lnk[1]),
+    	    'src' => str_replace('"', '\"', $src[1])
+    	);
+
+
+    
+   // return 'var '.$var.'= {"img":"'.str_replace('"', '\"', $img[0][0]).'","rem":"'.str_replace('"', '\"', $rem).'","src":"'.str_replace('"', '\"', $src[1]).'","lnk":"'.str_replace('"', '\"', $lnk[1]).'"};';
+}
+
 function getAddThisAppId(){
 	return 'ra-4d70f66c15fff6d0';
 }

@@ -141,7 +141,6 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
         	$html .= '<div id="in-focus" class="pdf-viewer">';
        		if (class_exists('DocsViewerPlugin')){       			
        		   $docsViewer = new DocsViewerPlugin;
-       			//$html .= $docsViewer->embed();
        			$html .= $docsViewer->getEmbed();
        		}
         }
@@ -242,13 +241,14 @@ if(!function_exists('ve_custom_show_embed')){
 		
 		$item		= get_current_item();
 		$html		= '';
+		$imgHtml	= '';
+		
 		$fileIndex	= 0; // Always just display the first file (may change this in future).
 		$file		= $item->Files[$fileIndex];
 
 		if($file){
 			$mime = $file->getMimeType();
 			if (preg_match("/^image/", $mime)) {
-
 
 				$embedEligible = false;
 				
@@ -263,7 +263,7 @@ if(!function_exists('ve_custom_show_embed')){
 			    }
 				
 				if($dcFieldsList = get_theme_option('display_dublin_core_fields')){
-					$dcFields = explode(',', $dcFieldsList);
+					$dcFields = explode(',', str_replace(' ','',$dcFieldsList));
 					if($embedEligible){
 
 						// Title, Creator, Data Provider, Provider, CC-license.
@@ -271,76 +271,69 @@ if(!function_exists('ve_custom_show_embed')){
 						$html	.=	'<div id="embedded">';
 						$html	.=		'<h2>' . ve_translate("embed-code", "Embed Code") .'</h2>';
 						$html	.=		'<textarea rows="5">';	// start embed code
-						/*
-						$html	.=			'<style type="text/css">';
-						
-						$html	.=				'#embedded span.field-name{';
-						$html	.=					'font-weight:bold;';
-						$html	.=				'}';
 
-						$html	.=				'#embedded li a img{';
-						$html	.=					'position:absolute;';
-						$html	.=					'display:block;';
-						$html	.=					'top:-1em;';
-						$html	.=					'right:1em;';
-						$html	.=				'}';
-
-						$html	.=				'#embedded{';
-						$html	.=					'position:relative;';
-						$html	.=					'list-style-type: none;';
-						$html	.=					'padding:0px;';
-						$html	.=					'margin:0px;';
-						$html	.=					'display:inline;';						
-						$html	.=					'line-height:1em;';
-						$html	.=					'font-family:Chevin,"Trebuchet MS",Helvetica,sans-serif;';
-						$html	.=				'}';
-						$html	.=			'</style>';
-						*/
+						// image div
 						
-						$html	.=		'<div style="position:relative;">';
-						$html	.=			'<ul style="list-style-type: none; padding: 0px; margin: 0px; line-height: 1em; font-family: Chevin,\'Trebuchet MS\',Helvetica,sans-serif;">';
-						
-						$html	.=				'<li>';
-						$html	.=					item_fullsize($file);
-						$html	.=				'</li>';
-						
+						$rightsData = NULL;
 						$embedFields = array("title", "creator", "data provider", "provider", "rights");
+						$html	.=		'<div style="position:relative;float:left;">';
+						$html	.=			item_fullsize($file);
+						
+						if($fieldValues = item('Dublin Core', 'Rights', 'all')){
+							$rightsData = parseRightsValue($fieldValues[0]);
+							if($rightsData["lnk"]){
+								$html	.=		'<a rel="license" href="'.$rightsData["lnk"].'">';								
+							}
+							if($rightsData["src"]){
+								$html	.=		'<img style="border-width:0; position:absolute; bottom:1em; right:1em;" src="'.$rightsData["src"].'" alt="Creative Commons License" />';								
+							}
+							if($rightsData["lnk"]){
+								$html	.=		'</a>';								
+							}
+						}
+						$html	.=		'</div>';
+						
+						// end image div
+						// start field list
+						
+						$html	.=			'<ul style="display:block;clear:both;list-style-type:none;padding:0px;margin:0px;padding-top:0.5em;line-height:1em;font-family:Chevin,\'Trebuchet MS\',Helvetica,sans-serif;">';
 						
 						foreach($dcFields as $field){
 							$field = trim($field);
 							if (element_exists('Dublin Core', $field)){
 								if( in_array(strtolower($field), $embedFields)  ){
 									if($fieldValues = item('Dublin Core', $field, 'all')){
+
 										foreach ($fieldValues as $key => $fieldValue){
 											if(!item_field_uses_html('Dublin Core', $field, $key)){
 												$fieldValue = nls2p($fieldValue);
 											}
-											$val = $fieldValue;
-											$val = str_replace('<p>', '',			$val);
-											$val = str_replace('</p>', '',			$val);
-											$val = str_replace('<br>', '',			$val);
-											$val = str_replace('<br/>', '',			$val);
-											$val = str_replace('<br />', '',		$val);
-											$val = str_replace('<img ', '<img style="border-width: 0; position: absolute; display: block; top: 1em; left: 1em;"', $val);
-											$html .= '<li><span style="font-weight:bold;">'.$field.':</span> '.$val.'</li>';
+											$html .= '<li><span style="font-weight:bold;">'.$field.':</span> ';
+
+											if(strtolower($field) == "rights" && $rightsData["rem"]){
+												$fieldValue =  $rightsData["rem"];
+											}
+											
+											$fieldValue = str_replace('<p>',	'',	$fieldValue);
+											$fieldValue = str_replace('</p>',	'',	$fieldValue);
+											$fieldValue = str_replace('<br>',	'',	$fieldValue);
+											$fieldValue = str_replace('<br/>',	'',	$fieldValue);
+											$fieldValue = str_replace('<br />',	'',	$fieldValue);
+											$html .= $fieldValue;
+											$html .= '</li>';
 										}
 									}
 								}
 							}
 						}
-						$html	.=				'</ul>';
-						$html	.=			'</div>';
+						$html	.=				'</ul>';	// end field list
 						$html	.=		'</textarea>';	// end embed code
 						$html	.=	'</div>';
 					}
 				}
-				
-				
-				
 			}
 		}
-
-		return $html;
+		return $imgHtml . $html;
 	}
 }
 
