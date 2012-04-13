@@ -22,8 +22,16 @@ function ve_exhibit_builder_exhibit_display_item_info_link($linkProperties = arr
     $html = '';
     $html .= '<a class="return-to" rel="' . uri() . '" id="info-link"' . _tag_attributes($linkProperties) . ' title="' . ve_translate('show-item-details', 'Show item details') . '">';
     $html .= '<img src="' . img('icon-info.png') . '"/></a>';
-    // DISPLAY THE TITLE OF THE ITEM
-    //    $html .= '<h3 class="title">' . item('Dublin Core', 'Title') . '</h3></a>';
+
+
+    // skip info link if viewing a pdf
+    $file = $item->Files[0];
+    if ($file) {
+        $mime = $file->getMimeType();
+        if(preg_match("/^application/", $mime)){
+        	$html = '';
+        }
+    }
     return $html;
 }
 
@@ -74,11 +82,27 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
 
     if ($file) {
     	
+    	
+    	$mime = $file->getMimeType();
+    	
     	if($titleOnly){ /* responsive change */
-    		return '<div id="exhibit-item-title-only"><h4>' . item('Dublin Core', 'Title') . '</h4></div>';
+    		
+    		if (preg_match("/^application/", $mime)){ // pdf don't have the info link, so we make the title a link
+    			// pass along page param as this is not available from the item page but is necessary for building seo title and meta fields
+    		    $page = exhibit_builder_get_current_page();
+    		    $linkProperties['href'] = exhibit_builder_exhibit_item_uri($item) . '?page=' . urlencode($page->title);
+    		    $html .= '<a class="return-to" rel="' . uri() . '" id="info-link"' . _tag_attributes($linkProperties) . ' title="' . ve_translate('show-item-details', 'Show item details') . '">';
+    		    $html .= '<h4>';
+    		    $html .= item('Dublin Core', 'Title');
+    		    $html .= '</h4></a>';
+    			return '<div id="exhibit-item-title-only">' . $html . '</div>';
+
+   			}
+    		else{    			
+    			return '<div id="exhibit-item-title-only"><h4>' . item('Dublin Core', 'Title') . '</h4></div>';
+    		}
     	}
     	 
-        $mime = $file->getMimeType();
 
         if (preg_match("/^image/", $mime)) {
             // IMAGE
@@ -106,10 +130,11 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
         }
         elseif (preg_match("/^application/", $mime)) {
         	$html .= '<div id="in-focus" class="pdf-viewer">';
-       		if (class_exists('DocsViewerPlugin')):
+       		if (class_exists('DocsViewerPlugin')){       			
        		   $docsViewer = new DocsViewerPlugin;
-       			$html .= $docsViewer->embed();
-       		endif;
+       			//$html .= $docsViewer->embed();
+       			$html .= $docsViewer->getEmbed();
+       		}
         }
         else {
             // VIDEO

@@ -10,7 +10,6 @@ var story = function() {
 	// public 
 	return{
 		initStory: function (initialUrl, zoomitEnabledIn){
-			
 			tmpImg = jQuery('#media_wrapper img.tmp-img'); // TODO - declare at top.....
 			
 			zoomitEnabled = zoomitEnabledIn;
@@ -302,10 +301,16 @@ var story = function() {
 	                });
 	            }
 	            if (mimeType.match(regexPdf)) {
-	            	
 	            	log("we have a pdf...");
-	            	jQuery('div#in-focus').html('<iframe width="100%" height="100%" style="border:none; min-height:275px;" src="http://docs.google.com/viewer?url=' + encodeURIComponent(mediaURI) + '&amp;embedded=true"></iframe>');
-	            	
+	            	var preferredWidth  = "100%";
+	            	var preferredHeight = "100%";
+	            	if(typeof pdfWidth != "undefined"){
+	            		preferredWidth = pdfWidth + "px"; 
+	            	}
+	            	if(typeof pdfHeight != "undefined"){
+	            		preferredHeight = pdfHeight + "px"; 
+	            	}
+	            	jQuery('div#in-focus').html('<iframe width="' + preferredWidth + '" height="' + preferredHeight + '" style="border:none; min-height:275px;" src="http://docs.google.com/viewer?url=' + encodeURIComponent(mediaURI) + '&amp;embedded=true"></iframe>');
 	            }
 	            
 	            // Replace the url for the link to the item page
