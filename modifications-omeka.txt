@@ -1,0 +1,1 @@
+this file summarizes all modifications to omeka that deviate from the standard install

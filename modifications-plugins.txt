@@ -1,0 +1,23 @@
+this file summarizes all modifications to plugins that deviate from the standard install
+
+===  WikiCite  ===
+
+line 28 - added
+'creator' => item('Dublin Core', 'Creator', array(), $item)
+
+line 52 - added
+'creator' => item('Dublin Core', 'Creator', array(), $item)
+
+lines 86-87 - added
+if ($props) {
+	$html = '{{cite web'
+		. ' |url='.$props['url']
+	. ' |title='.$props['title']
+	. ' |author='.$props['creator']
+	. ' |accessdate='.date('d F Y')
+	. ' |publisher=Europeana'
+	. '}}';
+	if ($textarea) {
+		$html = '<textarea rows="3" style="width:100%;" id="wikcite-code">'.$html.'</textarea>';
+	}
+}
