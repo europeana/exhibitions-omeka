@@ -21,7 +21,7 @@
 			// load data into js
 			$BREAKPOINTS	= get_option('euresponsive_breakpoints');
 			$IMAGEWIDTHS	= get_option('euresponsive_imagewidths');
-			//$ZOOMIT			= get_option('euresponsive_zoomit');
+
 			if($BREAKPOINTS){
 				$BREAKPOINTS = explode("~", $BREAKPOINTS);
 				echo("definedBreakpoints = [".implode(",",$BREAKPOINTS)."];");
@@ -30,12 +30,6 @@
 				$IMAGEWIDTHS = explode("~", $IMAGEWIDTHS);
 				echo("definedImagewidths = [".implode(",",$IMAGEWIDTHS)."];");
 			}
-			//if($ZOOMIT){
-			//	echo("zoomit = true;");
-			//}
-			//else{
-			//	echo("zoomit = false;");
-			//}
 		?>
 		
 		addBreakpoint();
@@ -139,46 +133,7 @@
 	}
 
 
-	// add "zoomit" checkbox
-	/*
-	function configZoomit(elBreakpoint){
-		var elZoomitOld = getElementsByClassName("euresponsive_zoomit");
-		var elZoomitCheckVal = false;
-		//var elZoomitNumVal = 0;
-		
-		for(var i=0; i<elZoomitOld.length; i++){
-			if(elZoomitOld[i].checked){
-				elZoomitCheckVal = true;
-				//elZoomitNumVal	 = elZoomitOld[i].name;
-			}
-			var parentNode = elZoomitOld[i].parentNode;
-			var oldLabels = parentNode.getElementsByClassName("zoomit_label");
-			for(var j=0; j<oldLabels.length; j++){
-				parentNode.removeChild(oldLabels[j]);			
-			}
-			parentNode.removeChild(elZoomitOld[i]);
-		}		
 
-		var breakpoints = getElementsByClassName("breakpoint");
-		var elBreakpoint = breakpoints[breakpoints.length-1];
-		
-		var elZoomit		= document.createElement("input");
-		var elZoomitLabel	= document.createElement("label");
-		elZoomit.setAttribute		("id",		"zoomit");
-		elZoomit.setAttribute		("name",	"zoomit");
-		elZoomit.setAttribute		("type",	"checkbox");
-		elZoomit.setAttribute		("class",	"euresponsive_zoomit");
-		elZoomit.setAttribute		("style",	"vertical-align:top;");
-		elZoomitLabel.setAttribute	("for",		"zoomit");
-		elZoomitLabel.setAttribute	("class",	"zoomit_label");
-		elZoomitLabel.setAttribute	("style",	"display:inline; float:none; font-size:9px !important; vertical-align:super;");
-		elZoomitLabel.appendChild	(document.createTextNode("apply zoomit"));
-
-		elBreakpoint.appendChild(elZoomit);
-		elBreakpoint.appendChild(elZoomitLabel);
-		elZoomit.checked = elZoomitCheckVal;
-	}
-	*/
 
 	function removeBreakpoint(number){
 		var breakpoints = getElementsByClassName("breakpoint");

@@ -60,16 +60,7 @@ ve_session_vars();
 		    }
 		}
 			
-	
-		<?php
-		if(get_option('euresponsive_zoomit')){
-			$IMAGEWIDTHS = explode("~", get_option('euresponsive_imagewidths'));
-			echo("var euresponsive_zoomit = " . end($IMAGEWIDTHS) . ";".PHP_EOL);
-		}
-		else{
-			echo("var euresponsive_zoomit = 0;".PHP_EOL);
-		}
-		?>
+
 	</script>
     <!--END RESPONSIVE CODE-->
     

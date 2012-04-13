@@ -37,13 +37,9 @@ class EUResponsivePlugin extends Omeka_Plugin_Abstract
 	    	$i += 1;
     	}
     	
-    	//if( $_POST['zoomit']){
-    	//	$ZOOMIT = 1;
-    	//}
     			
         set_option('euresponsive_breakpoints',	implode("~", $BREAKPOINTS) );
         set_option('euresponsive_imagewidths',	implode("~", $IMAGEWIDTHS) );
-        //set_option('euresponsive_zoomit',		$ZOOMIT);
         
         $collections = get_collections();
    		for ($i = 0; $i < sizeof($collections); $i++) {

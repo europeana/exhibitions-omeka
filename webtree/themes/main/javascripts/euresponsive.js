@@ -38,7 +38,7 @@
 			
 
 			
-			Gallery.prototype.changeLayout = function(escapedInitialSuffix, newSuffix, useZoomit) {
+			Gallery.prototype.changeLayout = function(escapedInitialSuffix, newSuffix) {
 				
 				var newHtmlStr = this.htmlStr.replace(
 					new RegExp('(src="[^"]*)' + escapedInitialSuffix + '"', 'g'),
@@ -107,7 +107,7 @@
 					
 					
 					for (var i = galleries.length; i--;) {
-						galleries[i].changeLayout(escapedInitialSuffix, newSuffix, (newSuffix==args.suffixes[args.suffixes.size() + ""] && euresponsive_zoomit) ? euresponsive_zoomit : false);
+						galleries[i].changeLayout(escapedInitialSuffix, newSuffix);
 					}
 					lastSuffix = newSuffix;
 					
