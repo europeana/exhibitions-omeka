@@ -2,13 +2,15 @@ this file summarizes all modifications to plugins that deviate from the standard
 
 ===  WikiCite  ===
 
-line 28 - added
+added line 28 : 2012-04-12 <andrew maclean>
 'creator' => item('Dublin Core', 'Creator', array(), $item)
 
-line 52 - added
+
+added line 52 : 2012-04-12 <andrew maclean>
 'creator' => item('Dublin Core', 'Creator', array(), $item)
 
-lines 86-87 - added
+
+added lines 86-87 : 2012-04-12 <andrew maclean>
 if ($props) {
 	$html = '{{cite web'
 		. ' |url='.$props['url']
