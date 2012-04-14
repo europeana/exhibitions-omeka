@@ -169,16 +169,7 @@ function ve_exhibit_builder_display_exhibit_thumbnail_gallery($start, $end, $pro
             $html .= '<div class="exhibit-item">';
             $item = get_current_item();
 
-            // check if this item has a 'zoom.it URI' metadata element
             $elements = $item->getItemTypeElements();
-            /*
-            $zoomURI = '';
-            foreach ($elements as $element) {
-                if (strtolower($element->name) == "zoom.it uri") {
-                    $zoomURI = $elementText[$element->name] = item(ELEMENT_SET_ITEM_TYPE, $element->name);
-                }
-            }
-            */
             $zoomitEnabled = ve_exhibit_builder_zoomit_enabled();
 
             if (item_has_files()) {
@@ -187,19 +178,16 @@ function ve_exhibit_builder_display_exhibit_thumbnail_gallery($start, $end, $pro
                     $file = get_current_file();
 
                     $thumbnail = item_image($thumbnail_type, array('alt' => item('Dublin Core', 'Title'), 'rel' => $file->getMimeType(), 'accesskey' => file_display_uri($file, $format = 'archive')));
-
-                    //$hiddenInput = '<input type="hidden" name="zoomit" class="zoomit" value="' . str_replace("http://zoom.it/", "", $zoomURI) . '"/>';
                     $hiddenInput = '<input type="hidden" name="zoomit" class="zoomit" value="' . $zoomitEnabled . '"/>';
                     
-                    
                     if (preg_match("/^audio/", $file->getMimeType())) {
-                        $thumbnail .= '<img src="' . img('icon-audio.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
+                        $thumbnail .= '<img class="icon-audio" src="' . img('icon-audio.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
                     }
                     if (preg_match("/^video/", $file->getMimeType())) {
-                        $thumbnail .= '<img src="' . img('icon-video.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
+                        $thumbnail .= '<img class="icon-vid" src="' . img('icon-video.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
                     }
                     if (preg_match("/^application/", $file->getMimeType())) {
-                        $thumbnail = '<img src="' . img('pdf-icon.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
+                        $thumbnail = '<img  class="icon-pdf" src="' . img('icon-pdf.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
                     }
                     $html .= exhibit_builder_link_to_exhibit_item($thumbnail, $props) . $hiddenInput;
                 }
