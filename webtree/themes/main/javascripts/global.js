@@ -52,6 +52,10 @@ function setThemePaths(theme){
         jQuery('#site-title img').attr('src',web_root+'/themes/'+theme+'/images/logo.png');
         jQuery('img.arrow-left').attr('src',web_root+'/themes/'+theme+'/images/arrow-left.png');
         jQuery('img.arrow-right').attr('src',web_root+'/themes/'+theme+'/images/arrow-right.png');
+
+        jQuery('img.icon-pdf').attr('src',web_root+'/themes/'+theme+'/images/icon-pdf.png');
+        jQuery('img.icon-audio').attr('src',web_root+'/themes/'+theme+'/images/icon-audio.png');
+        jQuery('img.icon-vid').attr('src',web_root+'/themes/'+theme+'/images/icon-video.png');
     }
 }
 
