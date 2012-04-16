@@ -37,6 +37,23 @@ RewriteEngine on
     # generic rule, point to the english version if no lang is given
     RewriteRule exhibits/show/art-nouveau/(.*)$ /exhibits/show/art-nouveau-en/$1 [L,R]
 	
+	
+	# Responsive Images
+    # Mobile-First images that scale responsively and responsibly
+    # Copyright 2010, Scott Jehl, Filament Group, Inc
+    # Dual licensed under the MIT or GPL Version 2 licenses.
+    # //Start Responsive Images
+	#RewriteEngine On
+    # direct image requests to temp
+    #RewriteCond %{QUERY_STRING} full=(.*)&?
+    #RewriteRule (.*)rwd-router/.*\.(jpe?g|png|gif|webp) $1%1 [L]
+    # ignore trap for non-image requests, rewrite URL without trap segment
+    #RewriteRule (.*)rwd-router/(.*)$ $1$2
+	
+	
+	# Redirect to Dean's splash page:
+    #RewriteRule ^$ splash/splash.html [L]
+    #RewriteRule ^/exhibits/browse /splash/splash.html [L]
 
 
 RewriteCond %{REQUEST_FILENAME} !-f
