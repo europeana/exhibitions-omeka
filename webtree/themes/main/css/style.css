@@ -377,7 +377,8 @@ ul.navigation li {
 
 audio, video, .mejs-container, .mejs-container * {
     width: 460px;
-    max-width: 460px;
+    max-width: 100%;
+    
 }
 
 /* CUSTOM DEFS *********************************************************************************************************/
