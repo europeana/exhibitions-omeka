@@ -19,7 +19,13 @@
 
 <div class="row">
 	<div class="six columns single-item"  style="margin-bottom:3em;">
+	
+		<!-- START ITEM -->
+	
 		<?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
+		
+		
+		<!-- END ITEM -->
 		
 		<div class="row">
 			<div id="mobile_shares" class="twelve columns">
@@ -75,24 +81,38 @@
 
 <?php foot(); ?>
 
+<?php echo js('seadragon-min'); ?>
+<?php echo js('story'); ?>
+
+
 <script type="text/javascript">
+
 	jQuery(document).ready(function() {
-		
 		if(typeof setThemePaths != "undefined"){
 			setThemePaths("<?php echo $_GET['theme']; ?>");
 		}
 		
-		responsiveGallery({
-			scriptClass: 'euresponsive-script',
-			testClass: 'euresponsive',
-			initialSuffix: '_euresponsive_1.jpg',
-			suffixes: {
-				'1': '_euresponsive_1.jpg',
-				'2': '_euresponsive_2.jpg',
-				'3': '_euresponsive_3.jpg',
-				'4': '_euresponsive_4.jpg'
-			}
-		});
+		var zoomitEnabled = 0;
+		if("<?php echo ve_exhibit_builder_is_zoomit_enabled() ?>".length > 0){
+			zoomitEnabled = "<?php echo ve_exhibit_builder_is_zoomit_enabled() ?>";
+		}
+		if(zoomitEnabled){
+			story.initStory("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>", zoomitEnabled);
+		}
+		else{
+			responsiveGallery({
+				scriptClass: 'euresponsive-script',
+				testClass: 'euresponsive',
+				initialSuffix: '_euresponsive_1.jpg',
+				suffixes: {
+					'1': '_euresponsive_1.jpg',
+					'2': '_euresponsive_2.jpg',
+					'3': '_euresponsive_3.jpg',
+					'4': '_euresponsive_4.jpg'
+				}
+			});			
+		}
+		
 	});
 </script>
 
