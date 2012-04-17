@@ -119,8 +119,6 @@
 </div>
 
 
-<link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
-
 <?php foot(); ?>
 
 
