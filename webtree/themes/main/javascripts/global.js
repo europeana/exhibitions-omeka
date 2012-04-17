@@ -19,12 +19,21 @@ function setLanguage(lang) {
 
 jQuery(document).ready(function() {
 
+	if(typeof jQuery('audio, video').mediaelementplayer == "undefined"){
+		return;
+	}
+	
+	/*
     jQuery('audio, video').mediaelementplayer({
         enableAutosize: false,
         // if the <video width> is not specified, this is the default
+        
         defaultVideoWidth: 460,
         // if the <video height> is not specified, this is the default
         defaultVideoHeight: 270,
+        
+        //enableAutosize: true,
+        
         // if set, overrides <video width>
         videoWidth: -1,
         // if set, overrides <video height>
@@ -35,8 +44,20 @@ jQuery(document).ready(function() {
         audioHeight: 30,
         plugins: ['flash','silverlight'],
         // the order of controls you want on the control bar (and other plugins below)
-        features: ['playpause','progress','current','duration','volume','fullscreen']
+        features: ['playpause','progress','current','duration','volume','fullscreen']    
     });
+    */
+    
+	jQuery('audio,video').mediaelementplayer({
+        audioHeight: 30,
+        plugins: ['flash','silverlight'],
+        // the order of controls you want on the control bar (and other plugins below)
+        features: ['playpause','progress','current','duration','volume','fullscreen'],
+		success: function(player, node) {}
+	});
+
+	
+	
 
     jQuery('a.return-to').click(function(){
         var returnTo = jQuery(this).attr('rel');
