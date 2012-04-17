@@ -14,8 +14,6 @@ $section = exhibit_builder_get_exhibit_section_by_id($page->section_id);
 $theme = $section->title;
 $story = $page->title
 ?>
-<link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
-<link rel="stylesheet" href="<?php echo css('mediaelement/mejs-skins'); ?>"/>
 
 </div> <!-- end row -->
 

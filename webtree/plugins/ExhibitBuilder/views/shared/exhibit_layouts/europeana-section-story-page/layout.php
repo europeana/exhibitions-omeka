@@ -13,10 +13,6 @@ $theme = $section->title;
 $story = $page->title
 ?>
 
-<link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
-<link rel="stylesheet" href="<?php echo css('mediaelement/mejs-skins'); ?>"/>
-
-
     <div id="exhibit-section-title">
         <h3>
             <?php echo $theme . ' - ' . $story; ?>
