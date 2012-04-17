@@ -76,6 +76,11 @@ function ve_exhibit_builder_is_zoomit_enabled()
 	return $zoomEnabled;
 }
 
+function endsWith($haystack,$needle,$case=true) {
+    if($case){return (strcmp(substr($haystack, strlen($haystack) - strlen($needle)),$needle)===0);}
+    return (strcasecmp(substr($haystack, strlen($haystack) - strlen($needle)),$needle)===0);
+}
+
 
 
 function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(), $linkProperties = array(), $titleOnly = false, $withoutTitle = false)
@@ -135,7 +140,7 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
             // AUDIO
             $html .= '<div id="in-focus" class="player">';
             //            $html .= '<audio  controls="controls"  poster="' . file_display_uri($file, $format = 'fullsize') . '" type="audio/mp3" src="' . file_display_uri($file, $format = 'archive') . '" width="460" height="84"></audio>';
-            $html .= '<audio  controls="controls"  type="audio/mp3" src="' . file_display_uri($file, $format = 'archive') . '" width="460" height="84"></audio>';
+            $html .= '<audio  controls="controls"  type="audio/mp3" src="' . file_display_uri($file, $format = 'archive') . '" width="460" height="84" style="width:100%; height:100%;"></audio>';
         }
         elseif (preg_match("/^application/", $mime)) {
         	$html .= '<div id="in-focus" class="pdf-viewer">';
@@ -146,8 +151,31 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
         }
         else {
             // VIDEO
-            $html .= '<div id="in-focus" class="player">';
-            $html .= '<video src="' . file_display_uri($file, $format = 'archive') . '" width="460" height="340"></video>';
+        	
+        	$videoSrc = file_display_uri($file, $format = 'archive'); 
+        	
+            $html .= '<div id="in-focus" class="player">';            
+            $html .= '<video  width="460" height="340" style="width:100%; height:100%;">';
+
+            if(endsWith($videoSrc, '.mp4')){
+            	$html .= '<source type="video/mp4" src="' . $videoSrc . '" />';
+            }
+            if(endsWith($videoSrc, '.webm')){
+            	$html .= '<source type="video/webm" src="' . $videoSrc . '" />';
+            }
+            if(endsWith($videoSrc, '.ogv')){
+            	$html .= '<source type="video/ogg" src="' . $videoSrc . '" />';
+            }
+            if(endsWith($videoSrc, '.ogv')){
+            	$html .= '<source type="video/ogg" src="' . $videoSrc . '" />';
+            }
+
+            $html .=	'<object type="application/x-shockwave-flash" data="../../themes/main/javascripts/mediaelement-2.7/build/flashmediaelement.swf">';
+           	$html .=	'<param name="movie" value="../../themes/main/javascripts/mediaelement-2.7/build/flashmediaelement.swf" />';
+       		$html .=	'<param name="flashvars" value="controls=true&amp;file='. file_display_uri($file, $format = 'archive') .'" />'; 		
+   			$html .=	'<img src="../media/echo-hereweare.jpg" width="100%" height="auto;" alt="No video playback capabilities" title="No video playback capabilities" />';
+			$html .=	'</object>';
+            $html .= '</video>';
         }
         $html .= '</div>';
         
