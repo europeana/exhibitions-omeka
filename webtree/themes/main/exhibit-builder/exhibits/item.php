@@ -100,23 +100,21 @@
 			story.initStory("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>", zoomitEnabled);
 		}
 		else{
-			responsiveGallery({
-				scriptClass: 'euresponsive-script',
-				testClass: 'euresponsive',
-				initialSuffix: '_euresponsive_1.jpg',
-				suffixes: {
-					'1': '_euresponsive_1.jpg',
-					'2': '_euresponsive_2.jpg',
-					'3': '_euresponsive_3.jpg',
-					'4': '_euresponsive_4.jpg'
-				}
-			});			
+			if(jQuery('audio, video').length == 0){ // this code breaks media-element, so we don't run the two together
+				responsiveGallery({
+					scriptClass: 'euresponsive-script',
+					testClass: 'euresponsive',
+					initialSuffix: '_euresponsive_1.jpg',
+					suffixes: {
+						'1': '_euresponsive_1.jpg',
+						'2': '_euresponsive_2.jpg',
+						'3': '_euresponsive_3.jpg',
+						'4': '_euresponsive_4.jpg'
+					}
+				});
+			}
 		}
 		
 	});
 </script>
 
-
-
-
-<link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
