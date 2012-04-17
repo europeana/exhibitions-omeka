@@ -40,7 +40,10 @@ function ve_session_vars($lang=null)
 
 function ve_set_exhibits_css()
 {
-		       
+	
+	queue_css('mediaelement-2.7/mediaelementplayer');
+	queue_css('mediaelement-2.7/mejs-skins');
+    
     queue_css('foundation/stylesheets/foundation');
     queue_css('foundation/stylesheets/app');
     
@@ -85,12 +88,12 @@ function ve_set_exhibit_js()
         echo '<script type="text/javascript">if(typeof(setThemePaths) != "undefined"){setThemePaths("'.$_GET['theme'].'");}</script>';
     }
 
-    
-//    echo js('seadragon-min/seadragon-min');
+
     echo js('jquery.cookie');
-    echo js('mediaelement/build/mediaelement-and-player');
+    echo js('jgestures.min');
+    echo js('mediaelement-2.7/build/mediaelement-and-player');
     echo js('global');
-//    echo js('blackbirdjs/blackbird');
+
 }
 
 /*
