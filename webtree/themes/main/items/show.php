@@ -11,7 +11,7 @@
 			<div class="" style="float:left;">
 				<?php echo ve_return_to_exhbit(); ?>
 			</div>
-			
+		
 			<?php if($returnPoint): ?>
 				<div style="float:right;">
 					<a class="widget" href="<?php echo uri('items/browse') . $queryString; ?>">
@@ -20,10 +20,9 @@
 					</a>
 				</div>
 			<?php endif; ?>
-	    
-	    </div>
-	</div>
 	
+		</div>
+	</div>
 </div>	<!-- end row -->
 
 
@@ -33,20 +32,19 @@
 	
 	
     <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
-    
-        
-        <div class="row">
-	        <div id="mobile_shares" class="twelve columns">
+
+	    <div class="row">
+			<div id="mobile_shares" class="twelve columns">
 				<div class="theme-center-outer">
 					<div class="theme-center-middle">
-	    	    		<div class="theme-center-inner">
+						<div class="theme-center-inner">
 							<?php echo getAddThisMobile(); ?>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-    </div>
+	</div>
 
     
     <div class="six columns" style="margin-bottom:3em;">
@@ -71,6 +69,7 @@
 </div>
 
 
+
 <div class="row">
 	<div class="twelve columns">
 		<?php
@@ -85,6 +84,7 @@
 	</div>
 </div>
 
+
 <script type="text/javascript">
 	// fix for disappearing styling bug following comment submission. 
 	var pathField = jQuery("#path");
@@ -96,12 +96,11 @@
 
 
 
-<?php foot(); ?>
-
 <?php echo js('seadragon-min'); ?>
 <?php echo js('story'); ?>
 
 <script type="text/javascript">
+
 	jQuery(document).ready(function() {
 		
 		if(typeof setThemePaths != "undefined"){
@@ -109,6 +108,7 @@
 		}
 
 		var zoomitEnabled = 0;
+		var isMedia		  = 0;
 		if("<?php echo ve_exhibit_builder_is_zoomit_enabled() ?>".length > 0){
 			zoomitEnabled = "<?php echo ve_exhibit_builder_is_zoomit_enabled() ?>";
 		}
@@ -116,19 +116,25 @@
 			story.initStory("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>", zoomitEnabled);
 		}
 		else{
-			responsiveGallery({
-				scriptClass: 'euresponsive-script',
-				testClass: 'euresponsive',
-				initialSuffix: '_euresponsive_1.jpg',
-				suffixes: {
-					'1': '_euresponsive_1.jpg',
-					'2': '_euresponsive_2.jpg',
-					'3': '_euresponsive_3.jpg',
-					'4': '_euresponsive_4.jpg'
-				}
-			});
+			if(jQuery('audio, video').length == 0){ // this code breaks media-element, so we don't run the two together
+				responsiveGallery({
+					scriptClass: 'euresponsive-script',
+					testClass: 'euresponsive',
+					initialSuffix: '_euresponsive_1.jpg',
+					suffixes: {
+						'1': '_euresponsive_1.jpg',
+						'2': '_euresponsive_2.jpg',
+						'3': '_euresponsive_3.jpg',
+						'4': '_euresponsive_4.jpg'
+					}
+				});
+			}
 		}
+
 	});
+	
 </script>
 
-<link rel="stylesheet" href="<?php echo css('mediaelement/mediaelementplayer'); ?>"/>
+
+<?php foot(); ?>
+
