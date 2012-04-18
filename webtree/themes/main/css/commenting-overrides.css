@@ -36,7 +36,8 @@
 }
 	
 #comment-form .inputs input, #comment-form .inputs textarea{
-	width:	50%;
+	xxxwidth:	50%;
+	width:	100%;
 }
 	
 div.comment {

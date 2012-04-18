@@ -45,8 +45,13 @@
 
         <?php echo ve_custom_show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?>
         
-        <?php echo ve_custom_show_embed(); ?>
-        
+    </div>
+</div>
+
+
+<div class="row">
+	
+	<div class="six columns push-six">
 		<div class="wiki-citation">
 			<h2><?php echo ve_translate("cite-on-wikipeia", "Cite on Wikipedia"); ?></h2>
 			<?php
@@ -58,28 +63,26 @@
 				}		
 			?>
 		</div>
+		
 
-    </div>
-</div>
-
-
-<div class="row">
-	<div class="twelve columns">
-
-<?php
-	try {
-		commenting_echo_comments();
-		commenting_echo_comment_form();	
-	}
-	catch (Exception $e) {
-	    echo('Error: ' . $e->getMessage());
-	}		
-?>
+		<?php echo ve_custom_show_embed(); ?>    
 	</div>
+
+	<div class="six columns pull-six">
+		<?php
+			try {
+				commenting_echo_comments();
+				commenting_echo_comment_form();	
+			}
+			catch (Exception $e) {
+			    echo('Error: ' . $e->getMessage());
+			}		
+		?>
+	</div>
+	
 </div>
 
 
-<?php foot(); ?>
 
 <?php echo js('seadragon-min'); ?>
 <?php echo js('story'); ?>
@@ -118,3 +121,4 @@
 	});
 </script>
 
+<?php foot(); ?>
