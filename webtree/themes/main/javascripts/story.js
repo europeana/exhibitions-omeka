@@ -313,7 +313,6 @@ var story = function() {
 	            	if(typeof pdfHeight != "undefined"){
 	            		//preferredHeight = pdfHeight + "px"; 
 	            	}
-	            	jQuery('div#in-focus').html('<iframe width="' + preferredWidth + '" height="' + preferredHeight + '" style="border:none; min-height:275px;" src="http://docs.google.com/viewer?url=' + encodeURIComponent(mediaURI) + '&amp;embedded=true"></iframe>');
 	            }
 	            
 	            // Replace the url for the link to the item page
