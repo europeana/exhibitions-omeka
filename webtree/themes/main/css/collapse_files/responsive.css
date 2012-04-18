@@ -337,6 +337,10 @@ input[type="text"], input[type="password"], input[type="email"], textarea, selec
 #in-focus{
 	max-width:    100%    !important;
 }
+.pdf-viewer{
+	max-width: 	100%    !important;
+	width:    	100%    !important;
+}
 
 
 #zoomit_window, #media_wrapper{
