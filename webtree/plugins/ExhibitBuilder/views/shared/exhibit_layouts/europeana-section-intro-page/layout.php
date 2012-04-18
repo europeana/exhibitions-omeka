@@ -116,15 +116,16 @@ $story = $page->title
 </div> <!-- end row -->
 
 <!--?php //echo( "this is the id...." .  get_current_item()->id ); ?-->
-		
+
+<?php echo js('seadragon-min'); ?>
+<?php echo js('story'); ?>
+
+
 <div class="row">
-	<?php echo js('seadragon-min'); ?>
-	<?php echo js('story'); ?>
 
 	<div class="twelve columns">
 
 		<?php
-			//echo "plugins/ExhibitBuilder/views/shared/exhibit_layouts/europeana-section-intro-page/layout.php";
 			try {
 				commenting_echo_comments();
 				commenting_echo_comment_form();	
