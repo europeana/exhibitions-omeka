@@ -65,6 +65,8 @@ class DocsViewerPlugin
 
     // Added by Europeana
     public function getEmbed(){
+    	
+    	
     	$html = '';
         foreach (__v()->item->Files as $file) {
             $extension = pathinfo($file->archive_filename, PATHINFO_EXTENSION);
@@ -76,7 +78,7 @@ class DocsViewerPlugin
             
             $html .= '<script type="text/javascript"> var pdfWidth=' . $width . '; var pdfHeight=' . $height  . ';</script>';
             //$html .= '<iframe src="' . $this->_getUrl($file) . '" width="' . $width . '" height="' . $height  . '" style="border:none; max-height:100%; max-width:100%;"></iframe>';
-            $html .= '<iframe id="docview" src="' . $this->_getUrl($file) . '" style="border:none; max-height:100%; max-width:100%; width:100%; height:100%;" height="100%"; width="100%;"></iframe>';
+            $html .= '<iframe id="docview" src="' . $this->_getUrl($file) . '" style="border:none; max-height:100%; max-width:100%; width:100%; height:auto; min-height:400px;" height="100%"; width="100%;"></iframe>';
         }
     	return $html;
     }
