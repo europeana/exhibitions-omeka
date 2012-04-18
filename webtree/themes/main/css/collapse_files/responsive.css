@@ -61,6 +61,31 @@ p {
 	text-align:	left !important;
 }
 
+
+/* PDF VIEWER HEIGHTS FOR IPAD */
+.pdf-viewer{
+	overflow:hidden;		
+}
+
+#docview{
+	height:600px;
+}
+
+@media only screen and (max-width: 1280px) and (orientation: landscape){
+	#docview, .pdf-viewer{
+		height:		600px;
+	}
+	
+}
+
+@media only screen and (max-width: 1280px) and (orientation: portrait){
+	#docview, .pdf-viewer{
+		height:		400px;
+	}
+}
+
+
+
 @media only screen and (max-width: 767px) {
 	.theme-title-row-collapsed{
 		display:	block;
