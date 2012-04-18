@@ -43,12 +43,20 @@ class EUResponsivePlugin extends Omeka_Plugin_Abstract
         
         $collections = get_collections();
    		for ($i = 0; $i < sizeof($collections); $i++) {
+   			
  			$items = get_items($collections[$i], 500);
 			
 			error_log ('Generate responsive images for collection: ' .  $collections[$i]['name'] . " (" . sizeof($items) . " items)");
  			for ($j = 0; $j < sizeof($items); $j++) {
     			$this->generateResponsiveImagesForItem($items[$j]); 			
 			}
+			   
+ 			$items =  get_items(array('featured'=>1, 'random' => 0, 'hasImage' => true), 500);
+ 			
+ 			error_log ('Generate responsive images for featured images in collection: ' .  $collections[$i]['name'] . " (" . sizeof($items) . " items)");
+ 			for ($j = 0; $j < sizeof($items); $j++) {
+ 				$this->generateResponsiveImagesForItem($items[$j]); 			
+ 			}
 		}
     }
    
@@ -66,15 +74,19 @@ class EUResponsivePlugin extends Omeka_Plugin_Abstract
     
     protected static function generateResponsiveImagesForItem($item)
 	{
-		// commented out by dan entous 2012-04-12
-		// error_log("");
-		
 		$IMAGEWIDTHS = explode("~", get_option('euresponsive_imagewidths'));
 	  	$path = item_fullsize(null, 0, $item);
 		$istart = substr($path, stripos($path, '"') + 1);
 		$fname = substr($istart, 0, stripos($istart, '"') );
 		$fullpath = realpath("../archive/fullsize/" . basename($fname));
 		$euresponsiveDir = realpath("../archive/") . "/euresponsive";
+
+		/*
+    	if($item -> id == '140'){    		
+    		error_log("ITEM ID IS  " . $item -> id );
+    		error_log("FULL PATH IS  " . $fullpath );
+    	}
+		 */
 		
 		if(! file_exists ( $euresponsiveDir ) ){
 			mkDir($euresponsiveDir);
@@ -88,6 +100,13 @@ class EUResponsivePlugin extends Omeka_Plugin_Abstract
 			if(strlen($nameStem)>0){
 				$j = $i+1;
 				$newFilePath = $euresponsiveDir . "/" . $nameStem . "_euresponsive_" . $j . ".jpg";
+				
+				/*
+		    	if($item -> id == '140'){
+		    		error_log("NEW FULL PATH IS  " . $newFilePath );
+		    	}
+		    	*/
+
 		        $command = join(' ', array(
 	        	     self::_getPathToImageMagick(),
 	        	     $fullpath,
@@ -102,6 +121,7 @@ class EUResponsivePlugin extends Omeka_Plugin_Abstract
  	       //error_log("EXEC imagemagick: result_array=".$result_array.", result_value=".$result_value);
  	       //error_log("Created image WIDTH=".$IMAGEWIDTHS[$i]."  ---> ". $j .".jpg");
 		}
+		
     }
 
 
