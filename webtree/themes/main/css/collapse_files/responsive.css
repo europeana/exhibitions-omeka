@@ -340,6 +340,10 @@ p {
 #top-navigation{
 	margin-bottom:	1.75em;
 }
+
+ul.navigation{
+	text-align:	left;
+}
 /* ----- end of header & logos ----- */
 
 
