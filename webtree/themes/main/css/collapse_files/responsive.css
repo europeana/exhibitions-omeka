@@ -57,6 +57,10 @@ p {
 	display:		none;
 }
 
+#standard_shares a.addthis_button_facebook_like{
+	text-align:	left !important;
+}
+
 @media only screen and (max-width: 767px) {
 	.theme-title-row-collapsed{
 		display:	block;
@@ -67,9 +71,15 @@ p {
 	}
 	#mobile_shares{
 		display:	block;
+		margin-top:	1em;
 	}
 	#standard_shares{
 		display:	none;
+	}
+
+	.addthis_32x32_style > a{
+		margin-left:	5px;
+		margin-right:	5px;
 	}
 	
 }
@@ -337,10 +347,12 @@ input[type="text"], input[type="password"], input[type="email"], textarea, selec
 #in-focus{
 	max-width:    100%    !important;
 }
+
 .pdf-viewer{
 	max-width: 	100%    !important;
 	width:    	100%    !important;
 }
+
 
 
 #zoomit_window, #media_wrapper{
