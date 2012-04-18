@@ -308,10 +308,10 @@ var story = function() {
 	            	var preferredWidth  = "100%";
 	            	var preferredHeight = "100%";
 	            	if(typeof pdfWidth != "undefined"){
-	            		preferredWidth = pdfWidth + "px"; 
+	            		//preferredWidth = pdfWidth + "px"; 
 	            	}
 	            	if(typeof pdfHeight != "undefined"){
-	            		preferredHeight = pdfHeight + "px"; 
+	            		//preferredHeight = pdfHeight + "px"; 
 	            	}
 	            	jQuery('div#in-focus').html('<iframe width="' + preferredWidth + '" height="' + preferredHeight + '" style="border:none; min-height:275px;" src="http://docs.google.com/viewer?url=' + encodeURIComponent(mediaURI) + '&amp;embedded=true"></iframe>');
 	            }
