@@ -143,9 +143,13 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
             $html .= '<audio  controls="controls"  type="audio/mp3" src="' . file_display_uri($file, $format = 'archive') . '" width="460" height="84" style="width:100%; height:100%;"></audio>';
         }
         elseif (preg_match("/^application/", $mime)) {
+        	
+        	// ipad fix
         	$html .= '<style>';
-        	$html .= '.theme-center-middle, .theme-center-inner{width: 	100%;}';
+        	$html .= '#exhibit-item-infocus-item .theme-center-middle, #exhibit-item-infocus-item .theme-center-inner{width:100%;}';
         	$html .= '</style>';
+        	
+        	
         	$html .= '<div id="in-focus" class="pdf-viewer">';
        		if (class_exists('DocsViewerPlugin')){       			
        		   $docsViewer = new DocsViewerPlugin;
