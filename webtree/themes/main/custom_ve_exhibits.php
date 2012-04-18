@@ -293,7 +293,11 @@ if(!function_exists('ve_custom_show_embed')){
 						$rightsData = NULL;
 						$embedFields = array("title", "creator", "data provider", "provider", "rights");
 						$html	.=		'<div style="position:relative;float:left;">';
-						$html	.=			item_fullsize($file);
+						
+						$fileImgHtml	=	item_fullsize($file);
+						$fileImgHtml	=	str_replace('<img ', '<img style="width:100%;" ', $fileImgHtml);
+						
+						$html	.=		$fileImgHtml;
 						
 						if($fieldValues = item('Dublin Core', 'Rights', 'all')){
 							$rightsData = parseRightsValue($fieldValues[0]);
@@ -324,7 +328,7 @@ if(!function_exists('ve_custom_show_embed')){
 											if(!item_field_uses_html('Dublin Core', $field, $key)){
 												$fieldValue = nls2p($fieldValue);
 											}
-											$html .= '<li><span style="font-weight:bold;">'.$field.':</span> ';
+											$html .= '<li style="margin-left:0px!important;"><span style="font-weight:bold;">'.$field.':</span> ';
 
 											if(strtolower($field) == "rights" && $rightsData["rem"]){
 												$fieldValue =  $rightsData["rem"];
