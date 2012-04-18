@@ -60,6 +60,30 @@
     </div>
 </div>
 
+<script type="text/javascript" language="javascript">
+
+		// ipad fix for google docs iframe
+		if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+		    var viewportmeta = document.querySelector('meta[name="viewport"]');
+		    if (viewportmeta) {
+		        viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0';
+				jQuery(document).bind('orientationchange',
+					function () {
+					
+						if(window.orientation == 180 || window.orientation == 0){
+							jQuery("body").html( jQuery("body").html() );;
+						}
+					}
+				);
+		        
+		        
+		    }
+		}
+			
+
+</script>
+
+
 <?php if (isset($_GET['theme'])): ?>
     <script type="text/javascript" language="javascript">
 
@@ -72,3 +96,5 @@
 <?php endif; ?>
 
 </div><!-- end container -->
+
+</body>
