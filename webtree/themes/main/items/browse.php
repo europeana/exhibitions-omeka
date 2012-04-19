@@ -5,6 +5,39 @@
 ?>
 
 
+
+<!--[if lte IE 7]>
+
+<style type="text/css">
+	body{
+		/* disable responsive behaviour (limit size to stop layout breaking) */
+		min-width:	768px;
+	}
+	.browsed-item-wrapper a img{
+		width:		100%;
+		width: 		auto\9; /* ie8 */
+		max-width:	100%;	
+	}
+
+	ul.block-grid{
+		width:	100% !important;
+		margin-left:0px;
+	}
+
+	.block-grid.two-up, .block-grid.two-up > li{
+		margin-left:	0px;
+	}
+	.six{
+		width:	46% !important;
+	}
+
+
+</style>
+
+<![endif]-->
+
+
+
 	<div class="twelve columns">
 	    <div class="return-nav">
 		    <?php echo ve_return_to_exhbit($queryString); ?>
