@@ -5,6 +5,17 @@
 ?>
 
 
+	<div class="twelve columns">
+	    <div class="return-nav">
+	        <?php echo ve_return_to_exhbit($queryString); ?>
+	    </div>
+	    
+	    <h1>
+	        <?php echo ve_translate('items-browse', 'Browse Items');?>
+	        (<?php echo total_results(); ?> <?php echo ve_translate('items-total', 'total');?>)
+	    </h1>	    
+	</div>
+</div>
 
 <!--[if lte IE 7]>
 
@@ -27,28 +38,11 @@
 	.block-grid.two-up, .block-grid.two-up > li{
 		margin-left:	0px;
 	}
-	.six{
-		width:	46% !important;
-	}
-
 
 </style>
 
 <![endif]-->
 
-
-
-	<div class="twelve columns">
-	    <div class="return-nav">
-		    <?php echo ve_return_to_exhbit($queryString); ?>
-	    </div>
-	    
-	    <h1>
-	        <?php echo ve_translate('items-browse', 'Browse Items');?>
-	        (<?php echo total_results(); ?> <?php echo ve_translate('items-total', 'total');?>)
-	    </h1>	    
-	</div>
-</div>
 
 
 <div class="row">
