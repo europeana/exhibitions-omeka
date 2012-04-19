@@ -54,3 +54,9 @@ $providers['Wiki Loves Monuments']['logo'] = 'logo_wiki_loves_monuments.png';
 $providers['Wiki Loves Monuments']['comments'] = true;
 $providers['Wiki Loves Monuments']['collection'] = 'Wiki Loves Monuments';
 $providers['Wiki Loves Monuments']['exhibit'] ='Wiki Loves Monuments';
+
+//$providers['Europeana 1914-1918']['url'] = 'http://www.europeana.eu/';
+//$providers['Europeana 1914-1918']['logo'] = 'logo-europeana.png';
+$providers['Europeana 1914-1918']['comments'] = true;
+$providers['Europeana 1914-1918']['collection'] = 'Europeana 1914-1918';
+$providers['Europeana 1914-1918']['exhibit'] ='Europeana 1914-1918';
