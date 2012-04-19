@@ -6,6 +6,9 @@ var story = function() {
 	var tmpImg;
 	var zoomitWindow = jQuery("#zoomit_window");
 	var zoomitEnabled;
+	var endsWith = function(str, suffix) {
+	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+	}	
 	
 	// public 
 	return{
@@ -20,10 +23,6 @@ var story = function() {
 				jQuery(firstThumbnail[0]).click();
 			}
 			else{
-				function endsWith(str, suffix) {
-				    return str.indexOf(suffix, str.length - suffix.length) !== -1;
-				}
-
 		        if ( endsWith(initialUrl, "jpg") || endsWith(initialUrl, "jpeg")) {
 	               	markup("image", initialUrl);
 	               	if(zoomitEnabled){		        		
@@ -141,23 +140,104 @@ var story = function() {
 
 	function markup(type, url){
 		
-		var defImgClass  = "full tmp-img";
-		var responsiveHTML1 = "";
-		var responsiveHTML2 = "";
+
+		if(type=="pdf"){
+			var viewerHTML = "";
+
+        	// ipad fix
+			viewerHTML += '<style>';
+			viewerHTML += 	'#exhibit-item-infocus-item .theme-center-middle, #exhibit-item-infocus-item .theme-center-inner{width:100%;}';
+			viewerHTML += '</style>';
+			viewerHTML += '<div id="in-focus" class="pdf-viewer">';
+			viewerHTML += 	'<iframe style="border:none; max-height:100%; max-width:100%; width:100%;" ';
+			viewerHTML += 		'src="http://docs.google.com/viewer?url=' + encodeURIComponent(url) + '&amp;embedded=true" ';
+			viewerHTML += 		'id="docview">';
+			viewerHTML += 	'</iframe>';
+			viewerHTML += '</div>';
 			
-		if(!zoomitEnabled){
-			url = url.replace(".jpg", "_euresponsive_1.jpg");
-			url = url.replace("/files/", "/euresponsive/");
-			url = url.replace("/fullsize/", "/euresponsive/")
-			log("No zoomit, so make responsive");
-			defImgClass  = "full";
-			
-			responsiveHTML1 = '<script class="euresponsive-script"></script><!--<noscript>';
-			responsiveHTML2 = '</noscript -->';
+            jQuery('div#in-focus').html(viewerHTML);
+
 		}
-		
+		if(type == "video"){
+
+			// TODO remove this
+			url =  web_root + '/themes/main/javascripts/mediaelement-2.7/echo-hereweare.webm'; 
+
+			var videoHTML = "";
+			videoHTML += '<style>.mejs-overlay-loading{width:88px!important;}</style>';
+			videoHTML += '<div id="in-focus" class="player">';
+			videoHTML += '<video  width="0" height="0" style="width:100%; height:100%;" preload="none">';
+			
+            if(endsWith(url, '.mp4')){
+            	videoHTML += '<source type="video/mp4" src="' + url +  '" />';
+            }
+            if(endsWith(url, '.webm')){
+            	videoHTML += '<source type="video/webm" src="' + url +  '" />';
+            }
+            if(endsWith(url, '.ogv')){
+            	videoHTML += '<source type="video/ogg" src="' + url +  '" />';
+            }
+            if(endsWith(url, '.ogv')){
+            	videoHTML += '<source type="video/ogg" src="' +  url +  '" />';
+            }
+
+            videoHTML += 	'<object type="application/x-shockwave-flash" data="' + web_root + '/themes/main/javascripts/mediaelement-2.7/build/flashmediaelement.swf">';
+            videoHTML += 	'<param name="movie" value="' + web_root + '/themes/main/javascripts/mediaelement-2.7/build/flashmediaelement.swf" />';
+            videoHTML += 	'<param name="flashvars" value="controls=true&amp;file=' + url + '" />'; 		
+            videoHTML += 	'<img src="' + web_root + '/themes/connect-dismarc/images/logo.png" width="100%" height="auto;" alt="No video playback capabilities" title="No video playback capabilities" />';
+            videoHTML += 	'</object>';
+            videoHTML +=  '</video>';
+        	
+            jQuery('div#in-focus').html(videoHTML);
+            
+        	jQuery('audio,video').mediaelementplayer({
+                audioHeight: 30,
+                plugins: ['flash','silverlight'],
+                // the order of controls you want on the control bar (and other plugins below)
+                features: ['playpause','progress','current','duration','volume','fullscreen'],
+        		success: function(player, node) {}
+        	});
+
+            /*
+            jQuery('div#in-focus video').mediaelementplayer({
+                enableAutosize: false,//true,
+                // if the <video width> is not specified, this is the default
+                defaultVideoWidth: 460,
+                // if the <video height> is not specified, this is the default
+                defaultVideoHeight: 270,
+                // if set, overrides <video width>
+                videoWidth: -1,
+                // if set, overrides <video height>
+                videoHeight: -1,
+                // width of audio player
+                audioWidth: 460,
+                // height of audio player
+                audioHeight: 84,
+                plugins: ['flash','silverlight'],
+                // the order of controls you want on the control bar (and other plugins below)
+                features: ['playpause','progress','current','duration','volume','fullscreen']
+            });
+            */
+            
+		}
 		if(type == "image"){
 			jQuery("#in-focus").attr("class", type);
+			
+			var defImgClass  = "full tmp-img";
+			var responsiveHTML1 = "";
+			var responsiveHTML2 = "";
+				
+			if(!zoomitEnabled){
+				url = url.replace(".jpg", "_euresponsive_1.jpg");
+				url = url.replace("/files/", "/euresponsive/");
+				url = url.replace("/fullsize/", "/euresponsive/")
+				log("No zoomit, so make responsive");
+				defImgClass  = "full";
+				
+				responsiveHTML1 = '<script class="euresponsive-script"></script><!--<noscript>';
+				responsiveHTML2 = '</noscript -->';
+			}
+			
 
 			if(!zoomitEnabled && jQuery.browser.msie  && parseInt(jQuery.browser.version, 10) === 7) {	// IE7's stupendously bad handling of innerHTML makes responsive images a no-go.
 				url = url.replace("euresponsive_1", "euresponsive_4");
@@ -218,9 +298,7 @@ var story = function() {
 	
 	        // CLICK THE THUMBNAIL
 	        jQuery(this).click(function() {
-	        	
 	            var mediaURI = jQuery(this).find('img:first').attr('accesskey');
-	            
 	            var regexAudio	= /^audio/;
 	            var regexVideo	= /^video/;
 	            var regexImage	= /^image/;
@@ -255,57 +333,23 @@ var story = function() {
 	                jQuery('div#in-focus').html('<audio  controls="controls"  type="audio/mp3" src="' + mediaURI + '"></audio>');
 	                jQuery('div#in-focus audio').mediaelementplayer({
 	                    enableAutosize: true,
-	                    // if the <video width> is not specified, this is the default
 	                    defaultVideoWidth: 460,
-	                    // if the <video height> is not specified, this is the default
 	                    defaultVideoHeight: 270,
-	                    // if set, overrides <video width>
 	                    videoWidth: -1,
-	                    // if set, overrides <video height>
 	                    videoHeight: -1,
-	                    // width of audio player
 	                    audioWidth: 460,
-	                    // height of audio player
 	                    audioHeight: 84,
 	                    plugins: ['flash','silverlight'],
-	                    // the order of controls you want on the control bar (and other plugins below)
 	                    features: ['playpause','progress','current','duration','volume','fullscreen']
 	                });
 	            }
 	            if (mimeType.match(regexVideo)) {
-	            	
 	            	log("we have a video...");
-	            	
-	                jQuery('div#in-focus').html('<video controls="controls" src="' + mediaURI + '"></video>');
-	                jQuery('div#in-focus video').mediaelementplayer({
-	                    enableAutosize: false,//true,
-	                    // if the <video width> is not specified, this is the default
-	                    defaultVideoWidth: 460,
-	                    // if the <video height> is not specified, this is the default
-	                    defaultVideoHeight: 270,
-	                    // if set, overrides <video width>
-	                    videoWidth: -1,
-	                    // if set, overrides <video height>
-	                    videoHeight: -1,
-	                    // width of audio player
-	                    audioWidth: 460,
-	                    // height of audio player
-	                    audioHeight: 84,
-	                    plugins: ['flash','silverlight'],
-	                    // the order of controls you want on the control bar (and other plugins below)
-	                    features: ['playpause','progress','current','duration','volume','fullscreen']
-	                });
+	            	markup("video", mediaURI);
 	            }
 	            if (mimeType.match(regexPdf)) {
 	            	log("we have a pdf...");
-	            	var preferredWidth  = "100%";
-	            	var preferredHeight = "100%";
-	            	if(typeof pdfWidth != "undefined"){
-	            		//preferredWidth = pdfWidth + "px"; 
-	            	}
-	            	if(typeof pdfHeight != "undefined"){
-	            		//preferredHeight = pdfHeight + "px"; 
-	            	}
+	            	markup("pdf", mediaURI);
 	            }
 	            
 	            // Replace the url for the link to the item page
