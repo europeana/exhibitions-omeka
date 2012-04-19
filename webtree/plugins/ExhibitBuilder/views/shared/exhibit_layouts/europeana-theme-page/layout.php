@@ -12,6 +12,31 @@ $_SESSION['themes_uri'] = uri();
 
 
 
+	<!--[if lte IE 7]>
+	
+	<style type="text/css">
+	
+		.theme-item-wrapper{
+			display:	inline-block;
+		}
+		
+		.theme-item-wrapper{
+			display:	inline;
+		}
+
+		body{
+			/* disable responsive behaviour (limit size to stop layout breaking) */
+			min-width:	768px;
+		}
+			
+	</style>
+	
+	<![endif]-->
+	
+	
+	
+	
+
 <script type="text/javascript">
 
 	jQuery(document).ready(function(){
@@ -44,11 +69,6 @@ $_SESSION['themes_uri'] = uri();
             	.new_overlay{
             		position:	absolute;
               		max-width:	100%;
-            	}
-            	
-            	
-            	.item-li{
-            		xxxxxtext-align:	center;
             	}
             	
             </style>
