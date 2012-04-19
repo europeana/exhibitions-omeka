@@ -28,7 +28,7 @@
 		width:	768px;
 	}
 
-	#media_wrapper img{
+	img.tmp-img{
 		width:	100%;
 		height:	auto;
 	}
@@ -110,7 +110,7 @@
 
 
 <script type="text/javascript">
-
+alert("item");
 	jQuery(document).ready(function() {
 		if(typeof setThemePaths != "undefined"){
 			setThemePaths("<?php echo $_GET['theme']; ?>");

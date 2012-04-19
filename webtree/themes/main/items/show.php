@@ -38,7 +38,7 @@
 		width:	768px;
 	}
 
-	#media_wrapper img{
+	img.tmp-img{
 		width:	100%;
 		height:	auto;
 	}
