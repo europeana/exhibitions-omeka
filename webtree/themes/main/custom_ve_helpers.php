@@ -245,7 +245,7 @@ function getAddThisMobile(){
 	return getAddThis($buttons);
 }
 
-function getAddThisStandard($style = 'float:right; display:inline; padding-left:30px;'){
+function getAddThisStandard($style = 'float:right; display:inline;'){
 	$buttons = '';	
 	$buttons .=	'<div class="addthis_toolbox addthis_default_style" style="' . $style . '">';
 	$buttons .= 	'<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>';
