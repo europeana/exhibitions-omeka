@@ -279,7 +279,7 @@ if(!function_exists('ve_custom_show_embed')){
 			    foreach ($elements as $element) {
 			        if (strtolower($element->name) == "license"){
 			        	$licenseVal = item(ELEMENT_SET_ITEM_TYPE, $element->name);
-						if(strrpos( strtolower($licenseVal), "creativecommons")>-1){
+						if(strrpos( strtolower($licenseVal), "http://creativecommons.org/")>-1){
 							$embedEligible = true;
 						}
 			        }
