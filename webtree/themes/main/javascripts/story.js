@@ -160,6 +160,16 @@ var story = function() {
 		if(type == "image"){
 			jQuery("#in-focus").attr("class", type);
 
+			if(jQuery.browser.msie  && parseInt(jQuery.browser.version, 10) === 7) {	// IE7's stupendously bad handling of innerHTML makes responsive images a no-go.
+				url = url.replace("euresponsive_1", "euresponsive_4");
+				jQuery("#in-focus")[0].innerHTML ='<img class="' + defImgClass + '" src="' + url + '"/>';
+				tmpImg = jQuery('#media_wrapper img.tmp-img');
+				showTmpImg();
+				return;
+			}
+
+
+			
 			var html =	'<div id="media_wrapper">\n'
 				+			'<div id="zoomit_window"></div>\n'
 				+			responsiveHTML1
