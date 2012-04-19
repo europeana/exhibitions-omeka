@@ -4,14 +4,13 @@
   $queryString = '?tags=' . $_GET['tags'] . '&theme=' . $_GET['theme'];
 ?>
 
-<!-- <div class="row"> opened in header.... -->
 
-	<div class="twelve columns">
+	<div class="twelve columns" id="top_nav_row">
 	    <div class="return-nav">
 			<div class="" style="float:left;">
 				<?php echo ve_return_to_exhbit(); ?>
 			</div>
-		
+	
 			<?php if($returnPoint): ?>
 				<div style="float:right;">
 					<a class="widget" href="<?php echo uri('items/browse') . $queryString; ?>">
@@ -20,10 +19,35 @@
 					</a>
 				</div>
 			<?php endif; ?>
-	
+
 		</div>
 	</div>
 </div>	<!-- end row -->
+
+
+
+
+
+<!--[if lte IE 7]>
+
+<style type="text/css">
+
+	body{
+		/* disable responsive behaviour (limit size to stop layout breaking) */
+		min-width:	768px;
+		width:	768px;
+	}
+
+	#media_wrapper img{
+		width:	100%;
+		height:	auto;
+	}
+
+</style>
+
+<![endif]-->
+
+
 
 
 <div class="row">
@@ -44,6 +68,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</div>
     
     <div class="six columns" style="margin-bottom:3em;">
@@ -83,24 +108,10 @@
 	</div>
 </div>
 
+<?php foot(); ?>
 
 
 
-<!--
-<div class="row">
-	<div class="twelve columns">
-		<?php
-			try {
-				commenting_echo_comments();
-				commenting_echo_comment_form();	
-			}
-			catch (Exception $e) {
-			    echo('Error: ' . $e->getMessage());
-			}		
-		?>
-	</div>
-</div>
--->
 
 <script type="text/javascript">
 	// fix for disappearing styling bug following comment submission. 
@@ -153,5 +164,4 @@
 </script>
 
 
-<?php foot(); ?>
 
