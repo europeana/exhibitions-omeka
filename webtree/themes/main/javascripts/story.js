@@ -68,7 +68,6 @@ var story = function() {
 	};
 
 	function hideTmpImg(remove){
-		//log("hideTmpImg " + remove + jQuery(tmpImg)[0]);
 		if(remove){
 			tmpImg.css("display", "none");		// we don't really "remove" it, just put it out of sight
 		}
@@ -160,14 +159,13 @@ var story = function() {
 		if(type == "image"){
 			jQuery("#in-focus").attr("class", type);
 
-			if(jQuery.browser.msie  && parseInt(jQuery.browser.version, 10) === 7) {	// IE7's stupendously bad handling of innerHTML makes responsive images a no-go.
+			if(!zoomitEnabled && jQuery.browser.msie  && parseInt(jQuery.browser.version, 10) === 7) {	// IE7's stupendously bad handling of innerHTML makes responsive images a no-go.
 				url = url.replace("euresponsive_1", "euresponsive_4");
 				jQuery("#in-focus")[0].innerHTML ='<img class="' + defImgClass + '" src="' + url + '"/>';
 				tmpImg = jQuery('#media_wrapper img.tmp-img');
 				showTmpImg();
 				return;
 			}
-
 
 			
 			var html =	'<div id="media_wrapper">\n'
@@ -196,21 +194,6 @@ var story = function() {
 				});
 				
 			}
-			// if not zoomit
-			/*
-			showTmpImg();
-			responsiveGallery({
-				scriptClass: 'euresponsive-script',
-				testClass: 'euresponsive',
-				initialSuffix: '_euresponsive_1.jpg',
-				suffixes: {
-					'1': '_euresponsive_1.jpg',
-					'2': '_euresponsive_2.jpg',
-					'3': '_euresponsive_3.jpg',
-					'4': '_euresponsive_4.jpg'
-				}
-			});
-			*/
 		}
 	}
 
