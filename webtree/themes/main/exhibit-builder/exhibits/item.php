@@ -5,7 +5,6 @@
 ?>
 
 
-<!-- <div class="row"> opened in header.... -->
 
 	<div class="twelve columns">
 	    <div class="return-nav">
@@ -16,6 +15,28 @@
 	</div>
 	
 </div>	<!-- end row -->
+
+
+
+<!--[if lte IE 7]>
+
+<style type="text/css">
+
+	body{
+		/* disable responsive behaviour (limit size to stop layout breaking) */
+		min-width:	768px;
+		width:	768px;
+	}
+
+	#media_wrapper img{
+		width:	100%;
+		height:	auto;
+	}
+
+</style>
+
+<![endif]-->
+
 
 <div class="row">
 	<div class="six columns single-item"  style="margin-bottom:3em;">
