@@ -503,7 +503,6 @@ table{
 }
 
 #exhibit-item-thumbnails img{
-	xxborder:	2px solid red !important;
 	max-width:	100%;
 }
 
@@ -513,4 +512,4 @@ table{
 
 /* ----- end of landing page(s) ----- */
 	
-	
+
