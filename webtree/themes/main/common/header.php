@@ -10,6 +10,7 @@ ve_session_vars();
 	<head>
 	<meta charset="utf-8" />
 	<title>Europeana - Exhibitions</title>
+	<meta http-equiv="X-UA-Compatible" value="IE=8">
 	<meta http-equiv="X-UA-Compatible" value="IE=9">
 	<meta name="description" content="Europeana Exhibitions, a place for Europeana and their partners to showcase their exhibitions.">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
