@@ -41,6 +41,8 @@ p {
 
 #secondary-branding img{
 	width:		100%;
+	width: 		auto\9; /* ie8 */
+	max-width:	100%;
 }
 
 .theme-title-row-collapsed{
@@ -56,6 +58,7 @@ p {
 	margin-bottom:	12px;	
 	display:		none;
 }
+
 
 #standard_shares a.addthis_button_facebook_like{
 	text-align:	left !important;
@@ -75,12 +78,16 @@ p {
 	#docview, .pdf-viewer{
 		height:		600px;
 	}
-	
+
 }
 
 @media only screen and (max-width: 1280px) and (orientation: portrait){
 	#docview, .pdf-viewer{
 		height:		400px;
+	}
+	.addthis_counter{
+		display:none!important;
+
 	}
 }
 
