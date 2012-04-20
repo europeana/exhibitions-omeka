@@ -177,10 +177,10 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
             	$html .= '<source type="video/ogg" src="' . $videoSrc . '" />';
             }
 
-            $html .=	'<object type="application/x-shockwave-flash" data="../../themes/main/javascripts/mediaelement-2.7/build/flashmediaelement.swf">';
-           	$html .=	'<param name="movie" value="../../themes/main/javascripts/mediaelement-2.7/build/flashmediaelement.swf" />';
+            $html .=	'<object type="application/x-shockwave-flash" data="'.WEB_ROOT.'/themes/main/javascripts/mediaelement-2.7/build/flashmediaelement.swf">';
+           	$html .=	'<param name="movie" value="'.WEB_ROOT.'/themes/main/javascripts/mediaelement-2.7/build/flashmediaelement.swf" />';
        		$html .=	'<param name="flashvars" value="controls=true&amp;file='. file_display_uri($file, $format = 'archive') .'" />'; 		
-   			$html .=	'<img src="../media/echo-hereweare.jpg" width="100%" height="auto;" alt="No video playback capabilities" title="No video playback capabilities" />';
+   			$html .=	'<img src="'.WEB_ROOT.'/media/echo-hereweare.jpg" width="100%" height="auto;" alt="No video playback capabilities" title="No video playback capabilities" />';
 			$html .=	'</object>';
             $html .= '</video>';
         }
