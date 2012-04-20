@@ -239,15 +239,15 @@ var story = function() {
 			}
 			
 
-			if(!zoomitEnabled && jQuery.browser.msie  && parseInt(jQuery.browser.version, 10) === 7) {	// IE7's stupendously bad handling of innerHTML makes responsive images a no-go.
+			if(!zoomitEnabled && jQuery.browser.msie  && ( parseInt(jQuery.browser.version, 10) === 7 || parseInt(jQuery.browser.version, 10) === 8 )  ) {	// IE7's stupendously bad handling of innerHTML makes responsive images a no-go.
 				url = url.replace("euresponsive_1", "euresponsive_4");
-				jQuery("#in-focus")[0].innerHTML ='<img class="' + defImgClass + '" src="' + url + '"/>';
+				jQuery("#in-focus")[0].innerHTML ='<img  src="' + url + '"/>';
+				jQuery("#in-focus img[src='" + url + "']").attr("class", defImgClass);
 				tmpImg = jQuery('#media_wrapper img.tmp-img');
 				showTmpImg();
 				return;
 			}
 
-			
 			var html =	'<div id="media_wrapper">\n'
 				+			'<div id="zoomit_window"></div>\n'
 				+			responsiveHTML1
@@ -255,6 +255,8 @@ var story = function() {
 				+		'</div>\n';
 
 			jQuery("#in-focus")[0].innerHTML = html;
+			
+			
 			zoomitWindow = jQuery("#zoomit_window");
 			tmpImg = jQuery('#media_wrapper img.tmp-img');
 
