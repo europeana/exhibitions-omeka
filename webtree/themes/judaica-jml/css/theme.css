@@ -32,10 +32,10 @@ dt {
 }
 
 /* NAVIGATION SECTIONS */
-#top-navigation .inner {
-    border-top: 1px solid #7e7662;
-    border-bottom: 1px solid #7e7662;
+#top-navigation {
+    border-bottom: 1px solid #666;
 }
+
 
 #bottom-navigation {
     border-top: 1px solid #7e7662;

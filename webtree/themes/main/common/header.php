@@ -219,7 +219,7 @@ ve_session_vars();
 	    <div id="header" class="row">
 	        <div class="twelve columns">
 	        	<div id="site-title" class="twelve columns">
-					<a href="http://www.europeana.eu" target="_blank" xxxxid="site-title"><img src="<?php echo img('logo.png'); ?>"></a>
+					<a href="http://www.europeana.eu" target="_blank"><img src="<?php echo img('logo.png'); ?>"></a>
 	        	</div>
 	        	
 		        <div id="secondary-branding" style="float:right;">
@@ -231,21 +231,22 @@ ve_session_vars();
 	
 	    
 		<div id="top-navigation" class="row">
-		    <div id="main-breadcrumbs" class="twelve columns inner">
-		    
-		        <!--BEGIN RESPONSIVE CODE-->
+		    <div id="main-breadcrumbs" class="six columns inner">
 			    <div id="site-title-small">
 			        <a target="_blank" href="http://www.europeana.eu/">
 			            <img src="<?php echo img('logo.png'); ?>"/>
 			        </a>
 			    </div>	    
-		        <!--END RESPONSIVE CODE-->
-		        
 		         <?php echo ve_exhibit_breadcrumbs(); ?>
 		    </div>
-		    
+		    <div  class="six columns">
+				<div id="standard_shares">
+				<?php echo getAddThisStandard(); ?>					 
+				</div>
+			</div>
 	     </div>
-	
+
+	     
 		<div id="content" class="row" andy="header file ends here">
 
 <?php endif; ?>

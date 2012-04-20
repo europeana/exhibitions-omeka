@@ -42,9 +42,9 @@
 			<li><a href="http://twitter.com/EuropeanaEU" target="_blank" title="Follow us on Twitter!"><img src="http://exhibitions.europeana.eu/themes/europeana/images/icon_Twitter.png" alt="Follow us on Twitter!"></a></li>
 			-->
 			<li>
-				<div id="standard_shares">
-					<?php echo getAddThisStandard(); ?>					 
-				</div>
+				<!--div id="standard_shares">
+					<?//php echo getAddThisStandard(); ?>					 
+				</div-->
 				<!-- If this script tag is closed it makes the google icon bigger -->
 				<!-- php messes this up, so put outside of custom_ve_helper for now -->
 				<!--script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d70f66c15fff6d0"-->
