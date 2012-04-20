@@ -379,9 +379,6 @@ if (!function_exists('ve_custom_show_item_metadata')) {
     	    $html = '';
     	    $dcFields = explode(',', $dcFieldsList);
     	    foreach ($dcFields as $field) {
-    	    	
-    	    	error_log("__________FIELD__" .  $field );
-    	    	
     	        $field = trim($field);
     	        if (element_exists('Dublin Core', $field)) {
         	        if ($fieldValues = item('Dublin Core', $field, 'all')) {
@@ -428,18 +425,9 @@ if (!function_exists('ve_custom_show_item_metadata')) {
                     
     	        }
     	    }
-
-    	    
-    	    
-    	    
-	    	error_log("EUROPEANA METADATA " .   show_item_metadata(array('show_element_sets' => array('Europeana Object')))  );
-    	    
     	    return $html;
     	}
         else {
-	    	error_log("USE DEFAULT SHOW ITEM METADATA FIELD" );
-
-	    	
     	    return show_item_metadata($options, $item);
         }
 
