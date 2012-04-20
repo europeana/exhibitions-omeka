@@ -68,6 +68,7 @@
 			window.responsiveGallery = function(args) {
 				
 				// fn to measure the size of the suffixes associative array
+				/*
 				if(typeof Object.prototype.size == "undefined"){					
 					Object.prototype.size = function () {
 						var len = this.length ? --this.length : -1;
@@ -76,7 +77,7 @@
 						return len;
 					}
 				}
-				
+				*/
 				var testDiv = document.createElement( 'div' ),
 					scripts = document.getElementsByTagName( 'script' ),
 					lastSuffix,
