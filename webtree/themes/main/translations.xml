@@ -391,4 +391,15 @@
 		<ru>Cite on Wikipedia (Ru)</ru>
 
     </cite-on-wikipeia>
+    
+    <europeana-license>
+        <en>License (EN)</en>
+        <nl>License (NL)</nl>
+        <de>License (DE)</de>
+        <fr>License (FR)</fr>
+        <pl>License (PL)</pl>
+        <it>License (IT)</it>
+        <ru>License (RU)</ru>
+    </europeana-license>
+    
 </translations>

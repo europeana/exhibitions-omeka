@@ -379,6 +379,9 @@ if (!function_exists('ve_custom_show_item_metadata')) {
     	    $html = '';
     	    $dcFields = explode(',', $dcFieldsList);
     	    foreach ($dcFields as $field) {
+    	    	
+    	    	error_log("__________FIELD__" .  $field );
+    	    	
     	        $field = trim($field);
     	        if (element_exists('Dublin Core', $field)) {
         	        if ($fieldValues = item('Dublin Core', $field, 'all')) {
@@ -408,9 +411,35 @@ if (!function_exists('ve_custom_show_item_metadata')) {
 
     	    $html .= show_item_metadata(array('show_element_sets' => array('Europeana Object')));
 
+
+   
+    	    
+    	    $elements = $item->getItemTypeElements();
+    	    
+    	    foreach ($elements as $element) {
+    	        if (strtolower($element->name) == "license"){
+    	        	$licenseVal = item(ELEMENT_SET_ITEM_TYPE, $element->name);
+    	        	
+    	            $html .= '<div class="element" id="dublin-core-title"><h3>' . ve_translate("europeana-license", "License (def)") .'</h3>';
+    	            
+                    $html .=  '<div class="element-text">' . html_entity_decode($licenseVal)  . '</div>';
+                    
+                    $html .= '</div>';
+                    
+    	        }
+    	    }
+
+    	    
+    	    
+    	    
+	    	error_log("EUROPEANA METADATA " .   show_item_metadata(array('show_element_sets' => array('Europeana Object')))  );
+    	    
     	    return $html;
     	}
         else {
+	    	error_log("USE DEFAULT SHOW ITEM METADATA FIELD" );
+
+	    	
     	    return show_item_metadata($options, $item);
         }
 
