@@ -417,11 +417,13 @@ if (!function_exists('ve_custom_show_item_metadata')) {
     	        if (strtolower($element->name) == "license"){
     	        	$licenseVal = item(ELEMENT_SET_ITEM_TYPE, $element->name);
     	        	
-    	            $html .= '<div class="element" id="dublin-core-title"><h3>' . ve_translate("europeana-license", "License (def)") .'</h3>';
-    	            
-                    $html .=  '<div class="element-text">' . html_entity_decode($licenseVal)  . '</div>';
-                    
-                    $html .= '</div>';
+    	        	if( strlen($licenseVal) > 0  ){
+    	        		$html .= '<div class="element" id="dublin-core-title"><h3>License</h3>';
+    	        		$html .=  '<div class="element-text">' . html_entity_decode($licenseVal)  . '</div>';
+    	        		$html .= '</div>';    	        		
+    	        	}
+    	        		
+    	        	
                     
     	        }
     	    }
