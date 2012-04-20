@@ -402,4 +402,14 @@
         <ru>License (RU)</ru>
     </europeana-license>
     
+    <comments-header>
+        <en>Comments (EN)</en>
+        <nl>Comments (NL)</nl>
+        <de>Comments (DE)</de>
+        <fr>Comments (FR)</fr>
+        <pl>Comments (PL)</pl>
+        <it>Comments (IT)</it>
+        <ru>Comments (RU)</ru>
+    </comments-header>
+    
 </translations>
