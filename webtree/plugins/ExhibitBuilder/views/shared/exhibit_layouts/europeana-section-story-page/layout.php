@@ -21,6 +21,20 @@ $story = $page->title
 </div> <!-- end row -->
 
 
+<!--[if IE 8]>
+
+<style type="text/css">
+	#exhibit-item-thumbnails .exhibit-item {
+		float:none !important;	
+	}
+	#exhibit-item-thumbnails{
+		white-space:nowrap;
+	}
+</style>
+
+<![endif]-->
+
+
 
 <div class="row">
 	<div class="six columns push-six" id="story">
@@ -132,7 +146,6 @@ $story = $page->title
 <?php echo js('seadragon-min'); ?>
 <?php echo js('story'); ?>
 
-<!-- ?//php echo( "this is the id...." . get_current_item()->id ); ?-->
 	
 
 

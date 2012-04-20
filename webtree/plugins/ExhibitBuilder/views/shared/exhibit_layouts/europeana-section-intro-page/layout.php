@@ -17,7 +17,35 @@ $story = $page->title
 
 </div> <!-- end row -->
 
-		
+
+<!--[if IE 8]>
+
+	<style type="text/css">
+		#exhibit-item-thumbnails .exhibit-item {
+			float:none !important;	
+		}
+		#exhibit-item-thumbnails{
+			white-space:nowrap;
+		}
+	</style>
+	
+	
+	<script type="text/javascript">
+	
+		jQuery(document).ready(function(){
+		});
+
+	</script>
+<![endif]-->
+
+	
+	
+
+
+
+
+
+
 <div class="row">
 	<div class="six columns push-six">
 
