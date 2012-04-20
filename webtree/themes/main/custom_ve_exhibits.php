@@ -161,7 +161,8 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
         	
         	$videoSrc = file_display_uri($file, $format = 'archive'); 
         	
-            $html .= '<div id="in-focus" class="player">';            
+            $html .= '<div id="in-focus" class="player">';
+            $html .= '<style>.mejs-overlay-loading{width:88px!important;}</style>';
             $html .= '<video  width="460" height="340" style="width:100%; height:100%;">';
 
             if(endsWith($videoSrc, '.mp4')){
@@ -179,10 +180,11 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
 
             $html .=	'<object type="application/x-shockwave-flash" data="'.WEB_ROOT.'/themes/main/javascripts/mediaelement-2.7/build/flashmediaelement.swf">';
            	$html .=	'<param name="movie" value="'.WEB_ROOT.'/themes/main/javascripts/mediaelement-2.7/build/flashmediaelement.swf" />';
-       		$html .=	'<param name="flashvars" value="controls=true&amp;file='. file_display_uri($file, $format = 'archive') .'" />'; 		
+       		$html .=	'<param name="flashvars" value="controls=true&amp;file='. $videoSrc .'" />'; 		
    			$html .=	'<img src="'.WEB_ROOT.'/media/echo-hereweare.jpg" width="100%" height="auto;" alt="No video playback capabilities" title="No video playback capabilities" />';
 			$html .=	'</object>';
             $html .= '</video>';
+            
         }
         $html .= '</div>';
         
