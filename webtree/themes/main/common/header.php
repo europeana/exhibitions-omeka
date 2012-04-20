@@ -10,8 +10,10 @@ ve_session_vars();
 	<head>
 	<meta charset="utf-8" />
 	<title>Europeana - Exhibitions</title>
-	<meta http-equiv="X-UA-Compatible" value="IE=8">
+	
+	
 	<meta http-equiv="X-UA-Compatible" value="IE=9">
+	
 	<meta name="description" content="Europeana Exhibitions, a place for Europeana and their partners to showcase their exhibitions.">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="author" content="Dean Birkett">
@@ -31,7 +33,8 @@ ve_session_vars();
 		Here we open the body tag and leave the simple page to write the rest.
 	-->
 	
-	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->	
+	
 	<link rel="stylesheet" href="splash/css/style.css" />
 	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="splash/css/ie7.css" /><![endif]-->
 	<!-- wut no JS? -->
@@ -164,8 +167,9 @@ ve_session_vars();
 	    <!-- Stylesheets -->
 	    <?php ve_set_exhibits_css();?>
 
-
+    
 	    <script type="text/javascript">var web_root = "<?php echo WEB_ROOT; ?>";</script>
+	    
 	    
 	    
 	    <!--BEGIN RESPONSIVE CODE-->
