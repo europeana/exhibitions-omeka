@@ -459,6 +459,12 @@ table{
 	margin-bottom:	2em;
 }
 
+.exhibit-page-nav{
+	white-space:nowrap;
+}
+.widget{
+	white-space:nowrap;
+}
 					
 @media only screen and (max-width: 767px){
 	#tbl-exhibit-item tbody tr td.navigate{
@@ -507,7 +513,9 @@ table{
 }
 
 
-
+#exhibit-item-title-only{
+	white-space:	nowrap;
+}
 
 
 /* ----- end of landing page(s) ----- */
