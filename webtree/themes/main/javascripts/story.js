@@ -161,7 +161,7 @@ var story = function() {
 		if(type == "video"){
 
 			// TODO remove this
-			url =  web_root + '/themes/main/javascripts/mediaelement-2.7/echo-hereweare.webm'; 
+			//url =  web_root + '/themes/main/javascripts/mediaelement-2.7/echo-hereweare.webm'; 
 
 			var videoHTML = "";
 			videoHTML += '<style>.mejs-overlay-loading{width:88px!important;}</style>';
