@@ -1,0 +1,33 @@
+
+
+
+	<div class="return-nav">
+		<?php echo ve_return_to_exhbit(); ?>
+	</div>
+
+	<h1>Credits</h1>
+	<p>Europeana  would like to thank the following for their contribution: Ana Paula Porto, Lodewijk Gelauff, Wikimedia  Commons, Wiki Loves Monuments, <a href="http://commons.wikimedia.org/wiki/User:Kaganer" target="_blank">Paul  Kaganer</a> (Russian translation) and <a href="http://commons.wikimedia.org/wiki/Lvova">Anastasiya Lvova</a> (Russian translation).  
+	</p>
+
+	<p>Featured Photographers: Alegna13,  Alexandru Ene, Ant—nio Amen, Ardet, Concierge.2C, Elisete Reis, Enfo, Etasobal, Gabica49, Great  Bronte, IKit, Jaume Meneses, Jens Hunt, jorapa, Koenzime, Kontiki, Lymantria,  Maragato1976, MARIA ROSA FERRE, Mihai Petre, Mikipons, Mlle Daria, Montse Poch,  Moonik, Nataliya-sobaka, Nicubunu, PCB75, Pere L—pez, Rilba, Rlevente, Texaner and Thomas Ledl.
+	</p>
+
+	<p>Powered by <a href="http://omeka.org/" target="_blank">Omeka</a>.</p>
+
+</div>
+
+<div class="row">
+	<div class="four columns">
+		<img src="http://blog.europeana.eu/wp-content/uploads/2012/01/wlm-banner.gif" style="max-width:100%; height:auto;"/>
+	</div>
+
+	<div class="eight columns">
+		<strong>To embed copy and paste below code:</strong>
+		<span style="font-size: 9px;">&lt;a href=&quot;http://exhibitions.europeana.eu/exhibits/show/wiki-loves-art-nouveau&quot; target=&quot;_top&quot;&gt;&lt;img src=&quot;http://blog.europeana.eu/wp-content/uploads/2012/01/wlm-banner.gif&quot;width=&quot;211&quot; height=&quot;118&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;</span>
+	</div>
+</div>
+
+<div class="row">
+
+
+<?php foot($vars = array(), $file = "contactfooter"); ?>
