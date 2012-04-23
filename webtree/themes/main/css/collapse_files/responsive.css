@@ -519,5 +519,16 @@ table{
 
 
 /* ----- end of landing page(s) ----- */
-	
 
+
+.credits-img{
+	width:100%;
+	max-width:100%;
+	height: auto;
+	display:block;
+	margin:auto;		
+}
+
+.credits-embed{
+	margin-bottom:	2em;
+}
