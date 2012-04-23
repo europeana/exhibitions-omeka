@@ -189,12 +189,14 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
             // Only do this on an item pages who's uri is numeric
             if (preg_match("/^[0-9]/", ve_get_current_page_name())) {
             	
-error_log("FIFTEEN");
+//error_log("FIFTEEN");
 
                 $item = get_current_item();
                 $title = item('Dublin Core', 'Title') ? item('Dublin Core', 'Title') : '';
                 $creator = item('Dublin Core', 'Creator') ? ' by ' . item('Dublin Core', 'Creator') : '';
-                $titleCrumbs[] = $title . $creator;
+                
+                $titleCrumbs[] = $title . strip_tags($creator);
+
             }
         }
         catch (Exception $e) {
