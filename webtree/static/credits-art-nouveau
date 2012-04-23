@@ -1,0 +1,47 @@
+	<div class="return-nav">
+		<?php echo ve_return_to_exhbit(); ?>
+	</div>
+
+	<h1>Credits</h1>
+	<p>Europeana would like to thank the following for their contribution: Ann Maher, ABM-utvikling, Ågotnes, Jakob E.: I Bj&#248;rnstjernes Hus, s.146 (Litteraturreferanse), Archíve Pamiatkov&#233;ho &#250;radu SR, Biblioteca de Catalunya, Biblioteca de Catalunya, Bibliothèque municipale de Lyon, Bl&#233;rancourt, mus&#233;e national de la Coop&#233;ration franco-am&#233;ricaine, CER.ES: Red Digital de Colecciones de museos de España (Museo Nacional de Artes Decorativas), cIMeC - Institutul de Memorie Cultural, cultura.it, Culture.fr, CultureGrid, Design Council Slide Collection, Deutsche Fotothek, digiCULT-Verbund, English Heritage.NMR, Eric van der Meulen, EuropeanaLocal Deutschland, EuropeanaTravel, Fitzwilliam Museum, Frisörmuseum, 
+Fylkesarkivet i Sogn og Fjordane, G&#233;rard Blot, Ghent University Library, Harry Br&#233;jat, Herv&#233; Lewandowski, Het Geheugen van Nederland, Hispana, Jean Schormans, Landesbibliothek Mecklenburg-Vorpommern, Latvijas Nacionâlâ Bibliotçka, London College of Fashion, Maihaugen, Memòria Digital de Catalunya, Ministère de la Culture (France), M&#233;diathèque de l'architecture et du patrimoine (archives photographiques), Ministerio de Cultura, Ministero per i beni e le Attivita' Culturali, Mus&#233;e des Arts d&#233;coratifs, Mus&#233;e des Beaux-Arts, mus&#233;e d'Orsay, Mus&#233;e Guimet - mus&#233;e national des Arts asiatiques, Mus&#233;e national des Arts et Traditions Populaires, Museum voor Schone Kunsten Gent, Museumsberg Flensburg Städtische Museen und Sammlungen f&#252;r den Landesteil Schleswig, Muzeul National Cotroceni - BUCURESTI, Muzeul National Peles - SINAIA, Norsk Folkemuseum, Österreichische Nationalbibliothek, Pamiatkov&#253; &#250;rad SR, Reinier Hamel, Ren&#233;-Gabriel Oj&#233;da, RMN, Russian Visual Arts Project, SLUB, Stadsarchief en Athenaeumbibliotheek Deventer, Stadtgeschichtliches Museum Leipzig, Swedish Open Cultural Heritage, Thierry Ollivier, Universiteitsbibliotheek Gent, University Library of Regensburg, University of the Arts London, Central Saint Martins Museum and Study Collection, Vads, Västergötlands museum, Vlaamse Kunstcollectie.
+	</p>
+	
+	<p>Powered by <a href="http://omeka.org/" target="_blank">Omeka</a>.</p>
+
+</div>
+<div class="row">
+
+	<div class="four columns">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=f74c1127-d1df-45c4-ae3f-8135638b2eb3&groupId=10128&t=1288186170877"  style="max-width:100%; height:auto;">
+		<br />
+		<strong>To embed copy and paste below code:</strong>
+		<br /><br />
+		<span style="font-size: 9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en" title="Art Nouveau on Europeana"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=f74c1127-d1df-45c4-ae3f-8135638b2eb3&groupId=10128&t=1288186170877" width="211" height="118" alt="Art Nouveau on Europeana"&#062;&#060;/a&#062;</span>
+	</div>
+
+
+	<div class="four columns">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=be0f3406-7c69-460f-a235-c387c0717249&groupId=10128&t=1288186185672" style="max-width:100%; height:auto;">
+		<br />
+		<strong>To embed copy and paste below code:</strong>
+		<br />
+		<br />
+		<span style="font-size: 9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en" title="Art Nouveau on Europeana"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=be0f3406-7c69-460f-a235-c387c0717249&amp;groupId=10128&amp;t=1288186185672" width="211" height="118" alt="Art Nouveau on Europeana"&#062;&#060;/a&#062;</span>
+	</div>
+
+
+	<div class="four columns">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=453f6a4f-9259-4288-8771-7984d405d70e&groupId=10128&t=1288186208513" style="max-width:100%; height:auto;">
+		<br />
+		<strong>To embed copy and paste below code:</strong>
+		<br />
+		<br />
+		<span style="font-size: 9px;">&#60;a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en" title="Art Nouveau on Europeana"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=453f6a4f-9259-4288-8771-7984d405d70e&groupId=10128&t=1288186208513" width="211" height="118" alt="Art Nouveau on Europeana"&#062;&#060;/a&#062;</span>
+	</div>
+</div>
+
+<div>
+	<?php foot($vars = array(), $file = 'contactfooter'); ?>
+	
+	
