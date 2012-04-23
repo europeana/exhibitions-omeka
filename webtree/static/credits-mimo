@@ -1,0 +1,56 @@
+	<div class="return-nav">
+		<?php echo ve_return_to_exhbit(); ?>
+	</div>
+
+	<h1>Credits</h1>
+	<p>The material for this is exhibition is presented by the nine of the eleven partner museums of the <a href="http://www.mimo-project.eu/" target="_blank" title="Click here to visit the MIMO website">MIMO</a> project:
+	</p>
+
+	<ul>
+		<li>University of Edinburgh, UK (lead partner)</li>
+		<li>Germanisches Nationalmuseum, Nürnberg, Deutschland</li>
+		<li>Museum für Musikinstrumente der Universität Leipzig, Deutschland</li>
+		<li>Koninklijk Museum voor Midden-Afrika, Tervuren, België</li>
+		<li>Associazione "Amici del Museo degli Strumenti Musicali," Firenze, Italia</li>
+		<li>Cité de la musique, Paris, France</li>
+		<li>Muziekinstrumentenmuseum, Brussel, België</li>
+		<li>Ethnologisches Museum, Staatliche Museen zu Berlin, Deutschland</li>
+		<li>Musikmuseet, Stockholm, Sverige</li>
+	</ul>
+
+
+	<p>Editorial work by Cité de la musique, Paris and University of Edinburgh</p>
+	<p>Produced in association with <a href="http://www.europeana.eu" title="visit the Europeana portal">Europeana</a>.</p>
+	<p>The MIMO project is co-funded by the European Union, through the eContentplus programme. <img src="http://europeana.eu/portal/images/eu-flag.gif"></p>
+	<p>Powered by <a href="http://omeka.org/" target="_blank">Omeka</a>.</p>
+</div>
+<div class="row">
+
+	<div class="four columns">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=28d7cd2c-cae3-4f7d-a0c6-6db7d34d384e&groupId=10128&t=1308742178750" style="max-width:100%; height:auto;">
+		<br />	
+		<strong>To embed copy and paste below code:</strong><br><br>
+	
+		<span style="font-size:9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en" title="Explore the World of Musical Instrument"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=28d7cd2c-cae3-4f7d-a0c6-6db7d34d384e&groupId=10128&t=1308742178750" width="211" height="118" alt="Explore the World of Musical Instruments"&#062;&#060;/a&#062;</span>
+	</div>
+
+	<div class="four columns">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=73047315-d88a-452e-8b35-4b59e5a2f6b0&groupId=10128&t=1308742195384">
+		<br />
+		<strong>To embed copy and paste below code:</strong><br><br>
+	
+		<span style="font-size: 9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en" title="Explore the World of Musical Instruments"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=73047315-d88a-452e-8b35-4b59e5a2f6b0&groupId=10128&t=1308742195384" width="211" height="118" alt="Explore the World of Musical Instruments"&#062;&#060;/a&#062;</span>
+	</div>
+
+	<div class="four columns">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=f44775de-c9ac-41ee-908e-e1425818abb5&groupId=10128&t=1308742214338">
+		<br />
+		<strong>To embed copy and paste below code:</strong><br><br>
+	
+		<span style="font-size: 9px;">&#60;a href="http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en" title="Explore the World of Musical Instruments"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=f44775de-c9ac-41ee-908e-e1425818abb5&groupId=10128&t=1308742214338" width="211" height="118" alt="Explore the World of Musical Instruments"&#062;&#060;/a&#062;</span>
+
+	</div>
+</div>
+
+<div class="row">
+	<?php foot($vars = array(), $file = 'contactfooter'); ?>

@@ -1,42 +1,47 @@
-<div class="return-nav">
-<?php echo ve_return_to_exhbit(); ?>
+	<div class="return-nav">
+		<?php echo ve_return_to_exhbit(); ?>
+	</div>
+
+	<h1>Credits</h1>
+
+	<p><em><strong>Van dada tot surrealisme. Joodse avant-garde kunstenaars uit Roemeni&euml;, 1910-1938 / From Dada to Surrealism. Jewish Avant-Garde Artists from Romania</strong></em></p>
+	<h4>This virtual exhibition was made possible by the kind permission of </h4>
+	<ul style="list-style-type:none">
+		<li>The National Museum of Art Romania, Bucharest</li>
+		<li>The Israel Museum, Jerusalem</li>
+		<li>Centre Pompidou, Paris</li>
+		<li>Institute of Eco-Museal Research Tulcea</li>
+		<li>Collection Vladimir Pan&#259;, Bucharest</li>
+		<li>Monique Yaari</li>
+	</ul>
+
+	<h4>Research and texts</h4>
+	<ul style="list-style-type:none">
+		<li>Radu Stern, Edward van Voolen, Mijke Derksen</li>
+	</ul>
+
+	<p><em><strong>Pas op voor Dada - Joodse avant-garde kunstenaars uit Roemeni&euml;  / Beware of Dada - Jewish Avant-Garde Artists from Romania</strong></em></p>
+	<ul style="list-style-type:none">
+		<li>Een film van / A film by: Marjoleine Boonstra, Lies Janssen</li>
+		<li>Productie / Production: Ren&eacute;  Mendel, Interakt </li>
+		<li>Mede mogelijk gemaakt door / Made possible in part by: </li>
+		<li>Joodse Omroep</li>
+		<li>The Prodan Romanian Cultural Foundation, London </li>
+	</ul>
+
+	<p>Catalog <em>Van dada tot surrealisme. Joodse avant-garde kunstenaars uit Roemeni&euml;, 1910-1938 / From Dada to Surrealism. Jewish Avant-Garde Artists from Romania</em> Available from the JHM / Verkrijgbaar in de museumshop &euro; 29,95 ISBN 978 90 80202 98 6</p>
+	<p>Powered by <a href="http://omeka.org/" target="_blank">Omeka</a>.</p>
+
 </div>
 
-<h1>Credits</h1>
-<!-- put creditorial info here -->
-<p><em><strong>Van dada tot surrealisme. Joodse avant-garde kunstenaars uit Roemeni&euml;, 1910-1938 / From Dada to Surrealism. Jewish Avant-Garde Artists from Romania</strong></em></p>
-<h4>This virtual exhibition was made possible by the kind permission of </h4>
-<ul style = "list-style-type:none">
-<li>The National Museum of Art Romania, Bucharest</li>
-<li>The Israel Museum, Jerusalem</li>
-<li>Centre Pompidou, Paris</li>
-<li>Institute of Eco-Museal Research Tulcea</li>
-<li>Collection Vladimir Pan&#259;, Bucharest</li>
-<li>Monique Yaari</li>
-</ul>
-<h4>Research and texts</h4>
-<ul style = "list-style-type:none">
-<li>Radu Stern, Edward van Voolen, Mijke Derksen</li>
-</ul>
-<p><em><strong>Pas op voor Dada - Joodse avant-garde kunstenaars uit Roemeni&euml;  / Beware of Dada - Jewish Avant-Garde Artists from Romania</strong></em></p>
-<ul style = "list-style-type:none">
-<li>Een film van / A film by: Marjoleine Boonstra, Lies Janssen</li>
-<li>Productie / Production: Ren&eacute;  Mendel, Interakt </li>
-<li>Mede mogelijk gemaakt door / Made possible in part by: </li>
-<li>Joodse Omroep</li>
-<li>The Prodan Romanian Cultural Foundation, London </li>
-</ul>
+<div class="row">
+	<img src="http://pro.europeana.eu/image/image_gallery?uuid=36d57044-d827-4556-8fe5-125bab89050f&groupId=10128&t=1306502221496"  style="max-width:100%; height:auto;">
 
-<p>Catalog <em>Van dada tot surrealisme. Joodse avant-garde kunstenaars uit Roemeni&euml;, 1910-1938 / From Dada to Surrealism. Jewish Avant-Garde Artists from Romania</em> Available from the JHM / Verkrijgbaar in de museumshop &euro; 29,95 ISBN 978 90 80202 98 6</p>
+	<strong>To embed copy and paste below code:</strong><br><br>
+	<span style="font-size: 9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en?bt=banner1" title="From Dada to Surrealism"&#062;&#60;img src="http://version1.europeana.eu/image/image_gallery?uuid=36d57044-d827-4556-8fe5-125bab89050f&groupId=10128&t=1306502221496" width="211" height="118" alt="From Dada to Surrealism"&#062;&#060;/a&#062;</span>
 
-<p>Powered by <a href="http://omeka.org/" target="_blank">Omeka</a>.</p>
-
-
-<div style="width: 220px; float: left; padding-right: 20px; padding-bottom: 20px;"><img src="http://version1.europeana.eu/image/image_gallery?uuid=36d57044-d827-4556-8fe5-125bab89050f&groupId=10128&t=1306502221496" width="211" height="118" >
-
- <strong>To embed copy and paste below code:</strong><br><br>
- <span style="font-size: 9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en?bt=banner1" title="From Dada to Surrealism"&#062;&#60;img src="http://version1.europeana.eu/image/image_gallery?uuid=36d57044-d827-4556-8fe5-125bab89050f&groupId=10128&t=1306502221496" width="211" height="118" alt="From Dada to Surrealism"&#062;&#060;/a&#062;</span>
 </div>
 
+<div class="row">
 
 <?php foot($vars = array(), $file = 'contactfooter'); ?>
