@@ -21,26 +21,28 @@
 	<p>Powered by <a href="http://omeka.org/" target="_blank">Omeka</a>.</p>
 </div>
 
-<div class="row">
+<div class="row credits-embed">
 	<div class="four columns">
-		<img src="http://pro.europeana.eu/image/image_gallery?uuid=ed23c035-ca4a-4fec-b38a-6580340b422b&groupId=10128&t=1312892349543" style="max-width:100%; height:auto;">
-		<br><br>
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=ed23c035-ca4a-4fec-b38a-6580340b422b&groupId=10128&t=1312892349543" class="credits-img">
+		<br />
 		<strong>To embed copy and paste below code:</strong>
 		<br><br>
  		<span style="font-size: 9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe" title="Weddings in Eastern Europe"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=ed23c035-ca4a-4fec-b38a-6580340b422b&amp;groupId=10128&amp;t=1312892349543" width="211" height="118" alt="Weddings in Eastern Europe"&#062;&#060;/a&#062;</span>
 	</div>
 	<div class="four columns">
-		<img src="http://pro.europeana.eu/image/image_gallery?uuid=5f40ec90-0703-41ae-93a0-de5d25dc4609&groupId=10128&t=1312892363083"  style="max-width:100%; height:auto;">
-		<br><br>
-		<strong>To embed copy and paste below code:</strong><br><br>
-		<br><br>
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=5f40ec90-0703-41ae-93a0-de5d25dc4609&groupId=10128&t=1312892363083" class="credits-img">
+		<br />
+		<strong>To embed copy and paste below code:</strong>
+		<br />
+		<br />
 		<span style="font-size: 9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe" title="Weddings in Eastern Europe"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=5f40ec90-0703-41ae-93a0-de5d25dc4609&amp;groupId=10128&amp;t=1312892363083" width="211" height="118" alt="Weddings in Eastern Europe"&#062;&#060;/a&#062;</span>
 	</div>
 	<div class="four columns">
-		<img src="http://pro.europeana.eu/image/image_gallery?uuid=dfae516e-e840-4eac-a1f1-b70b0fe62613&groupId=10128&t=1312892376315" style="max-width:100%; height:auto;">
-		<br><br>
-		<strong>To embed copy and paste below code:</strong><br><br>
-		<br><br>
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=dfae516e-e840-4eac-a1f1-b70b0fe62613&groupId=10128&t=1312892376315" class="credits-img">
+		<br />
+		<strong>To embed copy and paste below code:</strong>
+		<br />
+		<br />
 		<span style="font-size: 9px;">&#60;a href="http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe" title="Weddings in Eastern Europe"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=dfae516e-e840-4eac-a1f1-b70b0fe62613&amp;groupId=10128&amp;t=1312892376315" width="211" height="118" alt="Weddings in Eastern Europe"&#062;&#060;/a&#062;</span>
 	</div>
 </div>
