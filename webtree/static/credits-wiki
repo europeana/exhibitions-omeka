@@ -16,15 +16,22 @@
 
 </div>
 
-<div class="row">
+<div class="row credits-embed">
 	<div class="four columns">
-		<img src="http://blog.europeana.eu/wp-content/uploads/2012/01/wlm-banner.gif" style="max-width:100%; height:auto;"/>
-	</div>
-
-	<div class="eight columns">
+		<img src="http://blog.europeana.eu/wp-content/uploads/2012/01/wlm-banner.gif" class="credits-img"/>
+		<br />
 		<strong>To embed copy and paste below code:</strong>
+		<br />
+		<br />
 		<span style="font-size: 9px;">&lt;a href=&quot;http://exhibitions.europeana.eu/exhibits/show/wiki-loves-art-nouveau&quot; target=&quot;_top&quot;&gt;&lt;img src=&quot;http://blog.europeana.eu/wp-content/uploads/2012/01/wlm-banner.gif&quot;width=&quot;211&quot; height=&quot;118&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;</span>
 	</div>
+
+	<div class="four columns credits-img-container">
+	</div>
+	
+	<div class="four columns credits-img-container">
+	</div>
+
 </div>
 
 <div class="row">
