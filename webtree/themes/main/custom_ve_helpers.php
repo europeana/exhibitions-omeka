@@ -251,7 +251,7 @@ function getAddThisStandard($style = 'float:right; display:inline;'){
 	$buttons .= 	'<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>';
 	$buttons .= 	'<a class="addthis_button_tweet"></a>';
 	$buttons .= 	'<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>';
-	$buttons .= 	'<a class="addthis_counter addthis_pill_style"></a>';
+	//$buttons .= 	'<a class="addthis_counter addthis_pill_style"></a>';
 	$buttons .=	'</div>';
 	
 	return getAddThis($buttons);	
