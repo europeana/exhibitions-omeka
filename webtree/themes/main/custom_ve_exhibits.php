@@ -294,7 +294,7 @@ if(!function_exists('ve_custom_show_embed')){
 						// Title, Creator, Data Provider, Provider, CC-license.
 						
 						$html	.=	'<div id="embedded">';
-						$html	.=		'<h2>' . ve_translate("embed-code", "Embed Code") .'</h2>';
+						$html	.=		'<h3>' . ve_translate("embed-code", "Embed Code") .'</h3>';
 						$html	.=		'<textarea rows="5">';	// start embed code
 
 						// image div
