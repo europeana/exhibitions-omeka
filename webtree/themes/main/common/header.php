@@ -15,7 +15,6 @@ ve_session_vars();
 	
 	<meta http-equiv="X-UA-Compatible" value="IE=9">
 	
-	<meta name="description" content="Europeana Exhibitions, a place for Europeana and their partners to showcase their exhibitions.">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="author" content="Dean Birkett">
 	<meta name="author" content="Andy MacLean">
@@ -28,6 +27,8 @@ ve_session_vars();
 
 
 <?php if ($pageURL == WEB_ROOT."/"): ?>
+
+	<meta name="description" content="Europeana Exhibitions, a place for Europeana and their partners to showcase their exhibitions.">
 
 	<!--
 		Splash page body comes from SimplePages, which wraps everything in a div with the id "primary".
@@ -159,7 +160,7 @@ ve_session_vars();
 	    <!-- Meta -->
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"/>
-	    <meta name="description" content="<?php echo settings('description'); ?>"/>
+	    <!--meta name="description" content="<?php //echo settings('description'); ?>"/-->
 	    <?php echo auto_discovery_link_tag(); ?>
 
 	    <!-- Plugin Stuff -->
