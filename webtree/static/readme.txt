@@ -1,0 +1,1 @@
+This directory contains hard-copy versions of the static "Simple Pages" that live in the databse.
