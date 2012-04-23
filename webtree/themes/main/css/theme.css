@@ -33,9 +33,13 @@ dt {
 
 }
 
-/* NAVIGATION SECTIONS */
+/* NAVIGATION SECTIONS
 #top-navigation .inner {
     border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+}
+ */
+#top-navigation {
     border-bottom: 1px solid #666;
 }
 
