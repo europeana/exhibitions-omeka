@@ -219,7 +219,7 @@ ve_session_vars();
 	    <div id="header" class="row">
 	        <div class="twelve columns">
 	        	<div id="site-title" class="twelve columns">
-					<a href="http://www.europeana.eu" target="_blank"><img src="<?php echo img('logo.png'); ?>"></a>
+					<a href="http://exhibitions.europeana.eu/" target="_blank"><img src="<?php echo img('logo.png'); ?>"></a>
 	        	</div>
 	        	
 		        <div id="secondary-branding" style="float:right;">
