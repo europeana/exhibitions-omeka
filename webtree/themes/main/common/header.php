@@ -9,8 +9,9 @@ ve_session_vars();
 <!doctype html>
 	<head>
 	<meta charset="utf-8" />
-	<title>Europeana - Exhibitions</title>
-	
+
+    <title><?php echo ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null, $showAsTitle=true); ?></title>
+
 	
 	<meta http-equiv="X-UA-Compatible" value="IE=9">
 	
