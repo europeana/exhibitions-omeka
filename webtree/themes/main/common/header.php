@@ -231,7 +231,7 @@ ve_session_vars();
 	
 	    
 		<div id="top-navigation" class="row">
-		    <div id="main-breadcrumbs" class="six columns inner">
+		    <div id="main-breadcrumbs" class="seven columns inner">
 			    <div id="site-title-small">
 			        <a target="_blank" href="http://www.europeana.eu/">
 			            <img src="<?php echo img('logo.png'); ?>"/>
@@ -239,7 +239,7 @@ ve_session_vars();
 			    </div>	    
 		         <?php echo ve_exhibit_breadcrumbs(); ?>
 		    </div>
-		    <div  class="six columns">
+		    <div  class="five columns">
 				<div id="standard_shares">
 				<?php echo getAddThisStandard(); ?>					 
 				</div>
