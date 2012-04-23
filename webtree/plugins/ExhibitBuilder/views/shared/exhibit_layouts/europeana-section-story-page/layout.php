@@ -14,9 +14,9 @@ $story = $page->title
 ?>
 
     <div id="exhibit-section-title">
-        <h3>
+        <h2>
             <?php echo $theme . ' - ' . $story; ?>
-        </h3>
+        </h2>
     </div>
 </div> <!-- end row -->
 

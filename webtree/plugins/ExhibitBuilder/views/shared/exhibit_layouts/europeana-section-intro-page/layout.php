@@ -112,9 +112,9 @@ $story = $page->title
 	
 	<div class="six columns pull-six" id="story">
 		<div id="exhibit-section-title">
-			<h3>
+			<h2>
 				<?php echo $theme . ' - ' . $story; ?>
-			</h3>
+			</h2>
 		</div>
 		<div class="exhibit-text">
 			<div id="exhibit-section-title-small">
