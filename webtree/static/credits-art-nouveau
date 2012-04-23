@@ -10,19 +10,20 @@ Fylkesarkivet i Sogn og Fjordane, G&#233;rard Blot, Ghent University Library, Ha
 	<p>Powered by <a href="http://omeka.org/" target="_blank">Omeka</a>.</p>
 
 </div>
-<div class="row">
+<div class="row credits-embed">
 
 	<div class="four columns">
-		<img src="http://pro.europeana.eu/image/image_gallery?uuid=f74c1127-d1df-45c4-ae3f-8135638b2eb3&groupId=10128&t=1288186170877"  style="max-width:100%; height:auto;">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=f74c1127-d1df-45c4-ae3f-8135638b2eb3&groupId=10128&t=1288186170877" class="credits-img">
 		<br />
 		<strong>To embed copy and paste below code:</strong>
-		<br /><br />
+		<br />
+		<br />
 		<span style="font-size: 9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en" title="Art Nouveau on Europeana"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=f74c1127-d1df-45c4-ae3f-8135638b2eb3&groupId=10128&t=1288186170877" width="211" height="118" alt="Art Nouveau on Europeana"&#062;&#060;/a&#062;</span>
 	</div>
 
 
 	<div class="four columns">
-		<img src="http://pro.europeana.eu/image/image_gallery?uuid=be0f3406-7c69-460f-a235-c387c0717249&groupId=10128&t=1288186185672" style="max-width:100%; height:auto;">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=be0f3406-7c69-460f-a235-c387c0717249&groupId=10128&t=1288186185672" class="credits-img">
 		<br />
 		<strong>To embed copy and paste below code:</strong>
 		<br />
@@ -32,7 +33,7 @@ Fylkesarkivet i Sogn og Fjordane, G&#233;rard Blot, Ghent University Library, Ha
 
 
 	<div class="four columns">
-		<img src="http://pro.europeana.eu/image/image_gallery?uuid=453f6a4f-9259-4288-8771-7984d405d70e&groupId=10128&t=1288186208513" style="max-width:100%; height:auto;">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=453f6a4f-9259-4288-8771-7984d405d70e&groupId=10128&t=1288186208513" class="credits-img">
 		<br />
 		<strong>To embed copy and paste below code:</strong>
 		<br />
