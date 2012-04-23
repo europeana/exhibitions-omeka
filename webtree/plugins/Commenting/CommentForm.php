@@ -31,14 +31,14 @@ class Commenting_CommentForm extends Omeka_Form
         		'label'=>'Website',
             );
         $emailOptions = array(
-            	'label'=>'Email',
+            	'label'=> ve_translate("comments-field-email", "Email"),
             	'required'=>true,
                 'validators' => array(
                     array('validator' => 'EmailAddress'
                     )
                 )
             );
-        $nameOptions =  array('label'=>'Your name');
+        $nameOptions =  array('label'=>ve_translate("comments-field-name", "Your name"));
 
         if($user) {
             $urlOptions['value'] = WEB_ROOT;
@@ -53,8 +53,8 @@ class Commenting_CommentForm extends Omeka_Form
 
         $this->addElement('text', 'author_name', $nameOptions);
         $this->addElement('textarea', 'body',
-            array('label'=>'Comment',
-                  'description'=>"Allowed tags: <p>, <a>, <em>, <strong>, <ul>, <ol>, <li>",
+            array('label'=>  ve_translate("comments-field-comment", "Comment"),
+                  'description'=> ve_translate("comments-field-allowed-tags", "Allowed tags").": <p>, <a>, <em>, <strong>, <ul>, <ol>, <li>",
             	 'required'=>true,
                   'filters'=> array(
                       array('StripTags', array('p', 'em', 'strong', 'a','ul','ol','li')),

@@ -412,4 +412,44 @@
         <ru>Comments (RU)</ru>
     </comments-header>
     
+    <comments-field-name>
+        <en>Your name</en>
+        <nl>Your name (NL)</nl>
+        <de>Your name (DE)</de>
+        <fr>Your name (FR)</fr>
+        <pl>Your name (PL)</pl>
+        <it>Your name (IT)</it>
+        <ru>Your name (RU)</ru>
+    </comments-field-name>
+    
+    <comments-field-comment>
+        <en>Comment</en>
+        <nl>Comment (NL)</nl>
+        <de>Comment (DE)</de>
+        <fr>Comment (FR)</fr>
+        <pl>Comment (PL)</pl>
+        <it>Comment (IT)</it>
+        <ru>Comment (RU)</ru>
+    </comments-field-comment>
+    
+    <comments-field-comment>
+        <en>Comment</en>
+        <nl>Comment (NL)</nl>
+        <de>Comment (DE)</de>
+        <fr>Comment (FR)</fr>
+        <pl>Comment (PL)</pl>
+        <it>Comment (IT)</it>
+        <ru>Comment (RU)</ru>
+    </comments-field-comment>
+    
+    <comments-field-allowed-tags>
+        <en>Allowed tags</en>
+        <nl>Allowed tags (NL)</nl>
+        <de>Allowed tags (DE)</de>
+        <fr>Allowed tags (FR)</fr>
+        <pl>Allowed tags (PL)</pl>
+        <it>Allowed tags (IT)</it>
+        <ru>Allowed tags (RU)</ru>
+    </comments-field-allowed-tags>
+    
 </translations>
