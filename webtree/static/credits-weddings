@@ -1,0 +1,50 @@
+
+	<div class="return-nav">
+		<?php echo ve_return_to_exhbit(); ?>
+	</div>
+
+	<h1>Credits</h1>
+	<!-- put creditorial info here -->
+	<p>This virtual exhibition contains content from institutions in Poland, Hungary, Lithuania and Slovenia. The exhibition was curated by Ewa Dahlig-Turek and edited by Martin Gordon.</p>
+
+	<p><strong>ISPAN, Poland</strong> - <a href="http://www.ispan.pl" target="_blank" title="Visit the ISPAN website">Visit the website</a></p>
+	<p>The Polish Academy of Sciences Institute (ISPAN ) carries out interdisciplinary research on music, theatre, art history and cultural anthropology. Located in Warsaw, it holds unique collections of old folk music recordings and photographs of art, mostly architecture. Contributors to this exhibition are ethnomusicologists Ewa Dahlig-Turek (Deputy Director for Research) and Jacek Jackowski (Head of Sound Archive).</p>
+
+	<p><strong>ZTI, Hungary</strong> - <a href="http://www.zti.hu/default.htm" target="_blank" title="Visit the ZTI website">Visit the website</a></p>
+	<p>The Folk Music Archives at the Institute for Musicology (ZTI ) was officially established on January 1, 1999, however, Folk Music Research Group of the Hungarian Academy of Sciences has had a technical department since the very beginnings (1951) and continued work under the auspices of the Institute for Musicology. The foundation of the collection was laid by Béla Vikár’s, Béla Bartók's and Zoltán Kodály's collections at the turn of the 19th and the 20th centuries. Besides the Hungarian folk music and folk dance documents, it contains invaluable, unique and irrecoverable recordings on the musical, game and dance traditions of almost fifty cultures from all over the world (mainly Europe, Asia, Oceania, Africa and South America) between 1896-2010. Contributors to this audio exhibition are Richter Pál and Demeter Gitta.</p>
+
+	<p><strong>LLTI, Lithuania</strong> - <a href="http://archyvas.llti.lt/archyvas/index_en.html" target="_blank" title="Visit the LLTI website">Visit the website</a></p>
+	<p>The Institute of Lithuanian Literature and Folklore (LLTI ) established in Vilnius is a national centre carrying research of contemporary Lithuanian literature and folklore as well as Lithuanian cultural heritage. Exhibition from the rich folklore archive of the Institute was arranged by ethnomusicologists Aust&#234; Nakien&#234; (Research Fellow) and R&#252;ta &#382;arskien&#234; (Head of Folklore Archive).</p>
+
+	<p><strong>ZRC, Slovenia</strong> - <a href="http://gni.zrc-sazu.si/?q=en" target="_blank" title="Visit the ZRC website">Visit the website</a></p>
+	<p>Since its founding in 1934, the Institute of Ethnomusicology of the Scientific Research Centre (ZRC ) at the Slovene Academy of Sciences and Arts has dealt with collecting, researching, and publishing material on Slovenian folk song, music, and dance. The Institute also studies the distinguishing features of the Slovenian tradition, and how this material is connected to or differentiated from other cultures. ZRC is the only Slovenian institution to collect and store significant amounts of material on these topics. ZRC contributions to this exhibition are based on archive documentation from the Institute, prepared by Drago Kunej and Peter Vendramin with help of institute colleagues.</p>
+
+	<p>Powered by <a href="http://omeka.org/" target="_blank">Omeka</a>.</p>
+</div>
+
+<div class="row">
+	<div class="four columns"
+		<img src="http://version1.europeana.eu/image/image_gallery?uuid=ed23c035-ca4a-4fec-b38a-6580340b422b&groupId=10128&t=1312892349543" style="max-width:100%; height:auto;">
+		<br><br>
+		<strong>To embed copy and paste below code:</strong>
+		<br><br>
+ 		<span style="font-size: 9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe" title="Weddings in Eastern Europe"&#062;&#60;img src="http://version1.europeana.eu/image/image_gallery?uuid=ed23c035-ca4a-4fec-b38a-6580340b422b&amp;groupId=10128&amp;t=1312892349543" width="211" height="118" alt="Weddings in Eastern Europe"&#062;&#060;/a&#062;</span>
+	</div>
+	<div class="four columns">
+		<img src="http://version1.europeana.eu/image/image_gallery?uuid=5f40ec90-0703-41ae-93a0-de5d25dc4609&groupId=10128&t=1312892363083"  style="max-width:100%; height:auto;">
+		<br><br>
+		<strong>To embed copy and paste below code:</strong><br><br>
+		<br><br>
+		<span style="font-size: 9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe" title="Weddings in Eastern Europe"&#062;&#60;img src="http://version1.europeana.eu/image/image_gallery?uuid=5f40ec90-0703-41ae-93a0-de5d25dc4609&amp;groupId=10128&amp;t=1312892363083" width="211" height="118" alt="Weddings in Eastern Europe"&#062;&#060;/a&#062;</span>
+	</div>
+	<div class="four columns">
+		<img src="http://version1.europeana.eu/image/image_gallery?uuid=dfae516e-e840-4eac-a1f1-b70b0fe62613&groupId=10128&t=1312892376315" style="max-width:100%; height:auto;">
+		<br><br>
+		<strong>To embed copy and paste below code:</strong><br><br>
+		<br><br>
+		<span style="font-size: 9px;">&#60;a href="http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe" title="Weddings in Eastern Europe"&#062;&#60;img src="https://version1.europeana.eu/image/image_gallery?uuid=dfae516e-e840-4eac-a1f1-b70b0fe62613&amp;groupId=10128&amp;t=1312892376315" width="211" height="118" alt="Weddings in Eastern Europe"&#062;&#060;/a&#062;</span>
+	</div>
+</div>
+	
+<div class="row">
+	<?php foot($vars = array(), $file = 'contactfooter'); ?>
