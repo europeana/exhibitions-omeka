@@ -24,29 +24,34 @@
 	<p>The MIMO project is co-funded by the European Union, through the eContentplus programme. <img src="http://europeana.eu/portal/images/eu-flag.gif"></p>
 	<p>Powered by <a href="http://omeka.org/" target="_blank">Omeka</a>.</p>
 </div>
-<div class="row">
 
+<div class="row credits-embed">
 	<div class="four columns">
-		<img src="http://pro.europeana.eu/image/image_gallery?uuid=28d7cd2c-cae3-4f7d-a0c6-6db7d34d384e&groupId=10128&t=1308742178750" style="max-width:100%; height:auto;">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=28d7cd2c-cae3-4f7d-a0c6-6db7d34d384e&groupId=10128&t=1308742178750" class="credits-img">
 		<br />	
-		<strong>To embed copy and paste below code:</strong><br><br>
+		<strong>To embed copy and paste below code:</strong>
+		<br />
+		<br />
 	
 		<span style="font-size:9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en" title="Explore the World of Musical Instrument"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=28d7cd2c-cae3-4f7d-a0c6-6db7d34d384e&groupId=10128&t=1308742178750" width="211" height="118" alt="Explore the World of Musical Instruments"&#062;&#060;/a&#062;</span>
 	</div>
 
 	<div class="four columns">
-		<img src="http://pro.europeana.eu/image/image_gallery?uuid=73047315-d88a-452e-8b35-4b59e5a2f6b0&groupId=10128&t=1308742195384">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=73047315-d88a-452e-8b35-4b59e5a2f6b0&groupId=10128&t=1308742195384" class="credits-img">
 		<br />
-		<strong>To embed copy and paste below code:</strong><br><br>
+		<strong>To embed copy and paste below code:</strong>
+		<br />
+		<br />
 	
 		<span style="font-size: 9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en" title="Explore the World of Musical Instruments"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=73047315-d88a-452e-8b35-4b59e5a2f6b0&groupId=10128&t=1308742195384" width="211" height="118" alt="Explore the World of Musical Instruments"&#062;&#060;/a&#062;</span>
 	</div>
 
 	<div class="four columns">
-		<img src="http://pro.europeana.eu/image/image_gallery?uuid=f44775de-c9ac-41ee-908e-e1425818abb5&groupId=10128&t=1308742214338">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=f44775de-c9ac-41ee-908e-e1425818abb5&groupId=10128&t=1308742214338" class="credits-img">
 		<br />
-		<strong>To embed copy and paste below code:</strong><br><br>
-	
+		<strong>To embed copy and paste below code:</strong>
+		<br />
+		<br />
 		<span style="font-size: 9px;">&#60;a href="http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en" title="Explore the World of Musical Instruments"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=f44775de-c9ac-41ee-908e-e1425818abb5&groupId=10128&t=1308742214338" width="211" height="118" alt="Explore the World of Musical Instruments"&#062;&#060;/a&#062;</span>
 
 	</div>
