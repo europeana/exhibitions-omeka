@@ -23,3 +23,5 @@ require_once 'FileFunctions.php';
 require_once 'PluginFunctions.php';
 require_once 'StringFunctions.php';
 require_once 'TagFunctions.php';
+
+require_once 'EuropeanaFunctions.php';

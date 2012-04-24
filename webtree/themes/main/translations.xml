@@ -422,6 +422,16 @@
         <ru>Your name (RU)</ru>
     </comments-field-name>
     
+    <comments-field-email>
+        <en>Email</en>
+        <nl>Email (NL)</nl>
+        <de>Email (DE)</de>
+        <fr>Email (FR)</fr>
+        <pl>Email (PL)</pl>
+        <it>Email (IT)</it>
+        <ru>Email (RU)</ru>
+    </comments-field-email>
+    
     <comments-field-comment>
         <en>Comment</en>
         <nl>Comment (NL)</nl>

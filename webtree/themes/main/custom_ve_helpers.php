@@ -13,6 +13,7 @@
  * @param $defaults - fallback text string to use if xml tag is not found, or if language within tag not available
  *
  */
+/*
 function ve_translate($label, $default)
 {
     // set the language
@@ -33,7 +34,7 @@ function ve_translate($label, $default)
         return $default;
     }
 }
-
+*/
 /*
  * Display language dropdown.
  * Will return user to the index. onChange Functionality for this form is found in theme/main/javascripts/global.js
