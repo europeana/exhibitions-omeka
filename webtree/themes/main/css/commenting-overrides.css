@@ -51,7 +51,14 @@ div.comment-author{
 .comment-author img{
 	margin-right:21px;
 }
-    
+
+div.comment-body{
+	font-size:	1em;
+}
+p.comment-time{
+	font-size:	0.9em;
+}
+
 @media only screen and (max-width: 767px) {
 	#comment-form .inputs input, #comment-form .inputs textarea{
 		width:	100%;

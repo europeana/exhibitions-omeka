@@ -134,6 +134,22 @@ $story = $page->title
 				</div>
 			</div>
 		</div>
+		
+
+		<div class="comments-full">
+			<?php
+				if(ve_get_comments_allowed(exhibit_builder_get_current_exhibit()->title) ){
+					try {
+						commenting_echo_comments();
+						commenting_echo_comment_form();	
+					}
+					catch (Exception $e) {
+						echo('Error: ' . $e->getMessage());
+					}		
+				}
+
+			?>		
+		</div>
 	</div> <!-- end six columns -->
 	
 </div> <!-- end row -->
@@ -147,19 +163,20 @@ $story = $page->title
 <div class="row">
 
 	<div class="twelve columns">
-
-		<?php
-			if(ve_get_comments_allowed(exhibit_builder_get_current_exhibit()->title) ){
-				try {
-					commenting_echo_comments();
-					commenting_echo_comment_form();	
+		<div class="comments-collapsed">
+			<?php
+				if(ve_get_comments_allowed(exhibit_builder_get_current_exhibit()->title) ){
+					try {
+						commenting_echo_comments();
+						commenting_echo_comment_form();	
+					}
+					catch (Exception $e) {
+						echo('Error: ' . $e->getMessage());
+					}		
 				}
-				catch (Exception $e) {
-					echo('Error: ' . $e->getMessage());
-				}		
-			}
-
-		?>
+	
+			?>
+		</div>
 	</div>	
 </div>
 

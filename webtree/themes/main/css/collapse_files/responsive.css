@@ -59,6 +59,13 @@ p {
 	display:		none;
 }
 
+.comments-collapsed{
+	display:	none;
+}
+
+.comments-full{
+	margin-top:	2em;
+}
 
 #standard_shares a.addthis_button_facebook_like{
 	text-align:	left !important;
@@ -101,6 +108,13 @@ p {
 	.theme-title-row-expanded{
 		display:	none;
 	}
+	.comments-full{
+		display:	none;
+	}
+	.comments-collapsed{
+		display:	block;
+	}
+	
 	#mobile_shares{
 		display:	block;
 		margin-top:	1em;
