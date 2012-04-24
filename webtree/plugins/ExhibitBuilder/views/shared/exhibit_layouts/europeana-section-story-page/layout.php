@@ -10,7 +10,8 @@ if (!$page) {
 $section = exhibit_builder_get_exhibit_section_by_id($page->section_id);
 $exhibit = exhibit_builder_get_exhibit_by_id($section->exhibit_id);
 $theme = $section->title;
-$story = $page->title
+$story = $page->title;
+
 ?>
 
     <div id="exhibit-section-title">
@@ -152,14 +153,19 @@ $story = $page->title
 <div class="row">
 	<div class="twelve columns">
 		<?php
-			//echo "plugins/ExhibitBuilder/views/shared/exhibit_layouts/europeana-section-intro-page/layout.php";
-			try {
-				commenting_echo_comments();
-				commenting_echo_comment_form();	
+			if(exhibit_builder_use_exhibit_page_item(1)){
+				if(ve_get_comments_allowed(exhibit_builder_get_current_exhibit()->title) ){
+					try {
+						commenting_echo_comments();
+						commenting_echo_comment_form();	
+					}
+					catch (Exception $e) {
+					    echo('Error: ' . $e->getMessage());
+					}		
+
+				} 
 			}
-			catch (Exception $e) {
-			    echo('Error: ' . $e->getMessage());
-			}		
+
 		?>
 	</div>
 </div>
