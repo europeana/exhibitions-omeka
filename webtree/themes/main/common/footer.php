@@ -69,9 +69,8 @@
 		        viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0';
 				jQuery(document).bind('orientationchange',
 					function () {
-					
 						if(window.orientation == 180 || window.orientation == 0){
-							jQuery("body").html( jQuery("body").html() );;
+							document.location.reload();
 						}
 					}
 				);
