@@ -39,11 +39,6 @@ $story = $page->title
 <![endif]-->
 
 	
-	
-
-
-
-
 
 
 <div class="row">
@@ -154,13 +149,16 @@ $story = $page->title
 	<div class="twelve columns">
 
 		<?php
-			try {
-				commenting_echo_comments();
-				commenting_echo_comment_form();	
+			if(ve_get_comments_allowed(exhibit_builder_get_current_exhibit()->title) ){
+				try {
+					commenting_echo_comments();
+					commenting_echo_comment_form();	
+				}
+				catch (Exception $e) {
+					echo('Error: ' . $e->getMessage());
+				}		
 			}
-			catch (Exception $e) {
-			    echo('Error: ' . $e->getMessage());
-			}		
+
 		?>
 	</div>	
 </div>
