@@ -229,9 +229,7 @@ ve_session_vars();
 					<a href="http://exhibitions.europeana.eu/"><img src="<?php echo img('logo.png'); ?>"></a>
 	        	</div>
 	        	
-		        <div id="secondary-branding" style="float:right;">
-		            <?php echo ve_exhibit_secondary_logo(); ?>
-		        </div>
+		        <div id="secondary-branding" style="float:right;"><?php echo ve_exhibit_secondary_logo(); ?></div>
 	        	
 	        </div>
 	    </div>
