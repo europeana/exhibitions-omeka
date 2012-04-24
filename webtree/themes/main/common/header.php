@@ -161,9 +161,6 @@ ve_session_vars();
 
 	<!--DEFAULT HEAD / BODY-->
 		
-	<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
-	<head>
-	    <title><?php echo ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null, $showAsTitle=true); ?></title>
 
 	    <!-- Meta -->
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
