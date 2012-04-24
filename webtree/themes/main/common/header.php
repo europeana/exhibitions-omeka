@@ -182,6 +182,7 @@ ve_session_vars();
 	    <!--BEGIN RESPONSIVE CODE-->
 	   	<style>
 		<?php
+		
 			$BREAKPOINTS = explode("~", get_option('euresponsive_breakpoints'));
 			for ($i = 0; $i < sizeof($BREAKPOINTS); $i++) {
 				$j=$i+1;
@@ -214,8 +215,6 @@ ve_session_vars();
 	    <!--END RESPONSIVE CODE-->
 	    
 	    
-	    
-	    
 	    <!-- JavaScripts -->
 	    <?php ve_set_exhibit_js(); ?>
 	</head>
@@ -223,6 +222,7 @@ ve_session_vars();
 	<body<?php echo isset($bodyid) ? ' id="' . $bodyid . '"' : ''; ?><?php echo isset($bodyclass) ? ' class="' . $bodyclass . '"' : ''; ?>>
 	
 	<div class="container">
+		
 	    <div id="header" class="row">
 	        <div class="twelve columns">
 	        	<div id="site-title" class="twelve columns">
@@ -235,7 +235,7 @@ ve_session_vars();
 	        	
 	        </div>
 	    </div>
-	
+		
 	    
 		<div id="top-navigation" class="row">
 		    <div id="main-breadcrumbs" class="seven columns inner">
@@ -243,18 +243,14 @@ ve_session_vars();
 			        <a target="_blank" href="http://www.europeana.eu/">
 			            <img src="<?php echo img('logo.png'); ?>"/>
 			        </a>
-			    </div>	    
-		         <?php echo ve_exhibit_breadcrumbs(); ?>
+			    </div>
+		        <?php echo ve_exhibit_breadcrumbs(); ?>
 		    </div>
 		    <div  class="five columns">
-				<div id="standard_shares">
-				<?php echo getAddThisStandard(); ?>					 
-				</div>
+				<div id="standard_shares"><?php echo getAddThisStandard(); ?></div>
 			</div>
 	     </div>
-
-	     
+	    
 		<div id="content" class="row" andy="header file ends here">
 
 <?php endif; ?>
-
