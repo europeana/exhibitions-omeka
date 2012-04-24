@@ -18,17 +18,14 @@
  */
 
 /**
- * Both the collection name as well as exhibit title have to be provided here, in order to enable commenting at all levels
+ * The collection name (provider) is used to configure commenting.  Collections that share providers cannot be independently configured.
  * */
 $commentableCollections = array();
-$commentableCollections[] = "From Dada to Surrealism";
+
 $commentableCollections[] = "Judaica Europeana";
-
-$commentableCollections[] = "Weddings In Eastern Europe";
 $commentableCollections[] = "Europeana Connect";
-
-$commentableCollections[] = "Wiki Loves Art Nouveau";
 $commentableCollections[] = "Europeana";
+
 
 /**
  * Andy: as far as I know the following data is not used

@@ -143,7 +143,7 @@ $story = $page->title;
 
 		<div class="comments-full">
 			<?php
-				if(ve_get_comments_allowed(exhibit_builder_get_current_exhibit()->title) ){
+				if(ve_get_comments_allowed(get_current_item()->getCollection()->name)){
 					try {
 						commenting_echo_comments();
 						commenting_echo_comment_form();	
@@ -169,7 +169,8 @@ $story = $page->title;
 		<div class="comments-collapsed">
 			<?php
 				if(exhibit_builder_use_exhibit_page_item(1)){
-					if(ve_get_comments_allowed(exhibit_builder_get_current_exhibit()->title) ){
+
+					if(ve_get_comments_allowed(get_current_item()->getCollection()->name)){
 						try {
 							commenting_echo_comments();
 							commenting_echo_comment_form();	
