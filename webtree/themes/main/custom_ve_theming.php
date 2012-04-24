@@ -107,6 +107,17 @@ function ve_get_providers_key($provider, $key)
     return $providers[$provider][$key];
 }
 
+
+/*
+ * HELPER FUNCTION
+ * Get comments enabled
+ */
+function ve_get_comments_allowed($exhibitTitleOrCollectionName)
+{
+	include('custom_ve_providers.php');
+	return 	in_array($exhibitTitleOrCollectionName, $commentableCollections);
+}
+
 /*
  * HELPER FUNCTION
  * Attempts to retrieve the logo of a given provider under an active theme
