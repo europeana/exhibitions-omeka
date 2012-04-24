@@ -19,13 +19,14 @@ ve_session_vars();
 	<meta name="author" content="Dean Birkett">
 	<meta name="author" content="Andy MacLean">
 
+	<!--
 	<meta property="og:title" content="Exhibit Item Title" />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content="http://test.exhibit.eanadev.org/exhibits/show/weddings-in-eastern-europe/themes" />
 	<meta property="og:image" content="http://test.exhibit.eanadev.org/archive/square_thumbnails/95e1ed0cc332cd1cc9aed7760459ffa2.jpg" />
 	<meta property="og:site_name" content="Europeana Exhibitions" />
 	<meta property="fb:app_id" content="185778248173748" />
-	
+	-->
 
 <?php
 	$pageURL = "http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
@@ -250,7 +251,54 @@ ve_session_vars();
 		    </div>
 		    <div  class="five columns">
 				<div id="standard_shares">
-				<?php echo getAddThisStandard(); ?>					 
+				<?php //echo getAddThisStandard(); ?>
+						
+						
+					<ul class="navigation">
+				
+						<li><!-- AddThis Button BEGIN -->
+							<div class="addthis_toolbox addthis_default_style " style="float: right; display: inline; padding-left: 30px;">
+								<a href="#" title="Send to Facebook_like" class="addthis_button_facebook_like at300b" fb:like:layout="button_count"><iframe src="Virtual%20Exhibitions_files/like.html" style="overflow: hidden; border: 0px none; width: 90px; height: 25px;"></iframe></a>
+								<a href="#" title="Tweet" class="addthis_button_tweet at300b"><iframe title="Twitter Tweet Button" style="width: 107px; height: 20px;" class="twitter-share-button twitter-count-horizontal" src="Virtual%20Exhibitions_files/tweet_button.html" allowtransparency="true" frameborder="0" scrolling="no"></iframe></a>
+								<a href="#" style="display: block;" class="addthis_counter addthis_pill_style addthis_nonzero"><a class="atc_s addthis_button_compact"><span></span></a><a href="#" title="View more services" class="addthis_button_expanded">38</a></a>
+								<div class="atclear"></div>
+							</div>
+						</li>
+						<!-- AddThis Button END -->
+					</ul>
+
+					<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+					<script type="text/javascript" src="Virtual%20Exhibitions_files/addthis_widget.js">
+					
+						var addthis_config = {
+							ui_language: "en",
+							ui_click: true,
+							ui_cobrand: "Europeana"
+						}
+					</script>
+	 
+					<script type="text/javascript">
+						var _gaq = _gaq || [];
+						_gaq.push(['_setAccount', 'UA-12776629-3']);
+						_gaq.push(['_trackPageview']);
+
+						(function() {
+							var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+							ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+							var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+						})();
+					</script>
+
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
 				</div>
 			</div>
 	     </div>
