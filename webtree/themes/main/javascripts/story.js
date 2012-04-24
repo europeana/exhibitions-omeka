@@ -155,8 +155,9 @@ var story = function() {
 			viewerHTML += 	'</iframe>';
 			viewerHTML += '</div>';
 			
-            jQuery('div#in-focus').html(viewerHTML);
-
+			
+            jQuery('div#in-focus').remove();
+            jQuery("#exhibit-item-infocus-header").parent().append(viewerHTML);
 		}
 		if(type == "video"){
 
@@ -187,15 +188,24 @@ var story = function() {
             videoHTML += 	'<img src="' + web_root + '/themes/connect-dismarc/images/logo.png" width="100%" height="auto;" alt="No video playback capabilities" title="No video playback capabilities" />';
             videoHTML += 	'</object>';
             videoHTML +=  '</video>';
-        	
-            jQuery('div#in-focus').html(videoHTML);
+            videoHTML += '</div>';
+
+            jQuery('div#in-focus').remove();
+            jQuery("#exhibit-item-infocus-header").parent().append(videoHTML);
             
         	jQuery('audio,video').mediaelementplayer({
                 audioHeight: 30,
                 plugins: ['flash','silverlight'],
                 // the order of controls you want on the control bar (and other plugins below)
                 features: ['playpause','progress','current','duration','volume','fullscreen'],
-        		success: function(player, node) {}
+        		success: function(player, node) {
+        			
+        			if(jQuery('div#in-focus').width() == 0){ // IE7 fix
+        				
+        				jQuery('div#in-focus').width(jQuery('#exhibit-item-infocus').width());
+        				
+        			}
+        		}
         	});
 
             /*
