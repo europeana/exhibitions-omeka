@@ -91,13 +91,15 @@
 
 	<div class="six columns pull-six">
 		<?php
-			try {
-				commenting_echo_comments();
-				commenting_echo_comment_form();	
+			if(ve_get_comments_allowed(exhibit_builder_get_current_exhibit()->title)){
+				try {
+					commenting_echo_comments();
+					commenting_echo_comment_form();	
+				}
+				catch (Exception $e) {
+				    echo('Error: ' . $e->getMessage());
+				}		
 			}
-			catch (Exception $e) {
-			    echo('Error: ' . $e->getMessage());
-			}		
 		?>
 	</div>
 	
@@ -110,7 +112,7 @@
 
 
 <script type="text/javascript">
-
+alert("item ")
 	jQuery(document).ready(function() {
 		if(typeof setThemePaths != "undefined"){
 			setThemePaths("<?php echo $_GET['theme']; ?>");

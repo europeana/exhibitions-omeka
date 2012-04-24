@@ -97,13 +97,15 @@
 	
 	<div class="six columns pull-six">
 		<?php
-			try {
-				commenting_echo_comments();
-				commenting_echo_comment_form();	
-			}
-			catch (Exception $e) {
-			    echo('Error: ' . $e->getMessage());
-			}		
+				if(ve_get_comments_allowed(get_current_item()->getCollection()->name)){
+					try{
+							commenting_echo_comments();
+							commenting_echo_comment_form();	
+					}
+					catch (Exception $e) {
+					    echo('Error: ' . $e->getMessage());
+					}		
+				}
 		?>
 	</div>
 </div>
