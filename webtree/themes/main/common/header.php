@@ -19,14 +19,14 @@ ve_session_vars();
 	<meta name="author" content="Dean Birkett">
 	<meta name="author" content="Andy MacLean">
 
-	<!--
+	
 	<meta property="og:title" content="Exhibit Item Title" />
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content="http://test.exhibit.eanadev.org/exhibits/show/weddings-in-eastern-europe/themes" />
+	<meta property="og:url" content="http://test.exhibit.eanadev.org/" />
 	<meta property="og:image" content="http://test.exhibit.eanadev.org/archive/square_thumbnails/95e1ed0cc332cd1cc9aed7760459ffa2.jpg" />
 	<meta property="og:site_name" content="Europeana Exhibitions" />
 	<meta property="fb:app_id" content="185778248173748" />
-	-->
+
 
 <?php
 	$pageURL = "http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
@@ -258,9 +258,9 @@ ve_session_vars();
 				
 						<li><!-- AddThis Button BEGIN -->
 							<div class="addthis_toolbox addthis_default_style " style="float: right; display: inline; padding-left: 30px;">
-								<a href="#" title="Send to Facebook_like" class="addthis_button_facebook_like at300b" fb:like:layout="button_count"><iframe src="Virtual%20Exhibitions_files/like.html" style="overflow: hidden; border: 0px none; width: 90px; height: 25px;"></iframe></a>
-								<a href="#" title="Tweet" class="addthis_button_tweet at300b"><iframe title="Twitter Tweet Button" style="width: 107px; height: 20px;" class="twitter-share-button twitter-count-horizontal" src="Virtual%20Exhibitions_files/tweet_button.html" allowtransparency="true" frameborder="0" scrolling="no"></iframe></a>
-								<a href="#" style="display: block;" class="addthis_counter addthis_pill_style addthis_nonzero"><a class="atc_s addthis_button_compact"><span></span></a><a href="#" title="View more services" class="addthis_button_expanded">38</a></a>
+								<a href="#" title="Send to Facebook_like" class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a>
+								<a href="#" title="Tweet" class="addthis_button_tweet at300b"></a>
+								<a href="#" style="display: block;" class="addthis_counter addthis_pill_style addthis_nonzero"></a>
 								<div class="atclear"></div>
 							</div>
 						</li>
@@ -268,7 +268,7 @@ ve_session_vars();
 					</ul>
 
 					<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
-					<script type="text/javascript" src="Virtual%20Exhibitions_files/addthis_widget.js">
+					<script type="text/javascript">
 					
 						var addthis_config = {
 							ui_language: "en",
@@ -276,7 +276,8 @@ ve_session_vars();
 							ui_cobrand: "Europeana"
 						}
 					</script>
-	 
+						<!--OK-->
+					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d70f66c15fff6d0"></script>
 					<script type="text/javascript">
 						var _gaq = _gaq || [];
 						_gaq.push(['_setAccount', 'UA-12776629-3']);
