@@ -219,8 +219,29 @@ p {
 	border:	none;	
 }
 
+
+div.metadata-rights{
+	position:relative;
+	float:left;clear:both;
+}
+
+div.metadata-rights table{
+	padding:0px;
+	background:transparent;
+	margin-bottom:0px;
+}
+
+div.metadata-rights td, div.metadata-rights p{
+	padding:0px;
+	margin-bottom:0px;
+}
+
+div.metadata-rights a img{
+	margin-top:1em;
+}
+
+
 .wiki-citation{
-	xxxxxxxxxxxxxpadding-top:	1em;
 	clear:			both;	
 }
 

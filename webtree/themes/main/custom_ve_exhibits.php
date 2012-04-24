@@ -394,15 +394,15 @@ if (!function_exists('ve_custom_show_item_metadata')) {
         	        		 //   the $val with the image tag removed (rem)
         	        		 //   the src attribute of any image tag (src)
         	        		 //
+        	        		
         	        		$parsedRights = parseRightsValue($fieldValues[0]);
-        	        		$html .= '<div style="position:relative;float:left;">';
-        	        		$html .= '<table style="padding:0px; background:transparent;"><tr>';
-        	        		$html .= '<td style="padding:0px;">';
-        	        		$html .= '<h3>'.$field.'</h3>';
-        	        		$html .= '</td>';
-        	        		$html .= '<td style="padding:0px;">';
-                            $html .= $parsedRights["rem"];
-                            $html .= '<br />';
+        	        		$html .= '<div class="metadata-rights">';
+        	        		$html .= 	'<table><tr>';
+        	        		$html .= 		'<td>';
+        	        		$html .= 			'<h3>'.$field.'</h3>';
+        	        		$html .= 		'</td>';
+        	        		$html .= 		'<td>';
+                            $html .= 			'<p>'.$parsedRights["rem"].'</p>';
                              
  							if($parsedRights["lnk"]){
  								$html	.=		'<a rel="license" href="'.$parsedRights["lnk"].'">';								
@@ -413,8 +413,9 @@ if (!function_exists('ve_custom_show_item_metadata')) {
 							if($parsedRights["lnk"]){
 								$html	.=		'</a>';
 							}
-							
-                            $html .= '</td></tr></table>';
+                            $html .= 		'</td>';
+                            $html .=	'</tr>';
+                            $html .=   '</table>';
                             $html .= '</div>';
                              
         	        	}
