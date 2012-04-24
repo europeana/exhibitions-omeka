@@ -4,7 +4,7 @@ $itemInfo = ve_get_exhibit_item_info_by_tag($name.'-featured', 'archive');
 $src = $itemInfo['src'];
 $title = $itemInfo['title'];
 $exhibit = get_current_exhibit();
-unset($_SESSION['themes_uri']);
+//unset($_SESSION['themes_uri']);
 ?>
 <?php head(array('bodyid' => 'exhibit', 'bodyclass' => 'summary')); ?>
 <?php //head(array('title' => html_escape(ve_title_crumbs()), 'bodyid' => 'exhibit', 'bodyclass' => 'summary')); ?>
