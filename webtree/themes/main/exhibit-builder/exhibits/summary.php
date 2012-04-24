@@ -167,7 +167,7 @@ unset($_SESSION['themes_uri']);
 				<div class="theme-center-outer">
 					<div class="theme-center-middle">
 	    	    		<div class="theme-center-inner">
-							<?php //echo getAddThisMobile(); ?>
+							<?php echo getAddThisMobile(); ?>
 						</div>
 					</div>
 				</div>
