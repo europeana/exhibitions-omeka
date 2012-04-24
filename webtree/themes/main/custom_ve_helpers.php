@@ -194,7 +194,7 @@ function parseRightsValue($val = ""){
     preg_match( '/href="([^"]*)"/i', $lnk[0], $lnk );	// 1st pass gets the @href
 
     if($lnk){
-    	// TODO: rem still contains empty anchor tag...
+    	$rem = strip_tags($rem);						// Remove the empty anchor tag...
     }
     
     return array(

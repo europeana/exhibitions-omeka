@@ -384,14 +384,52 @@ if (!function_exists('ve_custom_show_item_metadata')) {
     	        $field = trim($field);
     	        if (element_exists('Dublin Core', $field)) {
         	        if ($fieldValues = item('Dublin Core', $field, 'all')) {
-        	            $html .= '<div class="element" id="dublin-core-'. strtolower($field) .'"><h3>'.$field.'</h3>';
-        	            foreach ($fieldValues as $key => $fieldValue) {
-        	                if (!item_field_uses_html('Dublin Core', $field, $key)) {
-        	                    $fieldValue = nls2p($fieldValue);
-        	                }
-        	                $html .= '<div class="element-text">'.$fieldValue.'</div>';
-        	            }
+        	        	
+        	        	$html .= '<div class="element" id="dublin-core-'. strtolower($field) .'">';
+        	        	
+        	        	if(strtolower($field) == "rights"){
+        	        		
+        	        		 //   any image tag $val contains (img)
+        	        		 //   the href of any anchor wrapping the image (lnk)
+        	        		 //   the $val with the image tag removed (rem)
+        	        		 //   the src attribute of any image tag (src)
+        	        		 //
+        	        		$parsedRights = parseRightsValue($fieldValues[0]);
+        	        		$html .= '<div style="position:relative;float:left;">';
+        	        		$html .= '<table style="padding:0px; background:transparent;"><tr>';
+        	        		$html .= '<td style="padding:0px;">';
+        	        		$html .= '<h3>'.$field.'</h3>';
+        	        		$html .= '</td>';
+        	        		$html .= '<td style="padding:0px;">';
+                            $html .= $parsedRights["rem"];
+                            $html .= '<br />';
+                             
+ 							if($parsedRights["lnk"]){
+ 								$html	.=		'<a rel="license" href="'.$parsedRights["lnk"].'">';								
+							}
+							if($parsedRights["src"]){
+								$html	.=		'<img src="'.$parsedRights["src"].'" alt="Creative Commons License" />';								
+							}
+							if($parsedRights["lnk"]){
+								$html	.=		'</a>';
+							}
+							
+                            $html .= '</td></tr></table>';
+                            $html .= '</div>';
+                             
+        	        	}
+        	        	else{
+        	        		$html .= '<h3>'.$field.'</h3>';
+        	        		foreach ($fieldValues as $key => $fieldValue) {
+        	        			if (!item_field_uses_html('Dublin Core', $field, $key)) {
+        	        				$fieldValue = nls2p($fieldValue);
+        	        			}
+        	        			$html .= '<div class="element-text">'.$fieldValue.'</div>';
+        	        		}
+        	        	}
                         $html .= '</div>';
+                        
+                        
         	        }
         	    }
      	        if (element_exists('Item Type Metadata', $field)) {
