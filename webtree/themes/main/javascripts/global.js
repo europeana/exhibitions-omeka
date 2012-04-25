@@ -15,7 +15,6 @@ function setLanguage(lang) {
 	
     jQuery.cookie('ve_lang', lang,  { path: '/', secure: false });
     
-    
 }
 
 
