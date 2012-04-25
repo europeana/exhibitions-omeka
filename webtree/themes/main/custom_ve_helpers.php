@@ -233,15 +233,55 @@ function getGoogleAnalyticsTrackerObjectJS(){
 	return $js;	
 }
 
+/**
+ * Google icon different to all the others, unfortunately.
+ * 
+ * An a with classes "addthis_button_google_plusone_badge at300bo" makes a nice button,
+ * but we'd need a brand page....
+ * 
+ * */
 function getAddThisMobile(){
 	$buttons = '';
 	$buttons .=	'<div id="wrapper" class="addthis addthis_32x32_style addthis_default_style">';
+	
+	// works but wrong size
+	/*
+	$buttons .=		'<a class="addthis_button_google_plusone" g:plusone:size="standard" g:plusone:annotation="none" g:plusone:name="AddThis"';
+	//$buttons .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=' . $appId . '"></a>';
+	// "g:plusone:href" is for the "brand" page
+	$buttons .=			' g:plusone:href="https://plus.google.com/102383601500147943541/">';
+	$buttons .=		'</a>';
+	*/
+	
+	
+	$buttons .=	'<a class="addthis_button_preferred_1 addthis_button_google_plusone_share at300b" ';
+	//$buttons .=	'href="http://www.addthis.com/bookmark.php?v=300&amp;';
+	//$buttons .=	'winname=addthis&amp;pub=AddThis&amp;source=tbx-300&amp;lng=en&amp;s=google_plusone_share&amp;';
+	//$buttons .=	'url=http%3A%2F%2Fsupport.addthis.com%2Fcustomer%2Fportal%2Farticles%2F381236-custom-buttons';
+	//$buttons .=	'&amp;title=Custom%20Buttons&amp;';
+	//$buttons .=	'ate=AT-AddThis/-/-/4f98559136134033/1/4f26d3873438b6d5&amp;';
+	//$buttons .=	'frommenu=1&amp;ips=1&amp;uid=4f26d3873438b6d5&amp;ct=1&amp;';
+	//$buttons .=	'pre=http%3A%2F%2Fwww.google.co.uk%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3Daddthis%2520button%26source%3Dweb%26cd%3D2%26ved%3D0CDQQjBAwAQ%26url%3Dhttp%253A%252F%252Fsupport.addthis.com%252Fcustomer%252Fportal%252Farticles%252F381236-custom-buttons%26ei%3DjVWYT8-gBo_o-gblwP2-Bg%26usg%3DAFQjCNFwhkpRTdjFtYmMhqzMUdRxfIAj0A&amp;';
+	$buttons .=	'tt=0" target="_blank" title="Send to Google+ Share"></a>';
+	
+	
 	$buttons .=		'<a	class="addthis_button_facebook"';
 	$buttons .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=' . $appId . '"></a>';
 	$buttons .=		'<a	class="addthis_button_twitter"';
 	$buttons .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=' . $appId . '"></a>';
+	
+	// bookmark
+	
+	//$buttons .=		'<a	class="addthis_button_google at300b"';
+	//$buttons .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=' . $appId . '"></a>';
+	
+	// badge
+	
+	//$buttons .=		'<a class="addthis_button_google_plusone_badge" g:plusone:size="badge" g:plusone:href="https://plus.google.com/102383601500147943541/"></a>';
+	
 	$buttons .=		'<a	class="addthis_button_compact"';
 	$buttons .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=' . $appId . '"></a>';	
+	
 	$buttons .=	'</div>';
 	
 	return getAddThis($buttons);
