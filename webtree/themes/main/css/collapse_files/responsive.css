@@ -290,7 +290,8 @@ div.metadata-rights a img{
 	    max-width: 15%;
     }
     #secondary-branding{
-	    max-width: 15%;
+	    zzzmax-width: 15%;
+	    max-width: 8%;
     }
 }
 
