@@ -12,7 +12,9 @@ var log = {
 
 function setLanguage(lang) {
     // web_root set in common/header
+	alert("inside setLang: cookie function is \n\n\n" + jQuery.cookie);
     jQuery.cookie('ve_lang', lang,  { path: '/', secure: false });
+    alert("leaving set lang");
 }
 
 
