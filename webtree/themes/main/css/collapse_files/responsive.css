@@ -549,7 +549,8 @@ table{
 
 
 #exhibit-item-title-only{
-	white-space:	nowrap;
+	/* Andy removed this because long titles were overflowing: but why was this put in the first place? */
+	/* white-space:	nowrap; */
 }
 
 
