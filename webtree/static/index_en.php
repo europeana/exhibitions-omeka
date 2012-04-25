@@ -436,10 +436,9 @@
 					var language = parentClass.match(exp)[1];
 					setLanguage(language);
 				}catch(e){
-					
 					var parentClass = jQuery(this).parent().attr("class");
-					var exp = /[-](.*?)/;
-					var language = parentClass.match(exp)[1];
+					var arr = parentClass.split("-");
+					var language =  arr[arr.length-1];
 					setLanguage(language);
 				}
 				return true;
