@@ -177,7 +177,7 @@ $_SESSION['themes_uri'] = uri();
             		$rowHTML .= 	'<div class="six columns right-text">';
             		$rowHTML .= 		'<div class="theme-item-wrapper right-text">';
             		$rowHTML .= 			'<a href="'.$themeLink1.'">';
-            		$rowHTML .= 				'<h5>'.$themeTitle1.'</h5>';
+            		$rowHTML .= 				'<h6>'.$themeTitle1.'</h6>';
             		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
             		
@@ -199,7 +199,7 @@ $_SESSION['themes_uri'] = uri();
             		
             		$rowHTML .= 		'<div class="theme-item-wrapper left-text">';
             		$rowHTML .= 			'<a href="'.$themeLink2.'">';
-            		$rowHTML .= 				'<h5>'.$themeTitle2.'</h5>';
+            		$rowHTML .= 				'<h6>'.$themeTitle2.'</h6>';
             		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
             		$rowHTML .= 	'</div>';

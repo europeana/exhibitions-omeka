@@ -141,11 +141,11 @@ p {
     width:		100%;
 }
 
-.left-text .theme-item-wrapper h5{
+.left-text .theme-item-wrapper h6{
 	margin-left: 0.75em;
 }
 
-.right-text .theme-item-wrapper h5{
+.right-text .theme-item-wrapper h6{
 	margin-right: 0.75em;	
 }
 
@@ -155,7 +155,7 @@ p {
 	margin-bottom:	0.75em
 }
 
-.theme-item-wrapper h5{
+.theme-item-wrapper h6{
 	display:	inline;
 }
 
