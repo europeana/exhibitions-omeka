@@ -31,14 +31,14 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
     // We are home
     if (preg_match("/^index/", $current) || $current == "") {
 
-//error_log("ONE");    	
+error_log("ONE");    	
         unset($_SESSION['collection']);
         unset($_SESSION['themes_uri']);
         $navCrumbs[] = $titleCrumbs[] = ve_translate("virtual-exhibitions", "Virtual Exhibitions");
     }
     elseif ($current == 'contact') {
     	
-//error_log("TWO");    	
+error_log("TWO");    	
     	
         $navCrumbs[] = '<a href="' . WEB_ROOT . '">' . ve_translate("virtual-exhibitions", "Virtual Exhibitions") . '</a>';
         $titleCrumbs[] =  ve_translate("virtual-exhibitions", "Virtual Exhibitions");
@@ -47,12 +47,12 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
         // We are not home
     else {
 
-//error_log("THREE");    	
+error_log("THREE");    	
 
         // We are on the browse exhibit page
         if ($current == 'browse' && isset($_GET['tags']) && !isset($_GET['theme'])) {
 
-//error_log("FOUR");    	
+error_log("FOUR");    	
 
             $navCrumbs[] = '<a href="' . WEB_ROOT . '">' . ve_translate("virtual-exhibitions", "Virtual Exhibitions") . '</a>';
             $titleCrumbs[] =  ve_translate("virtual-exhibitions", "Virtual Exhibitions");
@@ -68,12 +68,12 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
 
         else {
         	
-//error_log("FIVE");
+error_log("FIVE");
 
             // We are in an exhbit
             if ($exhibit === null) {
 
-//error_log("SIX");
+error_log("SIX");
 
                 $exhibit = exhibit_builder_get_current_exhibit();
                 $section = exhibit_builder_get_current_section();
@@ -94,14 +94,14 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
                 // Exhibit Summary Page
                 if ($exhibit->title && !$section->title) {
                 	
-//error_log("SEVEN");
+error_log("SEVEN");
 
                     $navCrumbs[] = $titleCrumbs[] = $exhibit->title;
                 }
                 // Exhibit Start
                 if ($exhibit->title && $section->title && $iamtheme==true) {
 
-//error_log("EIGHT");
+error_log("EIGHT");
 
                     $navCrumbs[] = '<a href="' . WEB_ROOT . '/exhibits/show/' . $exhibit->slug . '">' . $exhibit->title . '</a>';
 
@@ -109,14 +109,14 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
                     // not on themes page
                     if($iamtheme==false){
                     	
-//error_log("NINE");
+error_log("NINE");
 
                         $navCrumbs[] = $titleCrumbs[] = $section->title;
                     }
                     // on themes page
                     else {
                     	
-//error_log("TEN");
+error_log("TEN");
 
                         $navCrumbs[] =  $titleCrumbs[] = ve_translate('themes', 'Themes');
                     }
@@ -128,7 +128,7 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
                 
                  if ($exhibit->title && $section->title && $iamtheme==false && isset($_SESSION['themes_uri'])) {
 
-//error_log("ELEVEN");
+error_log("ELEVEN");
 
                 	 // start original code
                 	 /*
@@ -148,7 +148,7 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
                 	 // start mimo/connect fix code
                 	 if($section->title == 'Themes'){
 
-//error_log("TWELVE");
+error_log("TWELVE");
                          $navCrumbs[] = '<a href="' . WEB_ROOT . '/exhibits/show/' . $exhibit->slug . '">' . $exhibit->title . '</a>';
                          $titleCrumbs[] = $exhibit->title;
                          $navCrumbs[] = $titleCrumbs[] = $section->title;
@@ -156,7 +156,7 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
                 	 }
                 	 else{
 
-//error_log("THIRTEEN (themes_uri = ".($_SESSION['themes_uri']).")");
+error_log("THIRTEEN (themes_uri = ".($_SESSION['themes_uri']).")");
 
 
                          $navCrumbs[] = '<a href="' . WEB_ROOT . '/exhibits/show/' . $exhibit->slug . '">' . $exhibit->title . '</a>';
@@ -173,7 +173,7 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
                  else{
                 	 if($exhibit->title && count($navCrumbs) == 1 && !$iamtheme && $section->title ){
 
-//error_log("FOURTEEN");
+error_log("FOURTEEN");
 	
 						$titleCrumbs[] =  $exhibit->title;
 
@@ -189,7 +189,7 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
             // Only do this on an item pages who's uri is numeric
             if (preg_match("/^[0-9]/", ve_get_current_page_name())) {
             	
-//error_log("FIFTEEN");
+error_log("FIFTEEN");
 
                 $item = get_current_item();
                 $title = item('Dublin Core', 'Title') ? item('Dublin Core', 'Title') : '';

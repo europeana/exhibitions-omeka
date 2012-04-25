@@ -36,9 +36,17 @@ hr
 /* =Headings
 --------------------------------------------------------------------------------*/
 
+/* responsive design change */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Chevin, 'Trebuchet MS', Helvetica, sans-serif;
+}
+/*
 h1, h2, h3, h4, h5, h6 {
     font: 14px/1.2 Chevin, 'Trebuchet MS', Helvetica, sans-serif;
 }
+*/
+/*
 
 h1
 {
@@ -59,7 +67,7 @@ h4
 {
 	font-size: 15px;
 }
-
+*/
 
 /* =Spacing
 --------------------------------------------------------------------------------*/

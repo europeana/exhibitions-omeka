@@ -10,7 +10,7 @@ $exhibit = get_current_exhibit();
 <?php //head(array('title' => html_escape(ve_title_crumbs()), 'bodyid' => 'exhibit', 'bodyclass' => 'summary')); ?>
 
 	<div id="primary" class="twelve columns">
-	    <h1><?php echo html_escape(exhibit('title')); ?></h1>
+	    <h2><?php echo html_escape(exhibit('title')); ?></h2>
 	</div>
 </div>
 
@@ -182,7 +182,7 @@ $exhibit = get_current_exhibit();
     
     <div class="six columns pull-six">
          <?php echo exhibit('description'); ?>
-		<h3>
+		<h4>
 			<a class='widget'
 				href="<?php echo $themesUrl; ?>">
 				
@@ -192,7 +192,7 @@ $exhibit = get_current_exhibit();
 				
 				<?php echo ve_translate('exhibit-start', 'Start Exhibit'); ?><img src="<?php echo img('arrow-right.png');?>"/>
 			</a>
-		</h3>
+		</h4>
 
         
         

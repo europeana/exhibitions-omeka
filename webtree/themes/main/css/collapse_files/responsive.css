@@ -141,13 +141,12 @@ p {
     width:		100%;
 }
 
-.left-text .theme-item-wrapper h4{
+.left-text .theme-item-wrapper h5{
 	margin-left: 0.75em;
 }
 
-.right-text .theme-item-wrapper h4{
-	margin-right: 0.75em;
-	
+.right-text .theme-item-wrapper h5{
+	margin-right: 0.75em;	
 }
 
 .theme-item-wrapper {
@@ -156,7 +155,7 @@ p {
 	margin-bottom:	0.75em
 }
 
-.theme-item-wrapper h4{
+.theme-item-wrapper h5{
 	display:	inline;
 }
 
@@ -297,13 +296,10 @@ div.metadata-rights a img{
 
 #site-title-small{
 	display:		none;
-	position:		relative;
-	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxtop:			-5px;
-	top:			-2%;
+	xxxxposition:		relative;
+	xxxtop:			-2%;
 	float:			left;
 	margin-right:	5px;
-	
-	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxwidth:    		53px;
 	width:    		13%;
 	
 }
@@ -365,9 +361,11 @@ div.metadata-rights a img{
 	*/
 	
 	#site-title-small{
-		top:			-1px;
+		top:			4px;
 		margin-right:	5px;
-		width:				9%;
+		xxxxxxxxxxxxxxxxxwidth:				9%;
+		overflow:hidden;
+		padding-top: 4px;
 	}
 	
 	#site-title-small a img{

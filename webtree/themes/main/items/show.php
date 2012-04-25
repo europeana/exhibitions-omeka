@@ -81,7 +81,7 @@
 <div class="row">
 	<div class="six columns push-six">
 		<div class="wiki-citation">
-			<h3><?php echo ve_translate("cite-on-wikipeia", "Cite on Wikipedia"); ?></h3>
+			<h4><?php echo ve_translate("cite-on-wikipeia", "Cite on Wikipedia"); ?></h4>
 			<?php
 				try {
 					wikicite_for_item();

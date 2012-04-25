@@ -106,14 +106,14 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
     		    $page = exhibit_builder_get_current_page();
     		    $linkProperties['href'] = exhibit_builder_exhibit_item_uri($item) . '?page=' . urlencode($page->title);
     		    $html .= '<a class="return-to" rel="' . uri() . '" id="info-link"' . _tag_attributes($linkProperties) . ' title="' . ve_translate('show-item-details', 'Show item details') . '">';
-    		    $html .= '<h4>';
+    		    $html .= '<h6>';
     		    $html .= item('Dublin Core', 'Title');
-    		    $html .= '</h4></a>';
+    		    $html .= '</h6></a>';
     			return '<div id="exhibit-item-title-only">' . $html . '</div>';
 
    			}
     		else{    			
-    			return '<div id="exhibit-item-title-only"><h4>' . item('Dublin Core', 'Title') . '</h4></div>';
+    			return '<div id="exhibit-item-title-only"><h6>' . item('Dublin Core', 'Title') . '</h6></div>';
     		}
     	}
     	 
@@ -294,7 +294,7 @@ if(!function_exists('ve_custom_show_embed')){
 						// Title, Creator, Data Provider, Provider, CC-license.
 						
 						$html	.=	'<div id="embedded">';
-						$html	.=		'<h3>' . ve_translate("embed-code", "Embed Code") .'</h3>';
+						$html	.=		'<h4>' . ve_translate("embed-code", "Embed Code") .'</h4>';
 						$html	.=		'<textarea rows="5">';	// start embed code
 
 						// image div
@@ -399,7 +399,7 @@ if (!function_exists('ve_custom_show_item_metadata')) {
         	        		$html .= '<div class="metadata-rights">';
         	        		$html .= 	'<table><tr>';
         	        		$html .= 		'<td>';
-        	        		$html .= 			'<h3>'.$field.'</h3>';
+        	        		$html .= 			'<h6>'.$field.'</h6>';
         	        		$html .= 		'</td>';
         	        		$html .= 		'<td>';
                             $html .= 			'<p>'.$parsedRights["rem"].'</p>';
@@ -420,7 +420,22 @@ if (!function_exists('ve_custom_show_item_metadata')) {
                              
         	        	}
         	        	else{
-        	        		$html .= '<h3>'.$field.'</h3>';
+        	        		/*
+        	        		 * H4 overrides needed:
+        	        		 * 		text.css (39, 59)											OK
+        	        		 * 
+        	        		 * 		text.css (54)
+        	        		 * 			h3 font-size (media query rewrite needed)				OK
+        	        		 * 
+        	        		 * H3 has some special styling that needs replicated for h4:
+        	        		 * 		styles.css (346)											OK
+        	        		 * 			element h3:after
+        	        		 * 		styles.css (330)											OK
+        	        		 * 			.element h3
+        	        		 * 
+        	        		 * 		
+        	        		 * **/
+        	        		$html .= '<h6>'.$field.'</h6>';
         	        		foreach ($fieldValues as $key => $fieldValue) {
         	        			if (!item_field_uses_html('Dublin Core', $field, $key)) {
         	        				$fieldValue = nls2p($fieldValue);
@@ -435,7 +450,7 @@ if (!function_exists('ve_custom_show_item_metadata')) {
         	    }
      	        if (element_exists('Item Type Metadata', $field)) {
         	        if ($fieldValues = item('Item Type Metadata', $field, 'all')) {
-        	            $html .= '<div class="element" id="dublin-core-'. strtolower($field) .'"><h3>'.$field.'</h3>';
+        	            $html .= '<div class="element" id="dublin-core-'. strtolower($field) .'"><h6>'.$field.'</h6>';
         	            foreach ($fieldValues as $key => $fieldValue) {
         	                if (!item_field_uses_html('Item Type Metadata', $field, $key)) {
         	                    $fieldValue = nls2p($fieldValue);

@@ -112,11 +112,10 @@
 	        		
 		        <?php endif; ?>
 		        <?php echo plugin_append_to_items_browse_each(); ?>
-		        
 
-		        <h4>
+		        <h6>
 		            <a href="<?php echo uri('items/show') . '/' . item('id') . $queryString; ?>"><?php echo item('Dublin Core', 'Title');?></a>
-		        </h4>
+		        </h6>
 			</li>
 			
 	    <?php endwhile; ?>

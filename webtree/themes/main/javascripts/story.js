@@ -304,7 +304,7 @@ var story = function() {
 	               	//newObjSrc += "?c=" + new Date().getTime();
 	               	markup("image", newObjSrc);
 	               	
-	           		jQuery('#exhibit-item-title-only h4').html(newObjTitle);
+	           		jQuery('#exhibit-item-title-only h6').html(newObjTitle);
 		
 	           		if(zoomitEnabled){
 		        		tmpImg.attr("src", newObjSrc).load(function() {
