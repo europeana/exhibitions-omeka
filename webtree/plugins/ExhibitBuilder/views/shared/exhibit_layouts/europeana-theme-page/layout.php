@@ -134,7 +134,7 @@ $_SESSION['themes_uri'] = uri();
 					$themesCollapsed .=							'</div>';
 					$themesCollapsed .=						'</div>';
 					$themesCollapsed .=						'<a href="'.$themeLink.'">';
-					$themesCollapsed .=							'<h4>'. html_escape($exhibitSection->title, $errors) .'</h4>';
+					$themesCollapsed .=							'<h5>'. html_escape($exhibitSection->title, $errors) .'</h5>';
 					$themesCollapsed .=						'</a>';
             		$themesCollapsed .=					'</li>';
             		
@@ -177,7 +177,7 @@ $_SESSION['themes_uri'] = uri();
             		$rowHTML .= 	'<div class="six columns right-text">';
             		$rowHTML .= 		'<div class="theme-item-wrapper right-text">';
             		$rowHTML .= 			'<a href="'.$themeLink1.'">';
-            		$rowHTML .= 				'<h4>'.$themeTitle1.'</h4>';
+            		$rowHTML .= 				'<h5>'.$themeTitle1.'</h5>';
             		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
             		
@@ -199,7 +199,7 @@ $_SESSION['themes_uri'] = uri();
             		
             		$rowHTML .= 		'<div class="theme-item-wrapper left-text">';
             		$rowHTML .= 			'<a href="'.$themeLink2.'">';
-            		$rowHTML .= 				'<h4>'.$themeTitle2.'</h4>';
+            		$rowHTML .= 				'<h5>'.$themeTitle2.'</h5>';
             		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
             		$rowHTML .= 	'</div>';

@@ -13,7 +13,7 @@ function commenting_echo_comments($options = array('approved'=>true))
 
         $html = '';
         $html .= "<div id='comments-flash'>". flash(true) . "</div>";
-        $html .= "<div class='comments'><h3>" . ve_translate("comments-header", "Comments") . "</h3>";
+        $html .= "<div class='comments'><h4>" . ve_translate("comments-header", "Comments") . "</h4>";
 
         $html .= commenting_get_comments($record_id, $model, $options);
 
