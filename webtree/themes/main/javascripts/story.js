@@ -161,9 +161,6 @@ var story = function() {
 		}
 		if(type == "video"){
 
-			// TODO remove this
-			//url =  web_root + '/themes/main/javascripts/mediaelement-2.7/echo-hereweare.webm'; 
-
 			var videoHTML = "";
 			videoHTML += '<style>.mejs-overlay-loading{width:88px!important;}</style>';
 			videoHTML += '<div id="in-focus" class="player">';
@@ -201,34 +198,14 @@ var story = function() {
         		success: function(player, node) {
         			
         			if(jQuery('div#in-focus').width() == 0){ // IE7 fix
-        				
-        				jQuery('div#in-focus').width(jQuery('#exhibit-item-infocus').width());
-        				
+	        			jQuery('div#in-focus').width(jQuery('#exhibit-item-infocus').width()-20);
+	        			player.setVideoSize(jQuery('#exhibit-item-infocus').width()-20, "auto");
+	        			mejs.MediaElementPlayer.prototype.buildoverlays();
         			}
+        			
         		}
         	});
 
-            /*
-            jQuery('div#in-focus video').mediaelementplayer({
-                enableAutosize: false,//true,
-                // if the <video width> is not specified, this is the default
-                defaultVideoWidth: 460,
-                // if the <video height> is not specified, this is the default
-                defaultVideoHeight: 270,
-                // if set, overrides <video width>
-                videoWidth: -1,
-                // if set, overrides <video height>
-                videoHeight: -1,
-                // width of audio player
-                audioWidth: 460,
-                // height of audio player
-                audioHeight: 84,
-                plugins: ['flash','silverlight'],
-                // the order of controls you want on the control bar (and other plugins below)
-                features: ['playpause','progress','current','duration','volume','fullscreen']
-            });
-            */
-            
 		}
 		if(type == "image"){
 			jQuery("#in-focus").attr("class", type);
