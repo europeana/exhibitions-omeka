@@ -13,7 +13,6 @@ var log = {
 function setLanguage(lang) {
     // web_root set in common/header
     jQuery.cookie('ve_lang', lang,  { path: '/', secure: false });
-    jQuery('form#setLang').attr('action',web_root+'/index-'+lang).submit();
 }
 
 
