@@ -99,8 +99,13 @@
 				}
 
 				function respond() {
+					
+					if(jQuery.browser.msie  && ( parseInt(jQuery.browser.version, 10) === 7 || parseInt(jQuery.browser.version, 10) === 8 )  ){
+						// browsers that can't handle media queries should not continue
+						return;
+					}
+
 					var newSuffix = args.suffixes[testDiv.offsetWidth] || args.initialSuffix;
-//					alert("respond.... newSuffix = " + newSuffix + " galleries.length = " + galleries.length);
 					
 					if (newSuffix === lastSuffix) {
 						return;
@@ -113,13 +118,14 @@
 					lastSuffix = newSuffix;
 					
 					// RESPONSIVE BREADCRUMBS...
+					
 					var breadcrumbs = jQuery("#main-breadcrumbs");
 					if(breadcrumbs){
 						breadcrumbs.html(breadcrumbs.html().replace(/&gt; /g, ''));
 						
 						var crumbs	= jQuery("#main-breadcrumbs > a");
 						var suffixNumber	= parseInt(newSuffix.replace(/[^0-9]/g, ''));
-						
+
 						jQuery.fn.reverse = [].reverse;	// add reverse functionality to "each()"
 						crumbs.reverse().each(function(index, crumb){
 							crumb = jQuery(crumb); 
