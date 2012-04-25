@@ -18,6 +18,8 @@ ve_session_vars();
 	<meta name="author" content="Dean Birkett">
 	<meta name="author" content="Andy MacLean">
 
+    <script type="text/javascript">var web_root = "<?php echo WEB_ROOT; ?>";</script>
+
 	<!--
 	<meta property="og:title" content="Exhibit Item Title" />
 	<meta property="og:type" content="article" />
@@ -176,10 +178,6 @@ ve_session_vars();
 
 	    <!-- Stylesheets -->
 	    <?php ve_set_exhibits_css();?>
-
-    
-	    <script type="text/javascript">var web_root = "<?php echo WEB_ROOT; ?>";</script>
-	    
 	    
 	    
 	    <!--BEGIN RESPONSIVE CODE-->
