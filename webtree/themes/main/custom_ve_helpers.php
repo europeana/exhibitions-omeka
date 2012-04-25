@@ -40,6 +40,7 @@ function ve_translate($label, $default)
  * Will return user to the index. onChange Functionality for this form is found in theme/main/javascripts/global.js
  * with the function setLanguage().
  */
+/*
 function ve_language_select()
 {
     $html = '<form id="setLang" name="setLang" action="" method="POST">';
@@ -58,7 +59,7 @@ function ve_language_select()
     $html .= '</select></form>';
     return $html;
 }
-
+*/
 
 /*
  * Used to display untitled items
