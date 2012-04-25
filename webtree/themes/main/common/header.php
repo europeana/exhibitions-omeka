@@ -10,7 +10,6 @@ ve_session_vars();
 	<head>
 	<meta charset="utf-8" />
 
-    <title><?php echo ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null, $showAsTitle=true); ?></title>
 
 	
 	<meta http-equiv="X-UA-Compatible" value="IE=9">
@@ -35,6 +34,8 @@ ve_session_vars();
 
 
 <?php if ($pageURL == WEB_ROOT."/"): ?>
+
+	<title>Europeana Exhibitions</title>
 
 	<meta name="description" content="Europeana Exhibitions, a place for Europeana and their partners to showcase their exhibitions.">
 
@@ -161,6 +162,8 @@ ve_session_vars();
 
 	<!--DEFAULT HEAD / BODY-->
 		
+		<title><?php echo ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null, $showAsTitle=true); ?></title>
+
 
 	    <!-- Meta -->
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
