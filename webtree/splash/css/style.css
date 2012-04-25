@@ -160,10 +160,11 @@ header img.main-logo {
 	height: 160px;
 }
 
-header img.logo{
+/*header img.logo{
 	display: none;
 	width: 80px;
-}
+
+}*/
 
 header img.share {
 	float:right; 
@@ -602,13 +603,15 @@ body {
 }
 header img.share {
 	float:right; 
-	padding: 20.2% 50px 0 0;
+	padding: 100px 50px 0 0;
 }
-	  
- header img.main-logo {
-	max-width: 45%;
-	height: 25%;
-}
+
+
+header img.main-logo {
+	width: 214px;
+	height: 120px;
+}	  
+
 	  }
 
   /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -749,13 +752,16 @@ header a{
 }
 
 header img.main-logo{
-	display: none;
-}
-
-header img.logo{
-	width: 50px;
+	width: 107px;
+	height: 60px;
 	display: inline-block;
 }
+
+
+/*header img.logo{
+	width: 50px;
+	display: inline-block;
+}*/
 
 header img.share {
 	float:right; 
