@@ -11,11 +11,18 @@ $_SESSION['themes_uri'] = uri();
 ?>
 
 
-
-	<!--[if lte IE 7]>
-	
+	<!--[if lte IE 8]>
 	<style type="text/css">
 	
+		body{
+			/* disable responsive behaviour (limit size to stop layout breaking) */
+			min-width:	768px;
+		}
+			
+	</style>
+	<![endif]-->
+	<!--[if lte IE 7]>
+	<style type="text/css">
 		.theme-item-wrapper{
 			display:	inline-block;
 		}
@@ -23,17 +30,8 @@ $_SESSION['themes_uri'] = uri();
 		.theme-item-wrapper{
 			display:	inline;
 		}
-
-		body{
-			/* disable responsive behaviour (limit size to stop layout breaking) */
-			min-width:	768px;
-		}
-			
 	</style>
-	
 	<![endif]-->
-	
-	
 	
 	
 
