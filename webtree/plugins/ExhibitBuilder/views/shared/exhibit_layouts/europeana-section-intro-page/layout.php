@@ -19,7 +19,6 @@ $story = $page->title
 
 
 <!--[if IE 8]>
-
 	<style type="text/css">
 		#exhibit-item-thumbnails .exhibit-item {
 			float:none !important;	
@@ -28,17 +27,8 @@ $story = $page->title
 			white-space:nowrap;
 		}
 	</style>
-	
-	
-	<script type="text/javascript">
-	
-		jQuery(document).ready(function(){
-		});
-
-	</script>
 <![endif]-->
 
-	
 
 
 <div class="row">
