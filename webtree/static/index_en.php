@@ -1,4 +1,3 @@
-
   
 
 </div> <!--close simple pages div -->
@@ -436,7 +435,13 @@
 					var exp = /[-](.*?)[-]/;
 					var language = parentClass.match(exp)[1];
 					setLanguage(language);
-				}catch(e){}
+				}catch(e){
+					
+					var parentClass = jQuery(this).parent().attr("class");
+					var exp = /[-](.*?)/;
+					var language = parentClass.match(exp)[1];
+					setLanguage(language);
+				}
 				return true;
 
 			});
