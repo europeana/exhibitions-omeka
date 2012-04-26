@@ -6,8 +6,7 @@
 
 <header>
 <a href="http://exhibitions.europeana.eu" title="Click here to return to the Exhibitions start page"><img src="splash/img/landscape-logo.png" class="main-logo" title="Europeana Exhibitions"></a>
-<a href="http://exhibitions.europeana.eu" title="Click here to return to the Exhibitions start page"><img src="splash/logos/logo.png" class="logo" title="Europeana Exhibitions"></a>
-<a href="exhibitions.xml" title="Click here to subscribe to the exhibitions RSS feed"><img src="splash/img/rss_icon-small.gif" class="share" title=""></a>
+<a href="rss/exhibitions.xml" title="Click here to subscribe to the exhibitions RSS feed"><img src="splash/img/rss_icon-small.gif" class="share" title=""></a>
 </header>
 
 
