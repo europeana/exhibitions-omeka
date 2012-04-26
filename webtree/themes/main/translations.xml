@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <translations>
     <virtual-exhibitions>
-        <en>Virtual Exhibitions</en>
-        <nl>Virtuele tentoonstellingen</nl>
-        <de>Virtuelle Ausstellungen</de>
-        <fr>Expositions virtuelles</fr>
+        <en>Exhibitions</en>
+        <nl>Tentoonstellingen</nl>
+        <de>Ausstellungen</de>
+        <fr>Expositions</fr>
         <pl></pl>
-        <it>Mostre Virtuali</it>
-        <sv>virtuell utställning</sv>
+        <it>Mostre</it>
+        <sv>Utställning</sv>
         <es></es>
-        <lv>Virtuālās izstādes</lv>
-		<ru>Виртуальные выставки</ru>
+        <lv>Izstādes</lv>
+		<ru>выставки</ru>
 
     </virtual-exhibitions>
     <choose-a-language>

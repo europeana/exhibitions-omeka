@@ -34,14 +34,14 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
 //error_log("ONE");    	
         unset($_SESSION['collection']);
         unset($_SESSION['themes_uri']);
-        $navCrumbs[] = $titleCrumbs[] = ve_translate("virtual-exhibitions", "Virtual Exhibitions");
+        $navCrumbs[] = $titleCrumbs[] = ve_translate("virtual-exhibitions", "Exhibitions");
     }
     elseif ($current == 'contact') {
     	
 //error_log("TWO");    	
     	
-        $navCrumbs[] = '<a href="' . WEB_ROOT . '">' . ve_translate("virtual-exhibitions", "Virtual Exhibitions") . '</a>';
-        $titleCrumbs[] =  ve_translate("virtual-exhibitions", "Virtual Exhibitions");
+        $navCrumbs[] = '<a href="' . WEB_ROOT . '">' . ve_translate("virtual-exhibitions", "Exhibitions") . '</a>';
+        $titleCrumbs[] =  ve_translate("virtual-exhibitions", "Exhibitions");
         $navCrumbs[] = $titleCrumbs[] = ve_translate('contact-us-title', 'Contact Us');
     }
         // We are not home
@@ -54,8 +54,8 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
 
 //error_log("FOUR");    	
 
-            $navCrumbs[] = '<a href="' . WEB_ROOT . '">' . ve_translate("virtual-exhibitions", "Virtual Exhibitions") . '</a>';
-            $titleCrumbs[] =  ve_translate("virtual-exhibitions", "Virtual Exhibitions");
+            $navCrumbs[] = '<a href="' . WEB_ROOT . '">' . ve_translate("virtual-exhibitions", "Exhibitions") . '</a>';
+            $titleCrumbs[] =  ve_translate("virtual-exhibitions", "Exhibitions");
             
             
             if(isset($_SESSION["collection"])){
@@ -81,10 +81,10 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
                 $findme  = 'theme';
                 $iamtheme = strpos($sectionSlug, $findme);
 
-                $navCrumbs[] = '<a href="' . WEB_ROOT . '">' . ve_translate("virtual-exhibitions", "Virtual Exhibitions") . '</a>';
+                $navCrumbs[] = '<a href="' . WEB_ROOT . '">' . ve_translate("virtual-exhibitions", "Exhibitions") . '</a>';
                 
 
-                $titleCrumbs [] = ve_translate("virtual-exhibitions", "Virtual Exhibitions");
+                $titleCrumbs [] = ve_translate("virtual-exhibitions", "Exhibitions");
                 
                 
                 // Remove wiki/mimo/dismark etc.
