@@ -9,51 +9,56 @@
     $creditsPage = ve_get_page_by_slug($pageSlug);
 ?>
 
+<style>
 
+	.wrap_at_320{
+		float:			left;
+		margin-right:	2em;
+	}
+	
+	@media only screen and (max-width: 767px) {
+		.wrap_at_320{
+			display:	block;
+			clear:		both;
+			float:		none;
+		}
+		
+	}
+	
+</style>
 
 <div class="row" id="bottom-navigation">
-	<div class="six columns">
-		<ul class="navigation">
-			<li>
-				<a href="<?php echo uri('contact');?>"><?php echo ve_translate('contact', 'Contact');?></a>
-			</li>
-			<?php if (exhibit_builder_get_current_exhibit()): ?>
-			<li>
+	<div class="twelve columns">
+
+		<div class="wrap_at_320">
+			<a href="<?php echo uri('contact');?>"><?php echo ve_translate('contact', 'Contact');?></a>
+		</div>
+		
+		<?php if (exhibit_builder_get_current_exhibit()): ?>
+			<div class="wrap_at_320">
 				<a class="return-to" rel="<?php echo uri(); ?>"
 					href="<?php echo uri('items/browse') . '/?tags=' . ve_get_exhibit_name_from_slug($exhibit->slug) . '&theme=' . $currentExhibit->theme; ?>"><?php echo ve_translate("items-browse", "Browse items");?></a>
-			</li>
-
+		
+			</div>
 			<?php if ($creditsPage):?>
-				<li>
+				<div class="wrap_at_320">
 					<a  class="return-to" rel="<?php echo uri(); ?>" href="<?php echo uri('credits-' . $eName) . '?theme=' . $currentExhibit->theme;?>"><?php echo ve_translate('credits', 'Credits');?></a>
-				</li>
+				</div>
 			<?php endif; ?>
-			<?php endif; ?>
-			<li>
-				<a href="<?php echo uri('about-exhibitions');?>"><?php echo ve_translate("about-exhibitions", "About Exhibitions");?></a>
-			</li>
-		</ul>
-	</div>
+		<?php endif; ?>
 	
-	<div class="six columns" style="text-align: right;">
-		<ul class="navigation">
-			<!-- 
-			<li><a href="http://www.facebook.com/Europeana" target="_blank" title="Follow us on Facebook!"><img src="http://exhibitions.europeana.eu/themes/europeana/images/icon_Facebook.png" alt="Follow us on Facebook!"></a></li>
-			<li><a href="http://twitter.com/EuropeanaEU" target="_blank" title="Follow us on Twitter!"><img src="http://exhibitions.europeana.eu/themes/europeana/images/icon_Twitter.png" alt="Follow us on Twitter!"></a></li>
-			-->
-			<li>
-				<!--div id="standard_shares">
-					<?//php echo getAddThisStandard(); ?>					 
-				</div-->
-				<!-- If this script tag is closed it makes the google icon bigger -->
-				<!-- php messes this up, so put outside of custom_ve_helper for now -->
-				<!--script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d70f66c15fff6d0"-->
-				<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=ra-4d70f66c15fff6d0">
-				</script>
-			</li>
-		</ul>
+		<div class="wrap_at_320">
+			<a href="<?php echo uri('about-exhibitions');?>"><?php echo ve_translate("about-exhibitions", "About Exhibitions");?></a>
+		</div>
+
 	</div>
 
+	
+	<!-- If this script tag is closed it makes the google icon bigger -->
+	<!-- php messes this up, so put outside of custom_ve_helper for now -->
+	<!--script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d70f66c15fff6d0"-->
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=ra-4d70f66c15fff6d0">
+	</script>
             
             
         </div>
