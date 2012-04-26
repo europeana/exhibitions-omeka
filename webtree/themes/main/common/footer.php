@@ -9,23 +9,6 @@
     $creditsPage = ve_get_page_by_slug($pageSlug);
 ?>
 
-<style>
-
-	.wrap_at_320{
-		float:			left;
-		margin-right:	2em;
-	}
-	
-	@media only screen and (max-width: 767px) {
-		.wrap_at_320{
-			display:	block;
-			clear:		both;
-			float:		none;
-		}
-		
-	}
-	
-</style>
 
 <div class="row" id="bottom-navigation">
 	<div class="twelve columns">
