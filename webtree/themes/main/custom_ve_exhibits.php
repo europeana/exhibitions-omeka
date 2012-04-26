@@ -474,7 +474,7 @@ if (!function_exists('ve_custom_show_item_metadata')) {
     	        	$licenseVal = item(ELEMENT_SET_ITEM_TYPE, $element->name);
     	        	
     	        	if( strlen($licenseVal) > 0  ){
-    	        		$html .= '<div class="element" id="dublin-core-title"><h3>License</h3>';
+    	        		$html .= '<div class="element" id="dublin-core-title"><h6>License</h6>';
     	        		$html .=  '<div class="element-text">' . html_entity_decode($licenseVal)  . '</div>';
     	        		$html .= '</div>';    	        		
     	        	}
