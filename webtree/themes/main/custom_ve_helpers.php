@@ -290,10 +290,60 @@ function getAddThisMobile(){
 function getAddThisStandard($style = 'float:right; display:inline;'){
 	$buttons = '';	
 	$buttons .=	'<div class="addthis_toolbox addthis_default_style" style="' . $style . '">';
-	$buttons .= 	'<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>';
-	$buttons .= 	'<a class="addthis_button_tweet"></a>';
-	$buttons .= 	'<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>';
+	
+	
+	
+	/** FACEBOOK
+	 * 
+	 * at300b							= no difference
+	 * fb:like:width="51"				= as in portal: causes bubble to overlap twitter
+	 * fb:like:layout="button_count"	= ineffectual (default?)
+	 * addthis_button_facebook_like		= wide image
+	 * addthis_button_facebook			= square image
+	 * */
+							
+	$buttons .= 	'<a class="addthis_button_facebook at300b" 					fb:like:layout="button_count" title="Send to Facebook_like"></a>';
+	//$buttons .= 	'<a class="addthis_button_facebook_like at300b" 					fb:like:layout="button_count" title="Send to Facebook_like"></a>';
+	//$buttons .= 	'<a class="addthis_button_facebook_like at300b" fb:like:width="51"	fb:like:layout="button_count" title="Send to Facebook_like"></a>';
+	//$buttons .= 	'<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>';
+
+	
+	
+	/** TWITTER
+	 * 
+	 * addthis_button_tweet				= rectangular button with count
+	 * addthis_button_twitter at300b	= square button with no count
+	 * 
+	 * */
+	$buttons .= 	'<a class="addthis_button_twitter at300b"></a>';
+	//$buttons .= 	'<a class="addthis_button_tweet"></a>';
+								
+	
+	/** GOOGLE PLUS
+	 * addthis_button_google_plusone		= rectangular grey button
+	 * addthis_button_google_plusone_share	= red square button
+	 * 
+	 * g:plusone:annotation="none"			= hide the bubble count	
+	 * g:plusone:count="false"				= hide the bubble count (deprecataed?)
+	 * */
+	
+	//addthis_button_preferred_3 addthis_button_google_plusone_share at300b						   
+	$buttons .= 	'<a class="addthis_button_google_plusone_share at300b" g:plusone:annotation="none" g:plusone:size="small"></a>';
+	//$buttons .= 	'<a class="addthis_button_google_plusone at300b" g:plusone:size="small" g:plusone:annotation="none"></a>';
+	//$buttons .= 	'<a class="addthis_button_google_plusone at300b" g:plusone:size="small" g:plusone:annotation="none" g:plusone:count="false"></a>';
+	//$buttons .= 	'<a class="addthis_button_google_plusone at300b" g:plusone:size="small" g:plusone:count="false"></a>';
+	//$buttons .= 	'<a class="addthis_button_google_plusone at300b" g:plusone:size="small" ></a>';
+	
+	/** ADDTHIS
+	 * 
+	 * at300m
+	 * 
+	 * */
+//	$buttons .= 	'<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>';
 	//$buttons .= 	'<a class="addthis_counter addthis_pill_style"></a>';
+	//$buttons .= 	'<a class="addthis_counter addthis_bubble_style" style="display:block;"></a>';
+	$buttons .= 	'<a class="addthis_button_compact at300m"></a>';
+	
 	$buttons .=	'</div>';
 	
 	return getAddThis($buttons);	
