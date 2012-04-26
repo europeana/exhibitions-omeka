@@ -478,7 +478,6 @@ header img.share {
   });
 </script>
 
-// addthis
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=ra-4d70f66c15fff6d0">
 </script>
 
