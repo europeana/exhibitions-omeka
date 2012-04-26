@@ -4,9 +4,37 @@
 
 <!-- start Dean's page -->
 
+<style type="text/css">
+
+header{
+	position: relative;
+}
+
+#standard_shares.landing{
+    bottom: 1em;
+    float: right;
+    margin-right: 4em;
+    position: absolute;
+    right: 0;
+}
+
+/* override style.css */
+header img.share {
+    float: right;
+    padding: 140px 0;
+}
+
+</style>
+
 <header>
-<a href="http://exhibitions.europeana.eu" title="Click here to return to the Exhibitions start page"><img src="splash/img/landscape-logo.png" class="main-logo" title="Europeana Exhibitions"></a>
-<a href="rss/exhibitions.xml" title="Click here to subscribe to the exhibitions RSS feed"><img src="splash/img/rss_icon-small.gif" class="share" title=""></a>
+
+
+	<div id="standard_shares" class="landing"><?php echo getAddThisStandard(); ?></div>
+
+	<a href="http://exhibitions.europeana.eu" title="Click here to return to the Exhibitions start page"><img src="splash/img/landscape-logo.png" class="main-logo" title="Europeana Exhibitions"></a>
+	<a href="rss/exhibitions.xml" title="Click here to subscribe to the exhibitions RSS feed"><img src="splash/img/rss_icon-small.gif" class="share" title=""></a>
+
+
 </header>
 
 
@@ -423,7 +451,7 @@
         $container.isotope('reLayout');
       });
 
-
+      // language hooks: take language from parent class
 	jQuery(document).ready(function(){
 
 		jQuery("a").each(function(){
@@ -447,8 +475,11 @@
 
 	});
 
-
   });
+</script>
+
+// addthis
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=ra-4d70f66c15fff6d0">
 </script>
 
 <form method="POST" action="" name="setLang" id="setLang">
