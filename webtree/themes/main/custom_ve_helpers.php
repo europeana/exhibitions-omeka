@@ -4,9 +4,6 @@
  * Date: 5/23/2011
  * Time: 17:11 PM
  */
-	// commented out by dan entous 2012-04-12
-	// error_log("ANDY: themes/main/custom ve helpers 0 underscores");
-
 /*
  * TRANSLATION FUNCTION:
  * @param $label - xml tag name to be grabbed - see /themes/main/translations.xml
@@ -254,16 +251,6 @@ function getAddThisMobile(){
 	*/
 	
 	
-	$buttons .=	'<a class="addthis_button_google_plusone_share at300b" ';
-	//$buttons .=	'href="http://www.addthis.com/bookmark.php?v=300&amp;';
-	//$buttons .=	'winname=addthis&amp;pub=AddThis&amp;source=tbx-300&amp;lng=en&amp;s=google_plusone_share&amp;';
-	//$buttons .=	'url=http%3A%2F%2Fsupport.addthis.com%2Fcustomer%2Fportal%2Farticles%2F381236-custom-buttons';
-	//$buttons .=	'&amp;title=Custom%20Buttons&amp;';
-	//$buttons .=	'ate=AT-AddThis/-/-/4f98559136134033/1/4f26d3873438b6d5&amp;';
-	//$buttons .=	'frommenu=1&amp;ips=1&amp;uid=4f26d3873438b6d5&amp;ct=1&amp;';
-	//$buttons .=	'pre=http%3A%2F%2Fwww.google.co.uk%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3Daddthis%2520button%26source%3Dweb%26cd%3D2%26ved%3D0CDQQjBAwAQ%26url%3Dhttp%253A%252F%252Fsupport.addthis.com%252Fcustomer%252Fportal%252Farticles%252F381236-custom-buttons%26ei%3DjVWYT8-gBo_o-gblwP2-Bg%26usg%3DAFQjCNFwhkpRTdjFtYmMhqzMUdRxfIAj0A&amp;';
-	$buttons .=	'tt=0" target="_blank" title="Send to Google+ Share"></a>';
-	
 	
 	$buttons .=		'<a	class="addthis_button_facebook"';
 	$buttons .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=' . $appId . '"></a>';
@@ -278,6 +265,18 @@ function getAddThisMobile(){
 	// badge
 	
 	//$buttons .=		'<a class="addthis_button_google_plusone_badge" g:plusone:size="badge" g:plusone:href="https://plus.google.com/102383601500147943541/"></a>';
+
+	
+	$buttons .=	'<a class="addthis_button_google_plusone_share at300b" ';
+	//$buttons .=	'href="http://www.addthis.com/bookmark.php?v=300&amp;';
+	//$buttons .=	'winname=addthis&amp;pub=AddThis&amp;source=tbx-300&amp;lng=en&amp;s=google_plusone_share&amp;';
+	//$buttons .=	'url=http%3A%2F%2Fsupport.addthis.com%2Fcustomer%2Fportal%2Farticles%2F381236-custom-buttons';
+	//$buttons .=	'&amp;title=Custom%20Buttons&amp;';
+	//$buttons .=	'ate=AT-AddThis/-/-/4f98559136134033/1/4f26d3873438b6d5&amp;';
+	//$buttons .=	'frommenu=1&amp;ips=1&amp;uid=4f26d3873438b6d5&amp;ct=1&amp;';
+	//$buttons .=	'pre=http%3A%2F%2Fwww.google.co.uk%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3Daddthis%2520button%26source%3Dweb%26cd%3D2%26ved%3D0CDQQjBAwAQ%26url%3Dhttp%253A%252F%252Fsupport.addthis.com%252Fcustomer%252Fportal%252Farticles%252F381236-custom-buttons%26ei%3DjVWYT8-gBo_o-gblwP2-Bg%26usg%3DAFQjCNFwhkpRTdjFtYmMhqzMUdRxfIAj0A&amp;';
+	$buttons .=	'tt=0" target="_blank" title="Send to Google+ Share"></a>';
+
 	
 	$buttons .=		'<a	class="addthis_button_compact"';
 	$buttons .=			'href="http://www.addthis.com/bookmark.php?v=250&amp;username=' . $appId . '"></a>';	
