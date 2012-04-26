@@ -227,7 +227,7 @@ ve_session_vars();
 	    <div id="header" class="row">
 	        <div class="twelve columns">
 	        	<div id="site-title" class="twelve columns">
-					<a href="http://exhibitions.europeana.eu/"><img src="<?php echo img('logo.png'); ?>"></a>
+					<a href="<?php echo(WEB_ROOT); ?>"><img src="<?php echo img('logo.png'); ?>"></a>
 	        	</div>
 	        	
 		        <div id="secondary-branding" style="float:right;"><?php echo ve_exhibit_secondary_logo(); ?></div>
@@ -237,16 +237,16 @@ ve_session_vars();
 		
 	    
 		<div id="top-navigation" class="row">
-		    <div id="main-breadcrumbs" class="seven columns inner">
-			    <div id="site-title-small">
-			        <a target="_blank" href="http://www.europeana.eu/">
-			            <img src="<?php echo img('logo.png'); ?>"/>
-			        </a>
+		    <div class="twelve columns inner">
+			    <div id="main-breadcrumbs" style="float:left;">
+				    <div id="site-title-small">
+				        <a target="_blank"  href="<?php echo(WEB_ROOT); ?>">
+				            <img src="<?php echo img('logo.png'); ?>"/>
+				        </a>
+				    </div>
+			        <?php echo ve_exhibit_breadcrumbs(); ?>
 			    </div>
-		        <?php echo ve_exhibit_breadcrumbs(); ?>
-		    </div>
-		    <div  class="five columns">
-				<div id="standard_shares"><?php echo getAddThisStandard(); ?></div>
+				<div id="standard_shares" style="float:right;"><?php echo getAddThisStandard(); ?></div>
 			</div>
 	     </div>
 	    
