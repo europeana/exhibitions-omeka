@@ -25,11 +25,8 @@ var story = function() {
 			else{
 		        if ( endsWith(initialUrl, "jpg") || endsWith(initialUrl, "jpeg")) {
 	               	markup("image", initialUrl);
-	               	if(zoomitEnabled){		        		
+	               	if(zoomitEnabled){	
 						zoomitAjaxUrl = initialUrl;
-						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
-						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://10.101.28.3/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
-						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://localhost/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
 				       	zoomitAjaxUrl = zoomitAjaxUrlPrefix + encodeURIComponent(zoomitAjaxUrl);
 		               	poll();
 		        	}
@@ -298,10 +295,6 @@ var story = function() {
 	            	zoomitEnabled = zoomitIsEnabled;
 	            	log("we have an image...zoomitEnabled = " + zoomitEnabled);
 
-	               	newObjSrc = newObjSrc.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
-	               	newObjSrc = newObjSrc.replace("http://10.101.28.3/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
-	               	newObjSrc = newObjSrc.replace("http://localhost/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
-	               	//newObjSrc += "?c=" + new Date().getTime();
 	               	markup("image", newObjSrc);
 	               	
 	           		jQuery('#exhibit-item-title-only h6').html(newObjTitle);
