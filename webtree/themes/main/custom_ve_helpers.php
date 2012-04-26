@@ -254,7 +254,7 @@ function getAddThisMobile(){
 	*/
 	
 	
-	$buttons .=	'<a class="addthis_button_preferred_1 addthis_button_google_plusone_share at300b" ';
+	$buttons .=	'<a class="addthis_button_google_plusone_share at300b" ';
 	//$buttons .=	'href="http://www.addthis.com/bookmark.php?v=300&amp;';
 	//$buttons .=	'winname=addthis&amp;pub=AddThis&amp;source=tbx-300&amp;lng=en&amp;s=google_plusone_share&amp;';
 	//$buttons .=	'url=http%3A%2F%2Fsupport.addthis.com%2Fcustomer%2Fportal%2Farticles%2F381236-custom-buttons';
