@@ -581,6 +581,7 @@ table{
 		display:	block;
 		clear:		both;
 		float:		none;
+		text-align:	center;
 	}
 	
 }
