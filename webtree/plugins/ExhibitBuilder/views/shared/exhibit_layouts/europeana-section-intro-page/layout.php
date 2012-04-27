@@ -30,6 +30,15 @@ $story = $page->title
 <![endif]-->
 
 
+<!--[if lte IE 7]>
+<style type="text/css">
+	body{
+		/* disable responsive behaviour (limit size to stop layout breaking) */
+		min-width:	768px;
+	}			
+</style>
+<![endif]-->
+
 
 <div class="row">
 	<div class="six columns push-six">
@@ -151,7 +160,6 @@ $story = $page->title
 
 
 <div class="row">
-
 	<div class="twelve columns">
 		<div class="comments-collapsed">
 			<?php
