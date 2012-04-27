@@ -165,10 +165,21 @@ header img.main-logo {
 	width: 80px;
 
 }*/
+header{
+	position: relative;
+}
+
+#standard_shares.landing{
+    bottom: 1em;
+    float: right;
+    margin-right: 4em;
+    position: absolute;
+    right: 0;
+}
 
 header img.share {
-	float:right; 
-	padding: 140px 3.666666% 0 0;
+	float:			right; 
+	margin-left:	2em;
 }
 
 /* Body
@@ -602,8 +613,8 @@ body {
   margin: 1.5625% 1.5625% 1.5625% 5.5625%;/*15px;*/
 }
 header img.share {
-	float:right; 
-	padding: 100px 50px 0 0;
+	xxxxxfloat:right; 
+	xxxxxpadding: 100px 50px 0 0;
 }
 
 
@@ -764,8 +775,8 @@ header img.main-logo{
 }*/
 
 header img.share {
-	float:right; 
-	padding: 40px 20% 0 0;
+	xxxxxfloat:right; 
+	xxxxxpadding: 40px 20% 0 0;
 }
 
 footer a{
