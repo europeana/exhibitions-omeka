@@ -247,10 +247,14 @@ var story = function() {
 			if(!zoomitEnabled){
 				
 				zoomitWindow.hide();
+				var initialSuffix = '_euresponsive_1.jpg'; // smallest by default
+				if(jQuery.browser.msie  && ( parseInt(jQuery.browser.version, 10) === 7 || parseInt(jQuery.browser.version, 10) === 8 )  ){
+					initialSuffix = '_euresponsive_4.jpg'; // largest by default
+				}
 				responsiveGallery({
 					scriptClass: 'euresponsive-script',
 					testClass: 'euresponsive',
-					initialSuffix: '_euresponsive_1.jpg',
+					initialSuffix: initialSuffix,
 					suffixes: {
 						'1': '_euresponsive_1.jpg',
 						'2': '_euresponsive_2.jpg',

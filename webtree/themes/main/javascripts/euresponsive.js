@@ -40,15 +40,33 @@
 			
 			Gallery.prototype.changeLayout = function(escapedInitialSuffix, newSuffix) {
 				
+				var img = jQuery(this.container).find("img");
+
+				/*
+				if(jQuery.browser.msie  && ( parseInt(jQuery.browser.version, 10) === 7 || parseInt(jQuery.browser.version, 10) === 8 )  ){
+					// browsers that can't handle media queries should not continue
+					newSuffix = newSuffix.replace(/_euresponsive_1/g, '');
+					newSuffix = newSuffix.replace(/_euresponsive_2/g, '');
+					newSuffix = newSuffix.replace(/_euresponsive_3/g, '');
+					newSuffix = newSuffix.replace(/_euresponsive_4/g, '');
+					//return;
+				}
+				*/
+				
+				
 				var newHtmlStr = this.htmlStr.replace(
 					new RegExp('(src="[^"]*)' + escapedInitialSuffix + '"', 'g'),
 					'$1' + newSuffix + '"'
 				);
+				
+				// regex expression doesn't work in IE.... quick fix: text replace
+				if(jQuery.browser.msie  && ( parseInt(jQuery.browser.version, 10) === 7 || parseInt(jQuery.browser.version, 10) === 8 )  ){
+					newHtmlStr = newHtmlStr.replace("_euresponsive_1", "_euresponsive_4");
+				}
 
 				//log("changelayout called this.container  = " + this.container.outerHTML);
 				
 				
-				var img = jQuery(this.container).find("img");
 				var display		= img.css("display");
 				var visibility	= img.css("visibility");
 				
@@ -59,7 +77,6 @@
 				img = jQuery(this.container).find("img");
 				img.css("display", display);
 				img.css("visibility", visibility);
-				
 				//log("changelayout called, new html = " + newHtmlStr);
 			};
 			
@@ -99,11 +116,7 @@
 				}
 
 				function respond() {
-					
-					if(jQuery.browser.msie  && ( parseInt(jQuery.browser.version, 10) === 7 || parseInt(jQuery.browser.version, 10) === 8 )  ){
-						// browsers that can't handle media queries should not continue
-						return;
-					}
+
 
 					var newSuffix = args.suffixes[testDiv.offsetWidth] || args.initialSuffix;
 					
