@@ -163,6 +163,13 @@ var story = function() {
             
             // remove the info link for pdfs
             jQuery("#exhibit-item-infocus-header").css("display", "none");
+            
+            // chrome (windows) fix
+            var viewerHeight	= jQuery(".pdf-viewer").height();
+            var viewerWidth		= jQuery(".pdf-viewer").width();
+            if(viewerHeight < viewerWidth){
+            	jQuery(".pdf-viewer").height(viewerWidth * 1.4);
+            }
 		}
 		else{
             // restore the info link if previously hidden for a pdf
