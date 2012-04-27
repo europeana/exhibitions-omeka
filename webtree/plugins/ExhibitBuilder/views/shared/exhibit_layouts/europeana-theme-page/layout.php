@@ -31,6 +31,10 @@ $_SESSION['themes_uri'] = uri();
 		.theme-item-wrapper{
 			display:	inline;
 		}
+		
+		.six{
+			max-width:45%;
+		}
 	</style>
 	<![endif]-->
 	
