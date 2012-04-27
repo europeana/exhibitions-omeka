@@ -24,6 +24,11 @@
 		/* disable responsive behaviour (limit size to stop layout breaking) */
 		min-width:	768px;
 	}
+	
+	.six{
+		max-width:	45%;
+	}
+	
 	.browsed-item-wrapper a img{
 		width:		100%;
 		width: 		auto\9; /* ie8 */

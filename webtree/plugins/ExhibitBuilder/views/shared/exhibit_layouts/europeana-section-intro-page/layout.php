@@ -35,7 +35,11 @@ $story = $page->title
 	body{
 		/* disable responsive behaviour (limit size to stop layout breaking) */
 		min-width:	768px;
-	}			
+	}		
+	
+	#story{
+		max-width:45%;
+	}
 </style>
 <![endif]-->
 

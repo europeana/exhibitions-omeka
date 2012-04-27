@@ -17,10 +17,11 @@ $_SESSION['themes_uri'] = uri();
 		body{
 			/* disable responsive behaviour (limit size to stop layout breaking) */
 			min-width:	768px;
-		}
-			
+		}	
+		
 	</style>
 	<![endif]-->
+	
 	<!--[if lte IE 7]>
 	<style type="text/css">
 		.theme-item-wrapper{

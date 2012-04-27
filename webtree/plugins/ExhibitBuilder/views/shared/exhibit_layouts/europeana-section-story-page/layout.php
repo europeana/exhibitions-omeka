@@ -35,6 +35,20 @@ $story = $page->title;
 
 <![endif]-->
 
+<!--[if lte IE 7]>
+<style type="text/css">
+	body{
+		/* disable responsive behaviour (limit size to stop layout breaking) */
+		min-width:	768px;
+	}		
+	
+	#story{
+		max-width:47%;
+	}
+
+</style>
+<![endif]-->
+
 
 
 <div class="row">
