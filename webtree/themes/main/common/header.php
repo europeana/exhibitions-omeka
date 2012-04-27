@@ -255,7 +255,7 @@ ve_session_vars();
 			    <div id="main-breadcrumbs" style="float:left;">
 				    <div id="site-title-small">
 				        <a target="_blank"  href="<?php echo(WEB_ROOT); ?>">
-				            <img src="<?php echo img('logo.png'); ?>"/>
+				            <img src="<?php echo img('logo_no_text.png'); ?>"/>
 				        </a>
 				    </div>
 			        <?php echo ve_exhibit_breadcrumbs(); ?>
