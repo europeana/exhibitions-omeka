@@ -152,10 +152,18 @@ var story = function() {
 			viewerHTML += 	'</iframe>';
 			viewerHTML += '</div>';
 			
-			
+			jQuery("#in-focus").parent().find("style").remove();
             jQuery('div#in-focus').remove();
             jQuery("#exhibit-item-infocus-header").parent().append(viewerHTML);
+            
+            // remove the info link for pdfs
+            jQuery("#exhibit-item-infocus-header").css("display", "none");
 		}
+		else{
+            // restore the info link if previously hidden for a pdf
+            jQuery("#exhibit-item-infocus-header").css("display", "block");
+		}
+		
 		if(type == "video"){
 
 			var videoHTML = "";
@@ -184,6 +192,7 @@ var story = function() {
             videoHTML +=  '</video>';
             videoHTML += '</div>';
 
+            jQuery("div#in-focus").parent().find("style").remove();
             jQuery('div#in-focus').remove();
             jQuery("#exhibit-item-infocus-header").parent().append(videoHTML);
             
@@ -239,7 +248,7 @@ var story = function() {
 				+		'</div>\n';
 
 			jQuery("#in-focus")[0].innerHTML = html;
-			
+			jQuery("#in-focus").parent().find("style").remove();
 			
 			zoomitWindow = jQuery("#zoomit_window");
 			tmpImg = jQuery('#media_wrapper img.tmp-img');

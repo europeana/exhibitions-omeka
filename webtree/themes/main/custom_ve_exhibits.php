@@ -25,6 +25,7 @@ function ve_exhibit_builder_exhibit_display_item_info_link($linkProperties = arr
 
 
     // skip info link if viewing a pdf
+    /*
     $file = $item->Files[0];
     if ($file) {
         $mime = $file->getMimeType();
@@ -32,6 +33,7 @@ function ve_exhibit_builder_exhibit_display_item_info_link($linkProperties = arr
         	$html = '';
         }
     }
+    */
     return $html;
 }
 
