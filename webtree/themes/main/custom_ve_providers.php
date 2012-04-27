@@ -22,9 +22,9 @@
  * */
 $commentableCollections = array();
 
-$commentableCollections[] = "Judaica Europeana";
-$commentableCollections[] = "Europeana Connect";
-$commentableCollections[] = "Europeana";
+//$commentableCollections[] = "Judaica Europeana";
+//$commentableCollections[] = "Europeana Connect";
+//$commentableCollections[] = "Europeana";
 
 
 /**
