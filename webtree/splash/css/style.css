@@ -172,7 +172,7 @@ header{
 #standard_shares.landing{
     bottom: 1em;
     float: right;
-    margin-right: 4em;
+    margin-right: 20px;
     position: absolute;
     right: 0;
 }
