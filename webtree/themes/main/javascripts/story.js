@@ -328,14 +328,21 @@ var story = function() {
 	                    plugins: ['flash','silverlight'],
 	                    features: ['playpause','progress','current','duration','volume','fullscreen']
 	                });
+	                
+	           		jQuery('#exhibit-item-title-only h6').html(newObjTitle);
+
 	            }
 	            if (mimeType.match(regexVideo)) {
 	            	log("we have a video...");
 	            	markup("video", mediaURI);
+	            	
+	            	jQuery('#exhibit-item-title-only h6').html(newObjTitle);
 	            }
 	            if (mimeType.match(regexPdf)) {
 	            	log("we have a pdf...");
 	            	markup("pdf", mediaURI);
+	            	
+	           		jQuery('#exhibit-item-title-only h6').html(newObjTitle);
 	            }
 	            
 	            // Replace the url for the link to the item page
