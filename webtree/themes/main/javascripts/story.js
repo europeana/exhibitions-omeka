@@ -14,7 +14,6 @@ var story = function() {
 	return{
 		initStory: function (initialUrl, zoomitEnabledIn){
 			tmpImg = jQuery('#media_wrapper img.tmp-img'); // TODO - declare at top.....
-			
 			zoomitEnabled = zoomitEnabledIn;
 			log("init story...")
 			switchMediaElement();
@@ -26,7 +25,13 @@ var story = function() {
 		        if ( endsWith(initialUrl, "jpg") || endsWith(initialUrl, "jpeg")) {
 	               	markup("image", initialUrl);
 	               	if(zoomitEnabled){	
-						zoomitAjaxUrl = initialUrl;
+	               		
+						zoomitAjaxUrl = initialUrl.replace("/fullsize/", "/files/");
+						
+	               		zoomitAjaxUrl = zoomitAjaxUrl.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
+						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://10.101.28.3/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
+						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://localhost/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
+
 				       	zoomitAjaxUrl = zoomitAjaxUrlPrefix + encodeURIComponent(zoomitAjaxUrl);
 		               	poll();
 		        	}
@@ -315,7 +320,14 @@ var story = function() {
 	           		if(zoomitEnabled){
 		        		tmpImg.attr("src", newObjSrc).load(function() {
 				            	log("click poll...");
-				            	zoomitAjaxUrl = zoomitAjaxUrlPrefix + encodeURIComponent(newObjSrc);
+				            	
+								zoomitAjaxUrl = newObjSrc.replace("/fullsize/", "/files/");
+								
+			               		zoomitAjaxUrl = zoomitAjaxUrl.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
+								zoomitAjaxUrl = zoomitAjaxUrl.replace("http://10.101.28.3/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
+								zoomitAjaxUrl = zoomitAjaxUrl.replace("http://localhost/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
+
+				            	zoomitAjaxUrl = zoomitAjaxUrlPrefix + encodeURIComponent(zoomitAjaxUrl);
 			        			poll();
 		               	});  
 	           		}
