@@ -4,35 +4,15 @@
 
 <!-- start Dean's page -->
 
-<style type="text/css">
-
-header{
-	position: relative;
-}
-
-#standard_shares.landing{
-    bottom: 1em;
-    float: right;
-    margin-right: 4em;
-    position: absolute;
-    right: 0;
-}
-
-/* override style.css */
-header img.share {
-    float: right;
-    padding: 140px 0;
-}
-
-</style>
-
 <header>
 
 
-	<div id="standard_shares" class="landing"><?php echo getAddThisStandard(); ?></div>
+	<div id="standard_shares" class="landing">
+		<a href="rss/exhibitions.xml" title="Click here to subscribe to the exhibitions RSS feed"><img src="splash/img/rss_icon-small.gif" class="share" title=""></a>
+		<?php echo getAddThisStandard(); ?>
+	</div>
 
 	<a href="http://exhibitions.europeana.eu" title="Click here to return to the Exhibitions start page"><img src="splash/img/landscape-logo.png" class="main-logo" title="Europeana Exhibitions"></a>
-	<a href="rss/exhibitions.xml" title="Click here to subscribe to the exhibitions RSS feed"><img src="splash/img/rss_icon-small.gif" class="share" title=""></a>
 
 
 </header>
