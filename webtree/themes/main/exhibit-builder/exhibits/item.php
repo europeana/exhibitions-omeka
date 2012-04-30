@@ -91,7 +91,7 @@
 
 	<div class="six columns pull-six">
 		<?php
-			if(ve_get_comments_allowed(get_current_item()->getCollection()->name)){
+			if(ve_get_comments_allowed()){
 				try {
 					commenting_echo_comments();
 					commenting_echo_comment_form();	

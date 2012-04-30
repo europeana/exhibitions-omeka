@@ -157,14 +157,16 @@ $story = $page->title;
 
 		<div class="comments-full">
 			<?php
-				if(ve_get_comments_allowed(get_current_item()->getCollection()->name)){
-					try {
-						commenting_echo_comments();
-						commenting_echo_comment_form();	
+				if(exhibit_builder_use_exhibit_page_item(1)){
+					if(ve_get_comments_allowed()){
+						try {
+							commenting_echo_comments();
+							commenting_echo_comment_form();	
+						}
+						catch (Exception $e) {
+							echo('Error: ' . $e->getMessage());
+						}		
 					}
-					catch (Exception $e) {
-						echo('Error: ' . $e->getMessage());
-					}		
 				}
 	
 			?>		
@@ -184,7 +186,7 @@ $story = $page->title;
 			<?php
 				if(exhibit_builder_use_exhibit_page_item(1)){
 
-					if(ve_get_comments_allowed(get_current_item()->getCollection()->name)){
+					if(ve_get_comments_allowed()){
 						try {
 							commenting_echo_comments();
 							commenting_echo_comment_form();	
@@ -203,7 +205,6 @@ $story = $page->title;
 
 
 <script type="text/javascript">
-
 	jQuery(document).ready(function(){
 		var zoomitEnabled = 0;
 		if("<?php echo ve_exhibit_builder_is_zoomit_enabled() ?>".length > 0){

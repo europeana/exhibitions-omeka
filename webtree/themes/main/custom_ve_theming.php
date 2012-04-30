@@ -112,10 +112,9 @@ function ve_get_providers_key($provider, $key)
  * HELPER FUNCTION
  * Get comments enabled
  */
-function ve_get_comments_allowed($exhibitTitleOrCollectionName)
+function ve_get_comments_allowed()
 {
-	include('custom_ve_providers.php');
-	return 	in_array($exhibitTitleOrCollectionName, $commentableCollections);
+	return in_array('comments', get_current_item()->getTags());
 }
 
 /*

@@ -141,7 +141,7 @@ $story = $page->title
 
 		<div class="comments-full">
 			<?php
-				if(ve_get_comments_allowed(get_current_item()->getCollection()->name)){
+				if(ve_get_comments_allowed()){
 					try {
 						commenting_echo_comments();
 						commenting_echo_comment_form();	
@@ -167,7 +167,7 @@ $story = $page->title
 	<div class="twelve columns">
 		<div class="comments-collapsed">
 			<?php
-				if(ve_get_comments_allowed(get_current_item()->getCollection()->name)){
+				if(ve_get_comments_allowed()){
 					try {
 						commenting_echo_comments();
 						commenting_echo_comment_form();	

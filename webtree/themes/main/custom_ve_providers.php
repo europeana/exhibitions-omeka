@@ -17,15 +17,6 @@
  *
  */
 
-/**
- * The collection name (provider) is used to configure commenting.  Collections that share providers cannot be independently configured.
- * */
-$commentableCollections = array();
-
-//$commentableCollections[] = "Judaica Europeana";
-//$commentableCollections[] = "Europeana Connect";
-//$commentableCollections[] = "Europeana";
-
 
 /**
  * Andy: as far as I know the following data is not used
