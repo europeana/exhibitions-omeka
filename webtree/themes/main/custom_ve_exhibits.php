@@ -344,7 +344,12 @@ if(!function_exists('ve_custom_show_embed')){
 											if(strtolower($field) == "rights" && $rightsData["rem"]){
 												$fieldValue =  $rightsData["rem"];
 											}
-											
+
+											if(strtolower($field) == "title"){
+							                    $itemUri = WEB_ROOT . '/items/show/'.item('id').'?tags='.html_escape($exhibitName);
+												$fieldValue = '<a href="'.$itemUri.'">' . $fieldValue . "</a>";
+											}
+
 											$fieldValue = str_replace('<p>',	'',	$fieldValue);
 											$fieldValue = str_replace('</p>',	'',	$fieldValue);
 											$fieldValue = str_replace('<br>',	'',	$fieldValue);
