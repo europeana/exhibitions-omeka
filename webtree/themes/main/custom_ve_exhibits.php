@@ -264,6 +264,15 @@ function ve_link_to_item($text = null, $props = array(), $action = 'show', $item
 }
 
 
+function removeAttribute($tag, $attr){
+	$pattern = '/ '.$attr.'=[\B\n\r\f ]*"[\w :#;-]+"/';
+	
+	//preg_replace('/style\s*=\s*(\'|").+(\'|")/i', '', $img);
+	
+	$pattern = '/'.$attr.'\s*=\s*(\'|").+(\'|")/i'; 
+	return preg_replace($pattern, '', $tag);
+}
+
 /*
  *  Display the embed button only for items with a Creative Commons license. 
     Display embed button only when the item is an image
@@ -277,6 +286,7 @@ function ve_link_to_item($text = null, $props = array(), $action = 'show', $item
         So we need to be able to call for that in the Omeka backend
         
  * */
+
 if(!function_exists('ve_custom_show_embed')){
 	function ve_custom_show_embed(){
 		
@@ -318,8 +328,20 @@ if(!function_exists('ve_custom_show_embed')){
 						$embedFields = array("title", "creator", "data provider", "provider");
 						$html	.=		'<div style="position:relative;float:left;">';
 						
+						//$attrs			=	array();
+						//$attrs[]		= 	"href";
+						//$attrs[]		= 	"rel";
 						$fileImgHtml	=	item_fullsize($file);
 						$fileImgHtml	=	str_replace('<img ', '<img style="width:100%;" ', $fileImgHtml);
+						
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "archive_filename");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "original_filename");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "authentication");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "mime_browser");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "mime_os");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "type_os");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "added");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "modified");
 						
 						$html	.=		$fileImgHtml;
 						
