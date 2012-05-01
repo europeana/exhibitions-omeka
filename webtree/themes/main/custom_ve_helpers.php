@@ -212,9 +212,14 @@ function getAddThisAppId(){
 	return 'ra-4d70f66c15fff6d0';
 }
 
-function getGoogleAnalyticsTrackerObjectJS(){
+function getGoogleAnalyticsAccount(){
 	$gaAccount = 'UA-12776629-3';	// production
 	$gaAccount = 'UA-31316761-1';	// acceptance
+	return $gaAccount; 
+}
+
+function getGoogleAnalyticsTrackerObjectJS(){
+	$gaAccount = getGoogleAnalyticsAccount();
 	
 	$js	= 'var _gaq = _gaq || [];'.PHP_EOL;
 	$js	.= '_gaq.push(["_setAccount", "' . $gaAccount . '"]);'.PHP_EOL;	
@@ -353,6 +358,7 @@ function getAddThisStandard($style = 'float:right; display:inline;'){
 
 function getAddThis($buttons){
 	$appId = getAddThisAppId();
+	$gaAccount = getGoogleAnalyticsAccount();
 	
 	$html = '';
 	$html .=	'<script type="text/javascript">';
@@ -366,7 +372,9 @@ function getAddThis($buttons){
 	$html .=			'"pubid": "' . $appId . '",';
 	$html .=			'"ui_cobrand": "Europeana",';
 	$html .=			'"data_track_clickback": true,';
-	$html .=			'"data_ga_tracker": _gaq';	// Google Analytics tracking object, or the name of a global variable that references it. If set, we'll send AddThis tracking events to Google, so you can have integrated reporting.
+	$html .=			'"data_ga_tracker": _gaq,';	// Google Analytics tracking object, or the name of a global variable that references it. If set, we'll send AddThis tracking events to Google, so you can have integrated reporting.
+	$html .=			'data_ga_property:' . $gaAccount . ',';	
+	$html .=			'data_ga_social: true';	
 	$html .=		'}';
 	$html .=	'</script>';
 	return $html;
