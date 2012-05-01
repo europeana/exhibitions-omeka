@@ -99,7 +99,6 @@ p {
 }
 
 
-
 @media only screen and (max-width: 767px) {
 	.theme-title-row-collapsed{
 		display:	block;
@@ -148,6 +147,21 @@ p {
 .right-text .theme-item-wrapper h6{
 	margin-right: 0.75em;	
 }
+
+@media only screen and (max-width: 768px) and (orientation: portrait){
+
+	.left-text .theme-item-wrapper h6{
+		margin-left: 0.6em;
+		margin-right: -75px;
+		white-space:nowrap;
+	}
+	.right-text .theme-item-wrapper h6{
+		margin-right: 0.6em;
+		margin-left: -75px;
+		white-space:nowrap;
+	}	
+}
+
 
 .theme-item-wrapper {
 	display:		inline-block;
