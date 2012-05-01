@@ -11,7 +11,7 @@
         <es></es>
         <lv>Izstādes</lv>
 		<ru>выставки</ru>
-
+		<sl>Razstava</sl>
     </virtual-exhibitions>
     <choose-a-language>
         <en>Choose a language</en>
@@ -24,6 +24,7 @@
         <lv>Izvēlēties valodu</lv>
         <es>Seleccionar un idioma</es>
 		<ru>На других языках</ru>
+		<sl>Izberite jezik</sl>
 
     </choose-a-language>
     <exhibits-browse>
@@ -37,6 +38,7 @@
         <lv>Pārlūkot izstādes</lv>
         <es>Consultar las exposiciones</es>
 		<ru>Обзор выставок</ru>
+		<sl>Raziskujte razstavo</sl>
 
     </exhibits-browse>
     <exhibit-go-to>
@@ -63,6 +65,7 @@
         <lv>Sākt izstādes apskati</lv>
         <es>Empezar la exposición</es>
 		<ru>Начало осмотра</ru>
+		<sl>Začetek razstave</sl>
 
     </exhibit-start>
     <exhibits-none-this-language>
@@ -89,7 +92,7 @@
         <lv>Tēmas</lv>
         <es>Temas</es>
 		<ru>Темы</ru>
-
+		<sl>Teme</sl>
     </themes>
     <sections>
         <en>Sections</en>
@@ -232,6 +235,7 @@
         <lv>Sazināties ar mums</lv>
         <es>Contáctenos</es>
 		<ru>Контакты</ru>
+		<sl>Kontakt</sl>
 
     </contact-us-title>
     <contact-us-instructions>
@@ -323,6 +327,7 @@
         <lv>Par izstādēm</lv>
         <es>Sobre las exposiciones</es>
 		<ru>О выставках</ru>
+		<sl>O razstavi</sl>
 	</about-exhibitions>
 	
 	<credits>
