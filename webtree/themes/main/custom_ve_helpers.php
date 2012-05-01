@@ -213,7 +213,8 @@ function getAddThisAppId(){
 }
 
 function getGoogleAnalyticsTrackerObjectJS(){
-	$gaAccount = 'UA-12776629-3';
+	$gaAccount = 'UA-12776629-3';	// production
+	$gaAccount = 'UA-31316761-1';	// acceptance
 	
 	$js	= 'var _gaq = _gaq || [];'.PHP_EOL;
 	$js	.= '_gaq.push(["_setAccount", "' . $gaAccount . '"]);'.PHP_EOL;	
