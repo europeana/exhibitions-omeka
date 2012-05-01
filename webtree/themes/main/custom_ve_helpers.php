@@ -373,7 +373,7 @@ function getAddThis($buttons){
 	$html .=			'"ui_cobrand": "Europeana",';
 	$html .=			'"data_track_clickback": true,';
 	$html .=			'"data_ga_tracker": _gaq,';	// Google Analytics tracking object, or the name of a global variable that references it. If set, we'll send AddThis tracking events to Google, so you can have integrated reporting.
-	$html .=			'data_ga_property: ' . $gaAccount . '",';	
+	$html .=			'data_ga_property: "' . $gaAccount . '",';	
 	$html .=			'data_ga_social: true';	
 	$html .=		'}';
 	$html .=	'</script>';
