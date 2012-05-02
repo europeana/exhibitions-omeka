@@ -877,6 +877,15 @@ p.language-ru-main
 	display: block;
 }
 
+/* Language - 1914-1918 */
+
+p.language-sl-dada
+{
+	left: 0.5em;
+	bottom: 2em;
+	display: block;
+}
+
 /* External links */
 
 p.partner-site
