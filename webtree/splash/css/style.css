@@ -480,6 +480,21 @@ p.language-lv-artnouveau
 	display: block;
 }
 
+/* Language - World war one */
+
+p.language-sl-dada
+{
+
+	display: none;
+}
+
+.element.large p.language-sl-dada
+{
+	left: 0.5em;
+	bottom: 1.5em;
+	display: block;
+}
+
 /* External links */
 
 p.partner-site
