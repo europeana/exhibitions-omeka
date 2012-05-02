@@ -21,11 +21,39 @@
 <section id="content">
 
 	<div id="container" class="clickable clearfix">
+    
+    
+<!-- FEATURED ITEM - ensure that the class is "element large" -->
+  
+    <section contextmenu="europeana-1914-1918">
+    <div class="element large">
+    <img src="splash/img/img21.jpg" />
+    <img class="overlay" src="splash/logos/logo-white.png" />
+    <h2 class="name dark">Untold stories from World War One</h2>
+    <p class="language-en-main"><a href="exhibits/show/europeana-1914-1918-en">English</a></p>
+    <p class="language-fr-dada"><a href="exhibits/show/europeana-1914-1918-fr">Fran&ccedil;ais</a></p>
+	<p class="language-de-dada"><a href="exhibits/show/europeana-1914-1918-de">Deutsch</a></p>
+    <p class="language-sl-dada"><a href="exhibits/show/europeana-1914-1918-sl">Slovenian</a></p>
+  
+  <!-- Below is used for context menus, these only work in Firefox (at present - Mar 2012 -->
+  
+     <menu type="context" id="europeana-1914-1918">
+	 <menu label="Share on..." icon="splash/img/share_icon.gif">
+	 <menuitem label="Twitter" icon="splash/img/twitter_icon.gif" onclick="goTo('//twitter.com/intent/tweet?text=' + 'Untold stories from World War One: http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en');"></menuitem>
+	 <menuitem label="Facebook" icon="splash/img/facebook_icon.gif" onclick="goTo('//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en');"></menuitem>
+	 </menu>
+	 </menu>
+    
+     </div>
+     </section>
+    
+<!-- END FEATURED ITEM -->    
+    
 
 <!-- FEATURED ITEM - ensure that the class is "element large" -->
   
     <section contextmenu="wiki-loves-artnouveau">
-    <div class="element large">
+    <div class="element inner-transition">
     <img src="splash/img/img21.jpg" />
     <img class="overlay" src="splash/logos/logo-white.png" />
     <img class="partner-overlay" src="splash/logos/logo_wiki_loves_monuments.png" />
