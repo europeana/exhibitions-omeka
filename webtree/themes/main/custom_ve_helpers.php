@@ -213,8 +213,8 @@ function getAddThisAppId(){
 }
 
 function getGoogleAnalyticsAccount(){
+	//$gaAccount = 'UA-31316761-1';	// acceptance
 	$gaAccount = 'UA-12776629-3';	// production
-	$gaAccount = 'UA-31316761-1';	// acceptance
 	return $gaAccount; 
 }
 

@@ -78,8 +78,8 @@
  
             <script type="text/javascript">
   var _gaq = _gaq || [];
-  //_gaq.push(['_setAccount', 'UA-12776629-3']);
-  _gaq.push(['_setAccount', 'UA-31316761-1']);
+  //_gaq.push(['_setAccount', 'UA-31316761-1']);	// acceptance
+  _gaq.push(['_setAccount', 'UA-12776629-3']); // production
   _gaq.push(['_trackPageview']);
 
   (function() {
