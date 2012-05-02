@@ -13,6 +13,34 @@
 		<link>http://exhibitions.europeana.eu</link>
 		<description>Explore the newest exhibitions on Europeana.</description>
 	</image>
+
+	<item>
+       <title>Untold stories from World War One</title>
+       <link>http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-sl</link>
+       <description>Slovenian language version of the Untold stories from World War One exhibition</description>
+	   <pubDate>Wed, 02 May 2012 14:00:00 GMT</pubDate>
+    </item>
+	
+	<item>
+       <title>Untold stories from World War One</title>
+       <link>http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-de</link>
+       <description>German language version of the Untold stories from World War One exhibition</description>
+	   <pubDate>Wed, 02 May 2012 14:00:00 GMT</pubDate>
+    </item>
+	
+	<item>
+       <title>Untold stories from World War One</title>
+       <link>http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-fr</link>
+       <description>French language version of the Untold stories from World War One exhibition</description>
+	   <pubDate>Wed, 02 May 2012 14:00:00 GMT</pubDate>
+    </item>
+	
+	<item>
+       <title>Untold stories from World War One</title>
+       <link>http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en</link>
+       <description>English language version of the Untold stories from World War One exhibition</description>
+	   <pubDate>Wed, 02 May 2012 14:00:00 GMT</pubDate>
+    </item>
 	
     <item>
        <title>Wiki Loves Art Nouveau</title>
