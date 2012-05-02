@@ -33,7 +33,7 @@
     <p class="language-en-main"><a href="exhibits/show/europeana-1914-1918-en">English</a></p>
     <p class="language-fr-dada"><a href="exhibits/show/europeana-1914-1918-fr">Fran&ccedil;ais</a></p>
 	<p class="language-de-dada"><a href="exhibits/show/europeana-1914-1918-de">Deutsch</a></p>
-    <p class="language-sl-dada"><a href="exhibits/show/europeana-1914-1918-sl">Slovenian</a></p>
+    <p class="language-sl-dada"><a href="exhibits/show/nepovedane-zgodbe-sl">Slovenian</a></p>
   
   <!-- Below is used for context menus, these only work in Firefox (at present - Mar 2012 -->
   
