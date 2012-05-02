@@ -1,3 +1,48 @@
+	<div class="return-nav">
+		<?php echo ve_return_to_exhbit(); ?>
+	</div>
+
+	<h1>Credits</h1>
+	<p><img src="http://pro.europeana.eu/image/image_gallery?uuid=c5a29509-b00d-434f-b68e-ab91b36efa6a&groupId=858566&t=1335946587432" title="Peter Englund" style="float: left; margin: 0 20px 20px 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut orci sed dui feugiat ultricies. Nulla hendrerit mattis nulla, vel fermentum mauris suscipit nec. Fusce viverra facilisis turpis. In hendrerit turpis sed justo convallis tincidunt. Aliquam volutpat ante nec erat vestibulum iaculis. Pellentesque a sagittis sem. Etiam odio eros, faucibus id vulputate ac, venenatis id lectus. 
+	</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut orci sed dui feugiat ultricies. Nulla hendrerit mattis nulla, vel fermentum mauris suscipit nec. Fusce viverra facilisis turpis. In hendrerit turpis sed justo convallis tincidunt. Aliquam volutpat ante nec erat vestibulum iaculis. Pellentesque a sagittis sem. Etiam odio eros, faucibus id vulputate ac, venenatis id lectus. </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut orci sed dui feugiat ultricies. Nulla hendrerit mattis nulla, vel fermentum mauris suscipit nec. Fusce viverra facilisis turpis. In hendrerit turpis sed justo convallis tincidunt. Aliquam volutpat ante nec erat vestibulum iaculis. Pellentesque a sagittis sem. Etiam odio eros, faucibus id vulputate ac, venenatis id lectus. </p>
+	
+	<p>Powered by <a href="http://omeka.org/" target="_blank">Omeka</a>.</p>
+
+</div>
+<div class="row credits-embed">
+
+	<div class="four columns">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=f74c1127-d1df-45c4-ae3f-8135638b2eb3&groupId=10128&t=1288186170877" class="credits-img">
+		<br />
+		<strong>To embed copy and paste below code:</strong>
+		<br />
+		<br />
+		<span style="font-size: 9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en" title="Art Nouveau on Europeana"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=f74c1127-d1df-45c4-ae3f-8135638b2eb3&groupId=10128&t=1288186170877" width="211" height="118" alt="Art Nouveau on Europeana"&#062;&#060;/a&#062;</span>
+	</div>
 
 
-Dean's stuff...
+	<div class="four columns">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=be0f3406-7c69-460f-a235-c387c0717249&groupId=10128&t=1288186185672" class="credits-img">
+		<br />
+		<strong>To embed copy and paste below code:</strong>
+		<br />
+		<br />
+		<span style="font-size: 9px;"> &#60;a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en" title="Art Nouveau on Europeana"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=be0f3406-7c69-460f-a235-c387c0717249&amp;groupId=10128&amp;t=1288186185672" width="211" height="118" alt="Art Nouveau on Europeana"&#062;&#060;/a&#062;</span>
+	</div>
+
+
+	<div class="four columns">
+		<img src="http://pro.europeana.eu/image/image_gallery?uuid=453f6a4f-9259-4288-8771-7984d405d70e&groupId=10128&t=1288186208513" class="credits-img">
+		<br />
+		<strong>To embed copy and paste below code:</strong>
+		<br />
+		<br />
+		<span style="font-size: 9px;">&#60;a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en" title="Art Nouveau on Europeana"&#062;&#60;img src="http://pro.europeana.eu/image/image_gallery?uuid=453f6a4f-9259-4288-8771-7984d405d70e&groupId=10128&t=1288186208513" width="211" height="118" alt="Art Nouveau on Europeana"&#062;&#060;/a&#062;</span>
+	</div>
+</div>
+
+<div>
+	<?php foot($vars = array(), $file = 'contactfooter'); ?>
+	
