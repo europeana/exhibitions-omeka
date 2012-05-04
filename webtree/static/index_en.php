@@ -8,7 +8,7 @@
 
 
 	<div id="standard_shares" class="landing">
-		<a href="rss/exhibitions.xml" title="Click here to subscribe to the exhibitions RSS feed"><img src="splash/img/rss_icon-small.gif" class="share" title=""></a>
+		<a href="http://feeds.feedburner.com/Europeana-Exhibitions" title="Click here to subscribe to the exhibitions RSS feed"><img src="splash/img/rss_icon-small.gif" class="share" title=""></a>
 		<?php echo getAddThisStandard(); ?>
 	</div>
 
