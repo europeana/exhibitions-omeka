@@ -27,7 +27,7 @@
   
     <section contextmenu="europeana-1914-1918">
     <div class="element large">
-    <img src="splash/img/img21.jpg" />
+    <img src="splash/img/19141918_main.jpg" />
     <img class="overlay" src="splash/logos/logo-white.png" />
     <h2 class="name dark">Untold stories from World War One</h2>
     <p class="language-en-main"><a href="exhibits/show/europeana-1914-1918-en">English</a></p>
