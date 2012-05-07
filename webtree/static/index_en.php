@@ -29,7 +29,7 @@
     <div class="element large">
     <img src="splash/img/19141918_main.jpg" />
     <img class="overlay" src="splash/logos/logo-white.png" />
-    <h2 class="name dark">Untold stories from World War One</h2>
+    <h2 class="name dark">Untold stories of the First World War</h2>
     <p class="language-en-main"><a href="exhibits/show/europeana-1914-1918-en">English</a></p>
     <p class="language-fr-dada"><a href="exhibits/show/europeana-1914-1918-fr">Fran&ccedil;ais</a></p>
 	<p class="language-de-dada"><a href="exhibits/show/europeana-1914-1918-de">Deutsch</a></p>
@@ -39,7 +39,7 @@
   
      <menu type="context" id="europeana-1914-1918">
 	 <menu label="Share on..." icon="splash/img/share_icon.gif">
-	 <menuitem label="Twitter" icon="splash/img/twitter_icon.gif" onclick="goTo('//twitter.com/intent/tweet?text=' + 'Untold stories from World War One: http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en');"></menuitem>
+	 <menuitem label="Twitter" icon="splash/img/twitter_icon.gif" onclick="goTo('//twitter.com/intent/tweet?text=' + 'Untold stories of the First World War: http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en');"></menuitem>
 	 <menuitem label="Facebook" icon="splash/img/facebook_icon.gif" onclick="goTo('//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en');"></menuitem>
 	 </menu>
 	 </menu>
