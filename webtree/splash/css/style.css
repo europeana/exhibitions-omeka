@@ -75,181 +75,159 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+  margin:			0;
+  padding:			0;
+  border:			0;
+  vertical-align:	baseline;
 }
+
+
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
+
 body {
-  margin: 1.5625%;/*15px;*/
-  font-family: Chevin, Arial, sans-serif;
-  font-size: 1em;
-  line-height: 1.48em;
-  background: #FFF;
-  color: #333;
-  position: relative;
-  width: 100%;
-  overflow-x: hidden;
+	font-family:	Chevin, Arial, sans-serif;
+	line-height:	1.48em;
+	background:		#FFF;
+	color:			#333;
 }
 
-/* Headers */
 
-h2 {
-  font-size: 1.5em; /*24px;*/
-  line-height: 1.1em;
-  font-family: Chevin, Arial, sans-serif;
-}
 
 /* Links */
 
-a,
-a code {
-  color: #0075FF;
-  text-decoration: none;
-  font-size: 1em;
+a, a code {
+	color:				#0075FF;
+	text-decoration:	none;
 }
 
-a:hover,
-a:hover code { 
-  color: #FF00C2; 
+a:hover, a:hover code{ 
+	color:				#FF00C2; 
 }
 
-a:active,
-a:active code {
-  color: #FF00C2;
-  background: black;
+a:active, a:active code{
+	color:				#FF00C2;
 }
 
 /**** Isotope styles ****/
 
 /* required for containers to inherit vertical size from window */
-html,
-body {
-  height: 100%;
-  *overflow-y: scroll;
+html, body{
+  height:		100%;
+  *overflow-y:	scroll;
 }
 
-#container {
-  /*border: 1px solid #666; */
-  padding: 0.5280333333333%; /*5px; */
-  margin-bottom: 2.08333333333%; /*20px;*/
+#section-container {
+  margin-bottom:	2.08333333333%; /*20px;*/
 }
 
 
-/* Header
-================================================== */
+/****** Header ******/
 
 header{
-  border-bottom:1px solid #666;
-  width: 97%;
-  text-align:left;
-  padding-bottom: 5px;
-  
+  border-bottom:	1px solid #666;
+  width:			97%;
+  text-align:		left;
+  padding-bottom:	5px;
 }
 
 header img.main-logo {
-	width: 285px;
-	height: 160px;
+	width:		285px;
+	height:		160px;
 }
 
-/*header img.logo{
-	display: none;
-	width: 80px;
-
-}*/
 header{
 	position: relative;
 }
 
 #standard_shares.landing{
-    bottom: 1em;
-    float: right;
-    margin-right: 20px;
-    position: absolute;
-    right: 0;
+    bottom:			1em;
+    float:			right;
+    margin-right:	20px;
+    position:		absolute;
+    right:			0;
 }
 
-header img.share {
+header img.share{
 	float:			right; 
 	margin-left:	2em;
 }
 
-/* Body
-================================================== */
+/****** Body ******/
 
 /* The small boxes */
 
 .element {
-  width: 200px; /*22.91666666666667%; /*220px;*/
-  height: 200px; /*22.91666666666667%; /*220px;*/
-  margin: 5px;
-  float: left;
-  overflow: hidden;
-  position: relative;
-  background: #DFDFDF; /* #888 was the darker one */
-  color: #FFF;
-  -webkit-border-radius: 18px; /* Saf3-4, iOS 1-3.2, Android =1.6 */
-  -moz-border-radius: 18px; /* FF1-3.6 */
-  border-radius: 18px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
-  -moz-background-clip: padding; 
-  -webkit-background-clip: padding-box; 
-  background-clip: padding-box;
+	
+  /* these will be overwritten by script, but default are needed to stop isotope messing up */
+  width:						200px; 
+  height:						200px;
+	
+  overflow:						hidden;
+  position:						relative;
+  background:					#DFDFDF; /* #888 was the darker one */
+  color:						#FFF;
+  -webkit-border-radius:		18px; /* Saf3-4, iOS 1-3.2, Android =1.6 */
+  -moz-border-radius:			18px; /* FF1-3.6 */
+  border-radius:				18px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+  -moz-background-clip:			padding; 
+  -webkit-background-clip:		padding-box; 
+  background-clip:				padding-box;
 }
 
-.element * {
-  position: absolute;
-  margin: 0;
+
+/****** Branding / secondary branding ******/
+
+.overlay, .partner-overlay, .overlay-tel{
+	position:		absolute;
+	margin:			0;
+	top:			0.5em;
+	left:			0.5em;
 }
 
-/* Text overlay on the small boxes */
+.overlay{
+	width:		15%;
+}
+
+.overlay-tel{
+	width:		28%;
+}
+
+.partner-overlay {
+	right:	0.5em;
+	left:	auto;
+	width:	20%;
+}
+
+
+/****** Text overlay on the small boxes ******/
 
 .element .name {
-  left: 0.5em;
-  bottom: 0.5em;
-  font-size: 1.125em;
-  background: #333;
-  filter: Alpha(Opacity=70);
-  background: rgba(0,0,0,0.7);
-}
-
-.element .languages {
-  display: none;
+  background:		#333;
+  filter:			Alpha(Opacity=70);
+  background:		rgba(0,0,0,0.7);
 }
 
 
 /* normal variables */
 
-.variable-sizes .element.width2.height2 {
-  font-size: 2.0em;
-}
-
-.element.large,
-.variable-sizes .element.large,
-.variable-sizes .element.large.width2.height2 {
-  font-size: 1.8em;
-  width: 410px; /*460px;*/ 
-  height: 410px; /*46.875%; /*450px;*/ 
-  z-index: 100;
-}
-
 .clickable .element:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
-.clickable .element:hover h2 {
-  box-shadow:
-    0 0 6px #888,
-    0 0 6px #888
-  ;
+.clickable .element:hover h5 {
+	box-shadow: 	0 0 6px #888, 0 0 6px #888;
 }
+
+.clickable h5:hover {
+	box-shadow: 	0 0 6px #888, 0 0 6px #888;
+  	cursor:			pointer;
+}
+
 
 /* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
 .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; visibility: hidden; }
@@ -262,238 +240,39 @@ header img.share {
 
 /* This is the black background on the large images */
 
-.dark {
-	color: #fff;
-	padding: 1.520833333333333%;
-	-moz-box-shadow: 0 5px 5px 0 #000;
-	-webkit-box-shadow: 0 5px 5px 0 #000;
-	box-shadow: 0 5px 5px 0 #000;
- 
+.dark{
+	color:				#fff;
+	-moz-box-shadow:	0 5px 5px 0 #000;
+	-webkit-box-shadow:	0 5px 5px 0 #000;
+	box-shadow:	0 5px 5px 0 #000;
 }
 
-/* This is the provider / Europeana logo in the top left - The European Library logo has other tweaks attached*/
 
-.overlay {
-	left: 0.5em;
-	top: 0.5em;
-	width: 15%;
-}
 
-.overlay-tel {
-	left: 0.5em;
-	top: 0.5em;
-	height: 15%;
-}
-
-/* This is the secondary branding logo */
-
-.partner-overlay {
-	right: 0.5em;
-	top: 0.5em;
-	width: 15%;
-}
 
 /* Large image changes */
 
 .element.large .dark {
-	color: #fff;
-	filter: Alpha(Opacity=100);
-	background: #121212;
-	padding: 0.520833333333333%; /*5px;*/
-	position: relative;
-	top: 7em;
-/* 	margin: 0 15px 0 0; */
-	margin-right: 1.5625%;
-}
-
-.element.large .overlay {
-	left: 0.5em;
-	top: 0.5em;
-	width: 15%;
-}
-
-.element.large .partner-overlay {
-	right: 0.5em;
-	top: 0.5em;
-	width: 15%;
+	filter:			Alpha(Opacity=100);
+	background:		#121212;
+	position:		relative;
 }
 
 
-/* Languages - MESSY - but I had to go this route, as multiple links were causing me headaches with Isotope, I'm sure there is a nicer way! */
+/* Languages */
 
-p.language-en-main
-{
-	display: none;
+.languages{
+	background-color:	#DFDFDF;
+	display:			none;
 }
 
-p.language-ru-main
-{
-	display: none;
+.element.large .languages{
+	display: 		block;
+	width:			100%;	
+	position:		absolute;
+	bottom:			0px;
 }
 
-.element.large p.language-en-main
-{
-	left: 0.5em;
-	bottom: 2.8em;
-	display: block;
-}
-
-.element.large p.language-ru-main
-{
-	left: 4em;
-	bottom: 2.8em;
-	display: block;
-}
-
-/* Language - English */
-
-p.language-en
-{
-	display: none;
-}
-
-.element.large p.language-en
-{
-	left: 0.5em;
-	bottom: 2.8em;
-	display: block;
-}
-
-/* Language - Dada */
-
-p.language-en-dada
-{
-	display: none;
-}
-
-.element.large p.language-en-dada
-{
-	left: 0.5em;
-	bottom: 2.8em;
-	display: block;
-}
-
-p.language-fr-dada
-{
-	display: none;
-}
-
-.element.large p.language-fr-dada
-{
-	left: 4em;
-	bottom: 2.8em;
-	display: block;
-}
-
-p.language-de-dada
-{
-
-	display: none;
-}
-
-.element.large p.language-de-dada
-{
-	left: 8em;
-	bottom: 2.8em;
-	display: block;
-}
-
-p.language-es-dada
-{
-
-	display: none;
-}
-
-.element.large p.language-es-dada
-{
-	left: 0.5em;
-	bottom: 1.5em;
-	display: block;
-}
-
-p.language-nl-dada
-{
-
-	display: none;
-}
-
-.element.large p.language-nl-dada
-{
-	left: 4em;
-	bottom: 1.5em;
-	display: block;
-}
-
-/* Language - MIMO */
-
-p.language-it-music
-{
-
-	display: none;
-}
-
-.element.large p.language-it-music
-{
-	left: 0.5em;
-	bottom: 1.5em;
-	display: block;
-}
-
-p.language-sv-music
-{
-
-	display: none;
-}
-
-.element.large p.language-sv-music
-{
-	left: 9em;
-	bottom: 1.5em;
-	display: block;
-}
-
-/* Language - Art Nouveau */
-
-p.language-pl-artnouveau
-{
-
-	display: none;
-}
-
-.element.large p.language-pl-artnouveau
-{
-	left: 8em;
-	bottom: 2.8em;
-	display: block;
-}
-
-p.language-lv-artnouveau
-{
-
-	display: none;
-}
-
-.element.large p.language-lv-artnouveau
-{
-	left: 9em;
-	bottom: 1.5em;
-	display: block;
-}
-
-/* Language - World war one */
-
-p.language-sl-dada
-{
-
-	display: none;
-}
-
-.element.large p.language-sl-dada
-{
-	left: 0.5em;
-	bottom: 1.5em;
-	display: block;
-}
 
 /* External links */
 
@@ -504,25 +283,34 @@ p.partner-site
 
 .element.large p.partner-site
 {
-	left: 0.5em;
-	bottom: 2.8em;
-	display: block;
-	width: 90%;
+	left:			0.5em;
+
+	display: 		table;
+	width:			100%;
+	text-align:		center;
+	padding-top:	0.5em;
+
+	position:		absolute;
+	bottom:			0px;
+	line-height:	2.5em;
 }
 
 
 /* Footer
 ================================================== */
 
+.footer_row{
+	border-top:		1px solid #666;
+}
+
 footer{
-  position:relative;
-  display:block;
-  float:left;
-  border-top:1px solid #666;
-  width:97%;
-  padding-top: 5px;
-  padding-bottom:5px;
-  text-align:left;
+  position:			relative;
+  display:			block;
+  float:			left;
+  width:			97%;
+  padding-top:		5px;
+  padding-bottom:	5px;
+  text-align:		left;
 }
 
 footer ul{
@@ -551,388 +339,130 @@ footer a{
   /* Tablet Portrait size to standard 960 (devices and browsers) */
   @media only screen and (min-width: 768px) and (max-width: 959px) {
 	  
-body {
-  margin: 1.5625% 1.5625% 1.5625% 2.5625%;/*15px;*/
-  font-size: 1em;
-}
+	.element {
+		color:						#FFF;
+		-webkit-border-radius:		18px; /* Saf3-4, iOS 1-3.2, Android =1.6 */
+		-moz-border-radius:			18px; /* FF1-3.6 */
+		border-radius:				18px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+		-moz-background-clip:		padding; 
+		-webkit-background-clip:	padding-box; 
+		background-clip:			padding-box;
+	}
 
-.element.large,
-.variable-sizes .element.large,
-.variable-sizes .element.large.width2.height2 {
-  font-size: 1.8em;
-  width: 350px; /*460px;*/ 
-  height: 350px; /*46.875%; /*450px;*/ 
-  z-index: 100;
+	.element.large .dark {
+		filter:			Alpha(Opacity=100);
+		background:		#121212;
+		padding:		0.520833333333333%; /*5px;*/
+	}
 }
-
-
-.element {
-  width: 170px; /*22.91666666666667%; /*220px;*/
-  height: 170px; /*22.91666666666667%; /*220px;*/
-  margin: 5px;
-  float: left;
-  overflow: hidden;
-  position: relative;
-  background: #DFDFDF; /* #888 was the darker one */
-  color: #FFF;
-  -webkit-border-radius: 18px; /* Saf3-4, iOS 1-3.2, Android =1.6 */
-  -moz-border-radius: 18px; /* FF1-3.6 */
-  border-radius: 18px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
-  -moz-background-clip: padding; 
-  -webkit-background-clip: padding-box; 
-  background-clip: padding-box;
-}
-
-.element img {
-	max-height: 270px;
-}
-
-.dark {
-	color: #fff;
-	padding: 5px;
-	-moz-box-shadow: 0 5px 5px 0 #000;
-	-webkit-box-shadow: 0 5px 5px 0 #000;
-	box-shadow: 0 5px 5px 0 #000;
-	position: relative;
-	top: 92px; /*6.5em;*/
- 	margin: 0 15px 0 0;
- 
-}
-
-.element.large .dark {
-	color: #fff;
-	filter: Alpha(Opacity=100);
-	background: #121212;
-	padding: 0.520833333333333%; /*5px;*/
-	position: relative;
-	top: 5.5em;
-/* 	margin: 0 15px 0 0; */
-	margin-right: 1.5625%;
-}
-
-p {
-	font-size: 0.875em;
-}
-	  
-	  }
 
   /* All Mobile Sizes (devices and browser) */
   @media only screen and (max-width: 767px) {
 	  
-	 }
+  }
+
 
   /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
   @media only screen and (min-width: 480px) and (max-width: 767px) {
+		header img.main-logo {
+			width: 214px;
+			height: 120px;
+		}	  
+  }
 
-body {
-  margin: 1.5625% 1.5625% 1.5625% 5.5625%;/*15px;*/
-}
-header img.share {
-	xxxxxfloat:right; 
-	xxxxxpadding: 100px 50px 0 0;
-}
-
-
-header img.main-logo {
-	width: 214px;
-	height: 120px;
-}	  
-
-	  }
 
   /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
   @media only screen and (max-width: 479px) {
 
-body {
-  margin: 1.5625% 1.5625% 1.5625% 5.5625%;/*15px;*/
+	.element {
+		color:					#FFF;
+		-webkit-border-radius:	16px;
+		-moz-border-radius:		16px;
+		border-radius:			16px;
+	}
+
+	.element .name {
+		background:				#121212;
+	}
+
+	/* normal variables */
+
+	.element.large{
+		color:					#FFF;
+		-webkit-border-radius:	16px;
+		-moz-border-radius:		16px;
+		border-radius:			16px;
+	}
+
+	/* Additional styling changes for the Europeana exhibition front page */
+
+	.dark {
+		-moz-box-shadow:		0 5px 5px 0 #000;
+		-webkit-box-shadow:		0 5px 5px 0 #000;
+		box-shadow:				0 5px 5px 0 #000;
+	}
+
+	.element.large .dark {
+		padding:			5px;
+		-moz-box-shadow:	0 5px 5px 0 #000;
+		-webkit-box-shadow:	0 5px 5px 0 #000;
+		box-shadow:			0 5px 5px 0 #000;
+		background:			#121212;
+		position:			relative;
+	 	margin:				0 15px 0 0;
+	}
+
+
+	.element.large .overlay {
+		width: 15%;
+	}
+
+	header {
+		height: 60px;
+	}
+
+	header a{
+		background: none;
+	}
+
+	header img.main-logo{
+		width:		107px;
+		height:		60px;
+		display:	inline-block;
+	}
+
+	footer a{
+		background: none;
+	}
+
+
+
+	/* External links */
+
+	p.partner-site{
+		left:		0.5em;
+		bottom:		2.8em;
+		width:		90%;
+	}
+
+	/* Footer */
+
+	footer{
+		position:relative;
+		display:block;
+		float:left;
+		border-top:1px solid #666;
+		width:88%;
+		padding-top: 5px;
+		padding-bottom:5px;
+		text-align:left;
+	}
+
+
+	footer li{
+		margin-left: 0px;
+		margin-right: 0.8em;
+		display: inline;
+	}
 }
 
-.element {
-  width: 250px;
-  height: 250px;
-  margin: 5px 5px 5px 10px;
-  float: left;
-  overflow: hidden;
-  position: relative;
-  background: #DFDFDF; /* #888 was the darker one */
-  color: #FFF;
-  -webkit-border-radius: 16px;
-  -moz-border-radius: 16px;
-  border-radius: 16px;
-}
-
-.element .name {
-  left: 8px; /*0.5em;*/
-  bottom: 8px; /*0.5em;*/
-  font-size: 18px; /*1.125em;*/
-  background: #121212;
-}
-
-/* This is the highlighted object */
-
-.height2 { 
-font-size: 18px; /*1.125em;*/
-width: 250px; 
-height: 250px; 
-margin: 5px 5px 5px 10px;
-float: left;
-overflow: hidden;
-position: relative;
-background: #DFDFDF; /* #888 was the darker one */
-color: #FFF;
--webkit-border-radius: 16px;
--moz-border-radius: 16px;
-border-radius: 16px;
-z-index: 100;
-}
-
-/* normal variables */
-
-.variable-sizes .element.width2.height2 {
-  font-size: 18px; /*1.125em;*/
-}
-
-.element.large,
-.variable-sizes .element.large,
-.variable-sizes .element.large.width2.height2 {
-  font-size: 18px; /*1.125em;*/
-  width: 250px;
-  height: 250px;
-  margin: 5px 5px 5px 10px;
-  float: left;
-  overflow: hidden;
-  position: relative;
-  background: #DFDFDF; /* #888 was the darker one */
-  color: #FFF;
-  -webkit-border-radius: 16px;
-  -moz-border-radius: 16px;
-  border-radius: 16px;
-  z-index: 100;
-}
-
-/* Additional styling changes for the Europeana exhibition front page */
-
-.dark {
-	color: #fff;
-	padding: 5px;
-	-moz-box-shadow: 0 5px 5px 0 #000;
-    -webkit-box-shadow: 0 5px 5px 0 #000;
-	box-shadow: 0 5px 5px 0 #000;
-	position: relative;
-	top: 120px; /*6.5em;*/
- 	margin: 0 15px 0 0;
- 
-}
-
-.overlay {
-	left: 8px; /*0.5em;*/
-	top: 8px; /*0.5em;*/
-	width: 15%;
-}
-
-.element.large .dark {
-	color: #fff;
-	padding: 5px;
-	-moz-box-shadow: 0 5px 5px 0 #000;
-	-webkit-box-shadow: 0 5px 5px 0 #000;
-	box-shadow: 0 5px 5px 0 #000;
-	background: #121212;
-	position: relative;
-	top: 120px; /*6.5em;*/
- 	margin: 0 15px 0 0;
-}
-
-
-
-.element.large .overlay {
-	left: 8px; /*0.5em;*/
-	top: 8px; /*0.5em;*/
-	width: 15%;
-}
-
-.height2  .overlay {
-	left: 8px; /*0.5em;*/
-	top: 8px; /*0.5em;*/
-	width: 15%;
-}
-
-.height2  .dark {
-	color: #fff;
-	background: #121212;
-	padding: 5px;
-	position: relative;
-	top: 120px; /*6.5em;*/
- 	margin: 0 15px 0 0;
-}
-
-a {
-	background: #000;
-} 
-
-header {
-	height: 60px;
-}
-
-header a{
-	background: none;
-}
-
-header img.main-logo{
-	width: 107px;
-	height: 60px;
-	display: inline-block;
-}
-
-
-/*header img.logo{
-	width: 50px;
-	display: inline-block;
-}*/
-
-header img.share {
-	xxxxxfloat:right; 
-	xxxxxpadding: 40px 20% 0 0;
-}
-
-footer a{
-	background: none;
-}
-
-
-/* Language - English */
-
-p.language-en
-{
-	left: 0.5em;
-	bottom: 2.8em;
-	display: block;
-}
-
-/* Language - Dada */
-
-p.language-en-dada
-{
-	left: 0.5em;
-	bottom: 3.5em;
-	display: block;
-}
-
-p.language-fr-dada
-{
-	left: 4em;
-	bottom: 3.5em;
-	display: block;
-}
-
-p.language-de-dada
-{
-	left: 8em;
-	bottom: 3.5em;
-	display: block;
-}
-
-p.language-es-dada
-{
-	left: 0.5em;
-	bottom: 2em;
-	display: block;
-}
-
-p.language-nl-dada
-{
-	left: 4em;
-	bottom: 2em;
-	display: block;
-}
-
-/* Language - MIMO */
-
-p.language-it-music
-{
-	left: 0.5em;
-	bottom: 2em;
-	display: block;
-}
-
-p.language-sv-music
-{
-	left: 9em;
-	bottom: 2em;
-	display: block;
-}
-
-/* Language - Art Nouveau */
-
-p.language-pl-artnouveau
-{
-	left: 8em;
-	bottom: 3.5em;
-	display: block;
-}
-
-p.language-lv-artnouveau
-{
-	left: 9em;
-	bottom: 2em;
-	display: block;
-}
- 
-
-p.language-en-main
-{
-	left: 0.5em;
-	bottom: 2.8em;
-	display: block;
-}
-
-p.language-ru-main
-{
-	left: 4em;
-	bottom: 2.8em;
-	display: block;
-}
-
-/* Language - 1914-1918 */
-
-p.language-sl-dada
-{
-	left: 0.5em;
-	bottom: 2em;
-	display: block;
-}
-
-/* External links */
-
-p.partner-site
-{
-	left: 0.5em;
-	bottom: 2.8em;
-	display: block;
-	width: 90%;
-}
-
-/* Footer
-================================================== */
-
-footer{
-  position:relative;
-  display:block;
-  float:left;
-  border-top:1px solid #666;
-  width:88%;
-  padding-top: 5px;
-  padding-bottom:5px;
-  text-align:left;
-}
-
-
-
-footer li{
-	margin-left: 0px;
-	margin-right: 0.8em;
-	display: inline;
-}
-
-
-	  
-	  }
