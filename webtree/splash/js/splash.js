@@ -6,17 +6,19 @@
 
    		var noCols = 0;
     	var containerWidth = jQuery("#section-container").width();
-
+alert(containerWidth)
     	if(containerWidth <= 980){ // fullsize for foundation: iPad landscape
     	   	noCols = 5;
     	}
     	if(containerWidth <= 800){ // portrait iPad & galaxy are 760
     		noCols = 4;
 		}
-    	if(containerWidth < 760){ // anything smaller than iPad portrait
+    	if(containerWidth < 728){ // anything smaller than iPad portrait
+    		noCols = 3;
+		}
+    	if(containerWidth < 700){ // anything smaller than iPad portrait
     		noCols = 2;
 		}
-
     	if(containerWidth < 450){ // anything smaller than iPad portrait
     		noCols = 1;
 		}
