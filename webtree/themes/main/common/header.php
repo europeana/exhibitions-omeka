@@ -12,22 +12,12 @@ ve_session_vars();
 
 
 	
-	<meta http-equiv="X-UA-Compatible" value="IE=9">
+	<meta http-equiv="X-UA-Compatible" value="IE=9" />
 	
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="author" content="Dean Birkett">
-	<meta name="author" content="Andy MacLean">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <script type="text/javascript">var web_root = "<?php echo WEB_ROOT; ?>";</script>
 
-	<!--
-	<meta property="og:title" content="Exhibit Item Title" />
-	<meta property="og:type" content="article" />
-	<meta property="og:url" content="http://test.exhibit.eanadev.org/exhibits/show/weddings-in-eastern-europe/themes" />
-	<meta property="og:image" content="http://test.exhibit.eanadev.org/archive/square_thumbnails/95e1ed0cc332cd1cc9aed7760459ffa2.jpg" />
-	<meta property="og:site_name" content="Europeana Exhibitions" />
-	<meta property="fb:app_id" content="185778248173748" />
-	-->
 
 <?php
 	$pageURL = "http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
@@ -37,9 +27,12 @@ ve_session_vars();
 
 <?php if ($pageURL == WEB_ROOT."/"): ?>
 
+	<meta name="author" content="Andy MacLean" />
+	<meta name="author" content="Dean Birkett" />
+
 	<title>Europeana Exhibitions</title>
 
-	<meta name="description" content="Europeana Exhibitions, a place for Europeana and their partners to showcase their exhibitions.">
+	<meta name="description" content="Europeana Exhibitions, a place for Europeana and their partners to showcase their exhibitions." />
 
 	<!--
 		Splash page body comes from SimplePages, which wraps everything in a div with the id "primary".
@@ -48,120 +41,22 @@ ve_session_vars();
 	
 	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->	
 	
+
+
+
+	<!--link rel="stylesheet" href="http://127.0.0.1/ombad/webtree/themes/main/css/foundation/stylesheets/foundation.css" /-->
+	<link rel="stylesheet" href="http://test.exhibit.eanadev.org/themes/main/css/foundation/stylesheets/foundation.css" />
 	<link rel="stylesheet" href="splash/css/style.css" />
+	<link rel="stylesheet" href="splash/css/splash.css" />
+
 	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="splash/css/ie7.css" /><![endif]-->
-	<!-- wut no JS? -->
-	 
-	<noscript><style>
-	 
-	/* Below are messy fixes to place the language links. I did it this way as I couldn't get Isotope to cleanly place multiple links */
-	/* Languages */
-	p.language-en-main{
-		left: 0.5em;
-		bottom: 2.5em;
-	}
-
-	p.language-ru-main{
-		left: 4em;
-		bottom: 2.5em;
-	}
-
-	/* Language - English */
-	p.language-en{
-		left: 0.5em;
-		bottom: 2.5em;
-		display: block;
-	}
-
-	/* Language - Dada */
-	p.language-en-dada{
-		left: 0.5em;
-		bottom: 3.5em;
-		display: block;
-	}
-
-	p.language-fr-dada{
-		left: 4em;
-		bottom: 3.5em;
-		display: block;
-	}
-
-	p.language-de-dada{
-		left: 8em;
-		bottom: 3.5em;
-		display: block;
-	}
-
-	p.language-es-dada{
-		left: 0.5em;
-		bottom: 2em;
-		display: block;
-	}
-
-	p.language-nl-dada{
-		left: 4em;
-		bottom: 2em;
-		display: block;
-	}
-
-	/* Language - MIMO */
-
-	p.language-it-music{
-		left: 0.5em;
-		bottom: 2em;
-		display: block;
-	}
-
-	p.language-sv-music{
-		left: 9em;
-		bottom: 2em;
-		display: block;
-	}
-
-	/* Language - Art Nouveau */
-
-	p.language-pl-artnouveau
-	{
-		left: 8em;
-		bottom: 3.5em;
-		display: block;
-	}
-
-	p.language-lv-artnouveau{
-		left: 9em;
-		bottom: 2em;
-		display: block;
-	}
-
-	/* Links to external partners pages */
-
-	p.partner-site{
-		left: 0.5em;
-		bottom: 2.5em;
-		display: block;
-		width: 90%;
-	}
-
-	/* Exhibition name */
-
-	.element .name {
-		bottom: 3.5em;
-	}
-
-	a{
-		background: #000;
-	} /* Background colour changed to make all links have a black background */
-	 
-	</style></noscript>
-	 
+	
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
 	  //_gaq.push(['_setAccount', 'UA-31316761-1']);	// acceptance
 	  _gaq.push(['_setAccount', 'UA-12776629-3']);	// production
-
 	  _gaq.push(['_trackPageview']);
-
 	 
 	  (function() {
 	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -173,13 +68,13 @@ ve_session_vars();
 	<!-- other scripts at bottom of page (see Simple Page) -->
 
 	</head>
-	<body>
+	<body>	
 
 
 <?php else: ?>
 
 	<!--DEFAULT HEAD / BODY-->
-		
+		<meta name="author" content="Andy MacLean" />
 		<title><?php echo ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null, $showAsTitle=true); ?></title>
 
 
