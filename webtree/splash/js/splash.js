@@ -6,7 +6,7 @@
 
    		var noCols = 0;
     	var containerWidth = jQuery("#section-container").width();
-alert(containerWidth)
+//alert(containerWidth)
     	if(containerWidth <= 980){ // fullsize for foundation: iPad landscape
     	   	noCols = 5;
     	}
