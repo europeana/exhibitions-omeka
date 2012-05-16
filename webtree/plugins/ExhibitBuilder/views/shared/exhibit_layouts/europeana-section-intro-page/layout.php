@@ -125,15 +125,18 @@ $story = $page->title
 				echo exhibit_builder_page_text(1);
 			} ?>
 		</div>
-	
+
+
 		<div class="theme-center-outer">
 			<div class="theme-center-middle">
 				<div class="theme-center-inner">
-					<div class="exhibit-page-nav">
-						<?php echo ve_exhibit_builder_link_to_previous_exhibit_page("&larr;", array('class' => 'exhibit-text-nav'));?>
-						<?php echo ve_exhibit_builder_page_nav(); ?>
-						<?php echo ve_exhibit_builder_link_to_next_exhibit_page("&rarr;", array('class' => 'exhibit-text-nav'));?>
+				
+					<div class="story-nav-wrapper">
+						<?php echo ve_exhibit_builder_responsive_link_to_previous_exhibit_page("&larr;", array('class' => 'exhibit-text-nav'));?>
+						<?php echo ve_exhibit_builder_responsive_page_nav(); ?>
+						<?php echo ve_exhibit_builder_responsive_link_to_next_exhibit_page("&rarr;", array('class' => 'exhibit-text-nav'));?>						
 					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -186,10 +189,7 @@ $story = $page->title
 
 <script type="text/javascript">
 	jQuery(document).ready(function(){
-		var zoomitEnabled = 0;
-		if("<?php echo ve_exhibit_builder_is_zoomit_enabled() ?>".length > 0){
-			zoomitEnabled = "<?php echo ve_exhibit_builder_is_zoomit_enabled() ?>";
-		}
+		var zoomitEnabled = <?php echo ve_exhibit_builder_zoomit_enabled() ?>;
 		story.initStory("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>", zoomitEnabled);
 	});
 </script>	
