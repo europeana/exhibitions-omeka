@@ -28,7 +28,73 @@ img{
 
 
 <div class="row">
-    <div id="section-container" class="twelve columns"></div>
+    <div id="section-container" class="twelve columns">
+    
+    <!-- this will be replaced, but copy the links (defined in splash.js) here for SEO purposes -->
+
+	<a href="http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en">1914-1918 (English)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-fr">1914-1918 (French)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-de">1914-1918 (German)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-sl">1914-1918 (Slovenian)</a>
+
+
+	<a href="http://exhibitions.europeana.eu/exhibits/show/wiki-loves-art-nouveau">Wiki Loves Art Nouveau (English)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/wiki-loves-art-ru">Wiki Loves Art Nouveau (Russian)</a>
+
+
+	<a href="http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe">Weddings in Eastern Europe</a>
+
+	
+	<a href="http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en">From Dada to Surrealism (English)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-fr">From Dada to Surrealism (French)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-de">From Dada to Surrealism (German)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-es">From Dada to Surrealism (Spanish)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-nl">From Dada to Surrealism (Dutch)</a>
+	
+	
+	<a href="http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en">Explore the World of Musical Instruments (English)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/musical-instruments-fr">Explore the World of Musical Instruments (French)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/musical-instruments-de">Explore the World of Musical Instruments (German)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/musical-instruments-it">Explore the World of Musical Instruments (Italian)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/musical-instruments-nl">Explore the World of Musical Instruments (Dutch)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/musical-instruments-sv">Explore the World of Musical Instruments (Swedish)</a>
+
+	
+	<a href="http://exhibitions.europeana.eu/exhibits/show/yiddish-theatre-en">Yiddish Theatre (English)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/yiddish-theatre-fr">Yiddish Theatre (French)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/yiddish-theatre-de">Yiddish Theatre (Germany)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/yiddish-theatre-es">Yiddish Theatre (Spanish)</a>
+
+	
+	<a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en">Art Nouveau (English)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-fr">Art Nouveau (French)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-nl">Art Nouveau (Dutch)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-pl">Art Nouveau (Polish)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-es">Art Nouveau (Spanish)</a>
+	<a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-lv">Art Nouveau (Latvian)</a>
+	
+	
+	<!-- tel stuff -->
+
+	<a href="http://expeditions.biodiversityexhibition.com/"/>Expeditions</a>
+
+	<a href="http://www.theeuropeanlibrary.org/exhibition-travel-history/index.html">Travelling Through History</a>
+	
+	<a href="http://www.theeuropeanlibrary.org/exhibition-reading-europe/index.html">Reading Europe</a>
+	
+	<a href="http://www.theeuropeanlibrary.org/exhibition/roma_journey/eng/index.html">A Roma Journey</a>
+	
+	<a href="http://www.theeuropeanlibrary.org/exhibition/roma_journey/eng/index.html">Napoleonic Wars</a>
+	
+	<a href="http://www.theeuropeanlibrary.org/exhibition/treasures/index.html">Treasures</a>
+	
+	<a href="http://www.theeuropeanlibrary.org/exhibition/buildings/index.html">Buildings</a>
+	
+	<a href="http://151.12.58.141/virtualexhibition/">A Voyage With The Gods</a>
+	
+	<a href="http://spices.biodiversityexhibition.com/">Spices</a>
+	
+    </div>
 </div>
 
 <div class="row">

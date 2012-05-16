@@ -252,8 +252,8 @@
 
 		var spices = { "contextmenu" : "spices", "featured": false, "img": "splash/img/bhl_img2.jpg", "overlay": "splash/logos/logo-bhl.png", "overlay_class":"overlay-tel", "name": "Spices", "partner": {"site":"http://spices.biodiversityexhibition.com/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Spices: http://spices.biodiversityexhibition.com/" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://spices.biodiversityexhibition.com/" } ] }   };
 
-
-
+		
+		jQuery("#section-container").html(""); // clear non-js seo stuff
 		buildSection(nineteenfourteen);
 		buildSection(wikiLoves);
 		buildSection(weddings);
