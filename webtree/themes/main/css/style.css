@@ -321,6 +321,32 @@ body.exhibit-item-show #exhibit-item-title {
     margin-bottom: 1em;
 }
 
+
+/***** story navigation *****/
+.story-nav{
+	float:		left;
+	height:		100%;
+	min-height:	100%;
+}
+
+.story-nav-wrapper{
+	max-width:	100%;
+}
+
+story-nav-wrapper a img{
+	max-width: auto;
+}
+
+.story-nav-padding{
+	min-width:1%;
+	float: left;
+}
+
+
+
+
+
+
 /* ITEMS ***************************************************************************************************************/
 
 
