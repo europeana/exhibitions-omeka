@@ -293,7 +293,6 @@ if(!function_exists('ve_custom_show_embed')){
 						$html	.=		'<textarea rows="5">';	// start embed code
 
 						// image div
-						
 						$embedFields = array("title", "creator", "data provider", "provider", "source");
 						$html	.=		'<div style="position:relative;float:left;">';
 						
@@ -309,9 +308,13 @@ if(!function_exists('ve_custom_show_embed')){
 							$itemUri = WEB_ROOT . '/items/show/'.item('id');
 		                    $itemUri .= "?".$googleTracking;	// add google tracking								                    														
 						}
+
 						
+						$altText = ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null, $showAsTitle=true);
+
+						$altText 		= explode("|", $altText);
 						$fileImgHtml	=	item_fullsize($file);
-						$fileImgHtml	=	str_replace('<img ', '<img style="width:100%;" alt="' . $itemUri . '" ', $fileImgHtml);
+						$fileImgHtml	=	str_replace('<img ', '<img style="width:100%;" alt="' . addslashes(current($altText)) . '" ', $fileImgHtml);
 						
 						$fileImgHtml	=	removeAttribute($fileImgHtml, "archive_filename");
 						$fileImgHtml	=	removeAttribute($fileImgHtml, "original_filename");
