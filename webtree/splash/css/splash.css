@@ -75,3 +75,21 @@
 	font-size:	190%;
 }
 
+
+
+.wrap_at_320{
+	float:			left;
+	margin-right:	2em;
+	padding-top:	0.3em;
+	padding-bottom:	0.3em;
+}
+
+@media only screen and (max-width: 767px) {
+	.wrap_at_320{
+		display:	block;
+		clear:		both;
+		float:		none;
+		text-align:	center;
+	}
+	
+}
