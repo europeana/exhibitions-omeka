@@ -518,7 +518,7 @@ table{
 	#tbl-exhibit-item tbody tr td.navigate{
 		display:	table-cell;
 	}
-	.exhibit-page-nav{
+	.exhibit-page-nav, .story-nav-wrapper{
 		display:	none;
 	}
 	#exhibit-section-title-small{
