@@ -38,59 +38,37 @@ function ve_exhibit_builder_exhibit_display_item_info_link($linkProperties = arr
 }
 
 
-//function ve_exhibit_builder_zoomit_uri()
-function ve_exhibit_builder_zoomit_enabled()
-{
-    $item = get_current_item();
-    // check if this item has a 'zoom.it URI' metadata element
+function getItemTypeMetadataEntry($item, $fName){
     $elements = $item->getItemTypeElements();
-    $zoomitEnabled = false;
+    $result = null;
+    
     foreach ($elements as $element) {
-    	/*
-        if (strtolower($element->name) == "zoom.it uri") {
-            $zoomURI = $elementText[$element->name] = item(ELEMENT_SET_ITEM_TYPE, $element->name);
-        }
-        */
-        if (strtolower($element->name) == "zoomit_enabled"){
-        	//$zoomURI = $elementText[$element->name] = 
-        	if( item(ELEMENT_SET_ITEM_TYPE, $element->name) ){
-        		$zoomitEnabled = true;
-        	}
-        }
-    }
-    return $zoomitEnabled;
-}
-
-
-function ve_exhibit_builder_license_info()
-{
-    $item = get_current_item();
-    $elements = $item->getItemTypeElements();
-    $result = "";
-    foreach ($elements as $element) {
-        if (strtolower($element->name) == "license"){
-        	$result =  item(ELEMENT_SET_ITEM_TYPE, $element->name);
+        if (strtolower($element->name) == strtolower($fName)){
+        	$result = item(ELEMENT_SET_ITEM_TYPE, $element->name);
         }
     }
     return $result;
 }
 
 
-function ve_exhibit_builder_is_zoomit_enabled()
+function ve_exhibit_builder_zoomit_enabled()
 {
-	$item = get_current_item();
-	
-//	echo "ITEM ID IS $item->id";
-	// check if this item has a 'zoom.it URI' metadata element
-	$elements = $item->getItemTypeElements();
-	$zoomEnabled = false;
-	foreach ($elements as $element) {
-		if (strtolower($element->name) == "zoomit_enabled") {
-			$zoomEnabled = $elementText[$element->name] = item(ELEMENT_SET_ITEM_TYPE, $element->name);
-		}
+	$result = getItemTypeMetadataEntry(get_current_item(), "zoomit_enabled");
+	if(!$result){
+		$result = 0;
 	}
-	return $zoomEnabled;
+	return $result;
 }
+
+
+function ve_exhibit_builder_license_info()
+{
+	return getItemTypeMetadataEntry(get_current_item(), "license");
+}
+
+
+
+
 
 function endsWith($haystack,$needle,$case=true) {
     if($case){return (strcmp(substr($haystack, strlen($haystack) - strlen($needle)),$needle)===0);}
@@ -222,7 +200,6 @@ function ve_exhibit_builder_display_exhibit_thumbnail_gallery($start, $end, $pro
             $html .= '<div class="exhibit-item">';
             $item = get_current_item();
 
-            $elements = $item->getItemTypeElements();
             $zoomitEnabled = ve_exhibit_builder_zoomit_enabled();
 
             if (item_has_files()) {
@@ -301,17 +278,9 @@ if(!function_exists('ve_custom_show_embed')){
 			$mime = $file->getMimeType();
 			if (preg_match("/^image/", $mime)) {
 
-				$embedEligible = false;
 				
-			    $elements = $item->getItemTypeElements();
-			    foreach ($elements as $element) {
-			        if (strtolower($element->name) == "license"){
-			        	$licenseVal = item(ELEMENT_SET_ITEM_TYPE, $element->name);
-						if(strrpos( strtolower($licenseVal), "http://creativecommons.org/")>-1){
-							$embedEligible = true;
-						}
-			        }
-			    }
+				$licenseVal = getItemTypeMetadataEntry(get_current_item(), "license");
+				$embedEligible = strrpos( strtolower($licenseVal), "http://creativecommons.org/")>-1;
 				
 				if($dcFieldsList = get_theme_option('display_dublin_core_fields')){
 					$dcFields = explode(',', str_replace(' ','',$dcFieldsList));
@@ -325,14 +294,24 @@ if(!function_exists('ve_custom_show_embed')){
 
 						// image div
 						
-						$embedFields = array("title", "creator", "data provider", "provider");
+						$embedFields = array("title", "creator", "data provider", "provider", "source");
 						$html	.=		'<div style="position:relative;float:left;">';
 						
-						//$attrs			=	array();
-						//$attrs[]		= 	"href";
-						//$attrs[]		= 	"rel";
+						
+						$itemUri		= "";
+						$googleTracking = "utm_source=embeddeditem&utm_medium=externalsite&utm_campaign=exhibitionembed";
+						
+						if(html_escape($exhibitName)){
+							$itemUri = WEB_ROOT . '/items/show/'.item('id').'?tags='.html_escape($exhibitName);
+		                    $itemUri .= "&".$googleTracking;	// add google tracking								                    	
+						}
+						else{
+							$itemUri = WEB_ROOT . '/items/show/'.item('id');
+		                    $itemUri .= "?".$googleTracking;	// add google tracking								                    														
+						}
+						
 						$fileImgHtml	=	item_fullsize($file);
-						$fileImgHtml	=	str_replace('<img ', '<img style="width:100%;" ', $fileImgHtml);
+						$fileImgHtml	=	str_replace('<img ', '<img style="width:100%;" alt="' . $itemUri . '" ', $fileImgHtml);
 						
 						$fileImgHtml	=	removeAttribute($fileImgHtml, "archive_filename");
 						$fileImgHtml	=	removeAttribute($fileImgHtml, "original_filename");
@@ -342,6 +321,7 @@ if(!function_exists('ve_custom_show_embed')){
 						$fileImgHtml	=	removeAttribute($fileImgHtml, "type_os");
 						$fileImgHtml	=	removeAttribute($fileImgHtml, "added");
 						$fileImgHtml	=	removeAttribute($fileImgHtml, "modified");
+						$fileImgHtml	= 	'<a href="'.$itemUri.'">' . $fileImgHtml . '</a>';
 						
 						$html	.=		$fileImgHtml;
 						
@@ -377,17 +357,6 @@ if(!function_exists('ve_custom_show_embed')){
 											$html .= '<li style="margin-left:0px!important;"><span style="font-weight:bold;">'.$field.':</span> ';
 
 											if(strtolower($field) == "title"){
-												$itemUri = "";
-												$googleTracking = "utm_source=embeddeditem&utm_medium=externalsite&utm_campaign=exhibitionembed";
-												
-												if(html_escape($exhibitName)){
-													$itemUri = WEB_ROOT . '/items/show/'.item('id').'?tags='.html_escape($exhibitName);
-								                    $itemUri .= "&".$googleTracking;	// add google tracking								                    	
-												}
-												else{
-													$itemUri = WEB_ROOT . '/items/show/'.item('id');
-								                    $itemUri .= "?".$googleTracking;	// add google tracking								                    														
-												}
 												$fieldValue = '<a href="'.$itemUri.'">' . $fieldValue . "</a>";
 											}
 
@@ -405,7 +374,18 @@ if(!function_exists('ve_custom_show_embed')){
 									}
 								}
 							}
+						} // end field list
+						
+						$source = getItemTypeMetadataEntry($item, "Source");
+						if(strlen($provider) > 0 ){
+							$html .= '<li style="margin-left:0px!important;"><span style="font-weight:bold;">Source:</span> '.$source.'</li>';
 						}
+
+						$provider = getItemTypeMetadataEntry($item, "Provider");
+						if(strlen($provider) > 0 ){
+							$html .= '<li style="margin-left:0px!important;"><span style="font-weight:bold;">Provider:</span> '.$provider.'</li>';
+						}						
+						
 						$html	.=				'</ul>';	// end field list
 						$html	.=		'</textarea>';	// end embed code
 						$html	.=	'</div>';
@@ -523,7 +503,7 @@ if (!function_exists('ve_custom_show_item_metadata')) {
     	    foreach ($elements as $element) {
     	        if (strtolower($element->name) == "license"){
     	        	$licenseVal = item(ELEMENT_SET_ITEM_TYPE, $element->name);
-    	        	
+
     	        	if( strlen($licenseVal) > 0  ){
        	        		 //   any image tag $val contains (img)
        	        		 //   the href of any anchor wrapping the image (lnk)

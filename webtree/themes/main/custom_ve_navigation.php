@@ -295,6 +295,51 @@ function ve_exhibit_builder_page_nav($section = null, $linkTextType = 'title')
     return false;
 }
 
+
+function ve_exhibit_builder_responsive_page_nav($section = null, $linkTextType = 'title')
+{
+    $linkTextType = strtolower(trim($linkTextType));
+    if (!$section) {
+        if (!($section = exhibit_builder_get_current_section())) {
+            return;
+        }
+    }
+    if ($section->hasPages()) {
+
+        $html = '';
+        $counter = 1;
+        foreach ($section->Pages as $page) {
+            switch ($linkTextType) {
+                case 'order':
+                    $linkText = $page->order;
+                    break;
+                default:
+                    $linkText = $page->title;
+                    break;
+            }
+            if (exhibit_builder_is_current_page($page)) {
+                $icon = '<img src="' . img('nav-page-current.png') . '" alt="' . $linkText . '" />';
+                $class = "current";
+            } else {
+                $icon = '<img src="' . img('nav-page-default.png') . '" alt="' . $linkText . '" />';
+                $class = "";
+            }
+
+            $html .= '<div class="story-nav-padding">&nbsp;</div>';
+
+            $html .= '<div class="story-nav">';
+            $html .= 	'<a title="' . $linkText . '" class="' . $class . '" href="' . html_escape(exhibit_builder_exhibit_uri($section->Exhibit, $section, $page)) . '">';
+            $html .=	$icon . '</a>';
+            $html .= '</div>';
+            
+            $html .= '<div class="story-nav-padding">&nbsp;</div>';
+
+        }
+        return $html;
+    }
+    return false;
+}
+
 /**
  * Returns a link to the next exhibit page
  *
@@ -321,6 +366,42 @@ function ve_exhibit_builder_link_to_next_exhibit_page($text = "Next Page", $prop
         return ve_exhibit_builder_link_to_exhibit($exhibit, $icon, array('title' => $nextSection->title), $nextSection);
     }
 }
+
+function ve_exhibit_builder_responsive_link_to_next_exhibit_page($text = "Next Page", $props = array(), $page = null)
+{
+    if (!$page) {
+        $page = exhibit_builder_get_current_page();
+    }
+    $section = exhibit_builder_get_exhibit_section_by_id($page->section_id);
+    $exhibit = exhibit_builder_get_exhibit_by_id($section->exhibit_id);
+    $icon = '<img src="' . img('nav-page-next.png') . '" alt="' . $text . '" />';
+    // if page object exists, grab link to next exhibit page. If it doesn't, grab
+    // a link to the first page on the next exhibit section, if it exists.
+    $next = ve_translate("Next", "Next");
+    
+    $htmlResult = '';
+    
+    if ($nextPage = $page->next()) {
+    	$htmlResult =  ve_exhibit_builder_link_to_exhibit($exhibit, $icon, array('title' => $nextPage->title), $section, $nextPage);
+    } elseif ($nextSection = $section->next()) {
+    	$htmlResult = ve_exhibit_builder_link_to_exhibit($exhibit, $icon, array('title' => $nextSection->title), $nextSection);
+    }
+    
+    $navJsVar = '';
+    $currentSection = exhibit_builder_get_current_section();
+    if ($currentSection) {
+        if ($currentSection->hasPages()) {
+        	$navJsVar .= '<script type="text/javascript">';
+        	$navJsVar .= 	'jQuery(document).ready(function(){';
+        	$navJsVar .= 		'var navPageCount = ' . sizeof($currentSection->Pages) . ';';
+        	$navJsVar .= 		'jQuery(".story-nav").css("max-width", parseInt( (100 - (navPageCount*2))  / (navPageCount + 2) ) + "%"    ); ';
+        	$navJsVar .= 	'});';
+        	$navJsVar .= '</script>';
+        }	
+    }
+    return '<div class="story-nav">' . $htmlResult . '</div>' . $navJsVar;
+}
+
 
 /**
  * Returns a link to the previous exhibit page
@@ -351,4 +432,27 @@ function ve_exhibit_builder_link_to_previous_exhibit_page($text = "&larr; Previo
     }
 }
 
+function ve_exhibit_builder_responsive_link_to_previous_exhibit_page($text = "&larr; Previous Page", $props = array(), $page = null)
+{
+    if (!$page) {
+        $page = exhibit_builder_get_current_page();
+    }
+
+    $section = exhibit_builder_get_exhibit_section_by_id($page->section_id);
+    $exhibit = exhibit_builder_get_exhibit_by_id($section->exhibit_id);
+    $icon = '<img src="' . img('nav-page-previous.png') . '" alt="' . $text . '" />';
+    $previous = ve_translate("Previous", "Previous");
+    // if page object exists, grab link to previous exhibit page if exists. If it doesn't, grab
+    // a link to the last page on the previous exhibit section, if it exists.
+    $result = '';
+    if ($previousPage = $page->previous()) {
+
+        $htmlResult =  ve_exhibit_builder_link_to_exhibit($exhibit, $icon, array('title' => $previousPage->title), $section, $previousPage);
+    }
+    elseif ($previousSection = $section->previous()) {
+
+        $htmlResult = ve_exhibit_builder_link_to_exhibit($exhibit, $icon, array('title' => $previousSection->title), $previousSection);
+    }
+    return '<div class="story-nav">' . $htmlResult . '</div>';
+}
  

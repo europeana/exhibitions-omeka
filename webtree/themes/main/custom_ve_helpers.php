@@ -243,7 +243,7 @@ function getGoogleAnalyticsTrackerObjectJS(){
  * but we'd need a brand page....
  * 
  * */
-function getAddThisMobile(){
+function getAddThisMobile($style = 'float:right; display:inline;'){
 	$buttons = '';
 	$buttons .=	'<div id="wrapper" class="addthis addthis_32x32_style addthis_default_style">';
 	
