@@ -20,7 +20,7 @@ img{
 		<div id="standard_shares" style="position:absolute; bottom: 3px; right:30px;">
 			<?php echo getAddThisMobile('float:right; display:inline;'); ?>
 		</div>
-		<div style="position:absolute; bottom: -2px; right:0px;">
+		<div style="position:absolute; bottom: -3px; right:0px;">
 			<a href="http://feeds.feedburner.com/Europeana-Exhibitions" title="Click here to subscribe to the exhibitions RSS feed" style="float:right;"><img src="splash/img/rss_icon.gif" class="share" title=""></a>
 		</div>
 	</div>
