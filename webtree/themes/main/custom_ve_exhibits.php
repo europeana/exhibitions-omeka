@@ -301,14 +301,17 @@ if(!function_exists('ve_custom_show_embed')){
 						$googleTracking = "utm_source=embeddeditem&utm_medium=externalsite&utm_campaign=exhibitionembed";
 						
 						if(html_escape($exhibitName)){
-							$itemUri = WEB_ROOT . '/items/show/'.item('id').'?tags='.html_escape($exhibitName);
+							//$itemUri = WEB_ROOT . '/items/show/'.item('id').'?tags='.html_escape($exhibitName);
+							$itemUri = abs_uri();
 		                    $itemUri .= "&".$googleTracking;	// add google tracking								                    	
 						}
 						else{
-							$itemUri = WEB_ROOT . '/items/show/'.item('id');
+							//$itemUri = WEB_ROOT . '/items/show/'.item('id');
+							$itemUri = abs_uri();
 		                    $itemUri .= "?".$googleTracking;	// add google tracking								                    														
 						}
 
+						
 						
 						$altText = ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null, $showAsTitle=true);
 
