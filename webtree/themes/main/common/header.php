@@ -138,7 +138,7 @@ ve_session_vars();
 	    <div id="header" class="row">
 	        <div class="twelve columns">
 	        	<div id="site-title" class="twelve columns">
-					<a href="<?php echo(WEB_ROOT); ?>"><img src="<?php echo img('logo.png'); ?>"></a>
+					<a href="<?php echo(WEB_ROOT); ?>"><img alt="Europeana Exhibitions" src="<?php echo img('logo.png'); ?>"></a>
 	        	</div>
 	        	
 		        <div id="secondary-branding" style="float:right;"><?php echo ve_exhibit_secondary_logo(); ?></div>
@@ -152,7 +152,7 @@ ve_session_vars();
 			    <div id="main-breadcrumbs" style="float:left;">
 				    <div id="site-title-small">
 				        <a target="_blank"  href="<?php echo(WEB_ROOT); ?>">
-				            <img src="<?php echo img('logo_no_text.png'); ?>"/>
+				            <img alt="Europeana Exhibitions" src="<?php echo img('logo_no_text.png'); ?>"/>
 				        </a>
 				    </div>
 			        <?php echo ve_exhibit_breadcrumbs(); ?>

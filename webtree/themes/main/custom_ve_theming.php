@@ -47,6 +47,8 @@ function ve_set_exhibits_css()
     queue_css('foundation/stylesheets/foundation');
     queue_css('foundation/stylesheets/app');
     
+    queue_css('foundation-overrides');
+    
 	queue_css(('reset'));
     queue_css(('text'));
     
@@ -149,7 +151,7 @@ function ve_exhibit_secondary_logo($exhibit = null)
         $targetUrl = ve_get_providers_key($exhibit->credits, 'url');
 
         if (isset($logoSrc) && isset($targetUrl)) {
-            return '<a href="' . $targetUrl . '" target="_blank"><img src="' . $logoSrc . '"/></a>';
+            return '<a href="' . $targetUrl . '" target="_blank"><img alt="Partner" src="' . $logoSrc . '"/></a>';
         }
         else {
             return '';

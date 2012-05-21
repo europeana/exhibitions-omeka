@@ -1,0 +1,35 @@
+/**
+
+Europeana overrides of foundation for SEO:
+
+	- current h2s have to become h1s  
+
+	DONE:
+		- summary page
+		- 
+
+
+**/
+
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h1 {
+	font-size: 35px;
+	font-size: 3.5rem;
+	margin-bottom: 9px;
+}
+
+@media print {
+	h1 { orphans: 3; widows: 3; }
+	h1 { page-break-after: avoid; }
+}
+
+
+@media handheld, only screen and (max-width: 767px) {
+	h1 { font-size: 28px; font-size: 2.8rem; line-height: 1.3; }
+}
+
+

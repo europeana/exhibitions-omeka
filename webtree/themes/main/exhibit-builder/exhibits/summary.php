@@ -10,7 +10,7 @@ $exhibit = get_current_exhibit();
 <?php //head(array('title' => html_escape(ve_title_crumbs()), 'bodyid' => 'exhibit', 'bodyclass' => 'summary')); ?>
 
 	<div id="primary" class="twelve columns">
-	    <h2><?php echo html_escape(exhibit('title')); ?></h2>
+	    <h1><?php echo html_escape(exhibit('title')); ?></h1>
 	</div>
 </div>
 
@@ -57,7 +57,7 @@ $exhibit = get_current_exhibit();
         
         
             <div id="exhibit-image-border"></div>
-     		<img id="exhibit-shadow" src="">
+     		<img id="exhibit-shadow" alt="border" src="">
 
             <div id="crop-div" style="line-height:0px; font-size:0px;">
 
@@ -67,14 +67,14 @@ $exhibit = get_current_exhibit();
             	?>
             	
             	<?php if(! fopen($imgSrc, "r")): ?>
-            			<img src="<?php echo $src ?>"/>
+            			<img alt="Exhibition Summary" src="<?php echo $src ?>"/>
             	<?php endif; ?>
             	
             	<?php if(  fopen($imgSrc, "r")): ?>
             	
             			<script class="euresponsive-script">document.write("<" + "!--")</script>
 						<noscript>
-            			<img src="<?php echo $imgSrc; ?>"/>
+            			<img alt="Exhibition Summary" src="<?php echo $imgSrc; ?>"/>
 						</noscript -->
             	
             	<?php endif; ?>

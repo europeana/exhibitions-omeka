@@ -21,7 +21,7 @@ function ve_exhibit_builder_exhibit_display_item_info_link($linkProperties = arr
     $linkProperties['href'] = exhibit_builder_exhibit_item_uri($item) . '?page=' . urlencode($page->title);
     $html = '';
     $html .= '<a class="return-to" rel="' . uri() . '" id="info-link"' . _tag_attributes($linkProperties) . ' title="' . ve_translate('show-item-details', 'Show item details') . '">';
-    $html .= '<img src="' . img('icon-info.png') . '"/></a>';
+    $html .= '<img alt="info" src="' . img('icon-info.png') . '"/></a>';
 
 
     // skip info link if viewing a pdf
@@ -187,7 +187,7 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
         }
         
     } else {
-        $html .= '<h2>' . item('Dublin Core', 'Title') . '</h2>';
+        $html .= '<h1>' . item('Dublin Core', 'Title') . '</h1>';
     }    
     return $html;
 }
