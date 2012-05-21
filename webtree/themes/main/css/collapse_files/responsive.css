@@ -316,7 +316,6 @@ div.metadata-rights a img{
 	float:			left;
 	margin-right:	5px;
 	width:    		13%;
-	
 }
 
 #site-title{
@@ -333,18 +332,44 @@ div.metadata-rights a img{
 
 @media all and (max-width: 320px) {
 
+	#main-breadcrumbs{
+		min-height:		30px;
+		width:			100%;
+	}
+	#main-breadcrumbs a, #main-breadcrumbs{
+		font-size:		0.8em !important;
+		font-size:		9px !important;
+		line-height:	32px;
+	}
+	
+	#main-breadcrumbs, #site-title-small,	#site-title-small a{
+		overflow:		visible;
+	}
+	
 	#site-title-small{
 		display:		block;
 		top:			0px;
-		margin-right:	5px;
+		margin-right:	15px !important;
 		margin-top:		2px;
 		height:    		100%;
-		min-width:    	15%;
+		
+		min-width:    	30px;
+		min-height:    	30px;
+
+
+		padding-top:	0px !important;
+		margin-top:		0px !important;
+		top:			-11px !important;
+		padding-right:	8px;
 	}
 	
 	#site-title-small a img{
 		max-height:	100%;	
 		max-width:	100%;
+		
+		min-height:    	30px;
+		min-width:    	30px;
+		
 	}
 	
 	#main-breadcrumbs{
@@ -360,6 +385,7 @@ div.metadata-rights a img{
 	
 	#site-title-small{
 		display:		block;
+		max-width:			10%;
 	}
 	#header{
 		display:		none;
@@ -369,16 +395,19 @@ div.metadata-rights a img{
 		margin-bottom:	0;
 	}
 	
-	/*
-	#main-breadcrumbs{
-		xxbackground-color: orange;
+	#main-breadcrumbs a, #main-breadcrumbs{	
+		width:		100%;
 	}
-	*/
+	
+	
+	
+	
 	
 	#site-title-small{
 		top:			4px;
-		margin-right:	5px;
-		xxxxxxxxxxxxxxxxxwidth:				9%;
+
+		margin-right:	0px !important;
+
 		overflow:hidden;
 		padding-top: 4px;
 	}
