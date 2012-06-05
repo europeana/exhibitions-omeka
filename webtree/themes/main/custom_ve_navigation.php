@@ -393,9 +393,12 @@ function ve_exhibit_builder_responsive_link_to_next_exhibit_page($text = "Next P
         if ($currentSection->hasPages()) {
         	$navJsVar .= '<script type="text/javascript">';
         	$navJsVar .= 	'jQuery(document).ready(function(){';
+        	$navJsVar .= 		'alert("fix nav...");';
         	$navJsVar .= 		'var navPageCount = ' . sizeof($currentSection->Pages) . ';';
+        	$navJsVar .= 		'alert("navPageCount = " + navPageCount);';
         	$navJsVar .= 		'jQuery(".story-nav").css("max-width", parseInt( (100 - (navPageCount*2))  / (navPageCount + 2) ) + "%"    ); ';
         	$navJsVar .= 		'jQuery(".story-nav").css("width", parseInt( (100 - (navPageCount*2))  / (navPageCount + 2) ) + "%"    ); ';
+        	$navJsVar .= 		'alert("done: " + parseInt( (100 - (navPageCount*2))  / (navPageCount + 2) ) + "%"   );';
         	$navJsVar .= 	'});';
         	$navJsVar .= '</script>';
         }	
