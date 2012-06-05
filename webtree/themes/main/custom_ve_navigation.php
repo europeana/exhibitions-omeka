@@ -394,62 +394,20 @@ function ve_exhibit_builder_responsive_link_to_next_exhibit_page($text = "Next P
         	$navJsVar .= '<script type="text/javascript">';
         	$navJsVar .= 	'jQuery(document).ready(function(){';
         	$navJsVar .= 	'var fixNav = function(){';
-        	
-        	
         	$navJsVar .= 		'var maxWidthItem = 36;';
         	$navJsVar .= 		'var widthItem = maxWidthItem;';
         	$navJsVar .= 		'var marginWidth  = 5;';
-        	
         	$navJsVar .= 		'var navPageCount = ' . sizeof($currentSection->Pages) . ';';
-        	
         	$navJsVar .= 		'var calculatedWidth = ((navPageCount + 2) * maxWidthItem)  +  ((navPageCount + 1) * marginWidth)    ;';
-
-        	
-        	
         	$navJsVar .= 		'var topWidth = jQuery("#story").width();';
-        	
-        	
-        	
         	$navJsVar .= 		'if(calculatedWidth > topWidth){ ';
-        	
-
         	$navJsVar .= 			'widthItem = (topWidth - (navPageCount + 1) * marginWidth) / (navPageCount + 2) ;';
-
-        	
-//        	$navJsVar .= 		'	alert("too big - calculate again...."); ';
-  //      	$navJsVar .= 		'	return;';
         	$navJsVar .= 		'}';
-        	
-        	
-        	
         	$navJsVar .= 		'jQuery(".story-nav").css("width", widthItem + "px");';
         	$navJsVar .= 		'jQuery(".story-nav-padding").css("width", marginWidth + "px");';
-        	
-        	
-        	
-        	
- //       	$navJsVar .= 		'var topWidth = jQuery("#story").width();';
-   //     	$navJsVar .= 		'alert("top width  =  " + topWidth);';
-        	
-        	
-        	/*
-        	$navJsVar .= 		'jQuery(".story-nav-wrapper").width(topWidth + "px");';
-        	
-        	$navJsVar .= 		'alert("fix nav...");';
-        	$navJsVar .= 		'var navPageCount = ' . sizeof($currentSection->Pages) . ';';
-        	$navJsVar .= 		'alert("navPageCount = " + navPageCount);';
-        	$navJsVar .= 		'jQuery(".story-nav").css("max-width", parseInt( (100 - (navPageCount*2))  / (navPageCount + 2) ) + "%"    ); ';
-//        	$navJsVar .= 		'jQuery(".story-nav").css("width", parseInt( (100 - (navPageCount*2))  / (navPageCount + 2) ) + "%"    ); ';
-        	$navJsVar .= 		'alert("done: " + parseInt( (100 - (navPageCount*2))  / (navPageCount + 2) ) + "%"   );';
-        	$navJsVar .= 		'alert( jQuery(".story-nav").width()    ); ';
-        	*/
-        	
-        	
-        	
-        	
         	$navJsVar .= 	'};';
-        	$navJsVar .= 	'setTimeout(fixNav, 2000)';
-        	
+        	//$navJsVar .= 	'setTimeout(fixNav, 2000)';
+        	$navJsVar .= 	'fixNav()';
         	$navJsVar .= 	'});';
         	$navJsVar .= '</script>';
         }	
