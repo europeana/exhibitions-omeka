@@ -325,7 +325,7 @@ function ve_exhibit_builder_responsive_page_nav($section = null, $linkTextType =
                 $class = "";
             }
 
-            $html .= '<div class="story-nav-padding">&nbsp;</div>';
+            $html .= '<div class="story-nav-padding"></div>';
 
             $html .= '<div class="story-nav">';
             $html .= 	'<a title="' . $linkText . '" class="' . $class . '" href="' . html_escape(exhibit_builder_exhibit_uri($section->Exhibit, $section, $page)) . '">';
@@ -395,6 +395,7 @@ function ve_exhibit_builder_responsive_link_to_next_exhibit_page($text = "Next P
         	$navJsVar .= 	'jQuery(document).ready(function(){';
         	$navJsVar .= 		'var navPageCount = ' . sizeof($currentSection->Pages) . ';';
         	$navJsVar .= 		'jQuery(".story-nav").css("max-width", parseInt( (100 - (navPageCount*2))  / (navPageCount + 2) ) + "%"    ); ';
+        	$navJsVar .= 		'jQuery(".story-nav").css("width", parseInt( (100 - (navPageCount*2))  / (navPageCount + 2) ) + "%"    ); ';
         	$navJsVar .= 	'});';
         	$navJsVar .= '</script>';
         }	
