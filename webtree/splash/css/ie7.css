@@ -9,3 +9,10 @@ header{
   height: 161px;
 
 }
+
+#rss-wrapper{
+	position:	absolute;
+	right:		0px;
+	bottom:		0px;
+	margin-bottom:4px;
+}

@@ -466,3 +466,10 @@ footer a{
 	}
 }
 
+
+#rss-wrapper{
+	position:		absolute;
+	bottom:			-3px;
+	right:			0px;	
+}
+
