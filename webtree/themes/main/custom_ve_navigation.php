@@ -407,7 +407,17 @@ function ve_exhibit_builder_responsive_link_to_next_exhibit_page($text = "Next P
         	$navJsVar .= 		'jQuery(".story-nav-padding").css("width", marginWidth + "px");';
         	$navJsVar .= 	'};';
         	//$navJsVar .= 	'setTimeout(fixNav, 2000)';
-        	$navJsVar .= 	'fixNav()';
+        	$navJsVar .= 	'fixNav();';
+        	
+        	
+        	$navJsVar .= 	'jQuery(window).bind("orientationchange",function(event){';
+        	$navJsVar .= 		'fixNav();';
+        	$navJsVar .= 	'});';
+
+        	$navJsVar .= 	'jQuery(window).resize(function() {';
+       		$navJsVar .= 		'fixNav();';
+        	$navJsVar .= 	'});';
+        	
         	$navJsVar .= 	'});';
         	$navJsVar .= '</script>';
         }	
