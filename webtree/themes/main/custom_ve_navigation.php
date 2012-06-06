@@ -403,6 +403,14 @@ function ve_exhibit_builder_responsive_link_to_next_exhibit_page($text = "Next P
         	$navJsVar .= 		'if(calculatedWidth > topWidth){ ';
         	$navJsVar .= 			'widthItem = (topWidth - (navPageCount + 1) * marginWidth) / (navPageCount + 2) ;';
         	$navJsVar .= 		'}';
+        	
+        	
+        	$navJsVar .= 		'if(jQuery.browser.msie && parseInt(jQuery.browser.version, 10) === 8){';
+        	$navJsVar .= 		' var ie8w = ((navPageCount+2) * widthItem) + ((navPageCount + 1)  * marginWidth) ;  ';
+        	$navJsVar .= 		' jQuery(".story-nav-wrapper").width( ie8w  + "px");';
+        	$navJsVar .= 		'};';
+        	
+        	
         	$navJsVar .= 		'jQuery(".story-nav").css("width", widthItem + "px");';
         	$navJsVar .= 		'jQuery(".story-nav-padding").css("width", marginWidth + "px");';
         	$navJsVar .= 	'};';
