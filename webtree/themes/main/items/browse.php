@@ -99,19 +99,27 @@
 	        	
 	        		<?php
 	        			$item = get_current_item();
-	        			$file = $item->Files[0];
-	        			$mime = $file->getMimeType();
-	        			
-	        			if (preg_match("/^application/", $mime)){
-	        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img alt="view pdf" class="icon-pdf" src="' . img('icon-pdf.png') . '"/></a>';
+	        		
+	        			if(!is_null($item)){
+	        				
+	        				$file = $item->Files[0];
+	        				
+	        				if(!is_null($file)){
+	        					
+	    	        			$mime = $file->getMimeType();
+	    	        			if(!is_null($mime)){
+	    		        			if (preg_match("/^application/", $mime)){
+	    		        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img alt="view pdf" class="icon-pdf" src="' . img('icon-pdf.png') . '"/></a>';
+	    		        			}
+	    		        			elseif (preg_match("/^video/", $mime)){
+	    		        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img alt="view video" class="icon-vid" src="' . img('icon-video.png') . '"/></a>';
+	    		        			}
+	    		        			elseif (preg_match("/^audio/", $mime)){
+	    		        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img alt="listen to audio" class="icon-audio" src="' . img('icon-audio.png') . '"/></a>';
+	    		        			}
+	    	        			}
+	        				}
 	        			}
-	        			elseif (preg_match("/^video/", $mime)){
-	        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img alt="view video" class="icon-vid" src="' . img('icon-video.png') . '"/></a>';
-	        			}
-	        			elseif (preg_match("/^audio/", $mime)){
-	        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img alt="listen to audio" class="icon-audio" src="' . img('icon-audio.png') . '"/></a>';
-	        			}
-	        			
 	        			 
 	        		?>
 	        		
