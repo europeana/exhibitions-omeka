@@ -3,8 +3,11 @@
 	</div>
 
 	<h1>Credits</h1>
-	<p>The material for this is exhibition is presented by the nine of the eleven partner museums of the <a href="http://www.mimo-project.eu/" target="_blank" title="Click here to visit the MIMO website">MIMO</a> project:
-	</p>
+	<div class="meta">
+		<h2>
+			The material for this is exhibition is presented by the nine of the eleven partner museums of the <a href="http://www.mimo-project.eu/" target="_blank" title="Click here to visit the MIMO website">MIMO</a> project:
+		</h2>
+	</div>
 
 	<ul>
 		<li>University of Edinburgh, UK (lead partner)</li>

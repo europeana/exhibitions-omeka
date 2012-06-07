@@ -140,6 +140,8 @@ p {
     width:		100%;
 }
 
+/* TODO: delete */
+/*
 .left-text .theme-item-wrapper h6{
 	margin-left: 0.75em;
 }
@@ -147,15 +149,40 @@ p {
 .right-text .theme-item-wrapper h6{
 	margin-right: 0.75em;	
 }
+*/
+/* end TODO: delete */
+
+.left-text .theme-item-wrapper h2{
+	margin-left: 0.75em;
+}
+
+.right-text .theme-item-wrapper h2{
+	margin-right: 0.75em;	
+}
 
 @media only screen and (max-width: 768px) and (orientation: portrait){
 
+	/* TODO: delete */
+	/*
 	.left-text .theme-item-wrapper h6{
 		margin-left: 0.6em;
 		margin-right: -75px;
 		white-space:nowrap;
 	}
 	.right-text .theme-item-wrapper h6{
+		margin-right: 0.6em;
+		margin-left: -75px;
+		white-space:nowrap;
+	}	
+	*/
+	/* end TODO: delete */
+
+	.left-text .theme-item-wrapper h2{
+		margin-left: 0.6em;
+		margin-right: -75px;
+		white-space:nowrap;
+	}
+	.right-text .theme-item-wrapper h2{
 		margin-right: 0.6em;
 		margin-left: -75px;
 		white-space:nowrap;
@@ -168,8 +195,14 @@ p {
 	vertical-align:	middle;
 	margin-bottom:	0.75em
 }
-
+/* TODO: delete */
+/*
 .theme-item-wrapper h6{
+	display:	inline;
+}
+*/
+/* end TODO: delete */
+.theme-item-wrapper h2{
 	display:	inline;
 }
 

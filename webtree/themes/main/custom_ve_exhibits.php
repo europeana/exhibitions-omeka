@@ -107,7 +107,7 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
 
    			}
     		else{    			
-    			return '<div id="exhibit-item-title-only"><h6>' . item('Dublin Core', 'Title') . '</h6></div>';
+    			return '<div id="exhibit-item-title-only" class="meta"><h2>' . item('Dublin Core', 'Title') . '</h2></div>';
     		}
     	}
     	 
@@ -115,9 +115,11 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
         if (preg_match("/^image/", $mime)) {
             // IMAGE
 			$imgHtml	= display_file($file, $displayFilesOptions, $fileWrapperClass);
+			
 			$imgHtml	= str_replace('.jpg', '_euresponsive_1.jpg',			$imgHtml);
 			$imgHtml	= str_replace('/fullsize/', '/euresponsive/',			$imgHtml);
 			$imgHtml	= str_replace('class="full"', 'class="full tmp-img"',	$imgHtml);
+			$imgHtml	= str_replace('alt=""', 'alt="' . item('Dublin Core', 'Title') . '"',	$imgHtml);
 
             $html .= '<div id="in-focus" class="image">';
 			$html .= '<div id="media_wrapper">';
@@ -472,7 +474,15 @@ if (!function_exists('ve_custom_show_item_metadata')) {
         	        		 * 
         	        		 * 		
         	        		 * **/
-        	        		$html .= '<h6>'.$field.'</h6>';
+            	        	if(strtolower($field) == "title"){	// SEO optimisation: this h1 isn't really all that big 
+            	        		$html .= '<h1>'.$field.'</h1>';
+            	        	}
+            	        	else if(strtolower($field) == "creator"){
+            	        		$html .= '<h2>'.$field.'</h2>';
+            	        	}
+            	        	else{            	        		
+            	        		$html .= '<h6>'.$field.'</h6>';
+            	        	}
         	        		foreach ($fieldValues as $key => $fieldValue) {
         	        			if (!item_field_uses_html('Dublin Core', $field, $key)) {
         	        				$fieldValue = nls2p($fieldValue);

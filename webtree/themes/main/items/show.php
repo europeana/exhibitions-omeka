@@ -53,8 +53,8 @@
 <div class="row">
 
 	<div class="six columns single-item"  style="margin-bottom:3em;">
-	
-	
+
+
     <?php echo ve_exhibit_builder_exhibit_display_item(array('imageSize' => 'fullsize'), array('class' => 'box', 'id' => 'img-large', 'name' => 'exhibit-item-metadata-1')); ?>
 
 	    <div class="row">
@@ -71,7 +71,7 @@
 		
 	</div>
     
-    <div class="six columns" style="margin-bottom:3em;">
+    <div class="six columns meta" style="margin-bottom:3em;">
         <?php echo ve_custom_show_item_metadata(array('show_empty_elements' => false, 'return_type' => 'html')); ?>
     </div>
 </div>

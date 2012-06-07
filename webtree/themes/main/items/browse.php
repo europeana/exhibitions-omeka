@@ -90,10 +90,10 @@
 	        
 		    <?php $count++; ?>
 
-			<li class="browsed-item-wrapper">
+			<li class="browsed-item-wrapper meta">
 		        <?php if (item_has_thumbnail()): ?>
 		            <a href="<?php echo uri('items/show') . '/' . item('id') . $queryString; ?>">
-		                <?php echo item_square_thumbnail(); ?>
+		                <?php echo item_square_thumbnail(array('alt'=>item('Dublin Core', 'Title'))); ?>
 		            </a>
 	        	<?php else:?>
 	        	
@@ -103,13 +103,13 @@
 	        			$mime = $file->getMimeType();
 	        			
 	        			if (preg_match("/^application/", $mime)){
-	        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img class="icon-pdf" src="' . img('icon-pdf.png') . '"/></a>';
+	        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img alt="view pdf" class="icon-pdf" src="' . img('icon-pdf.png') . '"/></a>';
 	        			}
 	        			elseif (preg_match("/^video/", $mime)){
-	        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img class="icon-vid" src="' . img('icon-video.png') . '"/></a>';
+	        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img alt="view video" class="icon-vid" src="' . img('icon-video.png') . '"/></a>';
 	        			}
 	        			elseif (preg_match("/^audio/", $mime)){
-	        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img class="icon-audio" src="' . img('icon-audio.png') . '"/></a>';
+	        				echo '<a href="' . uri('items/show') . '/' . item('id') . $queryString . '" ><img alt="listen to audio" class="icon-audio" src="' . img('icon-audio.png') . '"/></a>';
 	        			}
 	        			
 	        			 
@@ -118,9 +118,9 @@
 		        <?php endif; ?>
 		        <?php echo plugin_append_to_items_browse_each(); ?>
 
-		        <h6>
+		        <h2>
 		            <a href="<?php echo uri('items/show') . '/' . item('id') . $queryString; ?>"><?php echo item('Dublin Core', 'Title');?></a>
-		        </h6>
+		        </h2>
 			</li>
 			
 	    <?php endwhile; ?>

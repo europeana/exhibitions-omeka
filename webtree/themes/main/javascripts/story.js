@@ -243,9 +243,12 @@ var story = function() {
 				responsiveHTML2 = '</noscript -->';
 			}
 			
-
+			var altText = jQuery("#exhibit-item-title-only h2").html();
+			
 			if(!zoomitEnabled && jQuery.browser.msie  && ( parseInt(jQuery.browser.version, 10) === 7 || parseInt(jQuery.browser.version, 10) === 8 )  ) {	// IE7's stupendously bad handling of innerHTML makes responsive images a no-go.
 				url = url.replace("euresponsive_1", "euresponsive_4");
+				
+				
 				jQuery("#in-focus")[0].innerHTML ='<img  src="' + url + '"/>';
 				jQuery("#in-focus img[src='" + url + "']").attr("class", defImgClass);
 				tmpImg = jQuery('#media_wrapper img.tmp-img');
@@ -256,7 +259,7 @@ var story = function() {
 			var html =	'<div id="media_wrapper">\n'
 				+			'<div id="zoomit_window"></div>\n'
 				+			responsiveHTML1
-				+			'<img class="' + defImgClass + '" src="' + url + '"/>' + responsiveHTML2 
+				+			'<img class="' + defImgClass + '" src="' + url + '" alt="' + altText + '"/>' + responsiveHTML2 
 				+		'</div>\n';
 
 			jQuery("#in-focus")[0].innerHTML = html;

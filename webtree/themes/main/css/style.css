@@ -357,7 +357,19 @@ story-nav-wrapper a img{
 }
 
 /* responsive design change (h3 -> h4) */
-.element h6 {
+.element h1 {
+    clear: left;
+    float: left;
+    /* Defer to responsive styling for font-size */
+    /* font-size: 1.15em; */
+    font-weight: bold;
+    margin: 0 .5em 0 0;
+    padding: 0;
+    line-height: 21px;
+}
+
+/* responsive design change */
+.element h6, .element h2 {
     clear: left;
     float: left;
     /* Defer to responsive styling for font-size */
@@ -379,7 +391,7 @@ story-nav-wrapper a img{
     content: ":";
 }
 */
-.element h6:after {
+.element h1:after {
     content: ":";
 }
 
@@ -387,9 +399,7 @@ story-nav-wrapper a img{
     margin: 0;
 }
 
-.exhibit-item-show #in-focus img {
-    xxxxxxxxxxxmax-width: 460px;
-}
+
 
 /* ITEMS BROWSE / PAGE NAV ********************************/
 

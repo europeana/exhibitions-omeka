@@ -3,8 +3,11 @@
 	</div>
 
 	<h1>Credits</h1>
-	<p>Europeana would like to thank all contributors who shared their stories and memorabilia via the Europeana 1914-1918 project. This virtual exhibition was made possible thanks to the contribution made in Germany, UK, Ireland, Slovenia, Luxembourg and Denmark. 
-	</p>
+	<div class="meta">
+		<h2>
+		Europeana would like to thank all contributors who shared their stories and memorabilia via the Europeana 1914-1918 project. This virtual exhibition was made possible thanks to the contribution made in Germany, UK, Ireland, Slovenia, Luxembourg and Denmark. 
+		</h2>
+	</div>
     <p>Research and texts:</p>
     <ul>
     <li>Alun Edwards, Stephen Bull, Frank Drauschke, Peter Englund, Jackie Storer, Everett Sharp, Lizzy Komen, Michelle van Duijn, Breda Karun, Katherine McSharry, Mikkel Christoffersen, Christine Kremer, Anna van den Broek.</li>

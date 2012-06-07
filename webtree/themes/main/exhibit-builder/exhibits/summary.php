@@ -184,7 +184,14 @@ $exhibit = get_current_exhibit();
     
     
     <div class="six columns pull-six">
-         <?php echo exhibit('description'); ?>
+    
+    	<!-- SEO h2 - this has no effect on the style. -->
+    	
+    	<h2>
+    		<?php echo exhibit('description'); ?>
+        </h2>
+        
+        
 		<h4>
 			<a class='widget'
 				href="<?php echo $themesUrl; ?>">

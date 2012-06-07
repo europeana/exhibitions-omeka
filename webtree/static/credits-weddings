@@ -4,7 +4,12 @@
 
 	<h1>Credits</h1>
 	<!-- put creditorial info here -->
-	<p>This virtual exhibition contains content from institutions in Poland, Hungary, Lithuania and Slovenia. The exhibition was curated by Ewa Dahlig-Turek and edited by Martin Gordon.</p>
+	
+	<div class="meta">
+		<h2>
+			This virtual exhibition contains content from institutions in Poland, Hungary, Lithuania and Slovenia. The exhibition was curated by Ewa Dahlig-Turek and edited by Martin Gordon.
+		</h2>
+	</div>
 
 	<p><strong>ISPAN, Poland</strong> - <a href="http://www.ispan.pl" target="_blank" title="Visit the ISPAN website">Visit the website</a></p>
 	<p>The Polish Academy of Sciences Institute (ISPAN ) carries out interdisciplinary research on music, theatre, art history and cultural anthropology. Located in Warsaw, it holds unique collections of old folk music recordings and photographs of art, mostly architecture. Contributors to this exhibition are ethnomusicologists Ewa Dahlig-Turek (Deputy Director for Research) and Jacek Jackowski (Head of Sound Archive).</p>
