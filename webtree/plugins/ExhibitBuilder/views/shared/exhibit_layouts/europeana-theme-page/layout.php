@@ -64,7 +64,7 @@ $_SESSION['themes_uri'] = uri();
     <div class="primary" style="width:100%;">
         <div class="exhibit-text exhibit-theme-wrapper">
 
-            <h2><?php echo ve_translate('themes', 'Themes');?></h2>
+            <h1><?php echo ve_translate('themes', 'Themes');?></h1>
             
             <?php echo exhibit_builder_page_text(); ?>
 
@@ -179,8 +179,8 @@ $_SESSION['themes_uri'] = uri();
             		$rowHTML .= '<div class="row theme-title-row-expanded">';
             		$rowHTML .= 	'<div class="six columns right-text">';
             		$rowHTML .= 		'<div class="theme-item-wrapper right-text">';
-            		$rowHTML .= 			'<a href="'.$themeLink1.'">';
-            		$rowHTML .= 				'<h6>'.$themeTitle1.'</h6>';
+            		$rowHTML .= 			'<a href="'.$themeLink1.'" class="meta">';
+            		$rowHTML .= 				'<h2>'.$themeTitle1.'</h2>';
             		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
             		
@@ -201,8 +201,8 @@ $_SESSION['themes_uri'] = uri();
             		$rowHTML .= 		'</div>';
             		
             		$rowHTML .= 		'<div class="theme-item-wrapper left-text">';
-            		$rowHTML .= 			'<a href="'.$themeLink2.'">';
-            		$rowHTML .= 				'<h6>'.$themeTitle2.'</h6>';
+            		$rowHTML .= 			'<a href="'.$themeLink2.'" class="meta">';
+            		$rowHTML .= 				'<h2>'.$themeTitle2.'</h2>';
             		$rowHTML .= 			'</a>';
             		$rowHTML .= 		'</div>';
             		$rowHTML .= 	'</div>';

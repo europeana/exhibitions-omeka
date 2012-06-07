@@ -38,10 +38,11 @@ $story = $page->title
 	}		
 	
 	#story{
-		max-width:45%;
+		max-width:47%;
 	}
 </style>
 <![endif]-->
+
 
 
 <div class="row">
@@ -110,9 +111,9 @@ $story = $page->title
 	
 	<div class="six columns pull-six" id="story">
 		<div id="exhibit-section-title">
-			<h2>
+			<h1>
 				<?php echo $theme . ' - ' . $story; ?>
-			</h2>
+			</h1>
 		</div>
 		<div class="exhibit-text">
 			<div id="exhibit-section-title-small">
