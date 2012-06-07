@@ -80,7 +80,6 @@ var story = function() {
 
 	
 	function onZoomitResponse(resp) {
-		
 		if(resp.error){
 			log("response error");
 
