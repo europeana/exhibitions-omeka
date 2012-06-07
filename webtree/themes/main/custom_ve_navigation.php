@@ -391,8 +391,10 @@ function ve_exhibit_builder_responsive_link_to_next_exhibit_page($text = "Next P
     $currentSection = exhibit_builder_get_current_section();
     if ($currentSection) {
         if ($currentSection->hasPages()) {
+        	
         	$navJsVar .= '<script type="text/javascript">';
-        	$navJsVar .= 	'jQuery(document).ready(function(){';
+        	$navJsVar .= 	'jQuery(document).ready(function(){ ';
+        	
         	$navJsVar .= 	'var fixNav = function(){';
         	$navJsVar .= 		'var maxWidthItem = 36;';
         	$navJsVar .= 		'var widthItem = maxWidthItem;';
@@ -404,19 +406,36 @@ function ve_exhibit_builder_responsive_link_to_next_exhibit_page($text = "Next P
         	$navJsVar .= 			'widthItem = (topWidth - (navPageCount + 1) * marginWidth) / (navPageCount + 2) ;';
         	$navJsVar .= 		'}';
         	
-        	
         	$navJsVar .= 		'if(jQuery.browser.msie && parseInt(jQuery.browser.version, 10) === 8){';
-        	$navJsVar .= 		' var ie8w = ((navPageCount+2) * widthItem) + ((navPageCount + 1)  * marginWidth) ;  ';
-        	$navJsVar .= 		' jQuery(".story-nav-wrapper").width( ie8w  + "px");';
+        	$navJsVar .= 			'var ie8w = ((navPageCount+2) * widthItem) + ((navPageCount + 1)  * marginWidth) ;  ';
+        	$navJsVar .= 			'jQuery(".story-nav-wrapper").width( ie8w  + "px");';
+        	$navJsVar .= 		'};';
+        	
+        	$navJsVar .= 		'if(jQuery.browser.msie && parseInt(jQuery.browser.version, 10) === 7){';
+        	$navJsVar .= 			'var ie7w = ((navPageCount+2) * widthItem) + ((navPageCount + 1)  * marginWidth) ;  ';
+        	$navJsVar .= 			'jQuery(".story-nav-wrapper").width( parseInt(ie7w)  + "px");';
+        	$navJsVar .= 			'widthItem -= 5;';
+        	
+        	// Fix for Microsoft's wonderfully clever "hasLayout" issue...
+        	$navJsVar .= 			'jQuery("#in-focus").css("position", "relative");';
+        	$navJsVar .= 			'jQuery("#media_wrapper").css("position", "relative");';
+        	$navJsVar .= 			'jQuery("#media_wrapper img.full").css("position", "relative");';
+        	$navJsVar .= 			'jQuery("#exhibit-item-infocus-item").css("position", "relative");';
+        	$navJsVar .= 			'jQuery(".theme-center-inner").css("position", "relative");';
+        	$navJsVar .= 			'jQuery(".theme-center-middle").css("position", "relative");';
+        	$navJsVar .= 			'jQuery(".theme-center-outer").css("position", "relative");';
+        	$navJsVar .= 			'jQuery("#tbl-exhibit-item").css("position", "relative");';
+        	$navJsVar .= 			'jQuery("#tbl-exhibit-item td").css("position", "relative");';
         	$navJsVar .= 		'};';
         	
         	
         	$navJsVar .= 		'jQuery(".story-nav").css("width", widthItem + "px");';
         	$navJsVar .= 		'jQuery(".story-nav-padding").css("width", marginWidth + "px");';
-        	$navJsVar .= 	'};';
-        	//$navJsVar .= 	'setTimeout(fixNav, 2000)';
-        	$navJsVar .= 	'fixNav();';
         	
+
+        	$navJsVar .= 	'};';
+ //       	$navJsVar .= 	'setTimeout(fixNav, 1000);';
+        	$navJsVar .= 	'fixNav();';
         	
         	$navJsVar .= 	'jQuery(window).bind("orientationchange",function(event){';
         	$navJsVar .= 		'fixNav();';
@@ -425,7 +444,7 @@ function ve_exhibit_builder_responsive_link_to_next_exhibit_page($text = "Next P
         	$navJsVar .= 	'jQuery(window).resize(function() {';
        		$navJsVar .= 		'fixNav();';
         	$navJsVar .= 	'});';
-        	
+
         	$navJsVar .= 	'});';
         	$navJsVar .= '</script>';
         }	
