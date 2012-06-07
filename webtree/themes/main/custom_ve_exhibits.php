@@ -409,10 +409,67 @@ if(!function_exists('ve_custom_show_embed')){
  * If in the theme config the list of desired metadata elements is set then use this function,
  * else just use the regular show_item_metadata
  */
-if (!function_exists('ve_custom_show_item_metadata')) {
+if (!function_exists('ve_custom_show_item_metadataxxx')) {
 
-    function ve_custom_show_item_metadata(array $options = array(), $item = null)
+    function ve_custom_show_item_metadataxxx(array $options = array(), $item = null)
     {
+    	$my_string = <<<TEST
+
+    	
+    	<div style="margin-bottom:3em;" class="six columns meta">
+
+        	<div id="dublin-core-title" class="element">
+        		<h1>Title</h1>
+        		<p class="element-text">
+        			Polish wedding
+        		</p>
+        	</div>
+        	<div id="dublin-core-creator" class="element">
+        		<h2>Creator</h2>
+        		<p class="element-text">
+        			Photographer unknown
+        		</p>
+        	</div>
+        	<div id="dublin-core-description" class="element">
+        		<h6>Description</h6>
+        		<p class="element-text">
+        			In the background, there is a fiddler and a three-row accordion player (a drummer is also present but not visible in this picture). This line-up is characteristic for the 20th century, especially for central Poland. The accordion the first appeared in the original ensemble setting (consisting of fiddle and one-side drum) in the Lowicz region (probably towards the end of 19th century). In this picture, we can see a reconstruction of the traditional wedding ceremony.
+        			
+        		</p>
+        	</div>
+        	<div id="dublin-core-date" class="element">
+        		<h6>Date</h6>
+        		<p class="element-text">
+        			1929
+        		</p>
+        	</div>
+        	<div id="dublin-core-source" class="element">
+        		<h6>Source</h6>
+        		<p class="element-text">
+        			Sound Archive of ISPAN; Poland
+        		</p>
+        	</div>
+        	<div id="dublin-core-provider" class="element">
+        		<h6>Provider</h6>
+        		<p class="element-text">
+        			DISMARC - EuropeanaConnect
+        		</p>
+        	</div>        
+        </div>
+TEST;
+    	return $my_string;
+    }
+}
+
+
+
+
+
+
+if (!function_exists('ve_custom_show_item_metadata')) {
+	
+	function ve_custom_show_item_metadata(array $options = array(), $item = null)
+	{
         if (!$item) {
             $item = get_current_item();
         }
@@ -487,7 +544,8 @@ if (!function_exists('ve_custom_show_item_metadata')) {
         	        			if (!item_field_uses_html('Dublin Core', $field, $key)) {
         	        				$fieldValue = nls2p($fieldValue);
         	        			}
-        	        			$html .= '<div class="element-text">'.$fieldValue.'</div>';
+        	        			//$html .= '<div class="element-text">'.$fieldValue.'</div>';
+        	        			$html .= '<p class="element-text">'.$fieldValue.'</p>';
         	        		}
         	        	}
                         $html .= '</div>';
@@ -498,12 +556,20 @@ if (!function_exists('ve_custom_show_item_metadata')) {
      	        if (element_exists('Item Type Metadata', $field)) {
         	        if ($fieldValues = item('Item Type Metadata', $field, 'all')) {
         	            $html .= '<div class="element" id="dublin-core-'. strtolower($field) .'"><h6>'.$field.'</h6>';
+        	            
+        	            $html .= '<p class="element-text">';
+        	            
         	            foreach ($fieldValues as $key => $fieldValue) {
         	                if (!item_field_uses_html('Item Type Metadata', $field, $key)) {
         	                    $fieldValue = nls2p($fieldValue);
         	                }
         	                $html .= '<div class="element-text">'.$fieldValue.'</div>';
+        	                //$html .= '$fieldValue;
         	            }
+        	            $html .= '</p>';
+        	            
+        	            
+        	            
                         $html .= '</div>';
         	        }
         	    }

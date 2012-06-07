@@ -380,18 +380,17 @@ story-nav-wrapper a img{
     line-height: 21px;
 }
 
-.element .element-text {
+.element .element-text, .element p {
+	
+	/* ANDY removed this!
     float: left;
+    */
+    
     line-height: 21px;
 }
 
 /* responsive design change */
-/*
-.element h3:after {
-    content: ":";
-}
-*/
-.element h1:after {
+.element h1:after, .element h2:after, .element h6:after {
     content: ":";
 }
 
