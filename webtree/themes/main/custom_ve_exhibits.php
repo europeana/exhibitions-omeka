@@ -509,6 +509,9 @@ if (!function_exists('ve_custom_show_item_metadata')) {
 							if($parsedRights["lnk"]){
 								$html	.=		'</a>';
 							}
+							
+                            $html .= 		'<p>&nbsp;</p>';
+                            
                             $html .= 		'</td>';
                             $html .=	'</tr>';
                             $html .=   '</table>';

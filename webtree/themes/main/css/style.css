@@ -398,6 +398,10 @@ story-nav-wrapper a img{
     margin: 0;
 }
 
+.element {
+    clear: both;
+}
+
 
 
 /* ITEMS BROWSE / PAGE NAV ********************************/
