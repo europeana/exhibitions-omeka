@@ -42,8 +42,6 @@ ve_session_vars();
 	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->	
 	
 
-
-
 	<!--link rel="stylesheet" href="http://127.0.0.1/ombad/webtree/themes/main/css/foundation/stylesheets/foundation.css" /-->
 	<link rel="stylesheet" href="http://test.exhibit.eanadev.org/themes/main/css/foundation/stylesheets/foundation.css" />
 	<link rel="stylesheet" href="splash/css/style.css" />
@@ -68,7 +66,12 @@ ve_session_vars();
 	<!-- other scripts at bottom of page (see Simple Page) -->
 
 	</head>
-	<body>	
+	<body>
+		<div style="position:absolute;" id="SEO_Headings">
+			<h1 style="color:white;">Europeana</h1>
+			<h2 style="color:white;">Exhibitions</h2>
+		</div>
+
 
 
 <?php else: ?>
@@ -139,6 +142,7 @@ ve_session_vars();
 		
 	    <div id="header" class="row">
 	        <div class="twelve columns">
+	        
 	        	<div id="site-title" class="twelve columns">
 					<a href="<?php echo(WEB_ROOT); ?>"><img alt="Europeana Exhibitions" src="<?php echo img('logo.png'); ?>"></a>
 	        	</div>
