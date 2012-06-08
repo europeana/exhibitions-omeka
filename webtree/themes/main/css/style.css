@@ -360,12 +360,14 @@ story-nav-wrapper a img{
 .element h1 {
     clear: left;
     float: left;
+    
     /* Defer to responsive styling for font-size */
     /* font-size: 1.15em; */
+    
     font-weight: bold;
     margin: 0 .5em 0 0;
     padding: 0;
-    line-height: 21px;
+    line-height: 20px;
 }
 
 /* responsive design change */
@@ -377,8 +379,19 @@ story-nav-wrapper a img{
     font-weight: bold;
     margin: 0 .5em 0 0;
     padding: 0;
-    line-height: 21px;
+    
+    
+    line-height: 20px;
 }
+
+.element h6 {
+    line-height: 19px;
+}
+
+.element td h6 {
+    line-height: 20px;
+}
+
 
 .element .element-text, .element p {
 	

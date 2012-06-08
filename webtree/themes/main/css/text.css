@@ -41,6 +41,8 @@ hr
 h1, h2, h3, h4, h5, h6 {
     font-family: Chevin, 'Trebuchet MS', Helvetica, sans-serif;
 }
+
+
 /*
 h1, h2, h3, h4, h5, h6 {
     font: 14px/1.2 Chevin, 'Trebuchet MS', Helvetica, sans-serif;
@@ -104,4 +106,9 @@ address,
 fieldset
 {
 	margin-bottom: 20px;
+}
+
+.element p{
+    font-family:	Chevin, 'Trebuchet MS', Helvetica, sans-serif;
+    margin-bottom:	0px;
 }
