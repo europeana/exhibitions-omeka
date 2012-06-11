@@ -141,7 +141,7 @@
 		if("<?php echo ve_exhibit_builder_zoomit_enabled() ?>".length > 0){
 			zoomitEnabled = "<?php echo ve_exhibit_builder_zoomit_enabled() ?>";
 		}
-		if(zoomitEnabled > 0){
+		if(zoomitEnabled && zoomitEnabled > 0){
 			story.initStory("<?php echo file_display_uri(get_current_item() -> Files[0]); ?>", zoomitEnabled);
 		}
 		else{
