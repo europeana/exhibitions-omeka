@@ -252,6 +252,13 @@ function removeAttribute($tag, $attr){
 	return preg_replace($pattern, '', $tag);
 }
 
+function getAttribute($tag, $attr){
+	$pattern = '/'.$attr.'\s*=\s*(\'|").+(\'|")/i';
+	$result = "";
+	preg_match($pattern, $tag, $result);
+	return $result;
+}
+
 /*
  *  Display the embed button only for items with a Creative Commons license. 
     Display embed button only when the item is an image
@@ -316,19 +323,9 @@ if(!function_exists('ve_custom_show_embed')){
 						
 						
 						$altText = ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null, $showAsTitle=true);
-
-						$altText 		= explode("|", $altText);
-						$fileImgHtml	=	item_fullsize($file);
-						$fileImgHtml	=	str_replace('<img ', '<img style="width:100%;" alt="' . addslashes(current($altText)) . '" ', $fileImgHtml);
 						
-						$fileImgHtml	=	removeAttribute($fileImgHtml, "archive_filename");
-						$fileImgHtml	=	removeAttribute($fileImgHtml, "original_filename");
-						$fileImgHtml	=	removeAttribute($fileImgHtml, "authentication");
-						$fileImgHtml	=	removeAttribute($fileImgHtml, "mime_browser");
-						$fileImgHtml	=	removeAttribute($fileImgHtml, "mime_os");
-						$fileImgHtml	=	removeAttribute($fileImgHtml, "type_os");
-						$fileImgHtml	=	removeAttribute($fileImgHtml, "added");
-						$fileImgHtml	=	removeAttribute($fileImgHtml, "modified");
+						$altText 		= explode("|", $altText);
+						$fileImgHtml	= '<img width="100%" src="' . WEB_ROOT . '/track_embed/download/' . $item->id . '"/>';
 						$fileImgHtml	= 	'<a href="'.$itemUri.'">' . $fileImgHtml . '</a>';
 						
 						$html	.=		$fileImgHtml;

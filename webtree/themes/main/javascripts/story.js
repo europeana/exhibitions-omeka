@@ -24,10 +24,8 @@ var story = function() {
 			else{
 		        if ( endsWith(initialUrl, "jpg") || endsWith(initialUrl, "jpeg")) {
 	               	markup("image", initialUrl);
-	               	if(zoomitEnabled){	
-	               		
+	               	if(zoomitEnabled){
 						zoomitAjaxUrl = initialUrl.replace("/fullsize/", "/files/");
-						
 	               		zoomitAjaxUrl = zoomitAjaxUrl.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
 						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://10.101.28.3/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
 						zoomitAjaxUrl = zoomitAjaxUrl.replace("http://localhost/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
@@ -328,8 +326,6 @@ var story = function() {
 		
 	           		if(zoomitEnabled){
 		        		tmpImg.attr("src", newObjSrc).load(function() {
-				            	log("click poll...");
-				            	
 								zoomitAjaxUrl = newObjSrc.replace("/fullsize/", "/files/");
 								
 			               		zoomitAjaxUrl = zoomitAjaxUrl.replace("http://127.0.0.1/ombad/webtree/", "http://test.exhibit.eanadev.org/"); // TODO remove this before going live - allows zoomit to work on localhost
