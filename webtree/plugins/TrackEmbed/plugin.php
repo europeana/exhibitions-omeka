@@ -49,6 +49,7 @@ function track_embed_uninstall()
 
 function track_embed_define_routes($router)
 {
+	error_log("Embed route (1)");
     $router->addRoute(
         'track_embed_download_route', 
         new Zend_Controller_Router_Route(
@@ -60,4 +61,5 @@ function track_embed_define_routes($router)
                 )
         )
 	);
+    error_log("Embed route (2)");
 }
