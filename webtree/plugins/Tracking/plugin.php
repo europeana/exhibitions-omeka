@@ -23,6 +23,7 @@ function tracking_admin_navigation_main($nav)
 
 function tracking_install()
 {
+	error_log("Create tracking database.....");
     $db = get_db();
     $sql = "
    		CREATE TABLE IF NOT EXISTS `$db->TEmbeds` (
@@ -36,7 +37,7 @@ function tracking_install()
         ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
     ";
     $db->exec($sql);
-    error_log("Created tracking database");
+    error_log(".....created tracking database");
 }
 
 function tracking_uninstall()
