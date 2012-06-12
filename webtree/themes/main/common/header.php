@@ -43,7 +43,7 @@ ve_session_vars();
 	
 
 	<!--link rel="stylesheet" href="http://127.0.0.1/ombad/webtree/themes/main/css/foundation/stylesheets/foundation.css" /-->
-	<link rel="stylesheet" href="http://test.exhibit.eanadev.org/themes/main/css/foundation/stylesheets/foundation.css" />
+	<link rel="stylesheet" href="themes/main/css/foundation/stylesheets/foundation.css" />
 	<link rel="stylesheet" href="splash/css/style.css" />
 	<link rel="stylesheet" href="splash/css/splash.css" />
 
