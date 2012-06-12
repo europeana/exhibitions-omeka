@@ -44,6 +44,7 @@ ve_session_vars();
 
 	<!--link rel="stylesheet" href="http://127.0.0.1/ombad/webtree/themes/main/css/foundation/stylesheets/foundation.css" /-->
 	<link rel="stylesheet" href="themes/main/css/foundation/stylesheets/foundation.css" />
+	<link rel="stylesheet" href="themes/main/css/foundation-overrides.css" />
 	<link rel="stylesheet" href="splash/css/style.css" />
 	<link rel="stylesheet" href="splash/css/splash.css" />
 
@@ -68,8 +69,7 @@ ve_session_vars();
 	</head>
 	<body>
 		<div style="position:absolute;" id="SEO_Headings">
-			<h1 style="color:white;">Europeana</h1>
-			<h2 style="color:white;">Exhibitions</h2>
+			<h1 style="color:white;">Europeana Exhibitions</h1>
 		</div>
 
 
