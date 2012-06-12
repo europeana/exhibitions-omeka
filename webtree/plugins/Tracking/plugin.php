@@ -16,7 +16,7 @@ add_filter('admin_navigation_main', 'tracking_admin_navigation_main');
 
 function tracking_admin_navigation_main($nav)
 {
-    $nav['Track Embeds'] = uri('track-embed');
+    $nav['Track Embeds'] = uri('tracking');
     return $nav;
 }
 
@@ -26,7 +26,7 @@ function tracking_install()
 	error_log("Create tracking database.....");
     $db = get_db();
     $sql = "
-   		CREATE TABLE IF NOT EXISTS `$db->TEmbeds` (
+   		CREATE TABLE IF NOT EXISTS `$db->Embeds` (
           `id`				int(10) unsigned NOT NULL AUTO_INCREMENT,
           `referer`			tinytext COLLATE utf8_unicode_ci NOT NULL,
           `resource`		tinytext COLLATE utf8_unicode_ci NOT NULL,
@@ -43,7 +43,7 @@ function tracking_install()
 function tracking_uninstall()
 {
     $db = get_db();
-    $sql = "DROP TABLE IF EXISTS `$db->TEmbeds`";
+    $sql = "DROP TABLE IF EXISTS `$db->Embeds`";
     $db->exec($sql);
 }
 
