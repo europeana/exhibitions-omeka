@@ -129,7 +129,7 @@
 			// name, languages and partners
 			html +=	'<div class="title-wrapper">';
 			html += 	'<table class="title-table"><tr><td>';
-			html +=			'<h5 class="name dark">' + definition.name + '</h5>';
+			html +=			'<h2 class="name dark">' + definition.name + '</h2>';
 			html += 	'</td></tr></table>';
 			html +=	'</div>';
 
