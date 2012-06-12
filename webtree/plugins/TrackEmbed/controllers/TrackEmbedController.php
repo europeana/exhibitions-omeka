@@ -39,10 +39,15 @@ class TrackEmbed_TrackEmbedController extends Omeka_Controller_Action
    			}
    		}
 
-        $file = $this->findById($request->getParam('id'), 'File');
+   		error_log("track embed loads file id " . $request->getParam('id'));
+   		
+        $item = $this->findById($request->getParam('id'), 'Item');
+        $file = $item -> Files[0];
         
         // Get the archive path for the file
-        $path = $file->getWebPath('archive');
+        //$path = $file->getWebPath('archive');
+        $path = $file->getWebPath('fullsize');
+        
         $this->getResponse()->setHeader('Location', $path);
          
         //Don't render anything 
