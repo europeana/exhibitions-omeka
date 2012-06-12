@@ -24,6 +24,14 @@ class Tracking_TrackingController extends Omeka_Controller_Action
    			// update or create new....
    	        $embed = $this->getTable('Embed')->findBySql('referer = ? AND resource = ? AND period = ?', array($_SERVER['HTTP_REFERER'], $request->getParam('id'), $period ) );
 				
+   	        if($this->getTable('Embed')){   	        	
+   	        	error_log("got table");
+   	        }
+   	        else{
+   	        	
+   	        	error_log("not got table");
+   	        }
+
    			if($embed && count($embed) > 0 ){
    				$embed = reset($embed);
    				$embed->view_count = $embed->view_count + 1;	// bump view_count
