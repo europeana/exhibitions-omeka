@@ -36,6 +36,7 @@ function track_embed_install()
         ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
     ";
     $db->exec($sql);
+    error_log("Created Track_Embed database");
 }
 
 function track_embed_uninstall()
