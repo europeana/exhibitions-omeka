@@ -6,7 +6,6 @@ class TrackEmbed_TrackEmbedController extends Omeka_Controller_Action
     {
     	error_log("inside TrackEmbedController init()");
         $this->_modelClass = 'Embed';
-        die("DIE!!!!");
     }
     
     
@@ -14,6 +13,7 @@ class TrackEmbed_TrackEmbedController extends Omeka_Controller_Action
    	{        
         $request = $this->getRequest();
 		
+        
 		// set the default timezone to use.
 		date_default_timezone_set('UTC');
 		$period = date('Ym');
