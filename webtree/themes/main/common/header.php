@@ -78,7 +78,8 @@ ve_session_vars();
 
 	<!--DEFAULT HEAD / BODY-->
 		<meta name="author" content="Andy MacLean" />
-		<meta name="description" content="Europeana Exhibitions, a place for Europeana and their partners to showcase their exhibitions." />
+
+		<!--meta name="description" content="Europeana Exhibitions, a place for Europeana and their partners to showcase their exhibitions." /-->
 
 		<title><?php echo ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null, $showAsTitle=true); ?></title>
 
