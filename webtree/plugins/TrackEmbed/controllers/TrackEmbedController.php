@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Embed.php';
+
 class TrackEmbed_TrackEmbedController extends Omeka_Controller_Action
 {
     public function init()
