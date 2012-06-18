@@ -68,10 +68,6 @@ ve_session_vars();
 
 	</head>
 	<body>
-		<div style="position:absolute;" id="SEO_Headings">
-			<h1 style="color:white;">Europeana Exhibitions</h1>
-		</div>
-
 
 
 <?php else: ?>
@@ -144,9 +140,23 @@ ve_session_vars();
 	    <div id="header" class="row">
 	        <div class="twelve columns">
 	        
-	        	<div id="site-title" class="twelve columns">
-					<a href="<?php echo(WEB_ROOT); ?>"><img alt="Europeana Exhibitions" src="<?php echo img('logo.png'); ?>"></a>
-	        	</div>
+	        
+	        	<?php if (strrpos($pageURL, 'browse') > 0): ?>
+	        	
+		        	<div id="site-title" class="twelve columns">
+		        		<h1 style="margin-bottom:0px;">
+		        			<a href="<?php echo(WEB_ROOT); ?>"><img alt="Europeana Exhibitions" src="<?php echo img('logo.png'); ?>"></a>
+		        		</h1>
+		        	</div>
+		        	
+	        	<?php else: ?>
+	        	
+		        	<div id="site-title" class="twelve columns">
+						<a href="<?php echo(WEB_ROOT); ?>"><img alt="Europeana Exhibitions" src="<?php echo img('logo.png'); ?>"></a>
+		        	</div>
+		        	
+	        	<?php endif; ?>
+	        	
 	        	
 		        <div id="secondary-branding" style="float:right;"><?php echo ve_exhibit_secondary_logo(); ?></div>
 	        	
