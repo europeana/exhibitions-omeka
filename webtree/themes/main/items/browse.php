@@ -10,10 +10,10 @@
 	        <?php echo ve_return_to_exhbit($queryString); ?>
 	    </div>
 	    
-	    <h1>
+	    <p class="h1simulate">
 	        <?php echo ve_translate('items-browse', 'Browse Items');?>
 	        (<?php echo total_results(); ?> <?php echo ve_translate('items-total', 'total');?>)
-	    </h1>	    
+	    </p>
 	</div>
 </div>
 
