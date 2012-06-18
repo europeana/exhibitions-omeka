@@ -77,7 +77,7 @@ em {
 #top-navigation a:link,
 #top-navigation a:visited {
     font-weight: bold;
-    margin-right: .5em;
+    xxxxxxxxxxxxxmargin-right: .5em;
 }
 
 /* CMS SIMPLE PAGES ****************************************************************************************************/
@@ -358,20 +358,19 @@ story-nav-wrapper a img{
 
 /* responsive design change (h3 -> h4) */
 .element h1 {
-    clear: left;
-    float: left;
-    
-    /* Defer to responsive styling for font-size */
-    /* font-size: 1.15em; */
-    
-    font-weight: bold;
     margin: 0 .5em 0 0;
     padding: 0;
     line-height: 20px;
 }
 
 /* responsive design change */
-.element h6, .element h2 {
+.element h2 {
+    margin: 0 .5em 0 0;
+    padding: 0;
+    line-height: 20px;
+}
+/* responsive design change */
+.element h6{
     clear: left;
     float: left;
     /* Defer to responsive styling for font-size */
@@ -379,13 +378,24 @@ story-nav-wrapper a img{
     font-weight: bold;
     margin: 0 .5em 0 0;
     padding: 0;
-    
-    
     line-height: 20px;
 }
 
+
+.exhibit-text p{
+	line-height:	26px;	
+}
+
+
+.element h1{
+	display:	inline;	
+	margin-bottom: 0;
+}
+
+
 .element h6 {
-    line-height: 19px;
+    line-height:	20px;
+	display:		inline;	
 }
 
 .element td h6 {
@@ -398,12 +408,12 @@ story-nav-wrapper a img{
 	/* ANDY removed this!
     float: left;
     */
-    
-    line-height: 21px;
+	font-size:		15px;    
+    line-height:	20px;
 }
 
 /* responsive design change */
-.element h1:after, .element h2:after, .element h6:after {
+.element h6:after {
     content: ":";
 }
 

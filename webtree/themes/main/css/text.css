@@ -38,7 +38,8 @@ hr
 
 /* responsive design change */
 
-h1, h2, h3, h4, h5, h6 {
+
+h1, h2, h3, h4, h5, h6, p.h1simulate{
     font-family: Chevin, 'Trebuchet MS', Helvetica, sans-serif;
 }
 

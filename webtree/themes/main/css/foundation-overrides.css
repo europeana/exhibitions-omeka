@@ -46,12 +46,36 @@ h1 {
 }
 
 
+.summary-text p{
+    font-family:	Arial, 'Trebuchet MS', Helvetica, sans-serif;
+    line-height:	19px;
+    font-size:		13.333px;	
+}
 
 
 
+.title-table h2{	
+	font-size:		18px;
+	font-weight:	normal;
+} 
 
 
+/* SEO compatibility: make this paragraph class behave like an h1 */
 
+p.h1simulate{
+	line-height:	1.25;
+	font-size:		46px;
+	font-size:		4.6rem;
+	margin-bottom:	12px;
+}
+
+@media handheld, only screen and (max-width: 767px) {
+	p.h1simulate{
+		font-size:		32px;
+		font-size:		3.2rem;
+		line-height:	1.3;
+	}
+}
 
 
 
