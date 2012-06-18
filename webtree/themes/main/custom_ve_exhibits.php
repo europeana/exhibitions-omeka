@@ -196,6 +196,48 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
 
 function ve_exhibit_builder_display_exhibit_thumbnail_gallery($start, $end, $props = array(), $thumbnail_type = "square_thumbnail")
 {
+	$noItems = 0;
+    $html = '<table id="exhibit-item-thumbnails"><tr>';
+    
+    for ($i = (int)$start; $i <= (int)$end; $i++) {
+        if (exhibit_builder_use_exhibit_page_item($i)) {
+            $html .= '<td>';
+            $item = get_current_item();
+
+            $zoomitEnabled = ve_exhibit_builder_zoomit_enabled();
+
+            if (item_has_files()) {
+                while (loop_files_for_item()) {
+
+                	$noItems += 1;
+                    $file = get_current_file();
+
+                    $thumbnail = item_image($thumbnail_type, array('alt' => item('Dublin Core', 'Title'), 'rel' => $file->getMimeType(), 'accesskey' => file_display_uri($file, $format = 'archive')));
+                    //$hiddenInput = '<input type="hidden" name="zoomit" class="zoomit" value="' . $zoomitEnabled . '"/>';
+                    
+                    if (preg_match("/^audio/", $file->getMimeType())) {
+                        $thumbnail .= '<img class="icon-audio" src="' . img('icon-audio.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
+                    }
+                    if (preg_match("/^video/", $file->getMimeType())) {
+                        $thumbnail .= '<img class="icon-vid" src="' . img('icon-video.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
+                    }
+                    if (preg_match("/^application/", $file->getMimeType())) {
+                        $thumbnail = '<img  class="icon-pdf" src="' . img('icon-pdf.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
+                    }
+                    $html .= exhibit_builder_link_to_exhibit_item($thumbnail, $props) . $hiddenInput;
+                }
+            }
+            
+            $html .= '</td>';
+        }
+    }
+    $html .= '</tr></table>';
+    $html .= '<script type="text/javascript">var galleryItemCount = ' . $noItems . ';</script>';
+    $html = apply_filters('exhibit_builder_display_exhibit_thumbnail_gallery', $html, $start, $end, $props, $thumbnail_type);
+    
+    return $html;
+    
+/*
     $html = '';
     for ($i = (int)$start; $i <= (int)$end; $i++) {
         if (exhibit_builder_use_exhibit_page_item($i)) {
@@ -228,7 +270,9 @@ function ve_exhibit_builder_display_exhibit_thumbnail_gallery($start, $end, $pro
         }
     }
     $html = apply_filters('exhibit_builder_display_exhibit_thumbnail_gallery', $html, $start, $end, $props, $thumbnail_type);
+    
     return $html;
+*/
 }
 
 
@@ -325,8 +369,28 @@ if(!function_exists('ve_custom_show_embed')){
 						$altText = ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null, $showAsTitle=true);
 						
 						$altText 		= explode("|", $altText);
+						
+						// New code
 						$fileImgHtml	= '<img width="100%" src="' . WEB_ROOT . '/track_embed/download/' . $item->id . '"/>';
 						$fileImgHtml	= 	'<a href="'.$itemUri.'">' . $fileImgHtml . '</a>';
+
+						
+						// Old code
+						/*
+						$fileImgHtml	=	item_fullsize($file);
+						$fileImgHtml	=	str_replace('<img ', '<img style="width:100%;" alt="' . addslashes(current($altText)) . '" ', $fileImgHtml);
+						
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "archive_filename");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "original_filename");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "authentication");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "mime_browser");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "mime_os");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "type_os");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "added");
+						$fileImgHtml	=	removeAttribute($fileImgHtml, "modified");
+						$fileImgHtml	= 	'<a href="'.$itemUri.'">' . $fileImgHtml . '</a>';
+						*/
+
 						
 						$html	.=		$fileImgHtml;
 						
@@ -531,6 +595,9 @@ if (!function_exists('ve_custom_show_item_metadata')) {
         	        		 * 
         	        		 * 		
         	        		 * **/
+        	        		
+        	        		
+        	        		/*
             	        	if(strtolower($field) == "title"){	// SEO optimisation: this h1 isn't really all that big 
             	        		$html .= '<h1>'.$field.'</h1>';
             	        	}
@@ -544,9 +611,36 @@ if (!function_exists('ve_custom_show_item_metadata')) {
         	        			if (!item_field_uses_html('Dublin Core', $field, $key)) {
         	        				$fieldValue = nls2p($fieldValue);
         	        			}
-        	        			//$html .= '<div class="element-text">'.$fieldValue.'</div>';
         	        			$html .= '<p class="element-text">'.$fieldValue.'</p>';
         	        		}
+        	        		*/
+
+        	        		
+        	        		$html .= '<h6>'.$field.'</h6>';
+        	        		foreach ($fieldValues as $key => $fieldValue) {
+        	        			
+        	        			if (!item_field_uses_html('Dublin Core', $field, $key)) {
+        	        				
+	                	        	if(strtolower($field) == "title"){	// SEO optimisation: this h1 isn't really all that big 
+	                	        		$html .= '<h1 style="margin-bottom:0">'	.	$fieldValue	.	'</h1>';
+	                	        	}
+	                	        	else if(strtolower($field) == "creator"){
+	                	        		$html .= '<h2>'	.	 $fieldValue	.	'</h2>';
+	                	        	}
+        	        			}
+        	        			else{
+	                	        	if(strtolower($field) == "creator"){
+	                	        		$html .= '<h2>'	.	 $fieldValue	.	'</h2>';
+	                	        		
+	                	        	}
+	                	        	else{
+	                	        		$html .= '<p class="element-text">'.        nls2p($fieldValue) .'</p>';
+	                	        		
+	                	        	}
+        	        			}
+        	        		}
+
+        	        		
         	        	}
                         $html .= '</div>';
                         

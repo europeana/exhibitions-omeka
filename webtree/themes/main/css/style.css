@@ -267,7 +267,6 @@ div#in-focus,
 }
 
 #exhibit-item-thumbnails {
-    display: inline-block;
     width: 100%;
     clear: both;
     padding-top: .5em;
@@ -287,9 +286,13 @@ div#in-focus,
 }
 
 
-
+/*
 #exhibit-item-thumbnails .exhibit-item:first-of-type {
     margin-left: .5em;
+}
+*/
+#exhibit-item-thumbnails td{
+	padding:		2px;
 }
 
 #exhibit-item-title {

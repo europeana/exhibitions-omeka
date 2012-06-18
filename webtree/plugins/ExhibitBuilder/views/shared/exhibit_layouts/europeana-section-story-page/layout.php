@@ -1,11 +1,7 @@
 <?php
- //*************************************************************************************************************************
-//Name: gallery-artnouveau-section-page
-//Description: An image gallery, with text on the left and, on the right, one large image with a thumbnail gallery below it.
-//Author: Eric van der Meulen, eric.meulen@gmail.com;
-//*************************************************************************************************************************
-if (!$page) {
-    $page = exhibit_builder_get_current_page();
+
+if(!$page){
+	$page = exhibit_builder_get_current_page();
 }
 $section = exhibit_builder_get_exhibit_section_by_id($page->section_id);
 $exhibit = exhibit_builder_get_exhibit_by_id($section->exhibit_id);
@@ -117,7 +113,7 @@ $story = $page->title;
     
 		<div class="clear"></div>
 		
-		<div class="theme-center-outer">		
+		<!--class="theme-center-outer">		
 			<div class="theme-center-middle">		
 				<div class="theme-center-inner">
 					<div id="exhibit-item-thumbnails">
@@ -125,8 +121,16 @@ $story = $page->title;
 					</div>
 				</div>
 			</div>
-		</div>
+		</div-->
 		
+		<?php echo ve_exhibit_builder_display_exhibit_thumbnail_gallery(1, 5, array('class' => 'thumb')); ?>
+		
+	    <script type="text/javascript">
+	    	jQuery(document).ready(function(){
+	    		jQuery("#exhibit-item-thumbnails").css("max-width", galleryItemCount * 100 + "px");
+	    	});
+	    </script>
+
 	</div> <!-- end six columns -->
 
     

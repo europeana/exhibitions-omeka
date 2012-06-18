@@ -619,12 +619,23 @@ table{
 
 
 
+/*
 #exhibit-item-thumbnails .exhibit-item {
 	display: inline;
 	float:left;	
 }
+*/
 
-#exhibit-item-thumbnails img{
+#exhibit-item-thumbnails tbody, #exhibit-item-thumbnails tr {
+	max-width:	100%;
+}
+
+#exhibit-item-thumbnails{
+	width:			100%;
+	table-layout:	fixed;
+	margin:			auto;
+}
+#exhibit-item-thumbnails td img{
 	max-width:	100%;
 }
 
