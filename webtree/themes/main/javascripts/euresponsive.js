@@ -131,7 +131,7 @@
 					lastSuffix = newSuffix;
 					
 					// RESPONSIVE BREADCRUMBS...
-					
+				
 					var breadcrumbs = jQuery("#main-breadcrumbs");
 					if(breadcrumbs){
 						breadcrumbs.html(breadcrumbs.html().replace(/&gt; /g, ''));
@@ -144,13 +144,14 @@
 							crumb = jQuery(crumb); 
 							if(index<suffixNumber){
 								crumb.show();
-								crumb.after("&gt; ");
+								crumb.after(" &gt; ");
 							}
 							else{
 								jQuery(crumb).hide();
 							}
 						});
 					}
+					
 				}
 				
 				respond();
