@@ -67,6 +67,12 @@ p {
 	margin-top:	2em;
 }
 
+#standard_shares{
+	margin-right:	-6px;
+	margin-top:		4px;
+}
+
+
 #standard_shares a.addthis_button_facebook_like{
 	text-align:	left !important;
 }
