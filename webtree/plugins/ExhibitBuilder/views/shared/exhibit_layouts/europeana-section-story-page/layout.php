@@ -113,15 +113,6 @@ $story = $page->title;
     
 		<div class="clear"></div>
 		
-		<!--class="theme-center-outer">		
-			<div class="theme-center-middle">		
-				<div class="theme-center-inner">
-					<div id="exhibit-item-thumbnails">
-						<?php echo ve_exhibit_builder_display_exhibit_thumbnail_gallery(1, 5, array('class' => 'thumb')); ?>
-					</div>
-				</div>
-			</div>
-		</div-->
 		
 		<?php echo ve_exhibit_builder_display_exhibit_thumbnail_gallery(1, 5, array('class' => 'thumb')); ?>
 		
