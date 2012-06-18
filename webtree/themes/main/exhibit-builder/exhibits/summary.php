@@ -185,12 +185,9 @@ $exhibit = get_current_exhibit();
     
     <div class="six columns pull-six">
     
-    	<!-- SEO h2 - this has no effect on the style. -->
-    	
-    	<h2>
-    		<?php echo exhibit('description'); ?>
-        </h2>
-        
+    	<div class="summary-text">
+   			<?php echo exhibit('description'); ?>
+        </div>
         
 		<h4>
 			<a class='widget'
@@ -200,7 +197,7 @@ $exhibit = get_current_exhibit();
 				 href="<php echo exhibit_builder_exhibit_uri(get_current_exhibit(), get_current_exhibit_section()); >">
 				 -->
 				
-				<?php echo ve_translate('exhibit-start', 'Start Exhibit'); ?><img src="<?php echo img('arrow-right.png');?>"/>
+				<?php echo ve_translate('exhibit-start', 'Start Exhibition'); ?><img src="<?php echo img('arrow-right.png');?>"/>
 			</a>
 		</h4>
 
