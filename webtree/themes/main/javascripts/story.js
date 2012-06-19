@@ -17,7 +17,8 @@ var story = function() {
 			zoomitEnabled = zoomitEnabledIn;
 			log("init story...")
 			switchMediaElement();
-			var firstThumbnail = jQuery('div#exhibit-item-thumbnails div.exhibit-item a.thumb');
+			//var firstThumbnail = jQuery('div#exhibit-item-thumbnails div.exhibit-item a.thumb');
+			var firstThumbnail = jQuery('table#exhibit-item-thumbnails td a.thumb');
 			if(firstThumbnail.length > 0){
 				jQuery(firstThumbnail[0]).click();
 			}
@@ -290,8 +291,11 @@ var story = function() {
 
 
 	function switchMediaElement() {
-	    jQuery('div#exhibit-item-thumbnails div.exhibit-item a.thumb').each(function(index) {
+//	    jQuery('div#exhibit-item-thumbnails div.exhibit-item a.thumb').each(function(index) {
+		
+    	jQuery('table#exhibit-item-thumbnails td a.thumb').each(function(index) {
 	        //VALUES
+    		
 	        var mimeType = jQuery(this).find('img:first').attr('rel');
 	        var zoomitIsEnabled = jQuery(this).next('input.zoomit').first().val() == "1";
 
@@ -304,7 +308,12 @@ var story = function() {
 	        
 	        // PLACEHOLDERS
 	        var targetObjHref = jQuery('a#info-link');
-	        var targetObjTitle = jQuery('div#exhibit-item-title h4');
+	        
+	        
+	        //var targetObjTitle = jQuery('table#exhibit-item-title h4');
+	        var targetObjTitle = jQuery('#exhibit-item-title-only h2');
+	        
+	        
 	        var targetZoomitHref = jQuery('div#in-focus');
 	
 	        // CLICK THE THUMBNAIL
