@@ -39,10 +39,20 @@ h1 {
 
 /* Force h1 and h2 to be small (h6) on show / item pages and on the themes page (subheadings) */
 
-.meta h1, .meta h2 { font-size: 15px; font-size: 1.5rem; font-weight: normal; }
+.meta h1, .meta h2 {
+	font-size:		13px;
+	font-weight:	normal;
+	line-height:	16.25px;
+	
+}
 
 @media handheld, only screen and (max-width: 767px) {
-	.meta h1, .meta h2 { font-size: 15px; font-size: 1.5rem; line-height: 1.2; }
+	.meta h1, .meta h2 {
+		font-size: 15px;
+		font-size: 1.5rem;
+		line-height: 20px;
+	}
+
 }
 
 

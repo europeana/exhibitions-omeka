@@ -361,27 +361,30 @@ story-nav-wrapper a img{
 
 /* responsive design change (h3 -> h4) */
 .element h1 {
-    margin: 0 .5em 0 0;
-    padding: 0;
-    line-height: 20px;
+    margin:			0 .5em 0 0;
+    padding:		0;
+    line-height:	20px;
 }
 
 /* responsive design change */
 .element h2 {
-    margin: 0 .5em 0 0;
-    padding: 0;
-    line-height: 20px;
+    margin:			0 .5em 0 0;
+    padding:		0;
 }
+
+.element h1, .element h2, .element h6{
+    line-height: 	19px;
+    font-size:		13px;
+}
+
 /* responsive design change */
 .element h6{
-    clear: left;
-    float: left;
-    /* Defer to responsive styling for font-size */
-    /* font-size: 1.15em; */
-    font-weight: bold;
-    margin: 0 .5em 0 0;
-    padding: 0;
-    line-height: 20px;
+    clear:			left;
+    float:			left;
+    font-weight:	bold;
+    margin:			0 .5em 0 0;
+    padding:		0;
+	display:		inline;	
 }
 
 
@@ -391,30 +394,61 @@ story-nav-wrapper a img{
 
 
 .element h1{
-	display:	inline;	
+	xxxxdisplay:	inline;	
 	margin-bottom: 0;
 }
 
-
-.element h6 {
-    line-height:	20px;
-	display:		inline;	
-}
-
 .element td h6 {
-    line-height: 20px;
+    line-height:	19px;
 }
 
 
 .element .element-text, .element p {
-	font-size:		15px;    
-    line-height:	20px;
+	/* responsive design change */
+	font-size:		13px;    
+    line-height:	19px;
 }
 
-/* responsive design change */
 .element h6:after {
     content: ":";
 }
+
+
+@media handheld, screen and (max-width: 767px) {
+	.element .element-text, .element p {
+	    font-size:		15px;	
+	    line-height:	20px;
+	}
+	.element td h6 {
+    	line-height:	20px;
+	}
+	
+	.element h1 {
+	    padding:		0;
+	}
+	
+	/* responsive design change */
+	.element h2 {
+	    padding:		0;
+	}
+	/* responsive design change */
+	.element h6{
+	    font-weight:	bold;
+	}
+	.element h1, .element h2, .element h6{
+	    font-size:		15px;
+	    line-height:	20px;
+	    
+	}
+}
+	
+	
+
+
+
+
+
+
 
 .element .element-text p {
     margin: 0;
