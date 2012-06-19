@@ -6,7 +6,7 @@
 
    		var noCols = 0;
     	var containerWidth = jQuery("#section-container").width();
-//alert(containerWidth)
+
     	if(containerWidth <= 980){ // fullsize for foundation: iPad landscape
     	   	noCols = 5;
     	}
@@ -40,7 +40,6 @@
 			
 		jQuery(".element.large").css("width",	globalElementWidthLarge);
 		jQuery(".element.large").css("height",	globalElementWidthLarge);
-		//alert("calculate width:\n\nnoCols =\t" + noCols + "\ncontainerWidth =\t" + containerWidth + "\nmarginTotal =\t" + marginTotal + "\nelementWidth =\t" + elementWidth + "\nlargeWidth=\t" + globalElementWidthLarge);
 		isotopeInit();
 	}
 
@@ -140,8 +139,8 @@
 			if(definition.languages){	
 				for(var i=0; i<definition.languages.length; i++){
 					var language = definition.languages[i];
-				//	html += '<h4 style="display:inline; font-weight:normal;"><a class="' + language.class + '" href="' + language.link + '">' + language.label + '</a></h4>';
-					html += '<h4 style="display:inline; font-weight:normal;"><a class="' +  '" href="' + language.link + '">' + language.label + '</a></h4>';
+					html += '<h4 style="display:inline; font-weight:normal;"><a class="' + language.langClass + '" href="' + language.link + '">' + language.label + '</a></h4>';
+					//html += '<h4 style="display:inline; font-weight:normal;"><a class="' +                  '" href="' + language.link + '">' + language.label + '</a></h4>';
 					if(i+1<definition.languages.length){
 						html += ' &nbsp; ';
 					}
@@ -277,7 +276,6 @@
 
 		jQuery("a").each(function(){
 			jQuery(this).click(function(){
-
 				try{
 					//var parentClass = jQuery(this).parent().attr("class");
 					var parentClass = jQuery(this).attr("class");
