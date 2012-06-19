@@ -17,7 +17,7 @@ img{
 <div id="header" class="row">
     <div class="twelve columns" style="border-bottom: 1px solid #666666;">
 
-		<a href="http://exhibitions.europeana.eu" title="Click here to return to the Exhibitions start page" style="background:white;"><h1><img src="splash/img/landscape-logo.png" class="main-logo" title="Europeana Exhibitions" alt="Europeana Exhibitions"></h1></a>
+		<a href="http://exhibitions.europeana.eu" title="Click here to return to the Exhibitions start page" style="background:white;"><img src="splash/img/landscape-logo.png" class="main-logo" title="Europeana Exhibitions" alt="Europeana Exhibitions"></a>
 		<div id="standard_shares" style="position:absolute; bottom: 3px; right:30px;">
 			<?php echo getAddThisMobile('float:right; display:inline;'); ?>
 		</div>
