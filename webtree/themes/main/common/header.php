@@ -68,8 +68,11 @@ ve_session_vars();
 
 	</head>
 	<body>
+		<form method="POST" action="" name="setLang" id="setLang">
+			<input type="hidden" id="lang" name="lang"/>
+		</form>
 
-
+		
 <?php else: ?>
 
 	<!--DEFAULT HEAD / BODY-->

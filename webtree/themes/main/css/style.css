@@ -407,10 +407,6 @@ story-nav-wrapper a img{
 
 
 .element .element-text, .element p {
-	
-	/* ANDY removed this!
-    float: left;
-    */
 	font-size:		15px;    
     line-height:	20px;
 }

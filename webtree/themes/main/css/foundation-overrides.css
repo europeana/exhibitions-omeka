@@ -52,6 +52,12 @@ h1 {
     font-size:		13.333px;	
 }
 
+@media handheld, screen and (max-width: 767px) {
+	.summary-text p{
+	    line-height:	21px;
+	    font-size:		15px;	
+	}
+}
 
 
 .title-table h2{	
