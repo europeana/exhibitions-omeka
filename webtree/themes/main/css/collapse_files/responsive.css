@@ -634,6 +634,7 @@ table{
 	width:			100%;
 	table-layout:	fixed;
 	margin:			auto;
+	display:		block;
 }
 #exhibit-item-thumbnails td img{
 	max-width:	100%;
