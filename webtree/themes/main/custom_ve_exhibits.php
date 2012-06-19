@@ -201,14 +201,14 @@ function ve_exhibit_builder_display_exhibit_thumbnail_gallery($start, $end, $pro
     
     for ($i = (int)$start; $i <= (int)$end; $i++) {
         if (exhibit_builder_use_exhibit_page_item($i)) {
-            $html .= '<td>';
             $item = get_current_item();
 
             $zoomitEnabled = ve_exhibit_builder_zoomit_enabled();
 
             if (item_has_files()) {
                 while (loop_files_for_item()) {
-
+                	$html .= '<td>';
+                	
                 	$noItems += 1;
                     $file = get_current_file();
 
@@ -225,10 +225,11 @@ function ve_exhibit_builder_display_exhibit_thumbnail_gallery($start, $end, $pro
                         $thumbnail = '<img  class="icon-pdf" src="' . img('icon-pdf.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
                     }
                     $html .= exhibit_builder_link_to_exhibit_item($thumbnail, $props) . $hiddenInput;
+                    
+                    $html .= '</td>';
                 }
             }
             
-            $html .= '</td>';
         }
     }
     $html .= '</tr></table>';
