@@ -11,7 +11,7 @@ $story = $page->title;
 ?>
 
     <div id="exhibit-section-title">
-        <h1>
+        <h1 class="styled-text">
            <?php echo $theme . ' - ' . $story; ?>
         </h1>
     </div>

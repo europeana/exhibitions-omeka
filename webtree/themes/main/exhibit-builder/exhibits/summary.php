@@ -10,7 +10,7 @@ $exhibit = get_current_exhibit();
 <?php //head(array('title' => html_escape(ve_title_crumbs()), 'bodyid' => 'exhibit', 'bodyclass' => 'summary')); ?>
 
 	<div id="primary" class="twelve columns">
-	    <h1><?php echo html_escape(exhibit('title')); ?></h1>
+	    <h1 class="styled-text"><?php echo html_escape(exhibit('title')); ?></h1>
 	</div>
 </div>
 
@@ -189,7 +189,7 @@ $exhibit = get_current_exhibit();
    			<?php echo exhibit('description'); ?>
         </div>
         
-		<h4>
+		<h4 class="styled-text">
 			<a class='widget'
 				href="<?php echo $themesUrl; ?>">
 				

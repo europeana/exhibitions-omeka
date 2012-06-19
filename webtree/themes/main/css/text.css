@@ -43,6 +43,10 @@ h1, h2, h3, h4, h5, h6, p.h1simulate{
     xxxfont-family: Chevin, 'Trebuchet MS', Helvetica, sans-serif;
 }
 
+.styled-text{
+	font-family: Chevin, 'Trebuchet MS', Helvetica, sans-serif;
+}
+
 
 /*
 h1, h2, h3, h4, h5, h6 {

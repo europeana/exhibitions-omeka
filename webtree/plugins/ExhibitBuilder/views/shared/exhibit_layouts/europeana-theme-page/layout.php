@@ -64,7 +64,7 @@ $_SESSION['themes_uri'] = uri();
     <div class="primary" style="width:100%;">
         <div class="exhibit-text exhibit-theme-wrapper">
 
-            <h1><?php echo ve_translate('themes', 'Themes');?></h1>
+            <h1 class="styled-text"><?php echo ve_translate('themes', 'Themes');?></h1>
             
             <?php echo exhibit_builder_page_text(); ?>
 
