@@ -471,6 +471,7 @@ if(!function_exists('ve_custom_show_embed')){
  * If in the theme config the list of desired metadata elements is set then use this function,
  * else just use the regular show_item_metadata
  */
+/*
 if (!function_exists('ve_custom_show_item_metadataxxx')) {
 
     function ve_custom_show_item_metadataxxx(array $options = array(), $item = null)
@@ -522,7 +523,7 @@ TEST;
     	return $my_string;
     }
 }
-
+*/
 
 
 
@@ -554,13 +555,14 @@ if (!function_exists('ve_custom_show_item_metadata')) {
         	        		 //
         	        		
         	        		$parsedRights = parseRightsValue($fieldValues[0]);
+        	        		/*
         	        		$html .= '<div class="metadata-rights">';
         	        		$html .= 	'<table><tr>';
         	        		$html .= 		'<td>';
         	        		$html .= 			'<h6>'.$field.'</h6>';
         	        		$html .= 		'</td>';
         	        		$html .= 		'<td>';
-                            $html .= 			'<p>'.$parsedRights["rem"].'</p>';
+                            $html .= 			'<p class="element-text">'.$parsedRights["rem"].'</p>';
                              
  							if($parsedRights["lnk"]){
  								$html	.=		'<a rel="license" href="'.$parsedRights["lnk"].'">';								
@@ -578,7 +580,30 @@ if (!function_exists('ve_custom_show_item_metadata')) {
                             $html .=	'</tr>';
                             $html .=   '</table>';
                             $html .= '</div>';
+                             */
+        	        		
+        	        		
+        	        		$html .= '<div class="metadata-rights">';
+
+        	        		$html .= 			'<h6>'.$field.'</h6>';
+        	        		
+                            $html .= 			'<p class="element-text">'.$parsedRights["rem"].'</p>';
                              
+ 							if($parsedRights["lnk"]){
+ 								$html	.=		'<a rel="license" href="'.$parsedRights["lnk"].'">';								
+							}
+							if($parsedRights["src"]){
+								$html	.=		'<img src="'.$parsedRights["src"].'" alt="Creative Commons License" />';								
+							}
+							if($parsedRights["lnk"]){
+								$html	.=		'</a>';
+							}
+							
+                            
+                            $html .= '</div>';
+                            
+                            
+                            
         	        	}
         	        	else{
         	        		/*
@@ -597,24 +622,7 @@ if (!function_exists('ve_custom_show_item_metadata')) {
         	        		 * 		
         	        		 * **/
         	        		
-        	        		
-        	        		/*
-            	        	if(strtolower($field) == "title"){	// SEO optimisation: this h1 isn't really all that big 
-            	        		$html .= '<h1>'.$field.'</h1>';
-            	        	}
-            	        	else if(strtolower($field) == "creator"){
-            	        		$html .= '<h2>'.$field.'</h2>';
-            	        	}
-            	        	else{            	        		
-            	        		$html .= '<h6>'.$field.'</h6>';
-            	        	}
-        	        		foreach ($fieldValues as $key => $fieldValue) {
-        	        			if (!item_field_uses_html('Dublin Core', $field, $key)) {
-        	        				$fieldValue = nls2p($fieldValue);
-        	        			}
-        	        			$html .= '<p class="element-text">'.$fieldValue.'</p>';
-        	        		}
-        	        		*/
+     
 
         	        		
         	        		$html .= '<h6>'.$field.'</h6>';
@@ -628,6 +636,9 @@ if (!function_exists('ve_custom_show_item_metadata')) {
 	                	        	else if(strtolower($field) == "creator"){
 	                	        		$html .= '<h2>'	.	 $fieldValue	.	'</h2>';
 	                	        	}
+	                	        	else{
+	                	        		$html .= '<p class="element-text">'.  $fieldValue .'</p>';
+	                	        	}
         	        			}
         	        			else{
 	                	        	if(strtolower($field) == "creator"){
@@ -635,7 +646,8 @@ if (!function_exists('ve_custom_show_item_metadata')) {
 	                	        		
 	                	        	}
 	                	        	else{
-	                	        		$html .= '<p class="element-text">'.        nls2p($fieldValue) .'</p>';
+	                	        		//$html .= '<p class="element-text">'.        nls2p($fieldValue) .'</p>';
+	                	        		$html .= '<p class="element-text">'.        $fieldValue .'</p>';
 	                	        		
 	                	        	}
         	        			}
@@ -687,29 +699,50 @@ if (!function_exists('ve_custom_show_item_metadata')) {
        	        		 //   the $val with the image tag removed (rem)
        	        		 //   the src attribute of any image tag (src)
        	        		$parsedLicense = parseRightsValue($licenseVal);
+       	        		/*
         	        	$html .= '<div class="element" id="dublin-core-license">';
-       	        		$html .= '<div class="metadata-rights">';
-       	        		$html .= 	'<table><tr>';
-       	        		$html .= 		'<td>';
-       	        		$html .= 			'<h6>License</h6>';
-       	        		$html .= 		'</td>';
-       	        		$html .= 		'<td>';
-                        $html .= 			'<p>'.$parsedLicense["rem"].'</p>';
+       	        		$html .= 	'<div class="metadata-rights">';
+       	        		$html .= 		'<table><tr>';
+       	        		$html .= 			'<td>';
+       	        		$html .= 				'<h6>License</h6>';
+       	        		$html .= 			'</td>';
+       	        		$html .= 			'<td>';
+                        $html .= 				'<p class="element-text">'.$parsedLicense["rem"].'</p>';
                             
 						if($parsedLicense["lnk"]){
-							$html	.=		'<a rel="license" href="'.$parsedLicense["lnk"].'">';								
+							$html .=			'<a rel="license" href="'.$parsedLicense["lnk"].'">';								
 						}
 						if($parsedLicense["src"]){
-							$html	.=		'<img src="'.$parsedLicense["src"].'" alt="Creative Commons License" />';								
+							$html	.=			'<img src="'.$parsedLicense["src"].'" alt="Creative Commons License" />';								
 						}
 						if($parsedLicense["lnk"]){
-							$html	.=		'</a>';
+							$html	.=			'</a>';
 						}
-                        $html .= 		'</td>';
-                        $html .=	'</tr>';
-                        $html .=   '</table>';
-                        $html .= '</div>';
-                        $html .= '</div>';    	        		
+                        $html .= 			'</td>';
+                        $html .=   		'</tr></table>';
+                        $html .= 	'</div>';
+                        $html .= '</div>';    	        
+                        */
+       	        		$html .= '<div class="element" id="dublin-core-license">';
+       	        		$html .= 	'<div class="metadata-rights">';
+
+       	        		$html .= 				'<h6>License</h6>';
+
+                        $html .= 				'<p class="element-text">' . $parsedLicense["rem"];
+                            
+						if($parsedLicense["lnk"]){
+							$html .=			'<a rel="license" href="'.$parsedLicense["lnk"].'">';								
+						}
+						if($parsedLicense["src"]){
+							$html	.=			'<img src="'.$parsedLicense["src"].'" alt="Creative Commons License" />';								
+						}
+						if($parsedLicense["lnk"]){
+							$html	.=			'</a>';
+						}
+						$html .= 		'</p>';
+						$html .= 	'</div>';
+						$html .= '</div>';
+       	        		
     	        	}
     	        		
     	        	
