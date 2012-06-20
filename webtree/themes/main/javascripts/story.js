@@ -107,7 +107,13 @@ var story = function() {
 				log("get dimension from calculation");
 	
 				var maxHeight = jQuery("#items").height();
+				
+				log("maxHeight = " + maxHeight);
+				
 				height = content.dzi.height < maxHeight ? content.dzi.height : maxHeight;
+				
+				log("content.dzi.height = " + content.dzi.height + ", maxHeight = " + maxHeight);
+				
 				width = content.dzi.width / (content.dzi.height / height);
 			}
 			
