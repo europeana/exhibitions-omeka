@@ -94,10 +94,11 @@ var story = function() {
 			var width	= 0;
 			var height	= 0;
 			
+			showTmpImg();
 			if(tmpImg.width()>0 && tmpImg.height() > 0){
 				
 				
-				showTmpImg(); // needed for valid calculation
+				//showTmpImg(); // needed for valid calculation
 				height	= tmpImg.height();
 				width	= tmpImg.width();
 				log("get dimension from tmp-img " + width + " x " + height);
