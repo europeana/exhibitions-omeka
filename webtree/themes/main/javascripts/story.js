@@ -89,31 +89,31 @@ var story = function() {
 		var content = resp.content;
 	
 		if(content.ready){
-			log("content.ready");
+			//log("content.ready");
 	
 			var width	= 0;
 			var height	= 0;
 			
-			showTmpImg();
+			showTmpImg(); // ANDY: moved this line up from 2 lines below because of a chrome issue 
+			
 			if(tmpImg.width()>0 && tmpImg.height() > 0){
-				
 				
 				//showTmpImg(); // needed for valid calculation
 				height	= tmpImg.height();
 				width	= tmpImg.width();
-				log("get dimension from tmp-img " + width + " x " + height);
+				//log("get dimension from tmp-img " + width + " x " + height);
 			}
 			else{ // scale viewport according to calculation
 				
-				log("get dimension from calculation");
+				//log("get dimension from calculation");
 	
 				var maxHeight = jQuery("#items").height();
 				
-				log("maxHeight = " + maxHeight);
+				//log("maxHeight = " + maxHeight);
 				
 				height = content.dzi.height < maxHeight ? content.dzi.height : maxHeight;
 				
-				log("content.dzi.height = " + content.dzi.height + ", maxHeight = " + maxHeight);
+				//log("content.dzi.height = " + content.dzi.height + ", maxHeight = " + maxHeight);
 				
 				width = content.dzi.width / (content.dzi.height / height);
 			}
