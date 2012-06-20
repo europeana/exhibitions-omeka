@@ -119,7 +119,7 @@ $story = $page->title;
 	    <script type="text/javascript">
 	    	jQuery(document).ready(function(){
 	    		jQuery("#exhibit-item-thumbnails").css("max-width", galleryItemCount * 100 + "px");
-	    		jQuery("#exhibit-item-thumbnails").css("width", 	galleryItemCount * 100 + "px");
+	    		//jQuery("#exhibit-item-thumbnails").css("width", 	galleryItemCount * 100 + "px");
 	    	});
 	    </script>
 
