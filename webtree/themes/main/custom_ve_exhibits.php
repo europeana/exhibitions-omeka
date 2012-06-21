@@ -213,7 +213,8 @@ function ve_exhibit_builder_display_exhibit_thumbnail_gallery($start, $end, $pro
                     $file = get_current_file();
 
                     $thumbnail = item_image($thumbnail_type, array('alt' => item('Dublin Core', 'Title'), 'rel' => $file->getMimeType(), 'accesskey' => file_display_uri($file, $format = 'archive')));
-                    //$hiddenInput = '<input type="hidden" name="zoomit" class="zoomit" value="' . $zoomitEnabled . '"/>';
+                    $hiddenInput = '<input type="hidden" name="zoomit" class="zoomit" value="' . $zoomitEnabled . '"/>';
+                    
                     
                     if (preg_match("/^audio/", $file->getMimeType())) {
                         $thumbnail .= '<img class="icon-audio" src="' . img('icon-audio.png') . '" rel="' . $file->getMimeType() . '" alt="' . item('Dublin Core', 'Title') . '" accesskey="' . file_display_uri($file, $format = 'archive') . '"/>';
