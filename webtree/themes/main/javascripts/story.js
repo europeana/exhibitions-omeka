@@ -91,6 +91,23 @@ var story = function() {
 		if(content.ready){
 			//log("content.ready");
 	
+			// this is called when we have a height
+			var showZoomitImage = function(){
+				zoomitWindow.height(height);				
+				zoomitWindow.width(width);
+		
+				viewer = new Seadragon.Viewer(zoomitWindow[0]);
+				
+				Seadragon.Config.autoHideControls = false;
+				viewer.addEventListener("open",
+					function(){
+						viewer.viewport.goHome();	
+					}
+				);
+				viewer.openDzi(content.dzi);
+				hideTmpImg(true);				
+			}
+			
 			var width	= 0;
 			var height	= 0;
 			
@@ -102,35 +119,33 @@ var story = function() {
 				height	= tmpImg.height();
 				width	= tmpImg.width();
 				log("get dimension from tmp-img " + width + " x " + height);
+				
+				
+				showZoomitImage();
 			}
 			else{ // scale viewport according to calculation
 				
+				tmpImage.load(function(){
+					log("tmp img now loaded...");
+
+					height	= tmpImg.height();
+					width	= tmpImg.width();
+					log("get dimension from tmp-img " + width + " x " + height);
+					
+					showZoomitImage();
+					
+				})
+				/*				
 				log("get dimension from calculation");
-	
 				var maxHeight = jQuery("#items").height();
-				
 				//log("maxHeight = " + maxHeight);
-				
 				height = content.dzi.height < maxHeight ? content.dzi.height : maxHeight;
-				
 				//log("content.dzi.height = " + content.dzi.height + ", maxHeight = " + maxHeight);
-				
 				width = content.dzi.width / (content.dzi.height / height);
+				*/
 			}
 			
-			zoomitWindow.height(height);				
-			zoomitWindow.width(width);
-	
-			viewer = new Seadragon.Viewer(zoomitWindow[0]);
 			
-			Seadragon.Config.autoHideControls = false;
-			viewer.addEventListener("open",
-				function(){
-					viewer.viewport.goHome();	
-				}
-			);
-			viewer.openDzi(content.dzi);
-			hideTmpImg(true);
 		}
 		else if(content.failed){
 			log("content failed");
