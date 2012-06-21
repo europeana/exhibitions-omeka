@@ -101,11 +101,11 @@ var story = function() {
 				//showTmpImg(); // needed for valid calculation
 				height	= tmpImg.height();
 				width	= tmpImg.width();
-				//log("get dimension from tmp-img " + width + " x " + height);
+				log("get dimension from tmp-img " + width + " x " + height);
 			}
 			else{ // scale viewport according to calculation
 				
-				//log("get dimension from calculation");
+				log("get dimension from calculation");
 	
 				var maxHeight = jQuery("#items").height();
 				
