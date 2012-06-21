@@ -125,7 +125,7 @@ var story = function() {
 			}
 			else{ // scale viewport according to calculation
 				
-				tmpImage.load(function(){
+				tmpImg.load(function(){
 					log("tmp img now loaded...");
 
 					height	= tmpImg.height();
