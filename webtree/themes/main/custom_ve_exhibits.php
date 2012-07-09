@@ -61,9 +61,14 @@ function ve_exhibit_builder_zoomit_enabled()
 }
 
 
-function ve_exhibit_builder_license_info()
+function ve_exhibit_builder_license_info($item)
 {
-	return getItemTypeMetadataEntry(get_current_item(), "license");
+	if($item){
+		return getItemTypeMetadataEntry($item, "license");		
+	}
+	else{
+		return getItemTypeMetadataEntry(get_current_item(), "license");
+	}
 }
 
 
@@ -183,6 +188,8 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
             
         }
         $html .= '</div>';
+        
+        error_log($html);
         
         if(!$withoutTitle){ /* responsive change */
         	$html .= '<div id="exhibit-item-title"><h4>' . item('Dublin Core', 'Title') . '</h4></div>';
@@ -331,15 +338,42 @@ if(!function_exists('ve_custom_show_embed')){
 
 		if($file){
 			$mime = $file->getMimeType();
-			if (preg_match("/^image/", $mime)) {
+			
+			error_log("MIME TYPE IS " . $mime );
+			
+			$licenseVal		= getItemTypeMetadataEntry(get_current_item(), "license");
+			$embedEligible	= strrpos( strtolower($licenseVal), "http://creativecommons.org/")>-1;
+			if($embedEligible){
 
-				
-				$licenseVal = getItemTypeMetadataEntry(get_current_item(), "license");
-				$embedEligible = strrpos( strtolower($licenseVal), "http://creativecommons.org/")>-1;
-				
-				if($dcFieldsList = get_theme_option('display_dublin_core_fields')){
-					$dcFields = explode(',', str_replace(' ','',$dcFieldsList));
-					if($embedEligible){
+				if (preg_match("/^video/", $mime)) {
+					
+					$html	.=	'<div id="embedded">';
+					$html	.=		'<h4>' . ve_translate("embed-code", "Embed Code") .'</h4>';
+					$html	.=		'<textarea rows="5">';	// start embed code
+					$html	.=			'<iframe src="' . WEB_ROOT . '/track_embed/download/' . $item->id . '?linkback=' . abs_uri() . '" style="width:400px; height:360px; border:none; overflow:hidden;" frameBorder="0" scroll="no" allowTransparency="true">';
+					$html	.=		'</iframe>';
+					$html	.=		'</textarea>';	// end embed code
+					$html	.=	'</div>';
+					
+				}
+			
+				elseif (preg_match("/^audio/", $mime)) {
+					
+					$html	.=	'<div id="embedded">';
+					$html	.=		'<h4>' . ve_translate("embed-code", "Embed Code") .'</h4>';
+					$html	.=		'<textarea rows="5">';	// start embed code
+					$html	.=			'<iframe src="' . WEB_ROOT . '/track_embed/download/' . $item->id . '?linkback=' . abs_uri() . '" style="width:400px; height:260px; border:none; overflow:hidden;" frameBorder="0" scroll="no" allowTransparency="true">';
+					$html	.=		'</iframe>';
+					$html	.=		'</textarea>';	// end embed code
+					$html	.=	'</div>';
+					
+				}
+			
+				elseif (preg_match("/^image/", $mime)) {
+
+					if($dcFieldsList = get_theme_option('display_dublin_core_fields')){
+						
+						$dcFields = explode(',', str_replace(' ','',$dcFieldsList));
 
 						// Title, Creator, Data Provider, Provider, CC-license.
 						
@@ -351,26 +385,20 @@ if(!function_exists('ve_custom_show_embed')){
 						$embedFields = array("title", "creator", "data provider", "provider", "source");
 						$html	.=		'<div style="position:relative;float:left;">';
 						
-						
 						$itemUri		= "";
 						$googleTracking = "utm_source=embeddeditem&utm_medium=externalsite&utm_campaign=exhibitionembed";
 						
 						if(html_escape($exhibitName)){
-							//$itemUri = WEB_ROOT . '/items/show/'.item('id').'?tags='.html_escape($exhibitName);
 							$itemUri = abs_uri();
 		                    $itemUri .= "&".$googleTracking;	// add google tracking								                    	
 						}
 						else{
-							//$itemUri = WEB_ROOT . '/items/show/'.item('id');
 							$itemUri = abs_uri();
 		                    $itemUri .= "?".$googleTracking;	// add google tracking								                    														
 						}
-
-						
 						
 						$altText = ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null, $showAsTitle=true);
-						
-						$altText 		= explode("|", $altText);
+						$altText = explode("|", $altText);
 						
 						// New code
 						$fileImgHtml	= '<img width="100%" src="' . WEB_ROOT . '/track_embed/download/' . $item->id . '"/>';
