@@ -4,8 +4,20 @@ add_plugin_hook('install',			'tracking_install');
 add_plugin_hook('uninstall',		'tracking_uninstall');
 add_plugin_hook('define_routes',	'tracking_define_routes');
 
+
+add_plugin_hook('public_theme_header', 'tracking_test_header');
+//add_plugin_hook('admin_theme_header', 'tracking_test_header');
+
+
 add_filter('admin_navigation_main', 'tracking_admin_navigation_main');
 
+
+
+function trackingTestHeader($request)
+{
+	error_log("inside tracking_test_header");
+
+}
 
 /**
  * Add the Track Embed link to the admin main navigation.
@@ -52,6 +64,7 @@ function tracking_uninstall()
 function tracking_define_routes($router)
 {
 	error_log("Embed route (1)");
+	
     $router->addRoute(
         'track_embed_download_route', 
         new Zend_Controller_Router_Route(
@@ -63,5 +76,31 @@ function tracking_define_routes($router)
                 )
         )
 	);
-    error_log("Embed route (2)");
+	error_log("Embed route (2)");
+    $router->addRoute(
+            'track_embed_oembed_route', 
+            new Zend_Controller_Router_Route(
+                'service/oembed/:id', 
+                array(
+                    'module'       => 'tracking', 
+                    'controller'   => 'Oembed',
+                    'action'       => 'oembed'
+                    )
+            )
+    	);
+
+    error_log("Embed route (3)");
+    $router->addRoute(
+            'track_embed_oembed_test_route', 
+            new Zend_Controller_Router_Route(
+                'service/test/:id', 
+                array(
+                    'module'       => 'tracking', 
+                    'controller'   => 'Test',
+                    'action'       => 'index'
+                    )
+            )
+    	);
+    error_log("Embed route (3)");
+
 }

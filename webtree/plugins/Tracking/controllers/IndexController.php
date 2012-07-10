@@ -4,14 +4,11 @@ require_once 'Embed.php';
 
 class Tracking_IndexController extends Omeka_Controller_Action
 {    
-
     
     public function init()
     {
     	$this->_modelClass = 'Embed';
     }
-
-    
     
     public function indexAction()
     {
