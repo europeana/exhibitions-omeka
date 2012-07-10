@@ -7,6 +7,18 @@ ve_session_vars();
 ?>
 
 <!doctype html>
+
+<html
+xmlns:og="http://ogp.me/ns#">
+
+<meta property="og:title"		content="Andy"/>
+<meta property="og:type"		content="website"/>
+<meta property="og:image"		content="http://www.europeana.eu/portal/sp/img/europeana-logo-en.png"/>
+<meta property="og:url"			content="http://www.europeana.eu/portal/"/>
+<meta property="og:description"	content="Andy - Homepage"/>
+<meta property="og:site_name"	content="Andy - SiteName"/>
+
+
 	<head>
 	<meta charset="utf-8" />
 
