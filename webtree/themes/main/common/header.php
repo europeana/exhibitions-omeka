@@ -8,21 +8,23 @@ ve_session_vars();
 
 <!doctype html>
 
-<html
-xmlns:og="http://ogp.me/ns#">
-
-
 
 	<head>
 	
 	
 	<link rel="alternate" type="application/json+oembed"
-		href="http://127.0.0.1/ombad/webtree/track_embed/download/185?url=http%3a%2f%2f127.0.0.1%2fombad%2fwebtree%2ftrack_embed%2fdownload%2f185"
+		href="http://acceptance.exhibit.eanadev.org/track_embed/download/oembed?url=http%3a%2f%2facceptance.exhibit.eanadev.org%2ftrack_embed%2fdownload%2f185&format=json"
 		title="Andy's test title json" />
+	
 	<!--link rel="alternate" type="text/xml+oembed"
 		href="http://flickr.com/services/oembed?url=http%3a%2f%2facceptance.exhibit.eanadev.org%2fsplash%2fimg%2f19141918_main.jpg"
 		title="Andy's test title xml" /-->
 	
+	
+	
+	<link rel="alternate" type="application/json+oembed"
+		href="http://flickr.com/services/oembed?url=http%3A//flickr.com/photos/bees/2362225867/&format=json"
+		title="Bacon Lollys oEmbed Profile" />
 	
 	<meta charset="utf-8" />
 
