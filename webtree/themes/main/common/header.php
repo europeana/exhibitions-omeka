@@ -13,11 +13,11 @@ ve_session_vars();
 	
 	
 	<link rel="alternate" type="application/json+oembed"
-		href="http://acceptance.exhibit.eanadev.org/track_embed/download/oembed?url=http%3a%2f%2facceptance.exhibit.eanadev.org%2ftrack_embed%2fdownload%2f185&format=json"
+		href="http://acceptance.exhibit.eanadev.org/track_embed/download/oembed?url=http%3A//acceptance.exhibit.eanadev.org/track_embed/download/185&format=json"
 		title="Andy's test title json" />
 	
 	<link rel="alternate" type="text/xml+oembed"
-		href="http://acceptance.exhibit.eanadev.org/track_embed/download/oembed?url=http%3a%2f%2facceptance.exhibit.eanadev.org%2ftrack_embed%2fdownload%2f185&format=xml"
+		href="http://acceptance.exhibit.eanadev.org/track_embed/download/oembed?url=http%3A//acceptance.exhibit.eanadev.org/track_embed/download/185&format=xml"
 		title="Andy's test title xml" />
 	
 	
