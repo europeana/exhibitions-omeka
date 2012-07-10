@@ -16,9 +16,12 @@ xmlns:og="http://ogp.me/ns#">
 	<head>
 	
 	
-	<dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andy Creator</dc:creator>
-    <dc:provider xmlns:dc="http://purl.org/dc/elements/1.1/">Andy Provider</dc:provider>
-    
+	<link rel="alternate" type="application/json+oembed"
+		href="http://127.0.0.1/ombad/webtree/track_embed/download/185?url=http%3a%2f%2f127.0.0.1%2fombad%2fwebtree%2ftrack_embed%2fdownload%2f185"
+		title="Andy's test title json" />
+	<!--link rel="alternate" type="text/xml+oembed"
+		href="http://flickr.com/services/oembed?url=http%3a%2f%2facceptance.exhibit.eanadev.org%2fsplash%2fimg%2f19141918_main.jpg"
+		title="Andy's test title xml" /-->
 	
 	
 	<meta charset="utf-8" />

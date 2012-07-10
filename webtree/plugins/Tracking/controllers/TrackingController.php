@@ -16,6 +16,28 @@ class Tracking_TrackingController extends Omeka_Controller_Action
     
    	public function downloadAction()
    	{
+   		echo '{';
+   		echo '    "provider_url": "http://acceptance.exhibit.eanadev.org/",';
+   		echo '    "thumbnail_url": "http://acceptance.exhibit.eanadev.org/splash/img/landscape-logo.png",';
+   		echo '    "title": "Andy oembed test",';
+   		echo '    "html": "<span>this is where the embed goes <a href=\"http: //exhibitions.europeana.eu\">here</a></span>",';
+   		echo '    "author_name": "Andy MacLean",';
+   		echo '    "height": 270,';
+   		echo '    "thumbnail_width": 180,';
+   		echo '    "width": 180,';
+   		echo '    "version": "1.0",';
+   		echo '    "author_url": "http://acceptance.exhibit.eanadev.org",';
+   		echo '    "provider_name": "Europeana - embed service",';
+   		echo '    "type": "link",';
+   		echo '    "thumbnail_height": 360';
+   		echo '}';
+        $this->_helper->viewRenderer->setNoRender();
+
+   	}
+   	
+   	
+   	public function disabled_downloadAction()
+   	{
    	    include('themes/main/custom_ve_exhibits.php');
    	    include('themes/main/custom_ve_helpers.php');
 
