@@ -14,6 +14,11 @@ ve_session_vars();
 	
 	<meta http-equiv="X-UA-Compatible" value="IE=9" />
 	
+	
+	<meta name="author" value="test-oembed" />
+
+	
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <script type="text/javascript">var web_root = "<?php echo WEB_ROOT; ?>";</script>
