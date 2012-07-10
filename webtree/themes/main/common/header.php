@@ -15,10 +15,10 @@ xmlns:og="http://ogp.me/ns#">
 
 	<head>
 	
-	<dc:author>Andy</dc:author>
-	<dc:creator>Andy</dc:creator>
-	<dc:provider>Andy</dc:provider>
 	
+	<dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andy Creator</dc:creator>
+    <dc:provider xmlns:dc="http://purl.org/dc/elements/1.1/">Andy Provider</dc:provider>
+    
 	
 	
 	<meta charset="utf-8" />
