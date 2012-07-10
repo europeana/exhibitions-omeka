@@ -15,8 +15,7 @@ ve_session_vars();
 	<meta http-equiv="X-UA-Compatible" value="IE=9" />
 	
 	
-	<meta name="author" value="test-oembed" />
-
+	<meta property="author" content="test oembed" />
 	
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
