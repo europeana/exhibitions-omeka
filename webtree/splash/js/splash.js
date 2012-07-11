@@ -1,11 +1,15 @@
-	var globalElementWidth		= 0;
-	var globalElementWidthLarge = 0;
+var eu_europeana_mortar = {
 
+	container: null,
+	
+	globalElementWidth: 0,
+	
+	globalElementWidthLarge:0,
 
-	var calculateElementWidth = function(){
+	calculateElementWidth: function(){
 
    		var noCols = 0;
-    	var containerWidth = jQuery("#section-container").width();
+    	var containerWidth = eu_europeana_mortar.container.width();
 
     	if(containerWidth <= 980){ // fullsize for foundation: iPad landscape
     	   	noCols = 5;
@@ -40,28 +44,22 @@
 			
 		jQuery(".element.large").css("width",	globalElementWidthLarge);
 		jQuery(".element.large").css("height",	globalElementWidthLarge);
-		isotopeInit();
-	}
+		this.isotopeInit();
+	},
 
-
-	jQuery(window).bind('orientationchange',function(event){
-		/* since ipad fires this event after the new window size has been calculated and galaxy does it before, a full refresh is needed. */
-		//calculateElementWidth();
-		window.location.reload();
-	});
 
 
 	//	Isotope script - isotope.metafizzy.co - for more information
-	var isotopeInit = function(){
+	isotopeInit: function(){
 
-		var $container = $('#section-container');
+		var $container = eu_europeana_mortar.container;
 
 		try{
 	        //$container.isotope('destroy');
 		}
 		catch(e){}
         
-		/* Andy: the "1" setting seems to foce isotope to calculate not on the 1st col (or row) width (or height), but to fit all spaces  */
+		/* Andy: the "1" setting seems to force isotope to calculate not on the 1st col (or row) width (or height), but to fit all spaces  */
 
 		$container.isotope({
 			itemSelector : '.element',
@@ -86,14 +84,88 @@
 				}
 			}
 		});
-	};
-
-
-
-	jQuery(document).ready(function(){
-
-		jQuery("#section-container").delegate( '.element', 'click', function(){
 		
+		jQuery(window).bind('orientationchange',function(event){
+			/* since ipad fires this event after the new window size has been calculated and galaxy does it before, a full refresh is needed. */
+			//calculateElementWidth();
+			window.location.reload();
+		});
+		
+		
+	},
+
+	
+	buildSection:function(definition){
+		var html = '';
+		html += '<div contextmenu="' + definition.contextmenu + '" class="clickable">';
+		html += 	'<div class="' + (definition.featured ? 'element large' : 'element inner-transition') + '"  style="background-image:url(\'' + definition.img + '\'); background-repeat:no-repeat;" >';
+
+
+		if(definition.overlay_class){
+			html += 		'<img class="' + definition.overlay_class + '" src="' + definition.overlay + '">';
+		}
+		else{
+			html += 		'<img class="overlay" src="' + definition.overlay + '">';
+		}
+
+		if(definition.partner_overlay){
+			html += '<img class="partner-overlay" src="' + definition.partner_overlay + '">';
+		}
+
+		// name, languages and partners
+		html +=	'<div class="title-wrapper">';
+		html += 	'<table class="title-table"><tr><td>';
+		html +=			'<h2 class="name dark" ' + (definition.title ? 'title="' + definition.title + '"' : '') + '>' + definition.name + '</h2>';				
+		html += 	'</td></tr></table>';
+		html +=	'</div>';
+
+
+		html += '<div class="languages">';
+		html +=		'<table class="language-table"><tr><td>';
+
+		if(definition.languages){	
+			for(var i=0; i<definition.languages.length; i++){
+				var language = definition.languages[i];
+				html += '<h4 style="display:inline; font-weight:normal;"><a class="' + language.langClass + '" href="' + language.link + '">' + language.label + '</a></h4>';
+				if(i+1<definition.languages.length){
+					html += ' &nbsp; ';
+				}
+			}
+		}
+		if(definition.partner){
+			html += '<h3 style="display:inline; font-weight:normal;"><a target="_blank" href="' + definition.partner.site + '">' + definition.partner.label + '</a></h3>';
+		}
+		
+		html +=		'</td></tr></table>';
+		html += '</div>';
+
+		if(definition.menu){
+			html += 		'<menu type="context" id="' + definition.contextmenu + '">';
+			html += 			'<menu label="' + definition.menu.label + '" icon="' + definition.menu.icon + '">';
+	
+			for(var i=0; i<definition.menu.items.length; i++){
+				var item = definition.menu.items[i];
+				html +=				'<menuitem label="' + item.label + '" icon="' + item.icon + '" onclick="goTo(\'' + item.goto + '\')">';
+				html +=				'</menuitem>';
+			}
+	
+			html += 			'</menu>';
+			html += 		'</menu>';
+		}
+	
+		html += 	'</div>';
+		html += '</div>';
+		jQuery(eu_europeana_mortar.container).append(html);
+	},
+	
+	goTo:function(url) { window.open(url, "shareWindow"); },
+
+	
+	init:function(data, containerSelector){
+		
+		eu_europeana_mortar.container = jQuery(containerSelector);
+		
+		eu_europeana_mortar.container.delegate( '.element', 'click', function(){			
 			jQuery(this).toggleClass('large');
 			
 			if(jQuery(this).hasClass('large')){
@@ -104,184 +176,16 @@
 				jQuery(this).css("width", globalElementWidth + "px");
 				jQuery(this).css("height", globalElementWidth + "px");
 			}
-			jQuery("#section-container").isotope('reLayout');
+			eu_europeana_mortar.container.isotope('reLayout');
 		});
-
-
-		var buildSection = function(definition){
-			var html = '';
-			html += '<div contextmenu="' + definition.contextmenu + '" class="clickable">';
-			html += 	'<div class="' + (definition.featured ? 'element large' : 'element inner-transition') + '"  style="background-image:url(\'' + definition.img + '\'); background-repeat:no-repeat;" >';
-
-
-			if(definition.overlay_class){
-				html += 		'<img class="' + definition.overlay_class + '" src="' + definition.overlay + '">';
-			}
-			else{
-				html += 		'<img class="overlay" src="' + definition.overlay + '">';
-			}
-
-			if(definition.partner_overlay){
-				html += '<img class="partner-overlay" src="' + definition.partner_overlay + '">';
-			}
-
-			// name, languages and partners
-			html +=	'<div class="title-wrapper">';
-			html += 	'<table class="title-table"><tr><td>';
-			if(definition.title){
-				html +=			'<h2 class="name dark" title="' + definition.title + '">' + definition.name + '</h2>';				
-			}
-			else{
-				html +=			'<h2 class="name dark">' + definition.name + '</h2>';				
-			}
-			html += 	'</td></tr></table>';
-			html +=	'</div>';
-
-
-			html += '<div class="languages">';
-			html +=		'<table class="language-table"><tr><td>';
-
-			if(definition.languages){	
-				for(var i=0; i<definition.languages.length; i++){
-					var language = definition.languages[i];
-					html += '<h4 style="display:inline; font-weight:normal;"><a class="' + language.langClass + '" href="' + language.link + '">' + language.label + '</a></h4>';
-					//html += '<h4 style="display:inline; font-weight:normal;"><a class="' +                  '" href="' + language.link + '">' + language.label + '</a></h4>';
-					if(i+1<definition.languages.length){
-						html += ' &nbsp; ';
-					}
-				}
-			}
-			if(definition.partner){
-				html += '<h3 style="display:inline; font-weight:normal;"><a target="_blank" href="' + definition.partner.site + '">' + definition.partner.label + '</a></h3>';
-			}
-			
-			html +=		'</td></tr></table>';
-			html += '</div>';
-
-			html += 		'<menu type="context" id="' + definition.contextmenu + '">';
-			html += 			'<menu label="' + definition.menu.label + '" icon="' + definition.menu.icon + '">';
-
-			for(var i=0; i<definition.menu.items.length; i++){
-				var item = definition.menu.items[i];
-				html +=				'<menuitem label="' + item.label + '" icon="' + item.icon + '" onclick="goTo(\'' + item.goto + '\')">';
-				html +=				'</menuitem>';
-			}
-
-			html += 			'</menu>';
-			html += 		'</menu>';
 		
-			html += 	'</div>';
-			html += '</div>';
-			jQuery("#section-container").append(html);
+		eu_europeana_mortar.container.html(""); // clear non-js seo stuff
+		
+		for(var i=0; i<data.length; i++){
+			this.buildSection(data[i]);
 		}
-
-
-		/* 1914-1918 */
-
-		var nineteenfourteen = { "contextmenu" : "europeana-1914-1918", "featured": true, "img": "splash/img/19141918_main.jpg", "overlay": "splash/logos/logo-white.png", "name": "Untold stories of the First World War", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Untold stories of the First World War: http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en" } ] }, "languages":[{"langClass":"language-en-main", "link":"exhibits/show/europeana-1914-1918-en", "label":"English"}, {"langClass":"language-fr-dada", "link":"exhibits/show/europeana-1914-1918-fr", "label":"Fran&ccedil;ais"}, {"langClass":"language-de-dada", "link":"exhibits/show/europeana-1914-1918-de", "label":"Deutsch"}, {"langClass":"language-sl-dada", "link":"exhibits/show/europeana-1914-1918-sl", "label":"Slovenian"}]   };
-
-
-		/* wiki loves art nouveau */
-
-		var wikiLoves = { "contextmenu" : "wiki-loves-artnouveau", "featured": false, "img": "splash/img/img21.jpg", "overlay": "splash/logos/logo-white.png", "partner_overlay":"splash/logos/logo_wiki_loves_monuments.png", "name": "Wiki Loves Art Nouveau", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Wiki Loves Art Nouveau: http://exhibitions.europeana.eu/exhibits/show/wiki-loves-art-nouveau" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/wiki-loves-art-nouveau" } ] }, "languages":[{"langClass":"language-en-main", "link":"exhibits/show/wiki-loves-art-nouveau", "label":"English"}, {"langClass":"language-ru-main", "link":"exhibits/show/wiki-loves-art-ru", "label":"Russian"}]   };
-
-
-		/* expeditions */
-
-		var expeditions = { "contextmenu" : "expeditions", "featured": false, "img": "splash/img/bhl_img1.jpg", "overlay": "splash/logos/logo-bhl.png", "overlay_class":"overlay-tel", "name": "Expeditions", "partner": {"site":"http://expeditions.biodiversityexhibition.com/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Expeditions: http://expeditions.biodiversityexhibition.com/" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://expeditions.biodiversityexhibition.com/" } ] }   };
-
-
-		/* weddings in eastern europe */
-
-		var weddings = { "contextmenu" : "weddings-in-eastern-europe", "featured": false, "img": "splash/img/img31.jpg", "overlay": "splash/logos/logo.png", "partner_overlay":"splash/logos/logo-dismarc.png", "name": "Weddings in Eastern Europe", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Weddings in Eastern Europe: http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe" } ] }, "languages":[{"langClass":"language-en", "link":"exhibits/show/weddings-in-eastern-europe", "label":"English"}]   };
-
-
-		/* from dada to surrealism */
-
-		var dada = { "contextmenu" : "from-dada-to-surrealism", "featured": false, "img": "splash/img/img11.jpg", "overlay": "splash/logos/logo-white.png", "partner_overlay":"splash/logos/logo-jewish-historical-museum.png", "name": "From Dada to Surrealism", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=From Dada to Surrealism: http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en" } ] }, "languages":[{"langClass":"language-en-dada", "link":"exhibits/show/dada-to-surrealism-en", "label":"English"}, {"langClass":"language-fr-dada", "link":"exhibits/show/dada-to-surrealism-fr", "label":"Fran&ccedil;ais"}, {"langClass":"language-de-dada", "link":"exhibits/show/dada-to-surrealism-de", "label":"Deutsch"}, {"langClass":"language-es-dada", "link":"exhibits/show/dada-to-surrealism-es", "label":"Espa&ntilde;ol"}, {"langClass":"language-nl-dada", "link":"exhibits/show/dada-to-surrealism-nl", "label":"Nederlands"} ]   };
-
-
-		/* mimo */
-
-		var mimo = { "contextmenu" : "musical-instruments", "featured": false, "img": "splash/img/img61.jpg", "overlay": "splash/logos/logo.png", "partner_overlay":"splash/logos/logo-mimo.png", "name": "Explore the World of Musical Instruments", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Explore the World of Musical Instruments: http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en" } ] }, "languages":[{"langClass":"language-en-dada", "link":"exhibits/show/musical-instruments-en", "label":"English"}, {"langClass":"language-fr-dada", "link":"exhibits/show/musical-instruments-fr", "label":"Fran&ccedil;ais"}, {"langClass":"language-de-dada", "link":"exhibits/show/musical-instruments-de", "label":"Deutsch"}, {"langClass":"language-it-music", "link":"exhibits/show/musical-instruments-it", "label":"Italiano"}, {"langClass":"language-nl-dada", "link":"exhibits/show/musical-instruments-nl", "label":"Nederlands"}, {"langClass":"language-sv-music", "link":"exhibits/show/musical-instruments-sv", "label":"Svenska"} ]   };
-
-
-		/* yiddish theater */
-
-		var yiddish = { "contextmenu" : "yiddish-theatre", "featured": false, "img": "splash/img/img41.jpg", "overlay": "splash/logos/logo-white.png", "partner_overlay":"splash/logos/logo-jewish-museum-london.png", "name": "Yiddish Theatre in London", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Yiddish Theatre in London: http://exhibitions.europeana.eu/exhibits/show/yiddish-theatre-en" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/yiddish-theatre-en" } ] }, "languages":[{"langClass":"language-en-dada", "link":"exhibits/show/yiddish-theatre-en", "label":"English"}, {"langClass":"language-fr-dada", "link":"exhibits/show/yiddish-theatre-fr", "label":"Fran&ccedil;ais"}, {"langClass":"language-de-dada", "link":"exhibits/show/yiddish-theatre-de", "label":"Deutsch"}, {"langClass":"language-es-dada", "link":"exhibits/show/yiddish-theatre-es", "label":"Espa&ntilde;ol"} ]   };
-
-
-		/* art nouveau */
-
-		var nouveau = { "contextmenu" : "art-nouveau", "featured": false, "img": "splash/img/img51.jpg", "overlay": "splash/logos/logo.png", "name": "Art Nouveau", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "'//twitter.com/intent/tweet?text=Art Nouveau: http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en'" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en" } ] }, 		
-		"languages":[
-		{"langClass":"language-en-dada", "link":"exhibits/show/art-nouveau-en", "label":"English"},
-		{"langClass":"language-fr-dada", "link":"exhibits/show/art-nouveau-fr", "label":"Fran&ccedil;ais"},
-		{"langClass":"language-nl-dada", "link":"exhibits/show/art-nouveau-nl", "label":"Nederlands"},
-		{"langClass":"language-pl-art-nouveau", "link":"exhibits/show/art-nouveau-pl", "label":"Polski"},
-		{"langClass":"language-es-dada", "link":"exhibits/show/art-nouveau-es", "label":"Espa&ntilde;ol"},
-		{"langClass":"language-lv-artnouveau", "link":"exhibits/show/art-nouveau-lv", "label":"Latvie&scaron;u"}
-		]};
-
-		/* traveling thrugh history */
 		
-		var travelling = { "contextmenu" : "travelling-through-history", "featured": false, "img": "splash/img/tel_img21.jpg", "overlay": "splash/logos/logo-tel-black.png", "overlay_class":"overlay-tel", "name": "Travelling Through History", "partner": {"site":"http://www.theeuropeanlibrary.org/exhibition-travel-history/index.html", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Travelling Through History: http://www.theeuropeanlibrary.org/exhibition-travel-history/index.html" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/exhibition-travel-history/index.html" } ] }   };
-
-		/* Reading Europe */
-
-		var reading = { "contextmenu" : "reading-europe", "featured": false, "img": "splash/img/tel_img31.jpg", "overlay": "splash/logos/logo-tel-black.png", "overlay_class":"overlay-tel", "name": "Reading Europe", "partner": {"site":"http://www.theeuropeanlibrary.org/exhibition-reading-europe/index.html", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Reading Europe: http://www.theeuropeanlibrary.org/exhibition-reading-europe/index.html" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/exhibition-reading-europe/index.html" } ] }   };
-
-		/* A Roma Journey */
-
-		var roma = { "contextmenu" : "roma-journey", "featured": false, "img": "splash/img/tel_img61.jpg", "overlay": "splash/logos/logo-tel-white.png", "overlay_class":"overlay-tel", "name": "A Roma Journey", "partner": {"site":"http://www.theeuropeanlibrary.org/exhibition/roma_journey/eng/index.html", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=A Roma Journey: http://www.theeuropeanlibrary.org/exhibition/roma_journey/eng/index.html" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/exhibition/roma_journey/eng/index.html" } ] }   };
-
-		/* Napoleonic Wars */
-
-		var napoleon = { "contextmenu" : "napoleonic-wars", "featured": false, "img": "splash/img/tel_img5.jpg", "overlay": "splash/logos/logo-tel-black.png", "overlay_class":"overlay-tel",  "name": "Napoleonic Wars", "partner": {"site":"http://www.theeuropeanlibrary.org/exhibition/roma_journey/eng/index.html", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Napoleonic Wars: http://www.theeuropeanlibrary.org/exhibition/napoleonic_wars/index.html" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/exhibition/napoleonic_wars/index.html" } ] }   };
-
-		/* Treasures */
-
-		var treasures = { "contextmenu" : "treasures", "featured": false, "img": "splash/img/tel_img4.jpg", "overlay": "splash/logos/logo-tel-black.png", "overlay_class":"overlay-tel", "name": "Treasures", "partner": {"site":"http://www.theeuropeanlibrary.org/exhibition/treasures/index.html", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Treasures: http://www.theeuropeanlibrary.org/exhibition/treasures/index.html" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/exhibition/treasures/index.html" } ] }   };
-
-		/* Buildings */
-
-		var buildings = { "contextmenu" : "buildings", "featured": false, "img": "splash/img/tel_img11.jpg", "overlay": "splash/logos/logo-tel-white.png", "overlay_class":"overlay-tel", "name": "Buildings", "partner": {"site":"http://www.theeuropeanlibrary.org/exhibition/buildings/index.html", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Buildings: http://www.theeuropeanlibrary.org/exhibition/buildings/index.html" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/exhibition/buildings/index.html" } ] }   };
-
-		/* Athena */
-
-		var athena =  { "contextmenu" : "a-voyage-with-the-gods", "featured": false, "img": "splash/img/athena_img1.jpg", "overlay": "splash/logos/logo-athena.png", "name": "A Voyage With The Gods", "partner": {"site":"http://151.12.58.141/virtualexhibition/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=A Voyage With The Gods: http://151.12.58.141/virtualexhibition/" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://151.12.58.141/virtualexhibition/" } ] }   };
-
-		/* spices */
-
-		var spices = { "contextmenu" : "spices", "featured": false, "img": "splash/img/bhl_img2.jpg", "overlay": "splash/logos/logo-bhl.png", "overlay_class":"overlay-tel", "name": "Spices", "partner": {"site":"http://spices.biodiversityexhibition.com/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Spices: http://spices.biodiversityexhibition.com/" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://spices.biodiversityexhibition.com/" } ] }   };
-
-		/* spices */
-		
-		var manuscripts = { "contextmenu" : "manuscripts and princes", "featured": false, "img": "splash/img/imgManuscripts.jpg", "overlay": "splash/logos/logo-tel-white.png", "overlay_class":"overlay-tel", "name": "Manuscripts and Princes", "title" : "Manuscripts and Princes in Medieval and Renaissance Europe", "partner": {"site":"http://www.theeuropeanlibrary.org/tel4/virtual/regia/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Manuscripts: http://www.theeuropeanlibrary.org/tel4/virtual/regia" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/tel4/virtual/regia" } ] }   };
-		
-		
-		jQuery("#section-container").html(""); // clear non-js seo stuff
-		buildSection(nineteenfourteen);
-		buildSection(wikiLoves);
-		buildSection(weddings);
-		buildSection(dada);
-		buildSection(mimo);
-		buildSection(yiddish);
-		buildSection(nouveau);
-		buildSection(travelling);
-		buildSection(reading);
-		buildSection(roma);
-		buildSection(napoleon);
-		buildSection(treasures);
-		buildSection(buildings);
-		buildSection(athena);
-		buildSection(spices);
-		buildSection(expeditions);
-		buildSection(manuscripts);
-
-		calculateElementWidth();
-
-
+		this.calculateElementWidth();
 		// language hooks: take language from parent class
 
 		jQuery("a").each(function(){
@@ -303,8 +207,9 @@
 
 			});  // end click handler
 		});  // end for each
+	},
 
-	});  // end ready handler
+};
 
-	function goTo(url) { window.open(url, "shareWindow"); }
-	
+
+
