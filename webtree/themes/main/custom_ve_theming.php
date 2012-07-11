@@ -96,6 +96,9 @@ function ve_set_exhibit_js()
     echo js('mediaelement-2.7/build/mediaelement-and-player');
     echo js('global');
 
+    echo ('<script type="text/javascript" src="' . WEB_ROOT . '/splash/js/splash.js" charset="utf-8"></script>');
+    echo ('<script type="text/javascript" src="' . WEB_ROOT . '/splash/js/jquery.isotope.min.js" charset="utf-8"></script>');
+
 }
 
 /*
