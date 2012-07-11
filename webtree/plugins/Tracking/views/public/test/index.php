@@ -36,7 +36,12 @@ public/test/index
 <br>
 <script type="text/javascript">
         jQuery(document).ready(function(){
-        	jQuery("a.oembed").oembed();
+        	//alert(jQuery("a.oembed").oembed());
+        	//jQuery("a.oembed").oembed();
+        	//alert("done");
+        	alert(jQuery("a.oembed").embedly);
+        	jQuery("a.oembed").embedly();
+        	alert("done");
         });
 </script>
 
