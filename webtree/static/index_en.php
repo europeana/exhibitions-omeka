@@ -117,9 +117,16 @@ img{
 <script type="text/javascript" src="splash/js/jquery.isotope.min.js"></script>
 <script type="text/javascript" src="themes/main/javascripts/global.js"></script>
 <script type="text/javascript" src="themes/main/javascripts/jquery.cookie.js"></script>
+<script type="text/javascript" src="splash/js/splash-data.js"></script>
 <script type="text/javascript" src="splash/js/splash.js"></script>
 
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=ra-4d70f66c15fff6d0"></script>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	eu_europeana_mortar.init(splashData, "#section-container");
+});  // end ready handler
+</script>
 
 </body>
 </html>
