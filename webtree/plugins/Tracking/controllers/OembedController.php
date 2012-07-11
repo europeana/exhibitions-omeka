@@ -8,8 +8,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
     }
     
 
+    // http://localhost/ombad/webtree/service/oembed/8
     // http://localhost/webtree/service/oembed/8
-    
    	public function oembedAction()
    	{
 		$request = $this->getRequest();

@@ -14,6 +14,7 @@ class Tracking_TrackingController extends Omeka_Controller_Action
         return (strcasecmp(substr($haystack, strlen($haystack) - strlen($needle)),$needle)===0);
     }
 
+    // http://localhost/ombad/webtree/track_embed/download/185?linkback=http://localhost/ombad/webtree/items/show/185
     // http://localhost/webtree/track_embed/download/185?linkback=http://localhost/webtree/items/show/185
    	public function downloadAction()
    	{

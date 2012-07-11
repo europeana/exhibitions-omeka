@@ -4,6 +4,20 @@
  */
 ve_session_vars();
 
+
+	// helper function
+	function selfURL(){
+		if(!isset($_SERVER['REQUEST_URI'])){
+			$serverrequri = $_SERVER['PHP_SELF'];
+		}
+		else{
+			$serverrequri = $_SERVER['REQUEST_URI'];
+		}
+		$s = empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";
+		$protocol = strleft(strtolower($_SERVER["SERVER_PROTOCOL"]), "/").$s;
+		$port = ($_SERVER["SERVER_PORT"] == "80") ? "" : (":".$_SERVER["SERVER_PORT"]);
+		return $protocol."://".$_SERVER['SERVER_NAME'].$port.$serverrequri;
+	}
 ?>
 
 <!doctype html>
@@ -12,15 +26,17 @@ ve_session_vars();
 	<head>
 	
 	
+	http://localhost/ombad/webtree/service/oembed/8
+		
 	<link rel="alternate" type="application/json+oembed"
 		
-		http%3A//flickr.com/photos/bees/2362225867/&format=json
-		
-		href="http://acceptance.exhibit.eanadev.org/track_embed/download/oembed?url=http%3a%2f%2facceptance.exhibit.eanadev.org%2ftrack_embed%2fdownload%2f185&amp;format=json"
+		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?url=<?php urlencode(selfURL);?>;format=json"
+			
+			
 		title="Andy's test title json" />
 	
 	<link rel="alternate" type="text/xml+oembed"
-		href="http://acceptance.exhibit.eanadev.org/track_embed/download/oembed?url=http%3a%2f%2facceptance.exhibit.eanadev.org%2ftrack_embed%2fdownload%2f185&amp;format=xml"
+		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?url=http%3a%2f%2facceptance.exhibit.eanadev.org%2ftrack_embed%2fdownload%2f185&amp;format=xml"
 		title="Andy's test title xml" />
 	
 	<!--/*
