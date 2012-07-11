@@ -15,7 +15,7 @@
     		title="Andy's test title json" />
     	
     	<link rel="alternate" type="text/xml+oembed"
-    		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?format=json&url=<?php echo($url); ?>"
+    		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?format=xml&url=<?php echo($url); ?>"
     		title="Andy's test title xml" />
     	
         <?php display_js(); ?>
