@@ -59,7 +59,108 @@
 </div>
 
 
-<div class="row">
+
+
+<!-- START REWORK -->
+<!--
+{
+	"contextmenu" : "buildings",
+	"featured": false,
+	"img": "splash/img/tel_img11.jpg",
+	"name": "Buildings",
+	"label":"Open partner exhibition"
+	"menu":{
+		"label" : "Share on...",
+		"icon": "splash/img/share_icon.gif",
+		"items":[
+		         {	"label": "Twitter",
+		        	"icon": "splash/img/twitter_icon.gif",
+		        	"goto": "//twitter.com/intent/tweet?text=Buildings: http://www.theeuropeanlibrary.org/exhibition/buildings/index.html"
+		         },
+		         {
+		        	 "label": "Facebook",
+		        	 "icon": "splash/img/facebook_icon.gif",
+		        	 "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/exhibition/buildings/index.html"
+		        }
+		        ]
+			}
+};
+
+-->
+<br/>
+<br/>
+
+
+
+<?php
+	$data = array();
+?>
+
+<?php while (loop_items()){ // construct json data
+	
+	$item = get_current_item();
+	$file = $item->Files[0];
+	$json = "";
+	
+	if(!is_null($file)){
+
+		$name = preg_replace('/&quot;/', "\"", item('Dublin Core', 'Title'));	// handle html quotes by making them normal quotes
+		$name = preg_replace('/\"/', "\\\"", $name );							// handle normal quotes by escaping them with a backslash	
+		$json .= "{";
+		$json .= '"contextmenu" : "' . $name . '",';
+		$json .= '"overlay": "splash/logos/logo-white.png",';		// or black or none
+		$json .= '"featured": false,';
+		
+		if (item_has_thumbnail()){
+			$json .= '"img": "' . WEB_ROOT . '/archive/square_thumbnails/' . $file->getDerivativeFilename() . '",';
+		}
+		else{
+   			$mime = $file->getMimeType();
+   			
+   			if(!is_null($mime)){
+      			if (preg_match("/^application/", $mime)){
+      				$json .= '"img": "' . img('icon-pdf.png') . '", ';
+      			}
+      			elseif (preg_match("/^video/", $mime)){
+      				$json .= '"img": "' . img('icon-video.png') . '", ';
+      			}
+      			elseif (preg_match("/^audio/", $mime)){
+      				$json .= '"img": "' . img('icon-audio.png') . '", ';
+      			}
+   			}
+		}
+		$json .= '"name":"' . $name . '"';
+		$json .= '}'; // close json item
+		$data[] = $json;
+	} 
+} ?>
+
+<?php
+		/*
+	$res = join($data, ",");
+	echo('[' . $res . ']');
+	echo('<script type="text/javascript">');
+	echo('var splashData = [' . $res . '];');
+	echo('</script>');
+		*/
+?>
+
+
+<!-- END REWORK -->
+
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		//alert(typeof eu_europeana_mortar);
+		//eu_europeana_mortar.init(splashData, "#splash_here");
+	});
+</script>
+
+
+
+
+
+<div class="row" id="splash_here">
     <div class="six columns">
     	<ul class="block-grid two-up">
     	
@@ -96,7 +197,6 @@
 		                <?php echo item_square_thumbnail(array('alt'=>item('Dublin Core', 'Title'))); ?>
 		            </a>
 	        	<?php else:?>
-	        	
 	        		<?php
 	        			$item = get_current_item();
 	        		
