@@ -45,7 +45,7 @@ public/test/index
         });
 </script>
 
-<div><a href="http://localhost/ombad/webtree" class="oembed">Europeana</a></div>
+<div><a href="<?php echo(WEB_ROOT); ?>" class="oembed">Europeana</a></div>
 
 <!--
 <div><a href="http://www.flickr.com/photos/14516334@N00/345009210/" class="oembed">Flickr Image</a></div>
