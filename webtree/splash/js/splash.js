@@ -250,6 +250,10 @@
 
 		var spices = { "contextmenu" : "spices", "featured": false, "img": "splash/img/bhl_img2.jpg", "overlay": "splash/logos/logo-bhl.png", "overlay_class":"overlay-tel", "name": "Spices", "partner": {"site":"http://spices.biodiversityexhibition.com/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Spices: http://spices.biodiversityexhibition.com/" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://spices.biodiversityexhibition.com/" } ] }   };
 
+		/* spices */
+		
+		var manuscripts = { "contextmenu" : "manuscripts and princes", "featured": false, "img": "splash/img/imgManuscripts.jpg", "overlay": "splash/logos/logo-tel-black.png", "overlay_class":"overlay-tel", "name": "Manuscripts and Princes", "partner": {"site":"http://www.theeuropeanlibrary.org/tel4/virtual/regia/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Manuscripts: http://www.theeuropeanlibrary.org/tel4/virtual/regia" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/tel4/virtual/regia" } ] }   };
+		
 		
 		jQuery("#section-container").html(""); // clear non-js seo stuff
 		buildSection(nineteenfourteen);
@@ -268,6 +272,7 @@
 		buildSection(athena);
 		buildSection(spices);
 		buildSection(expeditions);
+		buildSection(manuscripts);
 
 		calculateElementWidth();
 
