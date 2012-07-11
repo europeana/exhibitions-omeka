@@ -2,22 +2,11 @@
 /*
  * SET/GET ALL NECESSARY SESSION VARS
  */
-ve_session_vars();
+	ve_session_vars();
 
+	$url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+	$url=urlencode($url);
 
-	// helper function
-	function selfURL(){
-		if(!isset($_SERVER['REQUEST_URI'])){
-			$serverrequri = $_SERVER['PHP_SELF'];
-		}
-		else{
-			$serverrequri = $_SERVER['REQUEST_URI'];
-		}
-		$s = empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";
-		$protocol = strleft(strtolower($_SERVER["SERVER_PROTOCOL"]), "/").$s;
-		$port = ($_SERVER["SERVER_PORT"] == "80") ? "" : (":".$_SERVER["SERVER_PORT"]);
-		return $protocol."://".$_SERVER['SERVER_NAME'].$port.$serverrequri;
-	}
 ?>
 
 <!doctype html>
@@ -25,18 +14,13 @@ ve_session_vars();
 
 	<head>
 	
-	
-	http://localhost/ombad/webtree/service/oembed/8
-		
 	<link rel="alternate" type="application/json+oembed"
 		
-		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?url=<?php urlencode(selfURL);?>;format=json"
-			
-			
+		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?format=json&url=<?php echo($url);?>"
 		title="Andy's test title json" />
 	
 	<link rel="alternate" type="text/xml+oembed"
-		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?url=http%3a%2f%2facceptance.exhibit.eanadev.org%2ftrack_embed%2fdownload%2f185&amp;format=xml"
+		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?format=xml&url=<?php echo($url);?>"
 		title="Andy's test title xml" />
 	
 	<!--/*

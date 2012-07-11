@@ -11,13 +11,12 @@
         <title>jquery-oembed link replace example</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     	<link rel="alternate" type="application/json+oembed"
-    		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?url=<?php echo($url); ?>;&format=json"
+    		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?format=json&url=<?php echo($url); ?>;"
     		title="Andy's test title json" />
     	
     	<link rel="alternate" type="text/xml+oembed"
-    		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?url=<?php echo($url); ?>;&format=xml"
+    		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?format=json&url=<?php echo($url); ?>"
     		title="Andy's test title xml" />
-
     	
         <?php display_js(); ?>
 </head>
