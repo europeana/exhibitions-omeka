@@ -5,7 +5,7 @@ add_plugin_hook('uninstall',		'tracking_uninstall');
 add_plugin_hook('define_routes',	'tracking_define_routes');
 
 
-add_plugin_hook('public_theme_header', 'tracking_test_header');
+//add_plugin_hook('public_theme_header', 'tracking_test_header');
 //add_plugin_hook('admin_theme_header', 'tracking_test_header');
 
 
@@ -13,11 +13,10 @@ add_filter('admin_navigation_main', 'tracking_admin_navigation_main');
 
 
 
-function trackingTestHeader($request)
-{
-	error_log("inside tracking_test_header");
-
-}
+//function trackingTestHeader($request)
+//{
+//	error_log("inside tracking_test_header");
+//}
 
 /**
  * Add the Track Embed link to the admin main navigation.
