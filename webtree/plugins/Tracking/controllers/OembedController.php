@@ -17,6 +17,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
         
         if($fmt=="xml"){
         	
+        	header('Content-type: xml');
+        	
         	echo '<?xml version="1.0" encoding="utf-8" ?>';
         	echo '<oembed>';
         	echo '<provider_url>http:\/\/acceptance.exhibit.eanadev.org\/</provider_url>';
@@ -37,6 +39,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
         }
         
         else{//if($fmt == "json"){
+        	
+        	header('Content-type: application/json');
+        	
        		echo '{';
        		echo '"provider_url": "http:\/\/acceptance.exhibit.eanadev.org\/",';
        		
