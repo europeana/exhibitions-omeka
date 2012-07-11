@@ -128,7 +128,12 @@
 			// name, languages and partners
 			html +=	'<div class="title-wrapper">';
 			html += 	'<table class="title-table"><tr><td>';
-			html +=			'<h2 class="name dark">' + definition.name + '</h2>';
+			if(definition.title){
+				html +=			'<h2 class="name dark" title="' + definition.title + '">' + definition.name + '</h2>';				
+			}
+			else{
+				html +=			'<h2 class="name dark">' + definition.name + '</h2>';				
+			}
 			html += 	'</td></tr></table>';
 			html +=	'</div>';
 
@@ -252,7 +257,7 @@
 
 		/* spices */
 		
-		var manuscripts = { "contextmenu" : "manuscripts and princes", "featured": false, "img": "splash/img/imgManuscripts.jpg", "overlay": "splash/logos/logo-tel-black.png", "overlay_class":"overlay-tel", "name": "Manuscripts and Princes", "partner": {"site":"http://www.theeuropeanlibrary.org/tel4/virtual/regia/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Manuscripts: http://www.theeuropeanlibrary.org/tel4/virtual/regia" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/tel4/virtual/regia" } ] }   };
+		var manuscripts = { "contextmenu" : "manuscripts and princes", "featured": false, "img": "splash/img/imgManuscripts.jpg", "overlay": "splash/logos/logo-tel-black.png", "overlay_class":"overlay-tel", "name": "Manuscripts and Princes", "title" : "Manuscripts and Princes in Medieval and Renaissance Europe", "partner": {"site":"http://www.theeuropeanlibrary.org/tel4/virtual/regia/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Manuscripts: http://www.theeuropeanlibrary.org/tel4/virtual/regia" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/tel4/virtual/regia" } ] }   };
 		
 		
 		jQuery("#section-container").html(""); // clear non-js seo stuff
