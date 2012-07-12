@@ -11,49 +11,27 @@
 
 <!doctype html>
 
-
 	<head>
 	
 	<link rel="alternate" type="application/json+oembed"
 		
-		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?format=json&url=<?php echo($url);?>"
-		title="Andy's test title json" />
+		href="<?php echo(WEB_ROOT); ?>/service/oembed/json?url=<?php echo($url);?>"
+		title="Oembed json service" />
 	
 	<link rel="alternate" type="text/xml+oembed"
-		href="<?php echo(WEB_ROOT); ?>/service/oembed/8?format=xml&url=<?php echo($url);?>"
-		title="Andy's test title xml" />
+		href="<?php echo(WEB_ROOT); ?>/service/oembed/xml?url=<?php echo($url);?>"
+		title="Oembed xml service" />
 	
-	<!--/*
-	
-	<link rel="alternate" type="application/json+oembed"
-		href="http://acceptance.exhibit.eanadev.org/track_embed/download/oembed?url=http%3A//acceptance.exhibit.eanadev.org/track_embed/download/185&format=json"
-		title="Andy's test title json" />
-	
-	<link rel="alternate" type="text/xml+oembed"
-		href="http://acceptance.exhibit.eanadev.org/track_embed/download/oembed?url=http%3A//acceptance.exhibit.eanadev.org/track_embed/download/185&format=xml"
-		title="Andy's test title xml" />
 
-	*/-->
-	
-	
-	<link rel="alternate" type="application/json+oembed"
-		href="http://flickr.com/services/oembed?url=http%3A//flickr.com/photos/bees/2362225867/&format=json"
-		title="Bacon Lollys oEmbed Profile" />
-	
 	<meta charset="utf-8" />
-
-
 	
 	<meta http-equiv="X-UA-Compatible" value="IE=9" />
 	
-	
 	<meta property="author" content="test oembed" />
-	
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <script type="text/javascript">var web_root = "<?php echo WEB_ROOT; ?>";</script>
-
 
 <?php
 	$pageURL = "http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];

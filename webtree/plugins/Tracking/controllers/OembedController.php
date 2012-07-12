@@ -10,6 +10,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
 		$request	= $this->getRequest();
         $fmt 		= $request->getParam('id');
         $url 		= $request->getParam('url');
+        $url		= urldecode($url);
+        $url		= str_replace('127.0.0.1', "", $url);
         
         preg_match_all('!\d+!', $url, $itemId);
         
