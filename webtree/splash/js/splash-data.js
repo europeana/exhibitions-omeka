@@ -2,7 +2,7 @@ var splashData = function(){
 
 		/* sports */
 
-		var sports = { "contextmenu" : "sports", "featured": true, "img": "splash/img/sports.jpg", "overlay": "splash/logos/logo-white.png", "name": "European Sports", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=European Sports: http://exhibitions.europeana.eu/exhibits/show/european-sports" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/european-sports" } ] }, "languages":[{"langClass":"language-en-main", "link":"exhibits/show/european-sports", "label":"English"}]   };
+		var sports = { "contextmenu" : "sports", "featured": true, "img": "splash/img/sports.jpg", "overlay": "splash/logos/logo-white.png", "name": "European Sports", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=European Sports: http://exhibitions.europeana.eu/exhibits/show/european-sports" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/european-sports-en" } ] }, "languages":[{"langClass":"language-en-main", "link":"exhibits/show/european-sports-en", "label":"English"}]   };
 
 	
 		/* 1914-1918 */
