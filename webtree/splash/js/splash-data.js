@@ -89,6 +89,7 @@ var splashData = function(){
 		        mimo,
 		        yiddish,
 		        nouveau,
+		        manuscripts,
 		        travelling,
 		        reading,
 		        roma,
@@ -97,7 +98,6 @@ var splashData = function(){
 		        buildings,
 		        athena,
 		        spices,
-		        expeditions,
-		        manuscripts
+		        expeditions
 		        ];
 }();
