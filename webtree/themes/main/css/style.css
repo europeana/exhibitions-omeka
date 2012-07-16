@@ -478,6 +478,19 @@ ul.navigation li {
     margin-bottom: 2em;
 }
 
+pagination-top{
+	color:blue;
+}
+
+li.pagination_current{
+	
+	font-weight: 900 !important;
+}
+
+li.pagination_range a{
+	
+	font-weight: 100 !important;
+}
 
 /* AUDIO / VIDEO STYLES ************************************************************************************************/
 
