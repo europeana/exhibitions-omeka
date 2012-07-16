@@ -1,8 +1,13 @@
 var splashData = function(){
 
+		/* sports */
+
+		var sports = { "contextmenu" : "sports", "featured": true, "img": "splash/img/sports.jpg", "overlay": "splash/logos/logo-white.png", "name": "European Sports", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=European Sports: http://exhibitions.europeana.eu/exhibits/show/european-sports" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/european-sports" } ] }, "languages":[{"langClass":"language-en-main", "link":"exhibits/show/european-sports", "label":"English"}]   };
+
+	
 		/* 1914-1918 */
 
-		var nineteenfourteen = { "contextmenu" : "europeana-1914-1918", "featured": true, "img": "splash/img/19141918_main.jpg", "overlay": "splash/logos/logo-white.png", "name": "Untold stories of the First World War", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Untold stories of the First World War: http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en" } ] }, "languages":[{"langClass":"language-en-main", "link":"exhibits/show/europeana-1914-1918-en", "label":"English"}, {"langClass":"language-fr-dada", "link":"exhibits/show/europeana-1914-1918-fr", "label":"Fran&ccedil;ais"}, {"langClass":"language-de-dada", "link":"exhibits/show/europeana-1914-1918-de", "label":"Deutsch"}, {"langClass":"language-sl-dada", "link":"exhibits/show/europeana-1914-1918-sl", "label":"Slovenian"}]   };
+		var nineteenfourteen = { "contextmenu" : "europeana-1914-1918", "featured": false, "img": "splash/img/19141918_main.jpg", "overlay": "splash/logos/logo-white.png", "name": "Untold stories of the First World War", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Untold stories of the First World War: http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en" } ] }, "languages":[{"langClass":"language-en-main", "link":"exhibits/show/europeana-1914-1918-en", "label":"English"}, {"langClass":"language-fr-dada", "link":"exhibits/show/europeana-1914-1918-fr", "label":"Fran&ccedil;ais"}, {"langClass":"language-de-dada", "link":"exhibits/show/europeana-1914-1918-de", "label":"Deutsch"}, {"langClass":"language-sl-dada", "link":"exhibits/show/europeana-1914-1918-sl", "label":"Slovenian"}]   };
 
 
 		/* wiki loves art nouveau */
@@ -82,6 +87,7 @@ var splashData = function(){
 		var manuscripts = { "contextmenu" : "manuscripts and princes", "featured": false, "img": "splash/img/imgManuscripts.jpg", "overlay": "splash/logos/logo-tel-white.png", "overlay_class":"overlay-tel", "name": "Manuscripts and Princes", "title" : "Manuscripts and Princes in Medieval and Renaissance Europe", "partner": {"site":"http://www.theeuropeanlibrary.org/tel4/virtual/regia/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Manuscripts: http://www.theeuropeanlibrary.org/tel4/virtual/regia" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/tel4/virtual/regia" } ] }   };
 		
 		return [
+		        sports,
 		        nineteenfourteen,
 		        wikiLoves,
 		        weddings,
