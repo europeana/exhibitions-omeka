@@ -59,9 +59,19 @@ class Tracking_OembedController extends Omeka_Controller_Action
             // (dc | europeana) => oembed
             'Title' => 'title',
             'Creator' => 'author',
-            'Source' => 'provider_name'
+            'Source' => 'provider_name',
+            'Description' => 'description'
         );
        	
+        
+        
+        // HTML : depends on mime
+        
+        // thumbnail_url
+        
+        
+        
+        
         $dcFieldNames = array('Title', 'Description', 'Creator', 'Type', 'Subject', 'Source', 'Publisher', 'Date', 'Contributor', 'Rights', 'Format');
        	$elements = $item->getItemTypeElements();
        	$jsonPairs = array();
@@ -106,12 +116,45 @@ class Tracking_OembedController extends Omeka_Controller_Action
            	}
         }
 
+        
+        
+        // Add hard-coded provider
+  		$jsonPair = array('"provider_url"', '"http://exhibitions.europeana.eu"');                		
+		$jsonPairs[] = $jsonPair;                	                		
+
+        preg_match("/^image/", $mime, $imgMatches);
+        
+        if( sizeof($imgMatches) > 0 ){
+
+        	//$thumbnail = html_escape(file_display_uri($file, 'square_thumbnail'));
+        	//$thumbnail = html_escape(file_display_uri($file, 'archive'));
+        	$thumbnail = html_escape(file_display_uri($file, 'thumbnail'));
+
+//        	getimagesize("img/flag.jpg");
+        	
+      		$jsonPair = array('"thumbnail_url"', '"' . $thumbnail . '"');                		
+    		$jsonPairs[] = $jsonPair;                	                		
+
+
+    		list($width, $height, $type, $attr) = getimagesize($thumbnail);
+    		
+      		$jsonPair = array('"width"', '"' . $width . '"');                		
+    		$jsonPairs[] = $jsonPair;
+
+    		$jsonPair = array('"height"', '"' . $height . '"');                		
+    		$jsonPairs[] = $jsonPair;
+        }
+		
+		
+        
         if($fmt=="xml"){
         	
         	//header('Content-type: xml');
         	
         	echo '<?xml version="1.0" encoding="utf-8" ?>';
         	echo '<oembed>';
+        	
+        	
         	echo '<provider_url>http:\/\/acceptance.exhibit.eanadev.org\/</provider_url>';
         	echo '<thumbnail_url>http:\/\/acceptance.exhibit.eanadev.org\/splash\/img\/landscape-logo.png</thumbnail_url>';
         	echo '<title>Andy oembed test</title>';
@@ -125,6 +168,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	echo '<provider_name>Europeana - embed service</provider_name>';
         	echo '<type>link</type>';
         	echo '<thumbnail_height>360</thumbnail_height>';
+        	
+        	
         	echo '</oembed>';
         	
         }

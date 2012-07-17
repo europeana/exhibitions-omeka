@@ -15,11 +15,11 @@
 	
 	<link rel="alternate" type="application/json+oembed"
 		
-		href="<?php echo(WEB_ROOT); ?>/service/oembed/json?url=<?php echo($url);?>"
+		href="<?php echo(WEB_ROOT); ?>/service/oembed/json?for=EuropeanaExhibitions&url=<?php echo($url);?>"
 		title="Oembed json service" />
 	
 	<link rel="alternate" type="text/xml+oembed"
-		href="<?php echo(WEB_ROOT); ?>/service/oembed/xml?url=<?php echo($url);?>"
+		href="<?php echo(WEB_ROOT); ?>/service/oembed/xml?for=EuropeanaExhibitions&url=<?php echo($url);?>"
 		title="Oembed xml service" />
 	
 
