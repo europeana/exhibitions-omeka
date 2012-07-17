@@ -123,6 +123,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
 		$jsonPairs[] = $jsonPair;                	                		
 
         preg_match("/^image/", $mime, $imgMatches);
+
+        
         
         if( sizeof($imgMatches) > 0 ){
 
@@ -142,6 +144,14 @@ class Tracking_OembedController extends Omeka_Controller_Action
     		$jsonPairs[] = $jsonPair;
 
     		$jsonPair = array('"height"', '"' . $height . '"');                		
+    		$jsonPairs[] = $jsonPair;
+    		
+    		// TODO: remove hardcoded type
+    		$jsonPair = array('"type"', '"link"');                		
+    		$jsonPairs[] = $jsonPair;
+    		
+    		// TODO: remove hardcoded html
+    		$jsonPair = array('"html"', '"<span style=\"background-color:red; color:blue\">HERE IS SOME HTML</span>"');                		
     		$jsonPairs[] = $jsonPair;
         }
 		
