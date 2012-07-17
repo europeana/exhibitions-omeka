@@ -175,7 +175,10 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	
         	$videoHtml = '"\u003ciframe src=\"' . $videoUrl . '\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e"';
         	
-        	$jsonPair = array('"html"', $videoHtml);                		
+        	error_log("VIDEO HTML = " . $videoHtml);
+        	
+        	$jsonPair = array('"html"', $videoHtml);
+        	
         	$jsonPairs[] = $jsonPair;
         }
 		
