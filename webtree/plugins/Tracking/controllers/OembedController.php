@@ -105,6 +105,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
                 	$val = str_replace('&quot;', "'", $val);
                 	$val = str_replace('"', "'", $val);
                 	
+                	
+                	
+                	
                		if($oembedFieldName == "provider_name"){
                   		$jsonPair = array('"' . $oembedFieldName . '"', '"Europeana; ' . $val . '"');                		
                 	}
@@ -207,8 +210,23 @@ class Tracking_OembedController extends Omeka_Controller_Action
             foreach ($jsonPairs as $jsonPair) {
             	$jsonVals[] = implode(":", $jsonPair);
             }
-            echo '{' . implode(",", $jsonVals) . '}';
+            //echo '{' . implode(",", $jsonVals) . '}';
 
+            
+            
+            
+
+        	$youtube = '{"provider_url": "http:\/\/www.youtube.com\/", "thumbnail_url": "http:\/\/i2.ytimg.com\/vi\/M3r2XDceM6A\/hqdefault.jpg", "title": "Amazing Nintendo Facts", "html": "\u003ciframe width=\"480\" height=\"270\" src=\"http:\/\/www.youtube.com\/embed\/M3r2XDceM6A?fs=1\u0026feature=oembed\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e", "author_name": "ZackScott", "height": 270, "thumbnail_width": 480, "width": 480, "version": "1.0", "author_url": "http:\/\/www.youtube.com\/user\/ZackScott", "provider_name": "YouTube", "type": "video", "thumbnail_height": 360}';
+        	
+        	error_log($youtube);
+        	
+        	echo $youtube;
+
+            
+            
+            
+            
+            
         	//header('Content-type: application/json');
         	/*
        		echo '{';
