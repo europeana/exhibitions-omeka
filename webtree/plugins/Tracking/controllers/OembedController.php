@@ -217,7 +217,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
             
        		//	http://test.exhibit.eanadev.org/archive/files/0b340967b52ebf255b8669702fa2fe83.mp4
    			//  http:\/\/test.exhibit.eanadev.org\/archive\/files\/0b340967b52ebf255b8669702fa2fe83.mp4
-   			http:\/\/test.exhibit.eanadev.org\/track_embed\/download\/269
+   			//  http:\/\/test.exhibit.eanadev.org\/track_embed\/download\/269
    				
            	$youtube =     '{"provider_url": "http:\/\/www.youtube.com\/", ' . 
            		            '"thumbnail_url": "http:\/\/i2.ytimg.com\/vi\/M3r2XDceM6A\/hqdefault.jpg", ' . 
