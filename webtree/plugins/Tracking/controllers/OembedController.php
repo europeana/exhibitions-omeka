@@ -108,6 +108,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
                		if($oembedFieldName == "provider_name"){
                   		$jsonPair = array('"' . $oembedFieldName . '"', '"Europeana; ' . $val . '"');                		
                 	}
+               		elseif($oembedFieldName == "title"){
+                  		$jsonPair = array('"' . $oembedFieldName . '"', '"faketitle--' . $val . '"');                		
+                	}
                 	else{
                   		$jsonPair = array('"' . $oembedFieldName . '"', '"' . $val . '"');                		
                 	}
