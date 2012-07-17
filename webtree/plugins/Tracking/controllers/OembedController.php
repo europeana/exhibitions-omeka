@@ -129,20 +129,17 @@ class Tracking_OembedController extends Omeka_Controller_Action
 		$jsonPairs[] = $jsonPair;                	                		
 
         preg_match("/^image/", $mime, $imgMatches);
-
+        preg_match("/^video/", $mime, $videoMatches);
         
         
         if( sizeof($imgMatches) > 0 ){
-
+        	
         	//$thumbnail = html_escape(file_display_uri($file, 'square_thumbnail'));
         	//$thumbnail = html_escape(file_display_uri($file, 'archive'));
         	$thumbnail = html_escape(file_display_uri($file, 'thumbnail'));
 
-//        	getimagesize("img/flag.jpg");
-        	
       		$jsonPair = array('"thumbnail_url"', '"' . $thumbnail . '"');                		
     		$jsonPairs[] = $jsonPair;                	                		
-
 
     		list($width, $height, $type, $attr) = getimagesize($thumbnail);
     		
@@ -151,28 +148,35 @@ class Tracking_OembedController extends Omeka_Controller_Action
 
     		$jsonPair = array('"height"', '"' . $height . '"');                		
     		$jsonPairs[] = $jsonPair;
-    		
-    		/*
-    		// TODO: remove hardcoded type
-    		$jsonPair = array('"type"', '"link"');                		
+
+    		$jsonPair = array('"type"', '"photo"');                		
     		$jsonPairs[] = $jsonPair;
     		
-    		// TODO: remove hardcoded html
-    		$jsonPair = array('"html"', '"<span style=\"background-color:red; color:blue\">HERE IS SOME HTML</span>"');                		
-    		$jsonPairs[] = $jsonPair;
-    		*/
-    		// TODO: remove hardcoded type
-    		$jsonPair = array('"type"', '"video"');                		
-    		$jsonPairs[] = $jsonPair;
-    		
-    		// TODO: remove hardcoded html
-    		$jsonPair = array('"html"', "\u003ciframe width=\"480\" height=\"270\" src=\"http:\/\/www.youtube.com\/embed\/M3r2XDceM6A?fs=1\u0026feature=oembed\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e");
- //   				
-   // 				'"<iframe src=\"http://test.exhibit.eanadev.org/track_embed/download/269?linkback=' .
-    //				'http://test.exhibit.eanadev.org/exhibits/show/weddings-in-eastern-europe/sounds-images/item/269\"' .
-    	//			' style=\"width:400px; height:410px; border:none; overflow:hidden;\"' .
-    		//		' frameBorder=\"0\" scroll=\"no\" allowTransparency=\"true\"></iframe>"');                		
-    		$jsonPairs[] = $jsonPair;
+        }
+        elseif( sizeof($videoMatches) > 0 ){
+        	
+        	$jsonPair = array('"width"', '"470"');                		
+        	$jsonPairs[] = $jsonPair;
+        	
+        	$jsonPair = array('"height"', '"550"');                		
+        	$jsonPairs[] = $jsonPair;
+        	
+        	$jsonPair = array('"type"', '"video"');                		
+        	$jsonPairs[] = $jsonPair;
+        	
+        	//     width=\"480\" height=\"270\"
+        	
+        	//$escapedWebroot = str_replace('\', "\/", WEB_ROOT);
+        	//$escapedWebroot = str_replace('/', "\/", WEB_ROOT);
+        	
+        	$videoUrl = json_encode(WEB_ROOT . '/track_embed/download/' . $itemId);
+
+        	error_log("VIDEO URL = " . $videoUrl);
+        	
+        	$videoHtml = '"\u003ciframe src=\"' . $videoUrl . '\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e"';
+        	
+        	$jsonPair = array('"html"', $videoUrl);                		
+        	$jsonPairs[] = $jsonPair;
         }
 		
 		
@@ -210,7 +214,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
             foreach ($jsonPairs as $jsonPair) {
             	$jsonVals[] = implode(":", $jsonPair);
             }
-            //echo '{' . implode(",", $jsonVals) . '}';
+            echo '{' . implode(",", $jsonVals) . '}';
 
             
             
@@ -218,15 +222,15 @@ class Tracking_OembedController extends Omeka_Controller_Action
        		//	http://test.exhibit.eanadev.org/archive/files/0b340967b52ebf255b8669702fa2fe83.mp4
    			//  http:\/\/test.exhibit.eanadev.org\/archive\/files\/0b340967b52ebf255b8669702fa2fe83.mp4
    			//  http:\/\/test.exhibit.eanadev.org\/track_embed\/download\/269
-   				
+/*   				
            	$youtube =     '{"provider_url": "http:\/\/www.youtube.com\/", ' . 
            		            '"thumbnail_url": "http:\/\/i2.ytimg.com\/vi\/M3r2XDceM6A\/hqdefault.jpg", ' . 
-           		            '"title": "Amazing Nintendo Facts", ' .
+           		            '"title": "Amazing Europeana Facts", ' .
             		        '"html": "\u003ciframe width=\"480\" height=\"270\" src=\"http:\/\/test.exhibit.eanadev.org\/track_embed\/download\/269\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e", ' .
             		        '"author_name": "ZackScott", "height": 270, "thumbnail_width": 480, "width": 480, "version": "1.0", ' .
             		        '"author_url": "http:\/\/www.youtube.com\/user\/ZackScott", ' .
             		        '"provider_name": "YouTube", "type": "video", "thumbnail_height": 360}';
-
+*/
            		
             /*	
         	$youtube =     '{"provider_url": "http:\/\/www.youtube.com\/", ' . 
@@ -237,9 +241,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
         		            '"author_url": "http:\/\/www.youtube.com\/user\/ZackScott", ' .
         		         '"provider_name": "YouTube", "type": "video", "thumbnail_height": 360}';
         	*/
-        	error_log($youtube);
+        	//error_log($youtube);
         	
-        	echo $youtube;
+        	//echo $youtube;
 
             
             
