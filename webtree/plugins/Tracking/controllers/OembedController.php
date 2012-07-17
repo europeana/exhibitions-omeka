@@ -163,10 +163,12 @@ class Tracking_OembedController extends Omeka_Controller_Action
     		$jsonPairs[] = $jsonPair;
     		
     		// TODO: remove hardcoded html
-    		$jsonPair = array('"html"', '"<iframe src=\"http://test.exhibit.eanadev.org/track_embed/download/269?linkback=' .
-    				'http://test.exhibit.eanadev.org/exhibits/show/weddings-in-eastern-europe/sounds-images/item/269\"' .
-    				' style=\"width:400px; height:410px; border:none; overflow:hidden;\"' .
-    				' frameBorder=\"0\" scroll=\"no\" allowTransparency=\"true\"></iframe>"');                		
+    		$jsonPair = array('"html"', "\u003ciframe width=\"480\" height=\"270\" src=\"http:\/\/www.youtube.com\/embed\/M3r2XDceM6A?fs=1\u0026feature=oembed\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e");
+ //   				
+   // 				'"<iframe src=\"http://test.exhibit.eanadev.org/track_embed/download/269?linkback=' .
+    //				'http://test.exhibit.eanadev.org/exhibits/show/weddings-in-eastern-europe/sounds-images/item/269\"' .
+    	//			' style=\"width:400px; height:410px; border:none; overflow:hidden;\"' .
+    		//		' frameBorder=\"0\" scroll=\"no\" allowTransparency=\"true\"></iframe>"');                		
     		$jsonPairs[] = $jsonPair;
         }
 		
