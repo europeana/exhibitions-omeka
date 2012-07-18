@@ -147,10 +147,13 @@ class Tracking_OembedController extends Omeka_Controller_Action
         }
         elseif( sizeof($videoMatches) > 0 ){
         	
-        	$jsonPair = array('"width"', '"470"');                		
+        	$width = 470;
+        	$height = 400;
+        	
+        	$jsonPair = array('"width"', '"' . $width . '"');                		
         	$jsonPairs[] = $jsonPair;
         	
-        	$jsonPair = array('"height"', '"650"');                		
+        	$jsonPair = array('"height"', '"' . $height . '"');                		
         	$jsonPairs[] = $jsonPair;
         	
         	$jsonPair = array('"type"', '"video"');                		
@@ -159,7 +162,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$videoUrl = WEB_ROOT . '/track_embed/download/' . $itemId;
         	$videoUrl = json_encode($videoUrl);
         	$videoUrl = str_replace('"', '\\"', $videoUrl);
-        	$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder=\"0\" width=\"' . '470' . '\" height=\"' . '650' . '\" allowfullscreen\u003e\u003c\/iframe\u003e"';
+        	$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder=\"0\" width=\"' . $width . '\" height=\"' . $height . '\" allowfullscreen\u003e\u003c\/iframe\u003e"';
         	$jsonPair = array('"html"', $videoHtml);
         	$jsonPairs[] = $jsonPair;
         }
