@@ -58,7 +58,7 @@ var splashData = function(){
 
 		/* Reading Europe */
 
-		var reading = { "contextmenu" : "reading-europe", "featured": false, "img": "splash/img/tel_img31.jpg", "overlay": "splash/logos/logo-tel-black.png", "overlay_class":"overlay-tel", "name": "Reading Europe", "partner": {"site":"http://www.theeuropeanlibrary.org/exhibition-reading-europe/index.html", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Reading Europe: http://www.theeuropeanlibrary.org/exhibition-reading-europe/index.html" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/exhibition-reading-europe/index.html" } ] }   };
+		var reading = { "contextmenu" : "reading-europe", "featured": false, "img": "splash/img/tel_img31.jpg", "overlay": "splash/logos/logo-tel-black.png", "overlay_class":"overlay-tel", "name": "Reading Europe", "partner": {"site":"http://www.theeuropeanlibrary.org/tel4/virtual/reading-europe", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Reading Europe: http://www.theeuropeanlibrary.org/exhibition-reading-europe/index.html" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/exhibition-reading-europe/index.html" } ] }   };
 
 		/* A Roma Journey */
 
@@ -66,7 +66,7 @@ var splashData = function(){
 
 		/* Napoleonic Wars */
 
-		var napoleon = { "contextmenu" : "napoleonic-wars", "featured": false, "img": "splash/img/tel_img5.jpg", "overlay": "splash/logos/logo-tel-black.png", "overlay_class":"overlay-tel",  "name": "Napoleonic Wars", "partner": {"site":"http://www.theeuropeanlibrary.org/exhibition/roma_journey/eng/index.html", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Napoleonic Wars: http://www.theeuropeanlibrary.org/exhibition/napoleonic_wars/index.html" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/exhibition/napoleonic_wars/index.html" } ] }   };
+		var napoleon = { "contextmenu" : "napoleonic-wars", "featured": false, "img": "splash/img/tel_img5.jpg", "overlay": "splash/logos/logo-tel-black.png", "overlay_class":"overlay-tel",  "name": "Napoleonic Wars", "partner": {"site":"http://www.theeuropeanlibrary.org/exhibition/napoleonic_wars/index.html", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Napoleonic Wars: http://www.theeuropeanlibrary.org/exhibition/napoleonic_wars/index.html" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/exhibition/napoleonic_wars/index.html" } ] }   };
 
 		/* Treasures */
 
