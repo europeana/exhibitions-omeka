@@ -424,7 +424,7 @@ if(!function_exists('ve_custom_show_embed')){
 						
 						$html	.=		$fileImgHtml;
 						
-						$licenseInfo = ve_exhibit_builder_license_info();
+						$licenseInfo = ve_exhibit_builder_license_info($item);
 						$licenseInfo =  parseRightsValue($licenseInfo);
 						if($licenseInfo["lnk"]){
 							$html	.=		'<a rel="license" href="'.$licenseInfo["lnk"].'">';								
