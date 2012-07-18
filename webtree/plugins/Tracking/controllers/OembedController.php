@@ -291,7 +291,7 @@ echo            '{"title":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy",'.
             
         	//error_log($youtube);
         	
-        	echo $youtube;
+        	//echo $youtube;
 
             
             
