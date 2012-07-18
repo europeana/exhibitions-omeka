@@ -169,13 +169,29 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	//$escapedWebroot = str_replace('\', "\/", WEB_ROOT);
         	//$escapedWebroot = str_replace('/', "\/", WEB_ROOT);
         	
-        	$videoUrl = json_encode(WEB_ROOT . '/track_embed/download/' . $itemId);
+        	
+        	$videoUrl = WEB_ROOT . '/track_embed/download/' . $itemId;
 
         	error_log("VIDEO URL = " . $videoUrl);
+
+        	$videoUrl = json_encode($videoUrl);
+        	//$videoUrl = str_replace('"', "", $videoUrl);
+
+        	error_log("VIDEO URL = " . $videoUrl);
+        	
+
+        	$videoUrl = str_replace('"', '\\"', $videoUrl);
+        	
+        	
+        	
+//        	$videoUrl = str_replace('"', "", $videoUrl);
         	
         	$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e"';
         	
         	error_log("VIDEO HTML = " . $videoHtml);
+
+        	
+  //     	    $escape = Zend_Utf8::escape($string);
         	
         	$jsonPair = array('"html"', $videoHtml);
         	
