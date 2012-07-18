@@ -242,36 +242,31 @@ class Tracking_OembedController extends Omeka_Controller_Action
             // added thumbnail dimensions
             // removed accented 'a'
             // matched provider url to test
-            /*
-            echo    '{"title":"Slow and quick csardasy",'.
-					'"description":"Slow and quick csardasy - most entertaining dances are dances for couples,",'.
-					'"author":"DEF EMBED FIELD--Performed by unknown dancers",'.
-					'"provider_name":"Europeana; Hungarian Academy of Sciences Institute for Musicology; Hungary",'.
-					'"provider_url":"http:\/\/test.exhibit.eanadev.org",'.
-					'"width":"470","height":"550",'.
-					'"thumbnail_width": 480, "thumbnail_width": 360,'.
-					'"type":"video",'.
-					'"html":"\u003ciframe src=\"http:\/\/127.0.0.1\/ombad\/webtree\/track_embed\/download\/269\" '.
-					' frameborder=\"0\" '.
-					' allowfullscreen\u003e\u003c\/iframe\u003e"} ';
-	*/
 
+            $x=   '{"title":"Slow and quick csardasy",' .
+					'"description":"Slow and quick csardasy - most entertaining dances are dances for couples,",' .
+					'"author":"DEF EMBED FIELD--Performed by unknown dancers",' .
+					'"provider_name":"Europeana; Hungarian Academy of Sciences Institute for Musicology; Hungary",' .
+					'"provider_url":"http:\/\/test.exhibit.eanadev.org",' .
+					'"width":"470","height":"550",' .
+					'"thumbnail_width": 480, "thumbnail_width": 360,' .
+					'"type":"video",' .
+					'"html":"\u003ciframe src=\"http:\/\/127.0.0.1\/ombad\/webtree\/track_embed\/download\/269\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e"' .
+					'} ';
+            echo $x;
+
+            /*
         	$youtube =  '{"provider_url": "http:\/\/www.youtube.com\/", ' . 
-//            			 '"thumbnail_url": "http:\/\/i2.ytimg.com\/vi\/M3r2XDceM6A\/hqdefault.jpg", ' .
             			 '"title": "Amazing Nintendo Facts", ' .
             			 '"html": "\u003ciframe width=\"480\" height=\"270\" src=\"http:\/\/www.youtube.com\/embed\/M3r2XDceM6A?fs=1\u0026feature=oembed\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e", ' .
             			 '"author_name": "ZackScott", "height": 270, ' .
- //           			 '"thumbnail_width": 480, ' . 
             			 '"width": 480, ' . 
-//            			 '"version": "1.0", ' .
             			 '"author_url": "http:\/\/www.youtube.com\/user\/ZackScott", ' .
             			 '"provider_name": "YouTube", ' . 
             			 '"type": "video" ' .
-//            			 '"thumbnail_height": 360 ' .
             			 '}';
-
         	echo $youtube;
-            
+        	*/
             
             
        		//	http://test.exhibit.eanadev.org/archive/files/0b340967b52ebf255b8669702fa2fe83.mp4
