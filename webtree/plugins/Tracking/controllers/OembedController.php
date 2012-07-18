@@ -243,11 +243,11 @@ class Tracking_OembedController extends Omeka_Controller_Action
             // removed accented 'a'
             // matched provider url to test
 
-            $x=   '{"title":"Slow and quick csardasy",' .
-					'"description":"Slow and quick csardasy - most entertaining dances are dances for couples,",' .
+            $x=   '{"title":"Slow and quick csardasy‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡",' .
+					'"description":"Slow and quick csardasy - most entertaining dances are dances for couples‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡,",' .
 					'"author":"DEF EMBED FIELD--Performed by unknown dancers",' .
 					'"provider_name":"Europeana; Hungarian Academy of Sciences Institute for Musicology; Hungary",' .
-					'"provider_url":"http:\/\/test.exhibit.eanadev.org",' .
+					//'"provider_url":"http:\/\/test.exhibit.eanadev.org",' .
 					'"width":"470","height":"550",' .
 					'"thumbnail_width": 480, "thumbnail_width": 360,' .
 					'"type":"video",' .
