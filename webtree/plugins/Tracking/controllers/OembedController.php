@@ -251,7 +251,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
 					'"type":"video",'.
 					'"html":"\u003ciframe src=\"http:\/\/127.0.0.1\/ombad\/webtree\/track_embed\/download\/269\" '.
 					'"frameborder=\"0\" '.
-					'" allowfullscreen\u003e\u003c\/iframe\u003e"} '
+					'" allowfullscreen\u003e\u003c\/iframe\u003e"} ';
 
 
 
