@@ -115,7 +115,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
   //                		$jsonPair = array('"' . $oembedFieldName . '"', '"faketitle--' . $val . '"');                		
     //            	}
                 	else{
-                  		$jsonPair = array('"' . $oembedFieldName . '"', '"DEF EMBED FIELD--' . $val . '"');                		
+                  		$jsonPair = array('"' . $oembedFieldName . '"', '"' . $val . '"');                		
                 	}
                		$jsonPairs[] = $jsonPair;                	                		
                 }
@@ -158,43 +158,17 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$jsonPair = array('"width"', '"470"');                		
         	$jsonPairs[] = $jsonPair;
         	
-        	$jsonPair = array('"height"', '"550"');                		
+        	$jsonPair = array('"height"', '"650"');                		
         	$jsonPairs[] = $jsonPair;
         	
         	$jsonPair = array('"type"', '"video"');                		
         	$jsonPairs[] = $jsonPair;
         	
-        	//     width=\"480\" height=\"270\"
-        	
-        	//$escapedWebroot = str_replace('\', "\/", WEB_ROOT);
-        	//$escapedWebroot = str_replace('/', "\/", WEB_ROOT);
-        	
-        	
         	$videoUrl = WEB_ROOT . '/track_embed/download/' . $itemId;
-
-        	error_log("VIDEO URL = " . $videoUrl);
-
         	$videoUrl = json_encode($videoUrl);
-        	//$videoUrl = str_replace('"', "", $videoUrl);
-
-        	error_log("VIDEO URL = " . $videoUrl);
-        	
-
         	$videoUrl = str_replace('"', '\\"', $videoUrl);
-        	
-        	
-        	
-//        	$videoUrl = str_replace('"', "", $videoUrl);
-        	
         	$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e"';
-        	
-        	error_log("VIDEO HTML = " . $videoHtml);
-
-        	
-     	   // $escape = Zend_Utf8::escape($string);
-        	
         	$jsonPair = array('"html"', $videoHtml);
-        	
         	$jsonPairs[] = $jsonPair;
         }
 		
@@ -211,7 +185,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	echo '<provider_url>http:\/\/acceptance.exhibit.eanadev.org\/</provider_url>';
         	echo '<thumbnail_url>http:\/\/acceptance.exhibit.eanadev.org\/splash\/img\/landscape-logo.png</thumbnail_url>';
         	echo '<title>Andy oembed test</title>';
-        	echo '<html>this is where the embed goes here</html>';
+        	echo '<html>this is where the embed goes</html>';
         	echo '<author_name>Andy MacLean</author_name>';
         	echo '<height>270</height>';
         	echo '<thumbnail_width>180</thumbnail_width>';
