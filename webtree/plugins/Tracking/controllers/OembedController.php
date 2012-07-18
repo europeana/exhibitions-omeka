@@ -236,16 +236,19 @@ class Tracking_OembedController extends Omeka_Controller_Action
             //echo '{' . implode(",", $jsonVals) . '}';
             
             
-echo            '{"title":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy",'.
-'	"description":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy - most entertaining dances are dances for couples,",'.
-' 	"author":"DEF EMBED FIELD--Performed by unknown dancers",'.
-'	"provider_name":"Europeana; Hungarian Academy of Sciences Institute for Musicology; Hungary",'.
-' 	"provider_url":"http://exhibitions.europeana.eu",'.
-'	"width":"470","height":"550",'.
-'	"type":"video",'.
-'	"html":"\u003ciframe src=\"http:\/\/127.0.0.1\/ombad\/webtree\/track_embed\/download\/269\" '.
-'			"frameborder=\"0\" '.
-'			" allowfullscreen\u003e\u003c\/iframe\u003e"} '
+            
+            // cs‡rd‡sy
+            echo    '{"title":"Slow and quick csardasy",'.
+					'"description":"Slow and quick csardasy - most entertaining dances are dances for couples,",'.
+					'"author":"DEF EMBED FIELD--Performed by unknown dancers",'.
+					'"provider_name":"Europeana; Hungarian Academy of Sciences Institute for Musicology; Hungary",'.
+					'"provider_url":"http:\/\/exhibitions.europeana.eu",'.
+					'"width":"470","height":"550",'.
+					'"thumbnail_width": 480, "thumbnail_width": 360,'.
+					'"type":"video",'.
+					'"html":"\u003ciframe src=\"http:\/\/127.0.0.1\/ombad\/webtree\/track_embed\/download\/269\" '.
+					'"frameborder=\"0\" '.
+					'" allowfullscreen\u003e\u003c\/iframe\u003e"} '
 
 
 
