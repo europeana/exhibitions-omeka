@@ -125,7 +125,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         
         
         // Add hard-coded provider
-  		$jsonPair = array('"provider_url"', '"http://exhibitions.europeana.eu"');                		
+  		$jsonPair = array('"provider_url"', '"http:\/\/exhibitions.europeana.eu"');                		
 		$jsonPairs[] = $jsonPair;                	                		
 
         preg_match("/^image/", $mime, $imgMatches);
@@ -136,7 +136,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	
         	//$thumbnail = html_escape(file_display_uri($file, 'square_thumbnail'));
         	//$thumbnail = html_escape(file_display_uri($file, 'archive'));
-        	
         	
         	$imgUrl = html_escape(file_display_uri($file, 'thumbnail'));
 
@@ -177,146 +176,24 @@ class Tracking_OembedController extends Omeka_Controller_Action
 		
         
         if($fmt=="xml"){
-        	
-        	//header('Content-type: xml');
-        	
         	echo '<?xml version="1.0" encoding="utf-8" ?>';
         	echo '<oembed>';
-        	
-        	
-        	echo '<provider_url>http:\/\/acceptance.exhibit.eanadev.org\/</provider_url>';
-        	echo '<thumbnail_url>http:\/\/acceptance.exhibit.eanadev.org\/splash\/img\/landscape-logo.png</thumbnail_url>';
-        	echo '<title>Andy oembed test</title>';
-        	echo '<html>this is where the embed goes</html>';
-        	echo '<author_name>Andy MacLean</author_name>';
-        	echo '<height>270</height>';
-        	echo '<thumbnail_width>180</thumbnail_width>';
-        	echo '<width>180</width>';
-        	echo '<version>1.0</version>';
-        	echo '<author_url>http:\/\/acceptance.exhibit.eanadev.org</author_url>';
-        	echo '<provider_name>Europeana - embed service</provider_name>';
-        	echo '<type>link</type>';
-        	echo '<thumbnail_height>360</thumbnail_height>';
-        	
-        	
+            foreach ($jsonPairs as $jsonPair) {
+
+            	$tag = trim($jsonPair[0], '"');
+            	$val = trim($jsonPair[1], '"');
+            	
+            	echo ("<" . $tag . ">" . $val . "</" . $tag . ">");
+            }
         	echo '</oembed>';
-        	
         }
         
         else{
-        	
             $jsonVals = array();
             foreach ($jsonPairs as $jsonPair) {
             	$jsonVals[] = implode(":", $jsonPair);
             }
             echo utf8_encode( '{' . implode(",", $jsonVals) . '}' );
-            
-            
-            
-            // cs‡rd‡sy
-            // changed provider_url
-            // added thumbnail dimensions
-            // removed accented 'a'
-            // matched provider url to test
-
-//        	header('Content-type: application/json');
-/*
-        	
-            $x=   '{"title":"Slow and quick cs‡rd‡sy",' .
-					'"description":"Slow and quick csardasy - most entertaining dances are dances for couples",' .
-					'"author":"DEF EMBED FIELD--Performed by unknown dancers",' .
-					'"provider_name":"Europeana; Hungarian Academy of Sciences Institute for Musicology; Hungary",' .
-					//'"provider_url":"http:\/\/test.exhibit.eanadev.org",' .
-					'"provider_url":"http://test.exhibit.eanadev.org",' .
-					'"width":"470","height":"550",' .
-					'"thumbnail_width": 480, "thumbnail_width": 360,' .
-					'"type":"video",' .
-//					'"html":"\u003ciframe src=\"http:\/\/127.0.0.1\/ombad\/webtree\/track_embed\/download\/269\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e"' .
-					'"html":"<iframe src=\"http:\/\/127.0.0.1\/ombad\/webtree\/track_embed\/download\/269\" frameborder=\"0\" allowfullscreen></iframe>"' .
-					'} ';
-            echo utf8_encode($x);
-*/
-            
-            
-            /*
-        	$youtube =  '{"provider_url": "http:\/\/www.youtube.com\/", ' . 
-            			 '"title": "Amazing Nintendo Facts", ' .
-            			 '"html": "\u003ciframe width=\"480\" height=\"270\" src=\"http:\/\/www.youtube.com\/embed\/M3r2XDceM6A?fs=1\u0026feature=oembed\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e", ' .
-            			 '"author_name": "ZackScott", "height": 270, ' .
-            			 '"width": 480, ' . 
-            			 '"author_url": "http:\/\/www.youtube.com\/user\/ZackScott", ' .
-            			 '"provider_name": "YouTube", ' . 
-            			 '"type": "video" ' .
-            			 '}';
-        	echo $youtube;
-        	*/
-            
-            
-       		//	http://test.exhibit.eanadev.org/archive/files/0b340967b52ebf255b8669702fa2fe83.mp4
-   			//  http:\/\/test.exhibit.eanadev.org\/archive\/files\/0b340967b52ebf255b8669702fa2fe83.mp4
-   			//  http:\/\/test.exhibit.eanadev.org\/track_embed\/download\/269
-/*   				
-           	$youtube =     '{"provider_url": "http:\/\/www.youtube.com\/", ' . 
-           		            '"thumbnail_url": "http:\/\/i2.ytimg.com\/vi\/M3r2XDceM6A\/hqdefault.jpg", ' . 
-           		            '"title": "Amazing Europeana Facts", ' .
-            		        '"html": "\u003ciframe width=\"480\" height=\"270\" src=\"http:\/\/test.exhibit.eanadev.org\/track_embed\/download\/269\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e", ' .
-            		        '"author_name": "ZackScott", "height": 270, "thumbnail_width": 480, "width": 480, "version": "1.0", ' .
-            		        '"author_url": "http:\/\/www.youtube.com\/user\/ZackScott", ' .
-            		        '"provider_name": "YouTube", "type": "video", "thumbnail_height": 360}';
-*/
-/*  
-            
-            '{"title":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy",'.
-            '	"description":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy - most entertaining dances are dances for couples,",'.
-            ' 	"author":"DEF EMBED FIELD--Performed by unknown dancers",'.
-            '	"provider_name":"Europeana; Hungarian Academy of Sciences Institute for Musicology; Hungary",'.
-            ' 	"provider_url":"http://exhibitions.europeana.eu",'.
-            '	"width":"470","height":"550",'.
-            '	"type":"video",'.
-            '	"html":"\u003ciframe src=\"http:\/\/127.0.0.1\/ombad\/webtree\/track_embed\/download\/269\" '.
-            '			"frameborder=\"0\" '.
-            '			" allowfullscreen\u003e\u003c\/iframe\u003e"} '
-            
-*/            
-            
-            	/*
-        	$youtube =     '{"provider_url": "http:\/\/www.youtube.com\/", ' . 
-        		            '"thumbnail_url": "http:\/\/i2.ytimg.com\/vi\/M3r2XDceM6A\/hqdefault.jpg", ' . 
-        		         '"title": "Amazing Nintendo Facts", ' .
-        		            '"html": "\u003ciframe width=\"480\" height=\"270\" src=\"http:\/\/www.youtube.com\/embed\/M3r2XDceM6A?fs=1\u0026feature=oembed\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e", ' .
-        		         '"author_name": "ZackScott", "height": 270, "thumbnail_width": 480, "width": 480, "version": "1.0", ' .
-        		            '"author_url": "http:\/\/www.youtube.com\/user\/ZackScott", ' .
-        		         '"provider_name": "YouTube", "type": "video", "thumbnail_height": 360}';
-        	*/
-            
-        	//error_log($youtube);
-        	
-        	//echo $youtube;
-
-            
-            
-            
-            
-            
-        	//header('Content-type: application/json');
-        	/*
-       		echo '{';
-       		echo '"provider_url": "http:\/\/acceptance.exhibit.eanadev.org\/",';
-       		
-       		echo '    "thumbnail_url": "http:\/\/acceptance.exhibit.eanadev.org\/splash\/img\/landscape-logo.png",';
-       		echo '    "title": "Andy oembed test",';
-       		echo '    "html": "this is where the embed goes",';
-       		echo '    "author_name": "Andy MacLean",';
-       		echo '    "height": 270,';
-       		echo '    "thumbnail_width": 180,';
-       		echo '    "width": 180,';
-       		echo '    "version": "1.0",';
-       		echo '    "author_url": "http:\/\/acceptance.exhibit.eanadev.org",';
-       		echo '    "provider_name": "Europeana - embed service",';
-       		echo '    "type": "link",';
-       		echo '    "thumbnail_height": 360';
-       		echo '}';
-       		*/        	
         }
         
         $this->_helper->viewRenderer->setNoRender();
