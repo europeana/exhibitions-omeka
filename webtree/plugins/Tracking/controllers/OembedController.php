@@ -136,12 +136,14 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	
         	//$thumbnail = html_escape(file_display_uri($file, 'square_thumbnail'));
         	//$thumbnail = html_escape(file_display_uri($file, 'archive'));
-        	$thumbnail = html_escape(file_display_uri($file, 'thumbnail'));
+        	
+        	
+        	$imgUrl = html_escape(file_display_uri($file, 'thumbnail'));
 
-      		$jsonPair = array('"thumbnail_url"', '"' . $thumbnail . '"');                		
+      		$jsonPair = array('"url"', '"' . $imgUrl . '"');                		
     		$jsonPairs[] = $jsonPair;                	                		
 
-    		list($width, $height, $type, $attr) = getimagesize($thumbnail);
+    		list($width, $height, $type, $attr) = getimagesize($imgUrl);
     		
       		$jsonPair = array('"width"', '"' . $width . '"');                		
     		$jsonPairs[] = $jsonPair;
