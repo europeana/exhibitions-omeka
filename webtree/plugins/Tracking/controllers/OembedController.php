@@ -68,10 +68,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         // HTML : depends on mime
         
         // thumbnail_url
-        
-        
-        
-        
+
         $dcFieldNames = array('Title', 'Description', 'Creator', 'Type', 'Subject', 'Source', 'Publisher', 'Date', 'Contributor', 'Rights', 'Format');
        	$elements = $item->getItemTypeElements();
        	$jsonPairs = array();
@@ -105,15 +102,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
                 	$val = str_replace('&quot;', "'", $val);
                 	$val = str_replace('"', "'", $val);
                 	
-                	
-                	
-                	
                		if($oembedFieldName == "provider_name"){
                   		$jsonPair = array('"' . $oembedFieldName . '"', '"Europeana; ' . $val . '"');                		
                 	}
-//               		elseif($oembedFieldName == "title"){
-  //                		$jsonPair = array('"' . $oembedFieldName . '"', '"faketitle--' . $val . '"');                		
-    //            	}
                 	else{
                   		$jsonPair = array('"' . $oembedFieldName . '"', '"' . $val . '"');                		
                 	}
@@ -121,16 +112,16 @@ class Tracking_OembedController extends Omeka_Controller_Action
                 }
            	}
         }
-
         
         
         // Add hard-coded provider
-  		$jsonPair = array('"provider_url"', '"http:\/\/exhibitions.europeana.eu"');                		
+  		$jsonPair = array('"provider_url"', '"http:\\/\\/exhibitions.europeana.eu"');            
+  		
+  		$jsonPair = array('"provider_url"', '"' . str_replace("/","\\/", WEB_ROOT) . '"');                		
 		$jsonPairs[] = $jsonPair;                	                		
 
         preg_match("/^image/", $mime, $imgMatches);
         preg_match("/^video/", $mime, $videoMatches);
-        
         
         if( sizeof($imgMatches) > 0 ){
         	
@@ -173,21 +164,16 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$jsonPairs[] = $jsonPair;
         }
 		
-		
-        
         if($fmt=="xml"){
         	echo '<?xml version="1.0" encoding="utf-8" ?>';
         	echo '<oembed>';
             foreach ($jsonPairs as $jsonPair) {
-
             	$tag = trim($jsonPair[0], '"');
             	$val = trim($jsonPair[1], '"');
-            	
             	echo ("<" . $tag . ">" . $val . "</" . $tag . ">");
             }
         	echo '</oembed>';
         }
-        
         else{
             $jsonVals = array();
             foreach ($jsonPairs as $jsonPair) {
@@ -195,8 +181,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
             }
             echo utf8_encode( '{' . implode(",", $jsonVals) . '}' );
         }
-        
         $this->_helper->viewRenderer->setNoRender();
 	}
-   	
 }
