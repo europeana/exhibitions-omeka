@@ -168,7 +168,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$videoUrl = WEB_ROOT . '/track_embed/download/' . $itemId;
         	$videoUrl = json_encode($videoUrl);
         	$videoUrl = str_replace('"', '\\"', $videoUrl);
-        	$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e"';
+        	$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder=\"0\" width=\"' . '470' . '\" height=\"' . '650' . '\" allowfullscreen\u003e\u003c\/iframe\u003e"';
         	$jsonPair = array('"html"', $videoHtml);
         	$jsonPairs[] = $jsonPair;
         }
