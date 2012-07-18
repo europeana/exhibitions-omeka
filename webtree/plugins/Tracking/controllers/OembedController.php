@@ -233,7 +233,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
             foreach ($jsonPairs as $jsonPair) {
             	$jsonVals[] = implode(":", $jsonPair);
             }
-            //echo '{' . implode(",", $jsonVals) . '}';
+            echo utf8_encode( '{' . implode(",", $jsonVals) . '}' );
             
             
             
@@ -244,7 +244,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
             // matched provider url to test
 
 //        	header('Content-type: application/json');
-
+/*
         	
             $x=   '{"title":"Slow and quick cs‡rd‡sy",' .
 					'"description":"Slow and quick csardasy - most entertaining dances are dances for couples",' .
@@ -259,7 +259,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
 					'"html":"<iframe src=\"http:\/\/127.0.0.1\/ombad\/webtree\/track_embed\/download\/269\" frameborder=\"0\" allowfullscreen></iframe>"' .
 					'} ';
             echo utf8_encode($x);
-
+*/
             
             
             /*
