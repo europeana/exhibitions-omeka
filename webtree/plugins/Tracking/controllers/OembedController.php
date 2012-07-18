@@ -246,7 +246,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
 //        	header('Content-type: application/json');
 
         	
-            $x=   '{"title":"Slow and quick ' . utf8_encode('cs‡rd‡sy') . '",' .
+            $x=   '{"title":"Slow and quick cs‡rd‡sy",' .
 					'"description":"Slow and quick csardasy - most entertaining dances are dances for couples",' .
 					'"author":"DEF EMBED FIELD--Performed by unknown dancers",' .
 					'"provider_name":"Europeana; Hungarian Academy of Sciences Institute for Musicology; Hungary",' .
@@ -256,8 +256,10 @@ class Tracking_OembedController extends Omeka_Controller_Action
 					'"type":"video",' .
 					'"html":"\u003ciframe src=\"http:\/\/127.0.0.1\/ombad\/webtree\/track_embed\/download\/269\" frameborder=\"0\" allowfullscreen\u003e\u003c\/iframe\u003e"' .
 					'} ';
-            echo $x;
+            echo utf8_encode($x);
 
+            
+            
             /*
         	$youtube =  '{"provider_url": "http:\/\/www.youtube.com\/", ' . 
             			 '"title": "Amazing Nintendo Facts", ' .
