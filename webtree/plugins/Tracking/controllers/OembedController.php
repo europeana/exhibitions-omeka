@@ -238,6 +238,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
             
             
             // cs‡rd‡sy
+            // changed provider_url
+            // added thumbnail dimensions
+            // removed accented 'a'
             echo    '{"title":"Slow and quick csardasy",'.
 					'"description":"Slow and quick csardasy - most entertaining dances are dances for couples,",'.
 					'"author":"DEF EMBED FIELD--Performed by unknown dancers",'.
