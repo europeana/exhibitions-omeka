@@ -245,13 +245,13 @@ class Tracking_OembedController extends Omeka_Controller_Action
 					'"description":"Slow and quick csardasy - most entertaining dances are dances for couples,",'.
 					'"author":"DEF EMBED FIELD--Performed by unknown dancers",'.
 					'"provider_name":"Europeana; Hungarian Academy of Sciences Institute for Musicology; Hungary",'.
-					'"provider_url":"http:\/\/exhibitions.europeana.eu",'.
+					'"provider_url":"http:\/\/test.exhibit.eanadev.org",'.
 					'"width":"470","height":"550",'.
 					'"thumbnail_width": 480, "thumbnail_width": 360,'.
 					'"type":"video",'.
 					'"html":"\u003ciframe src=\"http:\/\/127.0.0.1\/ombad\/webtree\/track_embed\/download\/269\" '.
-					'"frameborder=\"0\" '.
-					'" allowfullscreen\u003e\u003c\/iframe\u003e"} ';
+					' frameborder=\"0\" '.
+					' allowfullscreen\u003e\u003c\/iframe\u003e"} ';
 
 
 
