@@ -235,7 +235,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
             }
             //echo '{' . implode(",", $jsonVals) . '}';
             
-            /*
+            
 echo            '{"title":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy",'.
 '	"description":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy - most entertaining dances are dances for couples,",'.
 ' 	"author":"DEF EMBED FIELD--Performed by unknown dancers",'.
@@ -247,7 +247,7 @@ echo            '{"title":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy",'.
 '			"frameborder=\"0\" '.
 '			" allowfullscreen\u003e\u003c\/iframe\u003e"} '
 
-*/
+
 
             
             
@@ -279,7 +279,7 @@ echo            '{"title":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy",'.
             
 */            
             
-            	
+            	/*
         	$youtube =     '{"provider_url": "http:\/\/www.youtube.com\/", ' . 
         		            '"thumbnail_url": "http:\/\/i2.ytimg.com\/vi\/M3r2XDceM6A\/hqdefault.jpg", ' . 
         		         '"title": "Amazing Nintendo Facts", ' .
@@ -287,7 +287,8 @@ echo            '{"title":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy",'.
         		         '"author_name": "ZackScott", "height": 270, "thumbnail_width": 480, "width": 480, "version": "1.0", ' .
         		            '"author_url": "http:\/\/www.youtube.com\/user\/ZackScott", ' .
         		         '"provider_name": "YouTube", "type": "video", "thumbnail_height": 360}';
-        	
+        	*/
+            
         	//error_log($youtube);
         	
         	echo $youtube;
