@@ -233,7 +233,21 @@ class Tracking_OembedController extends Omeka_Controller_Action
             foreach ($jsonPairs as $jsonPair) {
             	$jsonVals[] = implode(":", $jsonPair);
             }
-            echo '{' . implode(",", $jsonVals) . '}';
+            //echo '{' . implode(",", $jsonVals) . '}';
+            
+            /*
+echo            '{"title":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy",'.
+'	"description":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy - most entertaining dances are dances for couples,",'.
+' 	"author":"DEF EMBED FIELD--Performed by unknown dancers",'.
+'	"provider_name":"Europeana; Hungarian Academy of Sciences Institute for Musicology; Hungary",'.
+' 	"provider_url":"http://exhibitions.europeana.eu",'.
+'	"width":"470","height":"550",'.
+'	"type":"video",'.
+'	"html":"\u003ciframe src=\"http:\/\/127.0.0.1\/ombad\/webtree\/track_embed\/download\/269\" '.
+'			"frameborder=\"0\" '.
+'			" allowfullscreen\u003e\u003c\/iframe\u003e"} '
+
+*/
 
             
             
@@ -250,8 +264,22 @@ class Tracking_OembedController extends Omeka_Controller_Action
             		        '"author_url": "http:\/\/www.youtube.com\/user\/ZackScott", ' .
             		        '"provider_name": "YouTube", "type": "video", "thumbnail_height": 360}';
 */
-           		
-            /*	
+/*  
+            
+            '{"title":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy",'.
+            '	"description":"DEF EMBED FIELD--Slow and quick cs‡rd‡sy - most entertaining dances are dances for couples,",'.
+            ' 	"author":"DEF EMBED FIELD--Performed by unknown dancers",'.
+            '	"provider_name":"Europeana; Hungarian Academy of Sciences Institute for Musicology; Hungary",'.
+            ' 	"provider_url":"http://exhibitions.europeana.eu",'.
+            '	"width":"470","height":"550",'.
+            '	"type":"video",'.
+            '	"html":"\u003ciframe src=\"http:\/\/127.0.0.1\/ombad\/webtree\/track_embed\/download\/269\" '.
+            '			"frameborder=\"0\" '.
+            '			" allowfullscreen\u003e\u003c\/iframe\u003e"} '
+            
+*/            
+            
+            	
         	$youtube =     '{"provider_url": "http:\/\/www.youtube.com\/", ' . 
         		            '"thumbnail_url": "http:\/\/i2.ytimg.com\/vi\/M3r2XDceM6A\/hqdefault.jpg", ' . 
         		         '"title": "Amazing Nintendo Facts", ' .
@@ -259,10 +287,10 @@ class Tracking_OembedController extends Omeka_Controller_Action
         		         '"author_name": "ZackScott", "height": 270, "thumbnail_width": 480, "width": 480, "version": "1.0", ' .
         		            '"author_url": "http:\/\/www.youtube.com\/user\/ZackScott", ' .
         		         '"provider_name": "YouTube", "type": "video", "thumbnail_height": 360}';
-        	*/
+        	
         	//error_log($youtube);
         	
-        	//echo $youtube;
+        	echo $youtube;
 
             
             
