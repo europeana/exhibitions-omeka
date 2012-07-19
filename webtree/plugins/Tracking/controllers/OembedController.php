@@ -60,7 +60,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
             'Title' => 'title',
             'Creator' => 'author',
             'Source' => 'provider_name',
-            'Description' => 'description'
+            'Description' => 'description',
+            'Rights' => 'license'
         );
        	
         
