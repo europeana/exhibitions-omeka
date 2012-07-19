@@ -221,8 +221,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
             $result = str_replace('<', "\u003c", $result);
             $result = str_replace('>', "\u003e", $result);
             
-            //echo utf8_encode( $result );
-            echo $result;
+            echo utf8_encode( $result );
+            //echo $result;
         }
         $this->_helper->viewRenderer->setNoRender();
 	}
