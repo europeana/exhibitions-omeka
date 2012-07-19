@@ -500,6 +500,14 @@ audio, video, .mejs-container, .mejs-container * {
     
 }
 
+#video-logo-link{
+	position:		absolute;
+	z-index:		1;
+	left:			0;
+	margin-top:		5px;
+	margin-left:	5px;
+}
+
 /* CUSTOM DEFS *********************************************************************************************************/
 .t-right {
     text-align: right;
