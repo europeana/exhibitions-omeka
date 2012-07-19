@@ -18,7 +18,7 @@
 	<head>
 
 
-	<?php if(  (preg_match("/item\/[0-9]*$/", $pageURL)) || (preg_match("/items\/show\/[0-9]*/", $pageURL)) ): ?>
+	<?php if(  (preg_match("/item\/[0-9]*/", $pageURL)) || (preg_match("/items\/show\/[0-9]*/", $pageURL)) ): ?>
 	
 		<!-- discovery tags for open embed -->
 		
