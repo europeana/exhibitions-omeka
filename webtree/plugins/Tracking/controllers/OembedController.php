@@ -130,12 +130,21 @@ class Tracking_OembedController extends Omeka_Controller_Action
         
         if( sizeof($imgMatches) > 0 ){
         	
-        	//$thumbnail = html_escape(file_display_uri($file, 'square_thumbnail'));
-        	//$thumbnail = html_escape(file_display_uri($file, 'archive'));
-        	
-        	$imgUrl = html_escape(file_display_uri($file, 'thumbnail'));
+        	$thumbnailUrl	= html_escape(file_display_uri($file, 'thumbnail'));
+        	$imgUrl			= html_escape(file_display_uri($file, 'archive'));
 
-      		$jsonPair = array('"url"', '"' . $imgUrl . '"');                		
+        	list($thumbnailWidth, $thumbnailHeight, $type, $attr) = getimagesize($thumbnailUrl);
+
+        	$jsonPair = array('"thumbnail_url"', '"' . str_replace("/","\\/", $thumbnailUrl) . '"');                		
+    		$jsonPairs[] = $jsonPair;                	                		
+    		$jsonPair = array('"thumbnail_width"', '"' . $thumbnailWidth . '"');                		
+    		$jsonPairs[] = $jsonPair;                	                		
+    		$jsonPair = array('"thumbnail_height"', '"' . $thumbnailHeight . '"');                		
+    		$jsonPairs[] = $jsonPair;                	                		
+
+        	/**********************************/
+        	
+      		$jsonPair = array('"url"', '"' . str_replace("/","\\/", $imgUrl) . '"');                		
     		$jsonPairs[] = $jsonPair;                	                		
 
     		list($width, $height, $type, $attr) = getimagesize($imgUrl);
@@ -196,7 +205,12 @@ class Tracking_OembedController extends Omeka_Controller_Action
             foreach ($jsonPairs as $jsonPair) {
             	$jsonVals[] = implode(":", $jsonPair);
             }
-            echo utf8_encode( '{' . implode(",", $jsonVals) . '}' );
+            
+            $result =  '{' . implode(",", $jsonVals) . '}';
+            $result = str_replace('<', "\u003c", $result);
+            $result = str_replace('>', "\u003e", $result);
+            
+            echo utf8_encode( $result );
         }
         $this->_helper->viewRenderer->setNoRender();
 	}
