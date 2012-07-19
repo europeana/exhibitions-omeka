@@ -119,8 +119,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
         
         
         // Add hard-coded provider
-  		$jsonPair = array('"provider_url"', '"http:\\/\\/exhibitions.europeana.eu"');            
-  		
   		$jsonPair = array('"provider_url"', '"' . str_replace("/","\\/", WEB_ROOT) . '"');                		
 		$jsonPairs[] = $jsonPair;                	                		
 
@@ -149,6 +147,25 @@ class Tracking_OembedController extends Omeka_Controller_Action
 
     		list($width, $height, $type, $attr) = getimagesize($imgUrl);
     		
+    		$maxwidth	= $request->getParam("maxwidth");
+    		$maxheight	= $request->getParam("maxheight");
+    		
+    		if($maxwidth){
+    			if($width > $maxwidth){
+    				$ratio = $maxwidth / $width;
+    				$width = $maxwidth;
+    				$height = $height * $ratio; 
+    			}
+    		}
+    		
+    		if($maxheight){
+    			if($height > $maxheight){
+    				$ratio = $maxheight / $height;
+    				$height = $maxheight;
+    				$width = $width * $ratio;
+    			}
+    		}
+
       		$jsonPair = array('"width"', '"' . $width . '"');                		
     		$jsonPairs[] = $jsonPair;
 
@@ -181,15 +198,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$jsonPairs[] = $jsonPair;
         }
         elseif( sizeof($pdfMatches) > 0 ){
-        	
-        	error_log("WE HAVE A PDF");
-        	
         	$jsonPair = array('"type"', '"link"');                		
         	$jsonPairs[] = $jsonPair;
         }
-    	error_log("mime = " . $mime . ' ---> ' . sizeof($pdfMatches) . ' | ' . sizeof($imgMatches) . ' | ' . sizeof($videoMatches) );
-
-    	
         if($fmt=="xml"){
         	echo '<?xml version="1.0" encoding="utf-8" ?>';
         	echo '<oembed>';
