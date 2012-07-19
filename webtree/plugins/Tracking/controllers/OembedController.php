@@ -54,7 +54,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
          */
        	
        	
-       	// TODO: see David for full mapping
         $map = array(
             // (dc | europeana) => oembed
             'Title' => 'title',
@@ -106,6 +105,10 @@ class Tracking_OembedController extends Omeka_Controller_Action
                		if($oembedFieldName == "provider_name"){
                   		$jsonPair = array('"' . $oembedFieldName . '"', '"Europeana; ' . $val . '"');                		
                 	}
+               		elseif($oembedFieldName == "license"){
+                  		$jsonPair = array('"' . $oembedFieldName . '"',  '"' . str_replace("/","\\/", $val) . '"');                		
+                	}
+               		
                 	else{
                   		$jsonPair = array('"' . $oembedFieldName . '"', '"' . $val . '"');                		
                 	}
@@ -123,6 +126,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
 
         preg_match("/^image/", $mime, $imgMatches);
         preg_match("/^video/", $mime, $videoMatches);
+        preg_match("/pdf/",   $mime, $pdfMatches);
         
         if( sizeof($imgMatches) > 0 ){
         	
@@ -167,7 +171,16 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$jsonPair = array('"html"', $videoHtml);
         	$jsonPairs[] = $jsonPair;
         }
-		
+        elseif( sizeof($pdfMatches) > 0 ){
+        	
+        	error_log("WE HAVE A PDF");
+        	
+        	$jsonPair = array('"type"', '"link"');                		
+        	$jsonPairs[] = $jsonPair;
+        }
+    	error_log("mime = " . $mime . ' ---> ' . sizeof($pdfMatches) . ' | ' . sizeof($imgMatches) . ' | ' . sizeof($videoMatches) );
+
+    	
         if($fmt=="xml"){
         	echo '<?xml version="1.0" encoding="utf-8" ?>';
         	echo '<oembed>';
