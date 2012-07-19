@@ -9,19 +9,30 @@
 
 ?>
 
-<!doctype html>
+<?php
+	$pageURL = "http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+?>
 
+	
+<!doctype html>
 	<head>
+
+
+	<?php if(  (preg_match("/item\/[0-9]*$/", $pageURL)) || (preg_match("/items\/show\/[0-9]*/", $pageURL)) ): ?>
 	
-	<link rel="alternate" type="application/json+oembed"
+		<!-- discovery tags for open embed -->
 		
-		href="<?php echo(WEB_ROOT); ?>/service/oembed/json?for=EuropeanaExhibitions&url=<?php echo($url);?>"
-		title="Oembed json service" />
-	
-	<link rel="alternate" type="text/xml+oembed"
-		href="<?php echo(WEB_ROOT); ?>/service/oembed/xml?for=EuropeanaExhibitions&url=<?php echo($url);?>"
-		title="Oembed xml service" />
-	
+		<link rel="alternate" type="application/json+oembed"
+			href="<?php echo(WEB_ROOT); ?>/service/oembed/json?for=EuropeanaExhibitions&url=<?php echo($url);?>"
+			title="Oembed json service" />
+		
+		<link rel="alternate" type="text/xml+oembed"
+			href="<?php echo(WEB_ROOT); ?>/service/oembed/xml?for=EuropeanaExhibitions&url=<?php echo($url);?>"
+			title="Oembed xml service" />
+		
+	<?php endif; ?>
+
+		
 
 	<meta charset="utf-8" />
 	
@@ -32,10 +43,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <script type="text/javascript">var web_root = "<?php echo WEB_ROOT; ?>";</script>
-
-<?php
-	$pageURL = "http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-?>
 
 
 
@@ -195,5 +202,5 @@
 	     </div>
 	    
 		<div id="content" class="row" andy="header file ends here">
-
+		
 <?php endif; ?>
