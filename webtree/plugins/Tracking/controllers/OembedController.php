@@ -205,11 +205,11 @@ class Tracking_OembedController extends Omeka_Controller_Action
 	    		// "rich" has html and no thumbnail
 	        	$itemUri = WEB_ROOT;
 	        	
-	        	$html	=		'<div style="position:relative;float:left;">'
+	        	$html	=		'<div style="position:relative;float:left;width:'.$width.'px;height:'.$height.'px;">'
 	        			.		 	'<a href="'.$itemUri.'">'
 	        			.				'<img width="100%" src="' . WEB_ROOT . '/track_embed/download/' . $item->id . '"/>'
 	        			.			'</a>'	        			
-	        			.			'<div style="float:left; position: relative; top: -3em; ">'
+	        			.			'<div style="float:left; position: relative; top: -2.5em; margin-left: 1em;">'
 	        			.  				$finalRightsValHtml
 	        			.			'</div>'
 	        			.		'</div>';
