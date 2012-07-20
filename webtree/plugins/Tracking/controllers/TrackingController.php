@@ -6,6 +6,7 @@ class Tracking_TrackingController extends Omeka_Controller_Action
 {
     public function init()
     {
+    	error_log("hello track");
         $this->_modelClass = 'Embed';
     }
     
@@ -18,8 +19,8 @@ class Tracking_TrackingController extends Omeka_Controller_Action
     // http://localhost/webtree/track_embed/download/185?linkback=http://localhost/webtree/items/show/185
    	public function downloadAction()
    	{
-   	    include('themes/main/custom_ve_exhibits.php');
-   	    include('themes/main/custom_ve_helpers.php');
+   	    include_once('themes/main/custom_ve_exhibits.php');
+   	    include_once('themes/main/custom_ve_helpers.php');
 
    		// get item from request
    		
@@ -67,7 +68,12 @@ class Tracking_TrackingController extends Omeka_Controller_Action
        	if(preg_match("/^image/", $mime)) {
        		// for images we use a simple redirect
             $path = $file->getWebPath('fullsize');
+            
+	        $this->_helper->viewRenderer->setNoRender();
+
             $this->getResponse()->setHeader('Location', $path);
+            
+            return;
         }
         else{
 
