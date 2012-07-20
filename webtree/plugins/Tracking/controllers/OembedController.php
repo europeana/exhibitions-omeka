@@ -243,7 +243,14 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$finalRightsVal = $rightsDef;
         }
         error_log("finalRightsVal = " . $finalRightsVal);
+    		
+        $finalRightsVal	= html_escape($finalRightsVal);
+        $finalRightsVal = json_encode($finalRightsVal);
         
+    	$jsonPair = array('"license"', $finalRightsVal);                		
+    	$jsonPairs[] = $jsonPair;
+    	
+    	
         // output 
         
         $jsonVals = array();
