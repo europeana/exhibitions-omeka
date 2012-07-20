@@ -201,7 +201,7 @@ var story = function() {
 			var videoHTML = "";
 			videoHTML += '<style>.mejs-overlay-loading{width:88px!important;}</style>';
 			videoHTML += '<div id="in-focus" class="player">';
-			videoHTML += '<a id="video-logo-link" href="http://europeana.eu"><img src="' + web_root + '/themes/main/images/europeana-logo-en.png"></a>';
+			//videoHTML += '<a id="video-logo-link" href="http://europeana.eu"><img src="' + web_root + '/themes/main/images/europeana-logo-en.png"></a>';
 			
 			
 			videoHTML += '<video  width="0" height="0" style="width:100%; height:100%;" preload="none">';
