@@ -3,6 +3,26 @@
 
 class Tracking_OembedController extends Omeka_Controller_Action
 {
+	// This is a straight copy...
+
+   	function parseRights($val){
+   		include_once('themes/main/custom_ve_helpers.php');
+   		$html = '';
+   	    
+   	    $parsedRights = parseRightsValue($val);
+
+		if($parsedRights["lnk"]){
+				$html	.=		'<a rel="license" href="'.$parsedRights["lnk"].'">';				
+		}
+		if($parsedRights["src"]){
+			$html	.=		'<img src="'.$parsedRights["src"].'" alt="Creative Commons License" />';								
+		}
+		if($parsedRights["lnk"]){
+			$html	.=		'</a>';
+		}
+		return $html;
+   	}
+   	
     // http://localhost/ombad/webtree/service/oembed/8
     // http://localhost/webtree/service/oembed/8
    	public function oembedAction()
@@ -19,6 +39,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
             return;
         }
    		
+        $rights		= null;
+        $license	= null;
+        $rightsDef	= "All rights reserved";
         
         preg_match_all('!\d+!', $url, $itemId);
         
@@ -47,9 +70,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
             'Title' => 'title',
             'Creator' => 'author',
             'Source' => 'provider_name',
-            'Description' => 'description',
-            'Rights' => 'license'
-        );
+            'Description' => 'description'
+         );
        	
         
         // HTML : depends on mime
@@ -65,10 +87,11 @@ class Tracking_OembedController extends Omeka_Controller_Action
            		if($val){
                		$oembedFieldName = $map[$element->name];
                		$jsonPair = array('"' . $oembedFieldName . '"', json_encode($val) );
-               		$jsonPairs[] = $jsonPair;           			
+               		$jsonPairs[] = $jsonPair;
            		}
            	}
         }
+       	$license = item(ELEMENT_SET_ITEM_TYPE, "license");
 
        	// loop dublin core metadata        
         foreach ($dcFieldNames as $dcFieldName) {
@@ -90,7 +113,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
                 }
            	}
         }
-        
+        $rights = item('Dublin Core', 'Rights'); // 'Rights' => 'license'
+
         
         // Add hard-coded provider
   		//$jsonPair = array('"provider_url"', '"' . str_replace("/","\\/", WEB_ROOT) . '"');                		
@@ -100,9 +124,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
         preg_match("/^image/", $mime, $imgMatches);
         preg_match("/^video/", $mime, $videoMatches);
         preg_match("/pdf/",   $mime, $pdfMatches);
-        
-    	error_log("HOW MANY VIDEO MATCHES??? " . $videoMatches);
-
         
         
         if( sizeof($imgMatches) > 0 ){
@@ -155,8 +176,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
     		$jsonPairs[] = $jsonPair;
     		
         }
-        elseif( sizeof($videoMatches) > 0 ){					// TODO 				ANDY
-        	
+        elseif( sizeof($videoMatches) > 0 ){
+
         	$width = 470;
         	$height = 400;
         	
@@ -172,12 +193,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$videoUrl = WEB_ROOT . '/track_embed/download/' . $itemId;
         	$videoUrl = json_encode($videoUrl);
         	
-        	error_log("XXXXX  videoUrl == " . $videoUrl);
-        	
-        	//$videoUrl = str_replace('"', '\\"', $videoUrl);
         	$videoUrl = str_replace('"', '', $videoUrl);
         	$videoHtml = '"\u003ciframe src=\"' . $videoUrl . '\" frameborder=\"0\" width=\"' . $width . '\" height=\"' . $height . '\" allowfullscreen\u003e\u003c\/iframe\u003e"';
-        	
         	
         	$jsonPair = array('"html"', $videoHtml);
         	$jsonPairs[] = $jsonPair;
@@ -204,6 +221,28 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	return;
         }
         */
+    	
+    	
+        // format rights
+        error_log("rights = " . $rights);
+        error_log("license = "  . $license);
+        error_log("rightsDef = " . $rightsDef);
+        
+        $finalRightsVal = "";
+        
+        if($rights && $license){		// both = show both 				PARSABLE
+        	$finalRightsVal = $this->parseRights($license) . " : " . $this->parseRights($rights);
+        }
+        elseif($rights && !$license){	// just rights = show default only	NOT PARSABLE
+        	$finalRightsVal = $rightsDef;
+        }
+        elseif($rights && !$license){	// just license = show license only PARSABLE
+        	$finalRightsVal = $this->parseRights($license);
+        }
+        else{							//neither							NOT PARSABLE
+        	$finalRightsVal = $rightsDef;
+        }
+        error_log("finalRightsVal = " . $finalRightsVal);
         
         // output 
         
@@ -223,4 +262,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
         echo $result;
 
 	}
+   	
+
 }
