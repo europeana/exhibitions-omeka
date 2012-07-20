@@ -163,7 +163,7 @@ function ve_exhibit_builder_exhibit_display_item($displayFilesOptions = array(),
         	$videoSrc = file_display_uri($file, $format = 'archive'); 
         	
             $html .= '<div id="in-focus" class="player">';
-            $html .= '<a id="video-logo-link" href="http://europeana.eu"><img src="' . img("europeana-logo-en.png") . '"></a>';
+            //$html .= '<a id="video-logo-link" href="http://europeana.eu"><img src="' . img("europeana-logo-en.png") . '"></a>';
             $html .= '<style>.mejs-overlay-loading{width:88px!important;}</style>';
             $html .= '<video  width="460" height="340" style="width:100%; height:100%;">';
 
