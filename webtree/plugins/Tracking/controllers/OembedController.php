@@ -208,7 +208,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$jsonPair = array('"type"', '"link"');                		
         	$jsonPairs[] = $jsonPair;
         }
-        
+
+        /*
         if($fmt=="xml"){
         	echo '<?xml version="1.0" encoding="utf-8" ?>';
         	echo '<oembed>';
@@ -218,20 +219,20 @@ class Tracking_OembedController extends Omeka_Controller_Action
             	echo ("<" . $tag . ">" . $val . "</" . $tag . ">");
             }
         	echo '</oembed>';
+        	return;
         }
-        else{
-            $jsonVals = array();
-            foreach ($jsonPairs as $jsonPair) {
-            	$jsonVals[] = implode(":", $jsonPair);
-            }
-            
-            $result =  '{' . implode(",", $jsonVals) . '}';
-            $result = str_replace('<', "\u003c", $result);
-            $result = str_replace('>', "\u003e", $result);
-            
-            echo utf8_encode( $result );
-            //echo $result;
+        */
+        $jsonVals = array();
+        foreach ($jsonPairs as $jsonPair) {
+        	$jsonVals[] = implode(":", $jsonPair);
         }
-        $this->_helper->viewRenderer->setNoRender();
+        
+        $result =  '{' . implode(",", $jsonVals) . '}';
+        $result = str_replace('<', "\u003c", $result);
+        $result = str_replace('>', "\u003e", $result);
+        
+        //echo utf8_encode( $result );
+        echo $result;
+
 	}
 }
