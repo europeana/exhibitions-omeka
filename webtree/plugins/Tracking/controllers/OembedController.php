@@ -91,7 +91,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
                 	//$val = str_replace('"', "'", $val);
                		//$jsonPair = array('"' . $oembedFieldName . '"', '"' . $val . '"');
 
-               		error_log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
                		$jsonPair = array('"' . $oembedFieldName . '"', json_encode($val) );
                		
                		$jsonPairs[] = $jsonPair;           			
@@ -132,6 +131,10 @@ class Tracking_OembedController extends Omeka_Controller_Action
         preg_match("/^video/", $mime, $videoMatches);
         preg_match("/pdf/",   $mime, $pdfMatches);
         
+    	error_log("HOW MANY VIDEO MATCHES??? " . $videoMatches);
+
+        
+        
         if( sizeof($imgMatches) > 0 ){
         	
         	$thumbnailUrl	= html_escape(file_display_uri($file, 'thumbnail'));
@@ -147,7 +150,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
     		$jsonPair = array('"thumbnail_height"',	json_encode($thumbnailHeight) );                		
     		$jsonPairs[] = $jsonPair;                	                		
 
-        	/**********************************/
         	
       		$jsonPair = array('"url"', json_encode($imgUrl) );                		
     		$jsonPairs[] = $jsonPair;                	                		
@@ -199,9 +201,21 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	
         	$videoUrl = WEB_ROOT . '/track_embed/download/' . $itemId;
         	$videoUrl = json_encode($videoUrl);
+        	
+        	error_log("XXXXX  videoUrl == " . $videoUrl);
+        	
         	//$videoUrl = str_replace('"', '\\"', $videoUrl);
+        	$videoUrl = str_replace('"', '', $videoUrl);
+        	
         	//$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder=\"0\" width=\"' . $width . '\" height=\"' . $height . '\" allowfullscreen\u003e\u003c\/iframe\u003e"';
-        	$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder="0" width="' . $width . '" height="' . $height . '" allowfullscreen\u003e\u003c\/iframe\u003e"';
+        	
+        	//$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder="0" width="' . $width . '" height="' . $height . '" allowfullscreen\u003e\u003c\/iframe\u003e"';
+        	
+        	
+        	$videoHtml = '"\u003ciframe src=\"' . $videoUrl . '\" frameborder=\"0\" width=\"' . $width . '\" height=\"' . $height . '\" allowfullscreen\u003e\u003c\/iframe\u003e"';
+        	
+        	
+        	
         	$jsonPair = array('"html"', $videoHtml);
         	$jsonPairs[] = $jsonPair;
         }
