@@ -87,10 +87,12 @@ class Tracking_OembedController extends Omeka_Controller_Action
            		if($val){
                		$oembedFieldName = $map[$element->name];
                		
-                	$val = str_replace('&quot;', "'", $val);
-                	$val = str_replace('"', "'", $val);
+                	//$val = str_replace('&quot;', "'", $val);
+                	//$val = str_replace('"', "'", $val);
+               		//$jsonPair = array('"' . $oembedFieldName . '"', '"' . $val . '"');
 
-               		$jsonPair = array('"' . $oembedFieldName . '"', '"' . $val . '"');
+               		error_log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+               		$jsonPair = array('"' . $oembedFieldName . '"', json_encode($val) );
                		
                		$jsonPairs[] = $jsonPair;           			
            		}
