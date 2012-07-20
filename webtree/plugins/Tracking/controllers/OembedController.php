@@ -8,16 +8,17 @@ class Tracking_OembedController extends Omeka_Controller_Action
    	public function oembedAction()
    	{
    		$this->_helper->viewRenderer->setNoRender();
-        
-        if($fmt!="json"){
-            return;
-        }
-   		
+
 		$request	= $this->getRequest();
         $fmt 		= $request->getParam('id');
         $url 		= $request->getParam('url');
         $url		= urldecode($url);
         $url		= str_replace('127.0.0.1', "", $url);
+
+        if($fmt!="json"){
+            return;
+        }
+   		
         
         preg_match_all('!\d+!', $url, $itemId);
         
