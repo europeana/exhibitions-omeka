@@ -9,13 +9,15 @@ class Tracking_OembedController extends Omeka_Controller_Action
    		include_once('themes/main/custom_ve_helpers.php');
    		$html = '';
    	    
-   	    $parsedRights = parseRightsValue($val);
+   	    $parsedRights = parseRightsValue($val, true);
 
 		if($parsedRights["lnk"]){
 				$html	.=		'<a rel="license" href="'.$parsedRights["lnk"].'">';				
 		}
 		if($parsedRights["src"]){
-			$html	.=		'<img src="'.$parsedRights["src"].'" alt="Creative Commons License" />';								
+			$html	.=		'<img src="'.$parsedRights["src"].'" '
+					. 			'alt="Creative Commons License" ';
+			$html	.=		'/>';								
 		}
 		if($parsedRights["lnk"]){
 			$html	.=		'</a>';
@@ -201,13 +203,15 @@ class Tracking_OembedController extends Omeka_Controller_Action
     		
 	        if($rich){
 	    		// "rich" has html and no thumbnail
-	        	$itemUri = "";//abs_uri();
+	        	$itemUri = WEB_ROOT;
 	        	
 	        	$html	=		'<div style="position:relative;float:left;">'
 	        			.		 	'<a href="'.$itemUri.'">'
 	        			.				'<img width="100%" src="' . WEB_ROOT . '/track_embed/download/' . $item->id . '"/>'
-	        			.			 '</a>'
-	        			.  			$finalRightsValHtml
+	        			.			'</a>'	        			
+	        			.			'<div style="float:left; position: relative; top: -3em; ">'
+	        			.  				$finalRightsValHtml
+	        			.			'</div>'
 	        			.		'</div>';
 	        			
    	        	$jsonPair = array('"html"',	json_encode($html) );                		
