@@ -112,9 +112,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
                		if($oembedFieldName == "provider_name"){
                   		$jsonPair = array('"' . $oembedFieldName . '"', '"Europeana; ' . $val . '"');                		
                 	}
-               		elseif($oembedFieldName == "license"){
-                  		$jsonPair = array('"' . $oembedFieldName . '"',  '"' . str_replace("/","\\/", $val) . '"');                		
-                	}
+               		//elseif($oembedFieldName == "license"){
+                  	//	$jsonPair = array('"' . $oembedFieldName . '"',  '"' . $val . '"');                		
+                	//}
                		
                 	else{
                   		$jsonPair = array('"' . $oembedFieldName . '"', '"' . $val . '"');                		
@@ -126,7 +126,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
         
         
         // Add hard-coded provider
-  		$jsonPair = array('"provider_url"', '"' . str_replace("/","\\/", WEB_ROOT) . '"');                		
+  		//$jsonPair = array('"provider_url"', '"' . str_replace("/","\\/", WEB_ROOT) . '"');                		
+  		$jsonPair = array('"provider_url"', '"' . WEB_ROOT . '"');                		
 		$jsonPairs[] = $jsonPair;                	                		
 
         preg_match("/^image/", $mime, $imgMatches);
@@ -140,7 +141,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
 
         	list($thumbnailWidth, $thumbnailHeight, $type, $attr) = getimagesize($thumbnailUrl);
 
-        	$jsonPair = array('"thumbnail_url"', '"' . str_replace("/","\\/", $thumbnailUrl) . '"');                		
+        	//$jsonPair = array('"thumbnail_url"', '"' . str_replace("/","\\/", $thumbnailUrl) . '"');                		
+        	$jsonPair = array('"thumbnail_url"', '"' .  $thumbnailUrl . '"');                		
     		$jsonPairs[] = $jsonPair;                	                		
     		$jsonPair = array('"thumbnail_width"', '"' . $thumbnailWidth . '"');                		
     		$jsonPairs[] = $jsonPair;                	                		
@@ -149,7 +151,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
 
         	/**********************************/
         	
-      		$jsonPair = array('"url"', '"' . str_replace("/","\\/", $imgUrl) . '"');                		
+      		$jsonPair = array('"url"', json_encode($imgUrl) );                		
     		$jsonPairs[] = $jsonPair;                	                		
 
     		list($width, $height, $type, $attr) = getimagesize($imgUrl);
@@ -183,7 +185,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
     		$jsonPairs[] = $jsonPair;
     		
         }
-        elseif( sizeof($videoMatches) > 0 ){
+        elseif( sizeof($videoMatches) > 0 ){					// TODO 				ANDY
         	
         	$width = 470;
         	$height = 400;
@@ -199,12 +201,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	
         	$videoUrl = WEB_ROOT . '/track_embed/download/' . $itemId;
         	$videoUrl = json_encode($videoUrl);
-        	
-        	
-        	$videoUrl = str_replace('"', '\\"', $videoUrl);
-        	
-        	
-        	$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder=\"0\" width=\"' . $width . '\" height=\"' . $height . '\" allowfullscreen\u003e\u003c\/iframe\u003e"';
+        	//$videoUrl = str_replace('"', '\\"', $videoUrl);
+        	//$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder=\"0\" width=\"' . $width . '\" height=\"' . $height . '\" allowfullscreen\u003e\u003c\/iframe\u003e"';
+        	$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder="0" width="' . $width . '" height="' . $height . '" allowfullscreen\u003e\u003c\/iframe\u003e"';
         	$jsonPair = array('"html"', $videoHtml);
         	$jsonPairs[] = $jsonPair;
         }
@@ -235,14 +234,14 @@ class Tracking_OembedController extends Omeka_Controller_Action
         }
         
         $result =  '{' . implode(",", $jsonVals) . '}';
-
-        // formatting......
         $result = str_replace('<', "\u003c", $result);
         $result = str_replace('>', "\u003e", $result);
-        echo json_encode( $result );
         
+        //error_log("<http://google.co.uk>");
+        //error_log(json_encode('<http://google."co".uk>'));
         //echo utf8_encode( $result );
-        //echo $result;
+        //echo json_encode( $result );
+        echo $result;
 
 	}
 }
