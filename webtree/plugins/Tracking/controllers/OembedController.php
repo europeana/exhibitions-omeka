@@ -209,7 +209,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
 	        			.		 	'<a href="'.$itemUri.'">'
 	        			.				'<img width="100%" src="' . WEB_ROOT . '/track_embed/download/' . $item->id . '"/>'
 	        			.			'</a>'	        			
-	        			.			'<div style="float:left; position: relative; top: -2.5em; margin-left: 1em;">'
+	        			.			'<div style="float:right; position: relative; top: -2.5em; margin-right: 1em; font-size:1.2em; font-weight:bold;">'
 	        			.  				$finalRightsValHtml
 	        			.			'</div>'
 	        			.		'</div>';
