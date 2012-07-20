@@ -80,11 +80,11 @@ class Tracking_OembedController extends Omeka_Controller_Action
         
         if($rights && $license){		// both = show both 				PARSABLE
         	$finalRightsVal = $this->parseRights($license) . " : ";
-        	if(item_field_uses_html){
+        	if(item_field_uses_html('Dublin Core', 'Rights')){
         		$finalRightsVal .= $this->parseRights($rights);
         	}
         	else{
-        		$finalRightsVal .= $this->$rights;
+        		$finalRightsVal .= $rights;
         	}
         }
         elseif($rights && !$license){	// just rights = show default only	NOT PARSABLE
