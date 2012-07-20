@@ -7,6 +7,12 @@ class Tracking_OembedController extends Omeka_Controller_Action
     // http://localhost/webtree/service/oembed/8
    	public function oembedAction()
    	{
+   		$this->_helper->viewRenderer->setNoRender();
+        
+        if($fmt!="json"){
+            return;
+        }
+   		
 		$request	= $this->getRequest();
         $fmt 		= $request->getParam('id');
         $url 		= $request->getParam('url');
@@ -201,6 +207,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$jsonPair = array('"type"', '"link"');                		
         	$jsonPairs[] = $jsonPair;
         }
+        
         if($fmt=="xml"){
         	echo '<?xml version="1.0" encoding="utf-8" ?>';
         	echo '<oembed>';

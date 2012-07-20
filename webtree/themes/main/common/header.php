@@ -20,15 +20,11 @@
 
 	<?php if(  (preg_match("/item\/[0-9]*/", $pageURL)) || (preg_match("/items\/show\/[0-9]*/", $pageURL)) ): ?>
 	
-		<!-- discovery tags for open embed -->
+		<!-- discovery tag for open embed -->
 		
 		<link rel="alternate" type="application/json+oembed"
 			href="<?php echo(WEB_ROOT); ?>/service/oembed/json?for=EuropeanaExhibitions&url=<?php echo($url);?>"
 			title="Oembed json service" />
-		
-		<link rel="alternate" type="text/xml+oembed"
-			href="<?php echo(WEB_ROOT); ?>/service/oembed/xml?for=EuropeanaExhibitions&url=<?php echo($url);?>"
-			title="Oembed xml service" />
 		
 	<?php endif; ?>
 
