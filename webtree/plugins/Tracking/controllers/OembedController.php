@@ -79,7 +79,13 @@ class Tracking_OembedController extends Omeka_Controller_Action
         $finalRightsVal = "";
         
         if($rights && $license){		// both = show both 				PARSABLE
-        	$finalRightsVal = $this->parseRights($license) . " : " . $this->parseRights($rights);
+        	$finalRightsVal = $this->parseRights($license) . " : ";
+        	if(item_field_uses_html){
+        		$finalRightsVal .= $this->parseRights($rights);
+        	}
+        	else{
+        		$finalRightsVal .= $this->$rights;
+        	}
         }
         elseif($rights && !$license){	// just rights = show default only	NOT PARSABLE
         	$finalRightsVal = $rightsDef;
@@ -204,7 +210,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
 	        if($rich){
 	    		// "rich" has html and no thumbnail
 	        	
-	        	$html	=		'<p><div style="position:relative; width:'.$width.'px;height:'.$height.'px;">'
+	        	$html	=		'<div style="position:relative; width:'.$width.'px;height:'.$height.'px;">'
 	        			.		 	'<a href="'.$url.'">'
 	        			.				'<img width="100%" src="' . WEB_ROOT . '/track_embed/download/' . $item->id . '"/>'
 	        			.			'</a>'
@@ -212,7 +218,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
 	        			.			'<div style="float:left; position: relative; top: -2.5em; margin-left: 1em; font-size:1.2em; font-weight:bold;">'
 	        			.  				$finalRightsValHtml
 	        			.			'</div>'
-	        			.		'</div></p>';
+	        			.		'</div>';
 	        			
    	        	$jsonPair = array('"html"',	json_encode($html) );                		
    	    		$jsonPairs[] = $jsonPair;
