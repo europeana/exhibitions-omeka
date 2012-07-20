@@ -111,7 +111,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
                 	//$val = str_replace('"', "'", $val);
                 	
                		if($oembedFieldName == "provider_name"){
-                  		$jsonPair = array('"' . $oembedFieldName . '"', json_encode($val));                		
+                  		$jsonPair = array('"' . $oembedFieldName . '"', json_encode("Europeana: " + $val));                		
                 	}
                 	else{
                   		$jsonPair = array('"' . $oembedFieldName . '"', json_encode($val));                		
@@ -206,14 +206,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	
         	//$videoUrl = str_replace('"', '\\"', $videoUrl);
         	$videoUrl = str_replace('"', '', $videoUrl);
-        	
-        	//$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder=\"0\" width=\"' . $width . '\" height=\"' . $height . '\" allowfullscreen\u003e\u003c\/iframe\u003e"';
-        	
-        	//$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder="0" width="' . $width . '" height="' . $height . '" allowfullscreen\u003e\u003c\/iframe\u003e"';
-        	
-        	
         	$videoHtml = '"\u003ciframe src=\"' . $videoUrl . '\" frameborder=\"0\" width=\"' . $width . '\" height=\"' . $height . '\" allowfullscreen\u003e\u003c\/iframe\u003e"';
-        	
         	
         	
         	$jsonPair = array('"html"', $videoHtml);
@@ -224,6 +217,10 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$jsonPairs[] = $jsonPair;
         }
 
+    	$jsonPair = array('"version"', '"1.0"');                		
+    	$jsonPairs[] = $jsonPair;
+        
+        
         /*
         if($fmt=="xml"){
         	echo '<?xml version="1.0" encoding="utf-8" ?>';
