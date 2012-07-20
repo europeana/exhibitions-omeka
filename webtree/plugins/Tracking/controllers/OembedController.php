@@ -42,25 +42,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
        		$mime = $file->getMimeType();
        	}
 
-        /* OEMBED FIELDS
-         * Provider URL: 	http://exhibitions.europeana.eu
-       	 * Provider Name: 	Europeana
-       	 * Type: 	link
-       	 * Title: 	The bride takes leave of her mother by Pesovár Ernő (Collector) | Themes | Weddings In Eastern Europe | Exhibitions
-       	 * Description: 	
-       	 * URL: 	http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe/husbands-house/item/325
-       	 * Width: 	
-       	 * Height: 	
-       	 * HTML: 	
-       	 * Thumbnail Url: 	http://exhibitions.europeana.eu/track_embed/download/325
-       	 * Thumbnail Width: 	600
-       	 * Thumbnail Height: 	395
-       	 * Author: 	
-       	 * Author url: 	
-       	 * Display:
-         */
-       	
-       	
         $map = array(
             // (dc | europeana) => oembed
             'Title' => 'title',
@@ -71,10 +52,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         );
        	
         
-        
         // HTML : depends on mime
-        
-        // thumbnail_url
 
         $dcFieldNames = array('Title', 'Description', 'Creator', 'Type', 'Subject', 'Source', 'Publisher', 'Date', 'Contributor', 'Rights', 'Format');
        	$elements = $item->getItemTypeElements();
@@ -86,13 +64,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
            		$val = item(ELEMENT_SET_ITEM_TYPE, $element->name);
            		if($val){
                		$oembedFieldName = $map[$element->name];
-               		
-                	//$val = str_replace('&quot;', "'", $val);
-                	//$val = str_replace('"', "'", $val);
-               		//$jsonPair = array('"' . $oembedFieldName . '"', '"' . $val . '"');
-
                		$jsonPair = array('"' . $oembedFieldName . '"', json_encode($val) );
-               		
                		$jsonPairs[] = $jsonPair;           			
            		}
            	}
@@ -107,11 +79,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
                 if($val){
                 	
                 	$jsonPair = null;
-                	//$val = str_replace('&quot;', "'", $val);
-                	//$val = str_replace('"', "'", $val);
                 	
                		if($oembedFieldName == "provider_name"){
-                  		$jsonPair = array('"' . $oembedFieldName . '"', json_encode("Europeana: " + $val));                		
+                  		$jsonPair = array('"' . $oembedFieldName . '"', json_encode("Europeana: " . $val));                		
                 	}
                 	else{
                   		$jsonPair = array('"' . $oembedFieldName . '"', json_encode($val));                		
