@@ -72,9 +72,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
        	$license = item(ELEMENT_SET_ITEM_TYPE, "license");
         $rights = item('Dublin Core', 'Rights'); // 'Rights' => 'license'
         
-        error_log("rights = " . $rights);
-        error_log("license = "  . $license);
-        error_log("rightsDef = " . $rightsDef);
+        //error_log("rights = " . $rights);
+        //error_log("license = "  . $license);
+        //error_log("rightsDef = " . $rightsDef);
         
         $finalRightsVal = "";
         
@@ -96,7 +96,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
         else{							//neither							NOT PARSABLE
         	$finalRightsVal = $rightsDef;
         }
-        error_log("finalRightsVal = " . $finalRightsVal);
     		
         $finalRightsValHtml = $finalRightsVal;
         
@@ -309,7 +308,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
         $result = str_replace('<', "\u003c", $result);
         $result = str_replace('>', "\u003e", $result);
         
-        error_log($url);
         //error_log("<http://google.co.uk>");
         //error_log(json_encode('<http://google."co".uk>'));
         //echo utf8_encode( $result );
