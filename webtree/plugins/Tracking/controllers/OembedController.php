@@ -106,8 +106,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
                 if($val){
                 	
                 	$jsonPair = null;
-                	$val = str_replace('&quot;', "'", $val);
-                	$val = str_replace('"', "'", $val);
+                	//$val = str_replace('&quot;', "'", $val);
+                	//$val = str_replace('"', "'", $val);
                 	
                		if($oembedFieldName == "provider_name"){
                   		$jsonPair = array('"' . $oembedFieldName . '"', json_encode($val));                		
