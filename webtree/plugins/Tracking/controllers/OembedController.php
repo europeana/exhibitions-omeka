@@ -110,14 +110,10 @@ class Tracking_OembedController extends Omeka_Controller_Action
                 	$val = str_replace('"', "'", $val);
                 	
                		if($oembedFieldName == "provider_name"){
-                  		$jsonPair = array('"' . $oembedFieldName . '"', '"Europeana; ' . $val . '"');                		
+                  		$jsonPair = array('"' . $oembedFieldName . '"', json_encode($val));                		
                 	}
-               		//elseif($oembedFieldName == "license"){
-                  	//	$jsonPair = array('"' . $oembedFieldName . '"',  '"' . $val . '"');                		
-                	//}
-               		
                 	else{
-                  		$jsonPair = array('"' . $oembedFieldName . '"', '"' . $val . '"');                		
+                  		$jsonPair = array('"' . $oembedFieldName . '"', json_encode($val));                		
                 	}
                		$jsonPairs[] = $jsonPair;                	                		
                 }
