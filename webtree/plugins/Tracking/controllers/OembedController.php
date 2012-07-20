@@ -199,7 +199,11 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	
         	$videoUrl = WEB_ROOT . '/track_embed/download/' . $itemId;
         	$videoUrl = json_encode($videoUrl);
+        	
+        	
         	$videoUrl = str_replace('"', '\\"', $videoUrl);
+        	
+        	
         	$videoHtml = '"\u003ciframe src=' . $videoUrl . ' frameborder=\"0\" width=\"' . $width . '\" height=\"' . $height . '\" allowfullscreen\u003e\u003c\/iframe\u003e"';
         	$jsonPair = array('"html"', $videoHtml);
         	$jsonPairs[] = $jsonPair;
@@ -222,17 +226,23 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	return;
         }
         */
+        
+        // output 
+        
         $jsonVals = array();
         foreach ($jsonPairs as $jsonPair) {
         	$jsonVals[] = implode(":", $jsonPair);
         }
         
         $result =  '{' . implode(",", $jsonVals) . '}';
+
+        // formatting......
         $result = str_replace('<', "\u003c", $result);
         $result = str_replace('>', "\u003e", $result);
+        echo json_encode( $result );
         
         //echo utf8_encode( $result );
-        echo $result;
+        //echo $result;
 
 	}
 }
