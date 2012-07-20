@@ -204,7 +204,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
 	        if($rich){
 	    		// "rich" has html and no thumbnail
 	        	
-	        	$html	=		'<div style="position:relative; width:'.$width.'px;height:'.$height.'px;">'
+	        	$html	=		'<p><div style="position:relative; width:'.$width.'px;height:'.$height.'px;">'
 	        			.		 	'<a href="'.$url.'">'
 	        			.				'<img width="100%" src="' . WEB_ROOT . '/track_embed/download/' . $item->id . '"/>'
 	        			.			'</a>'
@@ -212,7 +212,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
 	        			.			'<div style="float:left; position: relative; top: -2.5em; margin-left: 1em; font-size:1.2em; font-weight:bold;">'
 	        			.  				$finalRightsValHtml
 	        			.			'</div>'
-	        			.		'</div>';
+	        			.		'</div></p>';
 	        			
    	        	$jsonPair = array('"html"',	json_encode($html) );                		
    	    		$jsonPairs[] = $jsonPair;
@@ -303,6 +303,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         $result = str_replace('<', "\u003c", $result);
         $result = str_replace('>', "\u003e", $result);
         
+        error_log($url);
         //error_log("<http://google.co.uk>");
         //error_log(json_encode('<http://google."co".uk>'));
         //echo utf8_encode( $result );
