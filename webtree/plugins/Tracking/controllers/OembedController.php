@@ -105,10 +105,17 @@ class Tracking_OembedController extends Omeka_Controller_Action
         		//$rights=html_entity_decode($rights, ENT_QUOTES, 'ISO-8859-1');
         		//$rights=iconv("ISO-8859-1","UTF-8",$rights); 
         		
-        		$rights = json_encode($rights, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+        		//$rights = json_encode($rights, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
 				
         		error_log($rights);
-        		
+        		error_log(json_decode($rights));
+        		error_log($rights);
+error_log(item('Dublin Core', 'Source'));
+
+$x =  json_encode($rights, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE) ;
+
+error_log("JSON REPLACED SLASHES = " . str_replace("\\\\","\\", $x)  );
+
         		$finalRightsVal .= $rights;
         	}
         }
@@ -295,7 +302,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$jsonPair = array('"html"', $videoHtml);
         	$jsonPairs[] = $jsonPair;
         }
-        elseif( sizeof($pdfMatches) > 0 ){
+        elseif( sizeof($pdfMatchunicode_escape_sequenceses) > 0 ){
         	$jsonPair = array('"type"', '"link"');                		
         	$jsonPairs[] = $jsonPair;
         }
@@ -340,5 +347,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
         echo $result;
  	}
    	
-
+   	function unicode_escape_sequences($str){
+   		$working = json_encode($str);
+   		$working = preg_replace('/\\\u([0-9a-z]{4})/', '&#x$1;', $working);
+   		return json_decode($working);
+   	}
 }
