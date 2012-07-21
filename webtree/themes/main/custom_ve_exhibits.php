@@ -351,7 +351,7 @@ if(!function_exists('ve_custom_show_embed')){
 					$html	.=	'<div id="embedded">';
 					$html	.=		'<h4>' . ve_translate("embed-code", "Embed Code") .'</h4>';
 					$html	.=		'<textarea rows="5">';	// start embed code
-					$html	.=			'<iframe src="' . WEB_ROOT . '/track_embed/download/' . $item->id . '?linkback=' . abs_uri() . '" style="width:400px; height:410px; border:none; overflow:hidden;" frameBorder="0" scroll="no" allowTransparency="true">';
+					$html	.=			'<iframe id="europeana-iframe" src="' . WEB_ROOT . '/track_embed/download/' . $item->id . '?linkback=' . abs_uri() . '" style="width:400px; height:410px; border:none; overflow:hidden;" frameBorder="0" scroll="no" allowTransparency="true">';
 					$html	.=		'</iframe>';
 					$html	.=		'</textarea>';	// end embed code
 					$html	.=	'</div>';
