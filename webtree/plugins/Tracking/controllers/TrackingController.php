@@ -87,7 +87,7 @@ class Tracking_TrackingController extends Omeka_Controller_Action
 	   		echo 		'<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>';
 	   		echo 		'<script type="text/javascript" src="' . WEB_ROOT . '/themes/main/javascripts/mediaelement-2.7/build/mediaelement-and-player.js"></script>';
 	   		echo 	'</head>';
-	   		echo 	'<body style="background:transparent">';
+	   		echo 	'<body id="innerBody" style="background:transparent">';
 	   		echo 		'<style>.mejs-overlay-loading{width:88px!important;}</style>';
 	   		
 	   		if (preg_match("/^audio/", $mime)) {
@@ -102,6 +102,9 @@ class Tracking_TrackingController extends Omeka_Controller_Action
 		   		echo '<div id="player" class="player">';
 		   		echo 	'<video  width="0" height="0" style="width:100%; height:100%;" preload="none">';
 		   		
+		   		//$videoSrc = WEB_ROOT . '/themes/main/javascripts/mediaelement-2.7/johndyer-mediaelement-aedef32/media/echo-hereweare.mp4';
+		   		//$videoSrc = WEB_ROOT . '/themes/main/javascripts/mediaelement-2.7/johndyer-mediaelement-aedef32/media/echo-hereweare.ogv';
+
 	            if($this->endsWith($videoSrc, '.mp4')){
 	            	echo	'<source type="video/mp4" src="' . $videoSrc . '" />';
 	            }
@@ -115,9 +118,10 @@ class Tracking_TrackingController extends Omeka_Controller_Action
 	            	echo	'<source type="video/ogg" src="' . $videoSrc . '" />';
 	            }
 		   		
+		   		
 		   		echo		'<object type="application/x-shockwave-flash" data="' . WEB_ROOT . '/themes/main/javascripts/mediaelement-2.7/build/flashmediaelement.swf">';
 		   		echo			'<param name="movie" value="' . WEB_ROOT . '/themes/main/javascripts/mediaelement-2.7/build/flashmediaelement.swf" />';
-		   		echo			'<param name="flashvars" value="controls=true&amp;file=' . $videoSrc .  '" />';
+		   		echo			'<param name="flashvars" value="file=' . $videoSrc .  '&amp;controls=true" />';
 		   		echo		'</object>';
 		   		echo 	'</video>';
 		   		echo '</div>';
@@ -191,18 +195,21 @@ class Tracking_TrackingController extends Omeka_Controller_Action
 	   		// END META-FIELDS
 	        
 	   		echo '<script>';
-	   		echo 	'jQuery("audio,video").mediaelementplayer({';
-	   		echo 		'audioHeight: 30,';
-	   		echo 		'plugins: ["flash","silverlight"],';
-	   		echo 		'features: ["playpause", "progress", "current", "duration", "volume", "fullscreen"],';
-	   		echo 		'success: function(player, node) {';
-	   		echo 		'if(jQuery("div#player").width() == 0){'; // IE7 fix
-	   		echo 			'jQuery("div#player").width("350px");';
-	   		echo 			'player.setVideoSize(350, "auto");';
-	   		echo 		'mejs.MediaElementPlayer.prototype.buildoverlays();';
-	   		echo 	'}';
-	   		echo '}';
-	   		echo '});';
+	   		echo  	'$("#europeana-iframe").ready(function(){';
+	   		echo 		'jQuery("audio,video").mediaelementplayer({';
+	   		echo 			'audioHeight: 30,';
+	   		echo 			'plugins: ["flash","silverlight"],';
+	   		echo 			'features: ["playpause", "progress", "current", "duration", "volume", "fullscreen"],';
+	   		echo 			'success: function(player, node) {';
+	   		echo 				'if(jQuery("div#player").width() == 0){'; // IE7 fix
+	   		echo 					'jQuery("div#player").width("350px");';
+	   		echo 					'player.setVideoSize(350, "auto");';
+	   		echo 					'mejs.MediaElementPlayer.prototype.buildoverlays();';
+	   		echo 				'}';
+	   		echo 			'}';
+	   		echo 		'});';
+	   		echo	'});';
+	   		
 	   		echo '</script>';
         }
 
