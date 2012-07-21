@@ -133,7 +133,7 @@ error_log(" x = " . $x  );
 
 error_log("decoded = " . $this-> _decodeAccented("\\xc3\\xa9") . "   orig was " . $rights );
 
-        		$finalRightsVal .= $rights;
+        		$finalRightsVal .= "DO NOT KNOW";//$rights;
         	}
         }
         elseif($rights && !$license){	// just rights = show default only	NOT PARSABLE
