@@ -80,12 +80,37 @@ class Tracking_OembedController extends Omeka_Controller_Action
         
         if($rights && $license){		// both = show both 				PARSABLE
         	$finalRightsVal = $this->parseRights($license) . " : ";
-        	//if(item_field_uses_html('Dublin Core', 'Rights')){
-        	$finalRightsVal .= $this->parseRights($rights);
-        	//}
-        	//else{
-        	//	$finalRightsVal .= nls2p($rights);
-        	//}
+        	if(item_field_uses_html('Dublin Core', 'Rights')){
+        		$finalRightsVal .= $this->parseRights($rights);
+        	}
+        	else{
+        		error_log("plain: " . $rights);
+        		error_log("nls2p: " . nls2p($rights));
+        		error_log("utf8_decode: " . utf8_decode($rights));
+        		error_log("utf8_decode double: " . utf8_decode(utf8_decode($rights)) );
+
+        		error_log("html_entity_decode: " . html_entity_decode($rights) );
+
+        		error_log("utf8_decode (html_entity_decode): " . utf8_decode( html_entity_decode($rights) ));
+
+        		error_log(  htmlspecialchars(html_entity_decode($rights, ENT_QUOTES, 'UTF-8')  ) );
+        		error_log(  html_entity_decode($rights, ENT_QUOTES, 'ISO-8859-15')  );
+        		
+        		error_log(  $rights, ENT_QUOTES, 'ISO-8859-1'  );
+        		
+        		
+        		error_log("json =  " .  json_encode($rights, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE)  );
+        				
+        		//$rights=iconv("UTF-8","ISO-8859-1",$rights);
+        		//$rights=html_entity_decode($rights, ENT_QUOTES, 'ISO-8859-1');
+        		//$rights=iconv("ISO-8859-1","UTF-8",$rights); 
+        		
+        		$rights = json_encode($rights, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+				
+        		error_log($rights);
+        		
+        		$finalRightsVal .= $rights;
+        	}
         }
         elseif($rights && !$license){	// just rights = show default only	NOT PARSABLE
         	$finalRightsVal = $rightsDef;
