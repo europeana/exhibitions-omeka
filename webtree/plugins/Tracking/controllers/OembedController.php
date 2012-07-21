@@ -94,7 +94,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         		error_log("utf8_decode (html_entity_decode): " . utf8_decode( html_entity_decode($rights) ));
 
         		error_log(  htmlspecialchars(html_entity_decode($rights, ENT_QUOTES, 'UTF-8')  ) );
-        		error_log(  html_entity_decode($rights, ENT_QUOTES, 'ISO-8859-15')  );
+        		error_log("entity-decode = " .  html_entity_decode($rights, ENT_QUOTES, 'ISO-8859-15')  );
         		
         		error_log(  $rights, ENT_QUOTES, 'ISO-8859-1'  );
         		
@@ -114,7 +114,24 @@ error_log(item('Dublin Core', 'Source'));
 
 $x =  json_encode($rights, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE) ;
 
-error_log("JSON REPLACED SLASHES = " . str_replace("\\\\","\\", $x)  );
+$x_ed = html_entity_decode("\u00e9", ENT_QUOTES, 'UTF-8');
+
+$x2 = preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", $x);
+error_log("x2 = "  .  $x2 );
+
+
+$exploded = explode("\\", $x );
+error_log($exploded[0] .  '\\' . $exploded[1]);
+$imploded = implode("\\", $exploded);
+
+error_log("imploded = " . $imploded  );
+
+error_log("REPL = " . preg_replace("/\\\/", '\\', $x)  );
+
+$x = $this->unicode_escape_sequences($x);
+error_log(" x = " . $x  );
+
+error_log("decoded = " . $this-> _decodeAccented("\\xc3\\xa9") . "   orig was " . $rights );
 
         		$finalRightsVal .= $rights;
         	}
@@ -302,7 +319,7 @@ error_log("JSON REPLACED SLASHES = " . str_replace("\\\\","\\", $x)  );
         	$jsonPair = array('"html"', $videoHtml);
         	$jsonPairs[] = $jsonPair;
         }
-        elseif( sizeof($pdfMatchunicode_escape_sequenceses) > 0 ){
+        elseif( sizeof($pdfMatches) > 0 ){
         	$jsonPair = array('"type"', '"link"');                		
         	$jsonPairs[] = $jsonPair;
         }
@@ -351,5 +368,21 @@ error_log("JSON REPLACED SLASHES = " . str_replace("\\\\","\\", $x)  );
    		$working = json_encode($str);
    		$working = preg_replace('/\\\u([0-9a-z]{4})/', '&#x$1;', $working);
    		return json_decode($working);
+   	}
+   	
+   	protected function _decodeAccented($encodedValue, $options = array()) {
+   	    $options += array(
+   	        'quote'     => ENT_NOQUOTES,
+   	        'encoding'  => 'UTF-8',
+   	    );
+   	    return preg_replace_callback(
+   	        '/&\w(acute|uml|tilde);/',
+   	        create_function(
+   	            '$m',
+   	            'return html_entity_decode($m[0], ' . $options['quote'] . ', "' .
+   	            $options['encoding'] . '");'
+   	        ),
+   	        $encodedValue
+   	    );
    	}
 }
