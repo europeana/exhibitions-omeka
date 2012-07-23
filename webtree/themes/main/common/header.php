@@ -13,12 +13,16 @@
 	$pageURL = "http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
 ?>
 
-	
+
+<?php
+	$oembed = false;
+?>
+
 <!doctype html>
 	<head>
 
 
-	<?php if(  (preg_match("/item\/[0-9]*/", $pageURL)) || (preg_match("/items\/show\/[0-9]*/", $pageURL)) ): ?>
+	<?php if( $oembed &&  ((preg_match("/item\/[0-9]*/", $pageURL)) || (preg_match("/items\/show\/[0-9]*/", $pageURL)) )): ?>
 	
 		<!-- discovery tag for open embed -->
 		
@@ -33,8 +37,6 @@
 	<meta charset="utf-8" />
 	
 	<meta http-equiv="X-UA-Compatible" value="IE=9" />
-	
-	<meta property="author" content="test oembed" />
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
