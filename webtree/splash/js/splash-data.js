@@ -6,9 +6,9 @@ var splashData = function(){
 				
 				"languages":[
 				             {"langClass":"language-en-main", "link":"exhibits/show/european-sports-en", "label":"English"},
-				     		 {"langClass":"language-es-main", "link":"exhibits/show/patrimonio-deportivo-europeo-e", "label":"Espa&ntilde;ol"},
-				    		 {"langClass":"language-fr-main", "link":"exhibits/show/heritage-du-sport-en-europe-fr", "label":"Fran&ccedil;ais"},
-				    		 {"langClass":"language-de-main", "link":"exhibits/show/europaische-sport-geschichte-d", "label":"Deutsch"}
+				     		 {"langClass":"language-es-main", "link":"exhibits/show/european-sports-es", "label":"Espa&ntilde;ol"},
+				    		 {"langClass":"language-fr-main", "link":"exhibits/show/european-sports-fr", "label":"Fran&ccedil;ais"},
+				    		 {"langClass":"language-de-main", "link":"exhibits/show/european-sports-de", "label":"Deutsch"}
 				             ]   
 
 		}; 
