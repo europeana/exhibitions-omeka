@@ -169,7 +169,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
         preg_match("/^image/", $mime, $imgMatches);
         preg_match("/^video/", $mime, $videoMatches);
         preg_match("/pdf/",   $mime, $pdfMatches);
-        
+        preg_match("/^audio/", $mime, $audioMatches);
+
         $rich = false;
         
         if( sizeof($imgMatches) > 0 ){
@@ -324,7 +325,27 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$jsonPair = array('"license"', $finalRightsVal);                		
         	$jsonPairs[] = $jsonPair;
         }
-        else{
+        elseif( sizeof($audioMatches) > 0 ){
+        	$width = 470;
+        	$height = 200;
+        	
+        	$jsonPair = array('"width"', '"' . $width . '"');                		
+        	$jsonPairs[] = $jsonPair;
+        	
+        	$jsonPair = array('"height"', '"' . $height . '"');                		
+        	$jsonPairs[] = $jsonPair;
+        	
+        	$jsonPair = array('"type"', '"rich"');                		
+        	$jsonPairs[] = $jsonPair;
+
+        	$audioUrl = WEB_ROOT . '/track_embed/download/' . $itemId;
+        	$audioUrl = str_replace('"', '', $audioUrl);
+        	
+        	$audioHtml = '"\u003ciframe src=\"' . $audioUrl . '\" frameborder=\"0\" width=\"' . $width . '\" height=\"' . $height . '\" allowfullscreen\u003e\u003c\/iframe\u003e"';
+
+        	$jsonPair = array('"html"', $audioHtml);
+        	$jsonPairs[] = $jsonPair;
+
         	$jsonPair = array('"license"', $finalRightsVal);                		
         	$jsonPairs[] = $jsonPair;
         }
