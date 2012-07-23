@@ -175,7 +175,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         if( sizeof($imgMatches) > 0 ){
         	
         	// image can be "rich" or "photo" - both require proportionate dimensions for maxwidth/maxheight parameters
-        	$imgUrl			= html_escape(file_display_uri($file, 'archive'));
+        	$imgUrl			= html_escape(file_display_uri($file, 'fullsize'));
     		list($width, $height, $type, $attr) = getimagesize($imgUrl);
     		
     		$maxwidth	= $request->getParam("maxwidth");
