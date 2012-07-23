@@ -91,6 +91,11 @@ class Tracking_TrackingController extends Omeka_Controller_Action
 	   		echo 		'<style>.mejs-overlay-loading{width:88px!important;}</style>';
 	   		
 	   		if (preg_match("/^audio/", $mime)) {
+	   			
+	   			
+	   			error_log("MIME TYPE IS AUDIO:  "  .  $mime);
+	   			
+	   			
 	   			$audioSrc = file_display_uri($file, $format = 'archive'); 
 	   			echo '<div id="player" class="player">';
 	            echo 	'<audio  controls="controls"  type="audio/mp3" src="' . $audioSrc . '" width="460" height="84" style="width:100%; height:100%;"></audio>';
