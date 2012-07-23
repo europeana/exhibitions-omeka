@@ -172,7 +172,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         preg_match("/^video/", $mime, $videoMatches);
         preg_match("/pdf/",   $mime, $pdfMatches);
         
-        $rich = true;
+        $rich = false;
         
         if( sizeof($imgMatches) > 0 ){
         	
