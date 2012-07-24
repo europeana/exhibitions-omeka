@@ -10,6 +10,16 @@ var story = function() {
 	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
 	}	
 	
+	
+    var targetObjHref = jQuery('a#info-link');
+    if(targetObjHref[0]){
+    	var href = targetObjHref.attr("href"); 
+    	if(href.indexOf("?") > -1){
+    		href = href.substr(0, href.indexOf("?"));
+   			targetObjHref.attr("href", href);
+    	}
+    }
+	
 	// public 
 	return{
 		initStory: function (initialUrl, zoomitEnabledIn){
