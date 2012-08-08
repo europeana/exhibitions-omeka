@@ -15,7 +15,7 @@
 
 
 <?php
-	$oembed = false;
+	$oembed = true;
 ?>
 
 <!doctype html>
