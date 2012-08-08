@@ -182,7 +182,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
         preg_match("/^audio/", $mime, $audioMatches);
 
         $rich = item(ELEMENT_SET_ITEM_TYPE, "oembed rich");
-        error_log("oembedRich = " . $rich);
         
         if( sizeof($imgMatches) > 0 ){
         	
@@ -257,36 +256,27 @@ class Tracking_OembedController extends Omeka_Controller_Action
 	    		$jsonPair = array('"type"', '"photo"');                		
 	    		$jsonPairs[] = $jsonPair;
 	    		
-	    		
 	    		// only the url needed in the rights
-	            if($rights && $license){						// both = show both 				PARSABLE
+	            if($rights && $license){
 	            	$finalRightsVal = $this->parseRights($license, true) . " : ";
 	            	
 	            	if($finalRightsVal == " : "){
 	            		$finalRightsVal = $license . " : ";
 	            	}
-	            	
 	            	if(item_field_uses_html('Dublin Core', 'Rights')){
 	            		$finalRightsVal .= $this->parseRights($rights, true);
 	            	}
 	            	else{
 	            		$finalRightsVal .= $rights;
 	            	}
-	            	//error_log("rights and license " . $finalRightsVal);
 	            }
-	            elseif($rights && !$license){					// just rights = show default only	NOT PARSABLE
+	            elseif($rights && !$license){
 	            	$finalRightsVal = $rightsDef;
-	            	
-	            	//error_log("rights only " . $finalRightsVal);
-
 	            }
-	            elseif(!$rights && $license){	// just license = show license only PARSABLE
+	            elseif(!$rights && $license){
 	            	$finalRightsVal = $this->parseRights($license, true);
-	            	
-	            	//error_log("license only: " . $finalRightsVal);
-
 	            }
-	            else{							//neither							NOT PARSABLE
+	            else{
 	            	$finalRightsVal = $rightsDef;
 	            }
 	    		
