@@ -45,7 +45,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
         if($fmt!="json"){
             return;
         }
-
         
         preg_match_all('!\d+!', $url, $itemId);
         
@@ -71,14 +70,14 @@ class Tracking_OembedController extends Omeka_Controller_Action
 
         // format rights
        	
-        $rights		= null;
-        $license	= null;
-        $rightsDef	= "All rights reserved";
-       	$license = item(ELEMENT_SET_ITEM_TYPE, "license");
-        $rights = item('Dublin Core', 'Rights'); // 'Rights' => 'license'
-        $finalRightsVal = "";
+        $rights			= null;
+        $license		= null;
+        $rightsDef		= "All rights reserved";
+       	$license		= item(ELEMENT_SET_ITEM_TYPE, "license");
+        $rights			= item('Dublin Core', 'Rights'); // 'Rights' => 'license'
+        $finalRightsVal	= "";
         
-        if($rights && $license){		// both = show both 				PARSABLE
+        if($rights && $license){	// both = show both 				PARSABLE
         	$finalRightsVal = $this->parseRights($license) . " : ";
         	
         	if($finalRightsVal == " : "){
@@ -249,8 +248,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
 	    		$jsonPairs[] = $jsonPair;
 	    		
 	    		
-	    		
-	    		
 	    		// only the url needed in the rights
 	            if($rights && $license){						// both = show both 				PARSABLE
 	            	$finalRightsVal = $this->parseRights($license, true) . " : ";
@@ -304,10 +301,9 @@ class Tracking_OembedController extends Omeka_Controller_Action
         	$jsonPair = array('"type"', '"video"');                		
         	$jsonPairs[] = $jsonPair;
         	
-        	$videoUrl = WEB_ROOT . '/track_embed/download/' . $itemId;
-        	//$videoUrl = file_display_uri($file, $format = 'archive'); 
+        	$videoUrl = WEB_ROOT . '/track_embed/download/' . $itemId;		// via download controller
+        	//$videoUrl = file_display_uri($file, $format = 'archive'); 	// via omeka uri
         	$videoUrl = json_encode($videoUrl);
-	   		
         	
         	$videoUrl = str_replace('"', '', $videoUrl);
         	$videoHtml = '"\u003ciframe src=\"' . $videoUrl . '\" frameborder=\"0\" width=\"' . $width . '\" height=\"' . $height . '\" allowfullscreen\u003e\u003c\/iframe\u003e"';
@@ -368,8 +364,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         }
         */
     	
-    	
-
+    
     	
     	
         // output 
@@ -383,10 +378,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         $result = str_replace('<', "\u003c", $result);
         $result = str_replace('>', "\u003e", $result);
         
-        //error_log("<http://google.co.uk>");
-        //error_log(json_encode('<http://google."co".uk>'));
-        //echo utf8_encode( $result );
-        //echo json_encode( $result );
+        error_log("\n\nRESULT:\n" . $result);
         echo $result;
  	}
    	
