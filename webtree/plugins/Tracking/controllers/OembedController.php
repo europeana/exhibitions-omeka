@@ -77,7 +77,20 @@ class Tracking_OembedController extends Omeka_Controller_Action
         $rights			= item('Dublin Core', 'Rights'); // 'Rights' => 'license'
         $finalRightsVal	= "";
         
-        if($rights && $license){	// both = show both 				PARSABLE
+        /* Logic for rights:
+         * 
+         * 				(1)		(2)		(3)		(4)
+         * RIGHTS		 Y		 Y		 N		 N
+         * LICENSE		 Y		 N		 Y		 N
+         * 
+         * (1)	Show both, separated by a ":"
+         * (2)	Show neither (show default)
+         * (3)	Show license
+         * (4)	Show neither (show default)
+         * 
+         * 
+         */
+        if($rights && $license){
         	$finalRightsVal = $this->parseRights($license) . " : ";
         	
         	if($finalRightsVal == " : "){
@@ -91,20 +104,18 @@ class Tracking_OembedController extends Omeka_Controller_Action
         		$finalRightsVal .= $rights;
         	}
         }
-        elseif($rights && !$license){	// just rights = show default only	NOT PARSABLE
+        elseif($rights && !$license){
         	$finalRightsVal = $rightsDef;
         }
-        elseif(!$rights && $license){	// just license = show license only PARSABLE
+        elseif(!$rights && $license){
         	$finalRightsVal = $this->parseRights($license);
         }
-        else{							//neither							NOT PARSABLE
+        else{
         	$finalRightsVal = $rightsDef;
         }
-    	
         $finalRightsValHtml = $finalRightsVal;
-        
-        $finalRightsVal	= html_escape($finalRightsVal);
-        $finalRightsVal = json_encode($finalRightsVal);
+        $finalRightsVal		= html_escape($finalRightsVal);
+        $finalRightsVal		= json_encode($finalRightsVal);
 
     	// end rights
        	
@@ -170,7 +181,8 @@ class Tracking_OembedController extends Omeka_Controller_Action
         preg_match("/pdf/",   $mime, $pdfMatches);
         preg_match("/^audio/", $mime, $audioMatches);
 
-        $rich = false;
+        $rich = item(ELEMENT_SET_ITEM_TYPE, "oembed rich");
+        error_log("oembedRich = " . $rich);
         
         if( sizeof($imgMatches) > 0 ){
         	
@@ -211,7 +223,6 @@ class Tracking_OembedController extends Omeka_Controller_Action
 	        			.		 	'<a href="'.$url.'">'
 	        			.				'<img width="100%" src="' . WEB_ROOT . '/track_embed/download/' . $item->id . '"/>'
 	        			.			'</a>'
-	        			
 	        			.			'<div style="float:left; clear:both; position: relative; top: -2.5em; margin-left: 1em; font-size:1.2em; font-weight:bold;">'
 	        			.  				$finalRightsValHtml
 	        			.			'</div>'
@@ -242,8 +253,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
 	    		$jsonPair = array('"thumbnail_height"',	json_encode($thumbnailHeight) );                		
 	    		$jsonPairs[] = $jsonPair;                	                		
 	      		$jsonPair = array('"url"', json_encode(WEB_ROOT . '/track_embed/download/' . $item->id) );                		
-	    		$jsonPairs[] = $jsonPair;                	                		
-
+	    		$jsonPairs[] = $jsonPair;
 	    		$jsonPair = array('"type"', '"photo"');                		
 	    		$jsonPairs[] = $jsonPair;
 	    		
@@ -378,7 +388,7 @@ class Tracking_OembedController extends Omeka_Controller_Action
         $result = str_replace('<', "\u003c", $result);
         $result = str_replace('>', "\u003e", $result);
         
-        error_log("\n\nRESULT:\n" . $result);
+        //error_log("\n\nRESULT:\n" . $result);
         echo $result;
  	}
    	
