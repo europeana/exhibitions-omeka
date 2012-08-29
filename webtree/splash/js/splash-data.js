@@ -94,6 +94,42 @@ var splashData = function(){
 		
 		var manuscripts = { "contextmenu" : "manuscripts and princes", "featured": false, "img": "splash/img/imgManuscripts.jpg", "overlay": "splash/logos/logo-tel-white.png", "overlay_class":"overlay-tel", "name": "Manuscripts and Princes", "title" : "Manuscripts and Princes in Medieval and Renaissance Europe", "partner": {"site":"http://www.theeuropeanlibrary.org/tel4/virtual/regia/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Manuscripts: http://www.theeuropeanlibrary.org/tel4/virtual/regia" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/tel4/virtual/regia" } ] }   };
 		
+		
+		/* being european */
+		var beingEuropean = {	"contextmenu" : "being european", "featured": true,
+								"img": "splash/img/imgBeingEuropean.jpg",
+								"name": "Being European",
+								"title" : "Being European",
+								"partner": {"site":"http://euscreen.eu/exhibitions.html?id=beingeuropean", "label":"Open partner exhibition"},
+								"menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif",
+									"items":[
+									        {	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+												"goto": "//twitter.com/intent/tweet?text=Being European: http://euscreen.eu/exhibitions.html?id=beingeuropean" },
+											{	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+												"goto": "//facebook.com/sharer/sharer.php?u=http://euscreen.eu/exhibitions.html?id=beingeuropean" }
+											]
+										}
+								};
+		
+		/* history of european tv */
+
+		var historyOfTv = {	"contextmenu" : "history of european television", "featured": true,
+				"img": "splash/img/imgHistoryOfEuropeanTv.jpg",
+				"name": "History of European Television",
+				"title" : "History of European Television",
+				"partner": {"site":"http://euscreen.eu/exhibitions.html?id=history", "label":"Open partner exhibition"},
+				"menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif",
+					"items":[
+					        {	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+								"goto": "//twitter.com/intent/tweet?text=History of European Television: http://euscreen.eu/exhibitions.html?id=history" },
+							{	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+								"goto": "//facebook.com/sharer/sharer.php?u=http://euscreen.eu/exhibitions.html?id=history" }
+							]
+						}
+				};
+
+
+		
 		return [
 		        sports,
 		        nineteenfourteen,
@@ -103,6 +139,10 @@ var splashData = function(){
 		        mimo,
 		        yiddish,
 		        nouveau,
+		        
+		        beingEuropean,
+		        historyOfTv,
+		        
 		        manuscripts,
 		        travelling,
 		        reading,
