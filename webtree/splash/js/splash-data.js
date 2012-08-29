@@ -96,7 +96,7 @@ var splashData = function(){
 		
 		
 		/* being european */
-		var beingEuropean = {	"contextmenu" : "being european", "featured": true,
+		var beingEuropean = {	"contextmenu" : "being european", "featured": false,
 								"img": "splash/img/imgBeingEuropean.jpg",
 								
 								"overlay":"splash/img/EUscreen-logo.png",
@@ -117,7 +117,7 @@ var splashData = function(){
 		
 		/* history of european tv */
 
-		var historyOfTv = {	"contextmenu" : "history of european television", "featured": true,
+		var historyOfTv = {	"contextmenu" : "history of european television", "featured": false,
 				"img": "splash/img/imgHistoryOfEuropeanTv.jpg",
 				
 				"overlay":"splash/img/EUscreen-logo.png",
