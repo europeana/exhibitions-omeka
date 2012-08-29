@@ -98,6 +98,10 @@ var splashData = function(){
 		/* being european */
 		var beingEuropean = {	"contextmenu" : "being european", "featured": true,
 								"img": "splash/img/imgBeingEuropean.jpg",
+								
+								"overlay":"splash/img/EUscreen-logo.png",
+								"overlay_class":"eu-screen-overlay",
+								
 								"name": "Being European",
 								"title" : "Being European",
 								"partner": {"site":"http://euscreen.eu/exhibitions.html?id=beingeuropean", "label":"Open partner exhibition"},
@@ -115,6 +119,10 @@ var splashData = function(){
 
 		var historyOfTv = {	"contextmenu" : "history of european television", "featured": true,
 				"img": "splash/img/imgHistoryOfEuropeanTv.jpg",
+				
+				"overlay":"splash/img/EUscreen-logo.png",
+				"overlay_class":"eu-screen-overlay",
+
 				"name": "History of European Television",
 				"title" : "History of European Television",
 				"partner": {"site":"http://euscreen.eu/exhibitions.html?id=history", "label":"Open partner exhibition"},

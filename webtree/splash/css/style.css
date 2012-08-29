@@ -182,7 +182,7 @@ header img.share{
 
 /****** Branding / secondary branding ******/
 
-.overlay, .partner-overlay, .overlay-tel{
+.overlay, .partner-overlay, .overlay-tel, .eu-screen-overlay{
 	position:		absolute;
 	margin:			0;
 	top:			0.5em;
@@ -203,6 +203,10 @@ header img.share{
 	width:	20%;
 }
 
+.eu-screen-overlay{
+	width:	38%;
+	left:	0;
+}
 
 /****** Text overlay on the small boxes ******/
 
