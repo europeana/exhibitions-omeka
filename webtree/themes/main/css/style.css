@@ -1,6 +1,6 @@
 /* HTML ELEMENTS *******************************************************************************************************/
 body {
-    margin: .5em auto 4em auto !important;
+    margin: .5em auto 4em auto !important; /* margin top should be 0 to make it flush if Navigation banner goes into place */
 }
 
 dt {
@@ -23,7 +23,28 @@ em {
 /* PAGE SECTIONS *******************************************************************************************************/
 
 
+/* NAVIGATION AREA
+
+/*
+.nav {
+    background-color: #333;
+    font-size: 16px;
+    width: 100%;
+    padding: 8px 0 8px 14%;
+    margin-bottom: 20px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+*/
+
+
 /* HEADER *********************************************************/
+
+
 #header {
     xxxxxxxxxheight: 150px;
     position: relative;
