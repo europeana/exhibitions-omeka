@@ -155,7 +155,7 @@
 	</head>
 
 	<body<?php echo isset($bodyid) ? ' id="' . $bodyid . '"' : ''; ?><?php echo isset($bodyclass) ? ' class="' . $bodyclass . '"' : ''; ?>>
-	
+	<!--<div class="nav">Go to Europeana Portal</div>-->
 	<div class="container">
 		
 	    <div id="header" class="row">

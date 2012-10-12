@@ -34,6 +34,12 @@
 			<a href="<?php echo uri('about-exhibitions');?>"><?php echo ve_translate("about-exhibitions", "About Exhibitions");?></a>
 		</div>
 
+	<!-- Added in by Dean, this is an extra link to return to the Europeana portal-->
+
+		<div class="wrap_at_320">
+			<a href="http://www.europeana.eu" title="Click here to go to the Europeana portal" rel="me">Go to Europeana Portal</a>
+		</div>
+
 	</div>
 
 	
