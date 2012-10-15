@@ -96,6 +96,7 @@ var splashData = function(){
 		
 		
 		/* being european */
+		
 		var beingEuropean = {	"contextmenu" : "being european", "featured": false,
 								"img": "splash/img/imgBeingEuropean.jpg",
 								
@@ -116,7 +117,7 @@ var splashData = function(){
 								};
 		
 		/* history of european tv */
-
+		
 		var historyOfTv = {	"contextmenu" : "history of european television", "featured": false,
 				"img": "splash/img/imgHistoryOfEuropeanTv.jpg",
 				
@@ -135,9 +136,113 @@ var splashData = function(){
 							]
 						}
 				};
+		
+		
+		
+		/* ski-jumping and water sports */
+		
+			
+		var waterSports = {
+				"contextmenu" : "ski-jumping and water sports",
+				"featured": false,
+				"img" : "splash/img/waterSports.jpg",
+				"overlay":"splash/img/EUscreen-logo.png",
+				"overlay_class":"eu-screen-overlay",
+				"name": "Ski-Jumping and Water Sports",
+				"title": "Ski-Jumping and Water Sports",				
+				"partner": {"site":"http://euscreen.eu/exhibitions.html?id=skijumping", "label":"Open partner exhibition"},
+
+				"menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif",
+					"items":[
+					        {	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+								"goto": "//twitter.com/intent/tweet?text=Ski-Jumping and Water Sports: http://euscreen.eu/exhibitions.html?id=skijumping" },
+							{	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+								"goto": "//facebook.com/sharer/sharer.php?u=http://euscreen.eu/exhibitions.html?id=skijumping" }
+							]
+						}
+				};
+
+		
+		/* hungarian music and dance */
+
+		var hungarianMusicAndDance = {
+			"contextmenu" : "Hungarian Music and Dance",
+			"featured": false,
+			"img" : "splash/img/hungarianMusicAndDance.jpg",
+			"overlay":"splash/img/EUscreen-logo.png",
+			"overlay_class":"eu-screen-overlay",
+			"name": "Hungarian Music and Dance",
+			"title": "Hungarian Music and Dance",				
+			"partner": {"site":"http://euscreen.eu/exhibitions.html?id=hungarianmusicanddance", "label":"Open partner exhibition"},
+
+			"menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif",
+				"items":[
+				        {	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+							"goto": "//twitter.com/intent/tweet?text=Hungarian Music and Dance: http://euscreen.eu/exhibitions.html?id=hungarianmusicanddance" },
+						{	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+							"goto": "//facebook.com/sharer/sharer.php?u=http://euscreen.eu/exhibitions.html?id=hungarianmusicanddance" }
+						]
+					}
+			};
+
+		
+		
+		/* the Euro */
+		
+
+		var theEuro = {
+				"contextmenu" : "The Euro",
+				"featured": false,
+				"img" : "splash/img/theEuro.jpg",
+				"overlay":"splash/img/EUscreen-logo.png",
+				"overlay_class":"eu-screen-overlay",
+				"name": "The Euro",
+				"title": "The Euro",				
+				"partner": {"site":"http://euscreen.eu/exhibitions.html?id=theeuro", "label":"Open partner exhibition"},
+
+				"menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif",
+					"items":[
+					        {	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+								"goto": "//twitter.com/intent/tweet?text=The Euro: http://euscreen.eu/exhibitions.html?id=theeuro" },
+							{	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+								"goto": "//facebook.com/sharer/sharer.php?u=http://euscreen.eu/exhibitions.html?id=theeuro" }
+							]
+						}
+				};
 
 
 		
+		/* Other Exhibitions */
+		
+		var otherExhibitions = {
+				"contextmenu" : "Other Exhibitions",
+				"featured": false,
+				"img" : "splash/img/otherExhibitions.gif",
+				"overlay":"splash/img/EUscreen-logo.png",
+				"overlay_class":"eu-screen-overlay",
+				"name": "Other Exhibitions",
+				"title": "Other Exhibitions",				
+				"partner": {"site":"http://euscreen.eu/exhibitions.html", "label":"Open partner exhibition"},
+
+				"menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif",
+					"items":[
+					        {	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+								"goto": "//twitter.com/intent/tweet?text=Other Exhibitions: http://euscreen.eu/exhibitions.html" },
+							{	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+								"goto": "//facebook.com/sharer/sharer.php?u=http://euscreen.eu/exhibitions.html" }
+							]
+						}
+				};
+
+		
+		
+		
+		
+		
+		//  http://euscreen.eu/exhibitions.html?id=skijumping#.UHa5Hm8bdI4
+			
+			
+			
 		return [
 		        sports,
 		        nineteenfourteen,
@@ -148,9 +253,6 @@ var splashData = function(){
 		        yiddish,
 		        nouveau,
 		        
-		        beingEuropean,
-		        historyOfTv,
-		        
 		        manuscripts,
 		        travelling,
 		        reading,
@@ -158,6 +260,15 @@ var splashData = function(){
 		        napoleon,
 		        treasures,
 		        buildings,
+
+		        waterSports,
+		        hungarianMusicAndDance,
+		        theEuro,
+
+		        beingEuropean,
+		        historyOfTv,
+		        otherExhibitions,
+
 		        athena,
 		        spices,
 		        expeditions
