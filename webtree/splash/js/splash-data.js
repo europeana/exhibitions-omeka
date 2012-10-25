@@ -217,7 +217,7 @@ var splashData = function(){
 		var otherExhibitions = {
 				"contextmenu" : "Other Exhibitions",
 				"featured": false,
-				"img" : "splash/img/otherExhibitions.gif",
+				"img" : "splash/img/otherExhibitions.jpg",
 				"overlay":"splash/img/EUscreen-logo.png",
 				"overlay_class":"eu-screen-overlay",
 				"name": "Other Exhibitions",
