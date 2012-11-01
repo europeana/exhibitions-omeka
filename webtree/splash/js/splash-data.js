@@ -139,23 +139,23 @@ var splashData = function(){
 		
 		
 		
-		/* ski-jumping and water sports */
+		/* ski-jumping and winter sports */
 		
 			
-		var waterSports = {
-				"contextmenu" : "ski-jumping and water sports",
+		var winterSports = {
+				"contextmenu" : "ski-jumping and winter sports",
 				"featured": false,
 				"img" : "splash/img/waterSports.jpg",
 				"overlay":"splash/img/EUscreen-logo.png",
 				"overlay_class":"eu-screen-overlay",
-				"name": "Ski-Jumping and Water Sports",
-				"title": "Ski-Jumping and Water Sports",				
+				"name": "Ski Jumping and Winter Sports",
+				"title": "Ski Jumping and Winter Sports",				
 				"partner": {"site":"http://euscreen.eu/exhibitions.html?id=skijumping", "label":"Open partner exhibition"},
 
 				"menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif",
 					"items":[
 					        {	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
-								"goto": "//twitter.com/intent/tweet?text=Ski-Jumping and Water Sports: http://euscreen.eu/exhibitions.html?id=skijumping" },
+								"goto": "//twitter.com/intent/tweet?text=Ski-Jumping and Winter Sports: http://euscreen.eu/exhibitions.html?id=skijumping" },
 							{	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
 								"goto": "//facebook.com/sharer/sharer.php?u=http://euscreen.eu/exhibitions.html?id=skijumping" }
 							]
@@ -212,22 +212,22 @@ var splashData = function(){
 
 
 		
-		/* Other Exhibitions */
+		/* EUscreen Exhibitions */
 		
-		var otherExhibitions = {
-				"contextmenu" : "Other Exhibitions",
+		var euscreenExhibitions = {
+				"contextmenu" : "EUscreen Exhibitions",
 				"featured": false,
 				"img" : "splash/img/otherExhibitions.jpg",
 				"overlay":"splash/img/EUscreen-logo.png",
 				"overlay_class":"eu-screen-overlay",
-				"name": "Other Exhibitions",
-				"title": "Other Exhibitions",				
+				"name": "EUscreen Exhibitions",
+				"title": "EUscreen Exhibitions",				
 				"partner": {"site":"http://euscreen.eu/exhibitions.html", "label":"Open partner exhibition"},
 
 				"menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif",
 					"items":[
 					        {	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
-								"goto": "//twitter.com/intent/tweet?text=Other Exhibitions: http://euscreen.eu/exhibitions.html" },
+								"goto": "//twitter.com/intent/tweet?text=EUscreen Exhibitions: http://euscreen.eu/exhibitions.html" },
 							{	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
 								"goto": "//facebook.com/sharer/sharer.php?u=http://euscreen.eu/exhibitions.html" }
 							]
@@ -252,6 +252,14 @@ var splashData = function(){
 		        mimo,
 		        yiddish,
 		        nouveau,
+
+		        winterSports,
+		        hungarianMusicAndDance,
+		        theEuro,
+
+		        beingEuropean,
+		        historyOfTv,
+		        euscreenExhibitions,
 		        
 		        manuscripts,
 		        travelling,
@@ -260,14 +268,6 @@ var splashData = function(){
 		        napoleon,
 		        treasures,
 		        buildings,
-
-		        waterSports,
-		        hungarianMusicAndDance,
-		        theEuro,
-
-		        beingEuropean,
-		        historyOfTv,
-		        otherExhibitions,
 
 		        athena,
 		        spices,
