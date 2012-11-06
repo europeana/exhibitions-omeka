@@ -65,3 +65,6 @@ $providers['Wiki Loves Monuments']['exhibit'] ='Wiki Loves Monuments';
 //$providers['Europeana 1914-1918']['comments'] = true;
 $providers['Europeana 1914-1918']['collection'] = 'Europeana 1914-1918';
 $providers['Europeana 1914-1918']['exhibit'] ='Europeana 1914-1918';
+
+$providers['Royal Books Collection']['collection'] = 'Royal Books Collection';
+$providers['Royal Books Collection']['exhibit'] = 'Royal Books Collection'
