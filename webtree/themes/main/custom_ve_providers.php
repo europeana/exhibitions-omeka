@@ -67,4 +67,4 @@ $providers['Europeana 1914-1918']['collection'] = 'Europeana 1914-1918';
 $providers['Europeana 1914-1918']['exhibit'] ='Europeana 1914-1918';
 
 $providers['Royal Books Collection']['collection'] = 'Royal Books Collection';
-$providers['Royal Books Collection']['exhibit'] = 'Royal Books Collection'
+$providers['Royal Books Collection']['exhibit'] = 'Royal Books Collection';
