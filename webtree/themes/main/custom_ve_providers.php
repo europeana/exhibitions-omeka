@@ -62,7 +62,7 @@ $providers['Wiki Loves Monuments']['exhibit'] ='Wiki Loves Monuments';
 $providers['Europeana 1914-1918']['collection'] = 'Europeana 1914-1918';
 $providers['Europeana 1914-1918']['exhibit'] ='Europeana 1914-1918';
 
-$providers['Royal Book Collections']['url'] = 'http://www.europeanaregia.eu/';
-$providers['Royal Book Collections']['logo'] = 'logo_europeana_regia.png';
+//$providers['Royal Book Collections']['url'] = 'http://www.europeanaregia.eu/';
+//$providers['Royal Book Collections']['logo'] = 'logo_europeana_regia.png';
 $providers['Royal Book Collections']['collection'] = 'Royal Book Collections';
 $providers['Royal Book Collections']['exhibit'] = 'Royal Book Collections';
