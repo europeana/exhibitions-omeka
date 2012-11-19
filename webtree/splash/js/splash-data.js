@@ -2,7 +2,7 @@ var splashData = function(){
 
 		/* royal book collections */
 
-		var sports = { "contextmenu" : "royalbookcollections", "featured": true, "img": "splash/img/royalbookcollections.jpg", "overlay": "splash/logos/logo-europeana-regia.png", "name": "Royal Book Collections", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Royal Book Collections: http://exhibitions.europeana.eu/exhibits/show/royal-book-collections-en" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/royal-book-collections-en" } ] }, 
+		var royalbookcollections = { "contextmenu" : "royalbookcollections", "featured": true, "img": "splash/img/royalbookcollections.jpg", "overlay": "splash/logos/logo-europeana-regia.png", "name": "Royal Book Collections", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Royal Book Collections: http://exhibitions.europeana.eu/exhibits/show/royal-book-collections-en" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/royal-book-collections-en" } ] }, 
 				
 				"languages":[
 				             {"langClass":"language-en-main", "link":"exhibits/show/royal-book-collections-en", "label":"English"},
