@@ -17,10 +17,6 @@
  *
  */
 
-
-/**
- * Andy: as far as I know the following data is not used
- * */
 		
 $providers = array();
 
