@@ -67,7 +67,7 @@ $providers['Europeana 1914-1918']['exhibit'] ='Europeana 1914-1918';
 $providers['Royal Book Collections']['collection'] = 'Royal Book Collections';
 $providers['Royal Book Collections']['exhibit'] = 'Royal Book Collections';
 
-//$providers['DPLA']['url'] = 'http://dp.la/';
-//$providers['DPLA']['logo'] = 'logo_dpla.png';
+$providers['DPLA']['url'] = 'http://dp.la/';
+$providers['DPLA']['logo'] = 'logo_dpla.png';
 $providers['DPLA']['collection'] = 'DPLA';
 $providers['DPLA']['exhibit'] = 'Migration';
