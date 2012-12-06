@@ -2,7 +2,7 @@ var splashData = function(){
 
 			/* dpla migration exhibition */
 
-		var migration = { "contextmenu" : "migration", "featured": false, "img": "splash/img/migration.jpg", "overlay": "splash/logos/logo-white.png", "name": "Migration", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Migration: http://exhibitions.europeana.eu/exhibits/show/migration-en" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/migration-en" } ] }, 
+		var migration = { "contextmenu" : "migration", "featured": false, "img": "splash/img/migration.jpg", "overlay": "splash/logos/logo-white.png", "partner_overlay":"splash/logos/logo_dpla.png", "name": "Migration", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Migration: http://exhibitions.europeana.eu/exhibits/show/migration-en" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/migration-en" } ] }, 
 				
 				"languages":[
 				             {"langClass":"language-en-main", "link":"exhibits/show/migration-en", "label":"English"},
