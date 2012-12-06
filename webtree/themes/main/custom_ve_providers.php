@@ -69,5 +69,5 @@ $providers['Royal Book Collections']['exhibit'] = 'Royal Book Collections';
 
 $providers['DPLA']['url'] = 'http://dp.la/';
 $providers['DPLA']['logo'] = 'logo_dpla.png';
-$providers['DPLA']['collection'] = 'DPLA';
-$providers['DPLA']['exhibit'] = 'migration';
+$providers['DPLA']['collection'] = 'Leaving Europe: A new life in America';
+$providers['DPLA']['exhibit'] = 'Leaving Europe: A new life in America';
