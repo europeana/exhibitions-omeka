@@ -6,6 +6,7 @@ var splashData = function(){
 				
 				"languages":[
 				             {"langClass":"language-en-main", "link":"exhibits/show/migration-en", "label":"English"},
+				              {"langClass":"language-fr-main", "link":"exhibits/show/migration-fr", "label":"Fran&ccedil;ais"}
 				             ]   
 
 		}; 
