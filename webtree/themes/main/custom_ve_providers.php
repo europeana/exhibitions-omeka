@@ -70,4 +70,4 @@ $providers['Royal Book Collections']['exhibit'] = 'Royal Book Collections';
 $providers['DPLA']['url'] = 'http://dp.la/';
 $providers['DPLA']['logo'] = 'logo_dpla.png';
 $providers['DPLA']['collection'] = 'DPLA';
-$providers['DPLA']['exhibit'] = 'Migration';
+$providers['DPLA']['exhibit'] = 'migration';
