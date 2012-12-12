@@ -2,12 +2,30 @@ var splashData = function(){
 
 			/* dpla migration exhibition */
 
-		var migration = { "contextmenu" : "migration", "featured": true, "img": "splash/img/migration.jpg", "overlay": "splash/logos/logo-white.png", "partner_overlay":"splash/logos/logo-dpla.png", "name": "Leaving Europe: A new life in America", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Leaving Europe - A new life in America: http://exhibitions.europeana.eu/exhibits/show/migration-europe-america-en" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/migration-europe-america-en" } ] }, 
-				
+		var migration = {
+				"contextmenu" : "migration",
+				"featured": true,
+				"img": "splash/img/migration.jpg",
+				"overlay": "splash/logos/logo-white.png",
+				"partner_overlay":"splash/logos/logo-dpla.png",
+				"name": "Leaving Europe: A new life in America",
+				"menu":{	
+					"label" : "Share on...", "icon": "splash/img/share_icon.gif",
+					"items":[
+					         {
+					        	 "label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+					        	 "goto": "//twitter.com/intent/tweet?text=Leaving Europe - A new life in America: http://exhibitions.europeana.eu/exhibits/show/migration-europe-usa-en"
+					         },
+					         {
+					        	 "label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+					        	 "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/migration-europe-usa-en"
+					         }
+					         ]
+				}, 
 				"languages":[
-				             {"langClass":"language-en-main", "link":"exhibits/show/migration-europe-america-en", "label":"English"},
-				              {"langClass":"language-fr-main", "link":"exhibits/show/migration-europe-america-fr", "label":"Fran&ccedil;ais"}
-				             ]   
+					{"langClass":"language-en-main", "link":"exhibits/show/migration-europe-usa-en", "label":"English"},
+					{"langClass":"language-fr-main", "link":"exhibits/show/migration-europe-usa-fr", "label":"Fran&ccedil;ais"}
+				 ]   
 
 		}; 
 
