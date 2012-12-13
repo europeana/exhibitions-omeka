@@ -14,17 +14,17 @@ var splashData = function(){
 					"items":[
 					         {
 					        	 "label": "Twitter", "icon": "splash/img/twitter_icon.gif",
-					        	 "goto": "//twitter.com/intent/tweet?text=Leaving Europe - A new life in America: http://exhibitions.europeana.eu/exhibits/show/migration-europe-usa-en"
+					        	 "goto": "//twitter.com/intent/tweet?text=Leaving Europe - A new life in America: http://exhibitions.europeana.eu/exhibits/show/europe-america-en"
 					         },
 					         {
 					        	 "label": "Facebook", "icon": "splash/img/facebook_icon.gif",
-					        	 "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/migration-europe-usa-en"
+					        	 "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/europe-america-en"
 					         }
 					         ]
 				}, 
 				"languages":[
-					{"langClass":"language-en-main", "link":"exhibits/show/migration-europe-usa-en", "label":"English"},
-					{"langClass":"language-fr-main", "link":"exhibits/show/migration-europe-usa-fr", "label":"Fran&ccedil;ais"}
+					{"langClass":"language-en-main", "link":"exhibits/show/europe-america-en", "label":"English"},
+					{"langClass":"language-fr-main", "link":"exhibits/show/europe-america-fr", "label":"Fran&ccedil;ais"}
 				 ]   
 
 		}; 
