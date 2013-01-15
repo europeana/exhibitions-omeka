@@ -33,6 +33,23 @@ img{
     
     <!-- this will be replaced, but copy the links (defined in splash.js) here for SEO purposes -->
     <h1>Europeana Exhibitions</h1>
+    
+    
+    
+    
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/europe-america-en">Leaving Europe: A new life in America (English)</a></h2>
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/europe-america-fr">Leaving Europe: A new life in America (French)</a></h2>
+    
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/royal-book-collections-en">Royal Book Collections (English)</a></h2>
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/royal-book-collections-fr">Royal Book Collections (French)</a></h2>
+        
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/european-sports-en">European Sport Heritage (English)</a></h2>
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/european-sports-es">European Sport Heritage (Spanish)</a></h2>
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/european-sports-fr">European Sport Heritage (French)</a></h2>
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/european-sports-de">European Sport Heritage (German)</a></h2>
+    
+    
+    
 	<h2><a href="http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-en">1914-1918 (English)</a></h2>
 	<h2><a href="http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-fr">1914-1918 (French)</a></h2>
 	<h2><a href="http://exhibitions.europeana.eu/exhibits/show/europeana-1914-1918-de">1914-1918 (German)</a></h2>
@@ -75,9 +92,19 @@ img{
 	<h2><a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-lv">Art Nouveau (Latvian)</a></h2>
 	
 	
+	<!-- eu screen stuff -->
+	
+	<h2><a href="http://euscreen.eu/exhibitions.html?id=skijumping">Ski Jumping and Winter Sports</a></h2>
+	<h2><a href="http://euscreen.eu/exhibitions.html?id=hungarianmusicanddance">Hungarian Music and Dance</a></h2>
+	<h2><a href="http://euscreen.eu/exhibitions.html?id=theeuro">The Euro</a></h2>
+	<h2><a href="http://euscreen.eu/exhibitions.html?id=beingeuropean">Being European</a></h2>
+	<h2><a href="http://euscreen.eu/exhibitions.html?id=history">History of European Television</a></h2>
+	<h2><a href="http://euscreen.eu/exhibitions.html">EUscreen Exhibitions</a></h2>
+	
+	
 	<!-- tel stuff -->
 
-	<h2><a href="http://expeditions.biodiversityexhibition.com/"/>Expeditia</a></h2>
+	<h2><a href="http://expeditions.biodiversityexhibition.com/"/>Expeditions</a></h2>
 
 	<h2><a href="http://www.theeuropeanlibrary.org/exhibition-travel-history/index.html">Travelling Through History</a></h2>
 	
