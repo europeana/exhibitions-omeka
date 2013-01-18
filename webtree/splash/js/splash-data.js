@@ -65,6 +65,8 @@ var splashData = function(){
 		var wikiLoves = { "contextmenu" : "wiki-loves-artnouveau", "featured": false, "img": "splash/img/img21.jpg", "overlay": "splash/logos/logo-white.png", "partner_overlay":"splash/logos/logo_wiki_loves_monuments.png", "name": "Wiki Loves Art Nouveau", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Wiki Loves Art Nouveau: http://exhibitions.europeana.eu/exhibits/show/wiki-loves-art-nouveau" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/wiki-loves-art-nouveau" } ] }, "languages":[{"langClass":"language-en-main", "link":"exhibits/show/wiki-loves-art-nouveau", "label":"English"}, {"langClass":"language-ru-main", "link":"exhibits/show/wiki-loves-art-ru", "label":"Russian"}]   };
 
 
+		
+		
 		/* expeditions */
 
 		var expeditions = { "contextmenu" : "expeditions", "featured": false, "img": "splash/img/bhl_img1.jpg", "overlay": "splash/logos/logo-bhl.png", "overlay_class":"overlay-tel", "name": "Expeditions", "partner": {"site":"http://expeditions.biodiversityexhibition.com/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Expeditions: http://expeditions.biodiversityexhibition.com/" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://expeditions.biodiversityexhibition.com/" } ] }   };
@@ -107,7 +109,7 @@ var splashData = function(){
 		var flyingMachines = { 
 				"contextmenu" : "science-and-machines",
 				"featured": false,
-				"img": "splash/img/steam-driven-vehicles-and-flying-machines-829.jpg",
+				"img": "splash/img/TEL.jpg",
 				"overlay": "splash/logos/logo-tel-white.png",
 				"overlay_class":"overlay-tel",
 				"name": "Science & Machines",
@@ -157,6 +159,40 @@ var splashData = function(){
 
 		var athena =  { "contextmenu" : "a-voyage-with-the-gods", "featured": false, "img": "splash/img/athena_img1.jpg", "overlay": "splash/logos/logo-athena.png", "name": "A Voyage With The Gods", "partner": {"site":"http://151.12.58.141/virtualexhibition/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=A Voyage With The Gods: http://151.12.58.141/virtualexhibition/" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://151.12.58.141/virtualexhibition/" } ] }   };
 
+		
+		/* poisonous nature */
+
+		var poisonousNature = {
+				"contextmenu" : "poisonous-nature",
+				"featured": false,
+				"img": "splash/img/BHL_Poisonous-Nature.jpg",
+				"overlay": "splash/logos/logo-bhl.png",
+				"overlay_class":"overlay-tel",
+				"name": "Poisonous Nature",
+				"partner":{
+							"site":"http://poisonousnature.biodiversityexhibition.com/en/card/giant-centipede",
+							"label":"Open partner exhibition"
+				},
+				"menu":{
+							"label" : "Share on...",
+							"icon": "splash/img/share_icon.gif",
+							"items":[
+							         {
+							        	 "label": "Twitter",
+							        	 "icon": "splash/img/twitter_icon.gif",
+							        	 "goto": "//twitter.com/intent/tweet?text=Poisonous Nature: http://poisonousnature.biodiversityexhibition.com/en/card/giant-centipede"
+							        },
+							        {
+							        	"label": "Facebook",
+							        	"icon": "splash/img/facebook_icon.gif",
+							        	"goto": "//facebook.com/sharer/sharer.php?u=http://poisonousnature.biodiversityexhibition.com/en/card/giant-centipede"
+							        }
+							  ]
+					}
+		};
+
+			
+		
 		/* spices */
 
 		var spices = { "contextmenu" : "spices", "featured": false, "img": "splash/img/bhl_img2.jpg", "overlay": "splash/logos/logo-bhl.png", "overlay_class":"overlay-tel", "name": "Spices", "partner": {"site":"http://spices.biodiversityexhibition.com/", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Spices: http://spices.biodiversityexhibition.com/" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://spices.biodiversityexhibition.com/" } ] }   };
@@ -341,6 +377,8 @@ var splashData = function(){
 		        buildings,
 
 		        athena,
+		        
+		        poisonousNature,
 		        spices,
 		        expeditions
 		        ];
