@@ -104,7 +104,7 @@ img{
 	
 	<!-- tel stuff -->
 
-	<h2><a href="http://expeditions.biodiversityexhibition.com/"/>Expeditions</a></h2>
+	<h2><a href="http://www.theeuropeanlibrary.org/tel4/virtual/science"/>Science & Machines</a></h2>
 
 	<h2><a href="http://www.theeuropeanlibrary.org/exhibition-travel-history/index.html">Travelling Through History</a></h2>
 	
@@ -121,6 +121,8 @@ img{
 	<h2><a href="http://151.12.58.141/virtualexhibition/">A Voyage With The Gods</a></h2>
 	
 	<h2><a href="http://spices.biodiversityexhibition.com/">Spices</a></h2>
+
+	<h2><a href="http://expeditions.biodiversityexhibition.com/"/>Expeditions</a></h2>
 	
     </div>
 </div>
