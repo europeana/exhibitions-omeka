@@ -102,6 +102,33 @@ var splashData = function(){
 		{"langClass":"language-lv-artnouveau", "link":"exhibits/show/art-nouveau-lv", "label":"Latvie&scaron;u"}
 		]};
 
+		/* flying machines */
+		
+		var flyingMachines = { 
+				"contextmenu" : "science-and-machines",
+				"featured": false,
+				"img": "splash/img/steam-driven-vehicles-and-flying-machines-829.jpg",
+				"overlay": "splash/logos/logo-tel-white.png",
+				"overlay_class":"overlay-tel",
+				"name": "Science & Machines",
+				"partner": {
+					"site":"http://www.theeuropeanlibrary.org/tel4/virtual/science",
+					"label":"Open partner exhibition"
+				},
+				"menu":{
+					"label" : "Share on...", "icon": "splash/img/share_icon.gif",
+					"items":[
+					         {	"label": "Twitter",
+					        	 "icon": "splash/img/twitter_icon.gif",
+					        	 "goto": "//twitter.com/intent/tweet?text=Science & Machines: http://www.theeuropeanlibrary.org/tel4/virtual/science"
+					         },
+					         {
+					        	 "label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/tel4/virtual/science" 
+					        }
+					         ]
+					} 
+				};
+		
 		/* traveling thrugh history */
 		
 		var travelling = { "contextmenu" : "travelling-through-history", "featured": false, "img": "splash/img/tel_img21.jpg", "overlay": "splash/logos/logo-tel-black.png", "overlay_class":"overlay-tel", "name": "Travelling Through History", "partner": {"site":"http://www.theeuropeanlibrary.org/exhibition-travel-history/index.html", "label":"Open partner exhibition"}, "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Travelling Through History: http://www.theeuropeanlibrary.org/exhibition-travel-history/index.html" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://www.theeuropeanlibrary.org/exhibition-travel-history/index.html" } ] }   };
@@ -305,6 +332,7 @@ var splashData = function(){
 		        historyOfTv,
 		        euscreenExhibitions,
 		        
+		        flyingMachines,
 		        travelling,
 		        reading,
 		        roma,
