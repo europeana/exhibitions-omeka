@@ -62,8 +62,7 @@ function tracking_uninstall()
 
 function tracking_define_routes($router)
 {
-	error_log("Embed route (1)");
-	
+
     $router->addRoute(
         'track_embed_download_route', 
         new Zend_Controller_Router_Route(
@@ -75,7 +74,7 @@ function tracking_define_routes($router)
                 )
         )
 	);
-	error_log("Embed route (2)");
+
     $router->addRoute(
             'track_embed_oembed_route', 
             new Zend_Controller_Router_Route(
@@ -88,7 +87,7 @@ function tracking_define_routes($router)
             )
     	);
 
-    error_log("Embed route (3)");
+
     $router->addRoute(
             'track_embed_oembed_test_route', 
             new Zend_Controller_Router_Route(
@@ -100,6 +99,5 @@ function tracking_define_routes($router)
                     )
             )
     	);
-    error_log("Embed route (3)");
 
 }
