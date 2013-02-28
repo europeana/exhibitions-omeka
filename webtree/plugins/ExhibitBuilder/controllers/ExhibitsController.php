@@ -125,8 +125,24 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
         }
         
         $sectionSlug = $this->_getParam('section_slug');
-        $exhibitSection = $exhibit->getSectionBySlug($sectionSlug);
         
+        
+        // EUROPEANA CHANGE
+        /*
+        if($sectionSlug == "theme-map"){
+        	$_SESSION['themes_map'] = true;
+        	$sectionSlug = "themes";
+        }
+        else if($sectionSlug == "themes"){
+        	$_SESSION['themes_map'] = false;
+        }
+        error_log("Exhibits Controller: sectionSlug = " . $sectionSlug);
+        */
+        // EUROPEANA CHANGE
+        
+        
+        $exhibitSection = $exhibit->getSectionBySlug($sectionSlug);
+
         if ($exhibitSection) {
             $pageSlug = $this->_getParam('page_slug');
             $exhibitPage = $exhibitSection->getPageBySlug($pageSlug);            
