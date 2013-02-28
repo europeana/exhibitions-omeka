@@ -68,6 +68,10 @@
 		<sl>Začetek razstave</sl>
 
     </exhibit-start>
+    <exhibit-start-map>
+        <en>Start Exhibition as Map</en>
+    </exhibit-start-map>
+    
     <exhibits-none-this-language>
         <en>There are currently no exhibitions available in your chosen language</en>
         <nl>Er zijn momenteel geen tentoonstellingen beschikbaar in uw gekozen taal</nl>
