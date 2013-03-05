@@ -43,7 +43,6 @@ $_SESSION['themes_uri'] = uri();
 <script type="text/javascript">
 
 	jQuery(document).ready(function(){
-		alert("hi");
 		var elRef  = document.getElementById("elRefStyle");
 		var imgUrl = "";
 		if(elRef.currentStyle) {		// IE / Opera
@@ -236,16 +235,6 @@ $_SESSION['themes_uri'] = uri();
 
 
 
-<div class="row">
-	<div id="mobile_shares" class="twelve columns">
-		<div class="theme-center-outer">
-			<div class="theme-center-middle">
-    	    	<div class="theme-center-inner">
-					<?php echo getAddThisMobile(); ?>
-				</div>
-			</div>
-		</div>
-	</div> <!-- leave row open for footer to close -->
 
 
 
