@@ -126,18 +126,21 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
         
         $sectionSlug = $this->_getParam('section_slug');
         
-        
         // EUROPEANA CHANGE
-        /*
-        if($sectionSlug == "theme-map"){
-        	$_SESSION['themes_map'] = true;
-        	$sectionSlug = "themes";
+        
+        if( substr($sectionSlug, -strlen("themes-map")) == "themes-map" ){
+        	$_SESSION['theme-map'] = true;
+        	$sectionSlug = substr($sectionSlug, 0, strlen($sectionSlug) - strlen("-map") );
+        	
+            error_log("Exhibits Controller: UPDATED sectionSlug = " . $sectionSlug);
+            
         }
-        else if($sectionSlug == "themes"){
-        	$_SESSION['themes_map'] = false;
+        else{
+        	$_SESSION['theme-map'] = false;	
         }
+        
         error_log("Exhibits Controller: sectionSlug = " . $sectionSlug);
-        */
+        
         // EUROPEANA CHANGE
         
         
