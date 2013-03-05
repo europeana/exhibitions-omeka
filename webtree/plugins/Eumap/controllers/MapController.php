@@ -25,6 +25,12 @@ class Eumap_MapController extends Omeka_Controller_Action
 
         $eumap = $mapTable->find($_POST['id']);
 
+        $points = $eumap -> getStoryPoints();
+        
+		foreach ($points as $point) {
+			$point -> delete();
+		}
+        
    		$eumap->delete();
    		
    		$this->redirect->gotoUrl('eumap');
