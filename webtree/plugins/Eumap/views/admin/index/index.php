@@ -331,12 +331,13 @@
 					><?php echo html_escape( $map->se_lon);			?></td>
 				<td class="se_lat"
 					><?php echo html_escape( $map->se_lat);			?></td>
-				<td class="<?php echo $map->id	?>"
-					><input type="submit" class="editMap" value="Edit"	/></td>
+				<td class="<?php echo $map->id	?>">
+					<a class="editMap">Edit</a>
+				</td>
 				<td>
 					<form method="post" action="eumap/map/delete">
 						<input type="hidden" name="id" value="<?php echo $map->id	?>" />
-						<input type="submit" value="Delete"/>
+						<a onClick="jQuery(this).parent().submit();">Delete</a>
 					</form>
 				</td>
 
