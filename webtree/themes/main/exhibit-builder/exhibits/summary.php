@@ -190,37 +190,23 @@ $exhibit = get_current_exhibit();
         </div>
         
 		<h4 class="styled-text">
-			<a class='widget'
-				href="<?php echo $themesUrl; ?>">
 				
-				<!-- 
-				 href="<php echo exhibit_builder_exhibit_uri(get_current_exhibit(), get_current_exhibit_section()); >">
-				 -->
-				 
-				 
-				 
-		    	<?php
-	        		if( class_exists('EUMap') ){	// make sure EUMaps plug-in is installed
-	        			
-		        		$tags = get_current_exhibit()->getTags();
-		        		$mapTable = get_db()->getTable('EUMap');
-		        		
-		        		foreach ($tags as $tag) {
-			        	    $maps = $mapTable->fetchObjects( "SELECT * FROM omeka_eu_maps where tag = '" . $tag . "'");
-			        	    if(!empty($maps)){
-			        			echo (ve_translate('exhibit-start-map', 'Start Exhibition') );
-			        			echo ('<img src="'.img('arrow-right.png').'"/>');
-			        			echo ('<br/>');
-			        	    	break;
-			        	    }
-		        		}	        			
-	        		}
-				?>
-				
+	    	<?php
+	    		if(exhibit_has_map(get_current_exhibit())){
+	    			echo ('<a class="widget" href="' . $themesUrl . '-map">');
+        			echo (		ve_translate('exhibit-start-map', 'Start Exhibition') );
+        			echo (		'<img src="' . img('arrow-right.png') . '"/>');
+        			echo ('</a>');
+        			echo ('<br/>');
+	    		}
+			?>
+			
+			<a class='widget' href="<?php echo $themesUrl; ?>">
 					    
 				<?php echo ve_translate('exhibit-start', 'Start Exhibition'); ?><img src="<?php echo img('arrow-right.png');?>"/>
 				
 			</a>
+			
 		</h4>
 
         
