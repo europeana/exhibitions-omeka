@@ -49,10 +49,6 @@ function exhibit_map_data($exhibit){
 	return null;
 }
 
-function exhibit_map_marker_data($exhibit){
-	
-	error_log("find marker data on  "  .  $exhibit . " " );
-	
-//	return get_db()->getTable('Exhibit')->findBy( array('tags' => $exhibit->$tags, 'tags' => $exhibit->$tags) );
-	return get_db()->getTable('Exhibit')->findBy( array('tags' => $exhibit) );
+function exhibit_map_title_url_img($pageId){
+
 }
