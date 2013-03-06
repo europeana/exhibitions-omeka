@@ -24,25 +24,30 @@ function eumap_install()
     $sql = "
    		CREATE TABLE IF NOT EXISTS `$db->EUMap` (
           `id`				int(10) unsigned NOT NULL AUTO_INCREMENT,
-          `img`				varchar(255) NOT NULL,
           `tag`				varchar(255) NOT NULL,
-          `nw_lat`			varchar(7) NOT NULL,
-          `nw_lon`			varchar(7) NOT NULL,
-          `se_lat`			varchar(7) NOT NULL,
-          `se_lon`			varchar(7) NOT NULL,
+          `lat`				varchar(7) NOT NULL,
+          `lon`				varchar(7) NOT NULL,
           PRIMARY KEY (`id`)
         ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
     ";
     $db->exec($sql);
     
+//          `url`				varchar(255)	NOT NULL,
+//          `title`			varchar(255)	NOT NULL,
+    
     $sql = "
    		CREATE TABLE IF NOT EXISTS `$db->EUMapStoryPoints` (
-          `id`				int(10) unsigned NOT NULL AUTO_INCREMENT,
-          `map_id`			int(10) unsigned NOT NULL,
-          `lat`				varchar(7) NOT NULL,
-          `lon`				varchar(7) NOT NULL,
-          `url`				varchar(255) NOT NULL,
-          `title`			varchar(255) NOT NULL,
+          `id`				int(10)			unsigned NOT NULL AUTO_INCREMENT,
+          `map_id`			int(10)			unsigned NOT NULL,
+          `lat`				varchar(7)		NOT NULL,
+          `lon`				varchar(7)		NOT NULL,
+          
+          
+          `page_id`			int(10)			unsigned NOT NULL,
+          
+          
+          
+          
           PRIMARY KEY (`id`)
         ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
     ";

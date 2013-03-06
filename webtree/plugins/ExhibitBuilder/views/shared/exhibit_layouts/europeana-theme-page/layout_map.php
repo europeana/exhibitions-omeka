@@ -1,9 +1,17 @@
 
 <style type="text/css">
+
 	#map{
-		height:		280px;
+		height:		380px;
 		width:		100%;
 	}
+	
+	.slider {
+		margin:			1em 0;
+		width:			100%;
+		border-width:	2px;
+	}
+	
 </style>
 	
 
@@ -14,7 +22,7 @@
 
 <div class="row">
 
-	<div class="twelve columns inner">
+	<div id="map_container" class="twelve columns inner">
 		<div id="map">
 		</div>
 	</div>
@@ -28,76 +36,124 @@
 				}
 			}
 		
-		
-		
-///////////////////		GET STORIES TO PLOT THEM ONTO THE MAP	//////////////////////////////////////////
-			error_log("TITLES: ");
-			foreach ($exhibit->Sections as $key => $exhibitSection) {
-
-				error_log("<br/> TITLE: " . $exhibitSection->title );
-
-				/*
-				 *  For each story section we need:
-				 *  	- point coordinates (to add to model)
-				 *  	- link to open
-				 *  
-				 */
-				
-				if ($exhibitSection->hasPages()) {
-
-					foreach ($exhibitSection->Pages as $page) {
-						
-						//error_log("____PAGE: slug = " . $page -> slug . ", title =  "  .  $page -> title  );
-
-						error_log("____LINK_HREF = " . html_escape(exhibit_builder_exhibit_uri($exhibit, $exhibitSection, $page)));
-						
-					}
-				}
-				
-				
-			}
-		
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		
-////////	GET ITEMS THAT HAVE SPECIFIED A MAP LAYER IN THEIR METADATA	////////////////////////////////// 
-		
-			$mapData = exhibit_map_data($exhibit);
-			echo('var mapImg = "' . EUMAP_IMG_DIR . $mapData->img . '";' . PHP_EOL);
-			echo('var imageBounds = [[' . $mapData->nw_lon . ', ' . $mapData->nw_lat . '], [' . $mapData->se_lon . ', ' . $mapData->se_lat . ']];' . PHP_EOL);
-
-
-			$mapMarkerData = exhibit_map_marker_data( $exhibit->slug );
+			/*
+			 * Get map data, starting with the basic latitude and longitude
+			 * 
+			 *  - (for Rome this is  41.89007, 12.49188)
+			 * 
+			 * */
 			
-			echo('var marker = "' . count($mapMarkerData) . '";'); 
-			error_log('var marker = "' . count($mapMarkerData) . '";');
+			$map = exhibit_map_data($exhibit);
 			
-			$test = get_items( array( 'tags' =>  ve_get_exhibit_name_from_slug($exhibit)), 0 );
-
-			error_log("TEST SIZE "  .	count($test)  ) ;
+			echo('var mapLatitude	= ' . $map->lat . ';' . PHP_EOL);
+			echo('var mapLongitude	= ' . $map->lon . ';' . PHP_EOL);
 			
-			set_items_for_loop($test);
+			/* 
+			 * Get overlay data from item metadata & write to json object:
+			 * 
+			 * See new meta fields:
+			 * 		NW Latitude			(41.914)
+			 * 		NW Longitude		(12.447)
+			 * 		SE Latitude			(41.874)
+			 * 		SE Longitude		(12.5135)
+			 * 
+			 * Note: map items have to be public or the map won't show!
+			 * 
+			 */
+			
+			echo('var mapOverlays = [];' . PHP_EOL);
+			
+			$items = get_items( array( 'tags' =>  ve_get_exhibit_name_from_slug($exhibit)), 0 );
+			set_items_for_loop( $items );
 			
 			while(loop_items()){
+				$current	= get_current_item();
+				$nwLat		= getItemTypeMetadataEntry($current, "NW Latitude");
+				$nwLon		= getItemTypeMetadataEntry($current, "NW Longitude");
+				$seLat		= getItemTypeMetadataEntry($current, "SE Latitude");
+				$seLon		= getItemTypeMetadataEntry($current, "SE Longitude");
 				
-				$metaTest = getItemTypeMetadataEntry(get_current_item(), "zoomit_enabled");
-
-				error_log("TEST ITEM: " .	$metaTest  );
+				if( strlen($nwLat) > 0 && strlen($nwLon) > 0 && strlen($seLat) > 0 && strlen($seLon) > 0){
+					$uri = str_replace("/fullsize/", "/files/", file_display_uri($current->Files[0]));
+					echo('mapOverlays[mapOverlays.length] = {"nwLat":"' . $nwLat . '", "nwLon":"' . $nwLon . '", "seLat":"' . $seLat . '", "seLon":"' . $seLon . '", "uri":"' . $uri . '" };' . PHP_EOL);
+				}
 			}
 
+			/*
+			 *	Get marker data from story_points database table
+			 * 
+			 */
 			
-			foreach ($mapMarkerData as $mapMarker) {
-				echo('var marker = "' . $mapMarker -> title . '";' . PHP_EOL);
+			echo('var markers = [];' . PHP_EOL);
+			
+			foreach($map -> getStoryPoints() as $storyPoint) {
+				echo('markers[markers.length] = {"lat": "' . $storyPoint->lat . '", "lon": "' . $storyPoint->lon . '", "title":"' . $storyPoint->title . '", "url":"' . $storyPoint->url . '"}; ' . PHP_EOL);
 			}
-//////////////////////////////////////////////////////////////////////////////////////////////////////////		
-
 		?>
+		
 	
 		jQuery(document).ready(function(){
-			
-				var map = L.map('map').setView([51.500, -0.100], 15.4);
+				var map			= new L.Map('map');
+				var osmUrl		= 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+				var osmAttrib	= 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 				
-				L.imageOverlay(mapImg, imageBounds).addTo(map);
+				var osm = new L.TileLayer(osmUrl,
+						{
+							minZoom: 8,
+							maxZoom: 18,
+							attribution: osmAttrib
+						}
+				);
+				
+				map.setView(
+						new L.LatLng( mapLatitude, mapLongitude ),
+						13);
+				map.addLayer(osm);	
+
+				<?php if (current_user()): ?>
+					var popup = L.popup();
+					function onMapClick(e) {
+					    popup
+					        .setLatLng(e.latlng)
+					        .setContent("You clicked the map at " + e.latlng.toString())
+					        .openOn(map);
+					}
+					map.on('click', onMapClick);
+				<?php endif; ?>
+				
+				jQuery.each(mapOverlays, function(i, ob){
+					var imgOverlay = L.imageOverlay(ob.uri, [[ob.nwLat, ob.nwLon], [ob.seLat, ob.seLon]] ).addTo(map);
+
+					var sliderDiv = jQuery('<div class="slider">').appendTo('#map_container');
+					
+					sliderDiv.slider({
+			            value: 100,
+			            slide: function(e, ui) {
+							imgOverlay.setOpacity(ui.value / 100);
+			            }
+			        });
+			        
+				
+				});
+
+				jQuery.each(markers, function(i, ob){
+
+					//alert(	parseFloat(ob.lon) + ", " + parseFloat(ob.lat)	);
+
+					L.marker(
+							[
+								parseFloat(ob.lat)
+									,
+								parseFloat(ob.lon)
+							]
+							)
+							.addTo(map)
+				          	.bindPopup(
+				          		'<h5>' + ob.title + '</h5><a href="' + ob.url + '"><p>1st img from story goes here</p></a>'
+							);
+				});
+
+/*
 				
 				L.marker([51.5, -0.09]).addTo(map)
 					.bindPopup(
@@ -113,7 +169,7 @@
 					.bindPopup(
 						"<h2>Rome</h2><p>This is a place in Rome, you could add paragraphs of text here if you like.</p>"
 					);
-				
+				*/
 		});
 	
 	</script>

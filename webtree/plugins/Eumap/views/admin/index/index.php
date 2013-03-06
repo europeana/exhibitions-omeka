@@ -26,12 +26,11 @@
 		</tr>
 		<tr>
 			<td>
-				Tag target:
+				Exhibition:
 			</td>
 			<td>
 				<select name="tag" id="tag">
 					<?php
-
 							
 						$table		= get_db() -> getTable('Exhibit');
 						$query		= $table -> getSelect() -> order("slug");
@@ -46,48 +45,17 @@
 				</select>
 			</td>
 		</tr>
-		
-		<tr>
-			<td>
-				Image:
-			</td>
-			
-			<td>
-				<select name="img" id="img">
-					<?php
-						if($handle = opendir(EUMAP_IMG_DIR_ADMIN)){
-							
-						    echo('<option>Please select:</option>');
-						    
-							while (false !== ($entry = readdir($handle))) {
-								if($entry != '.' && $entry != '..'){
-									echo ('<option value="' . $entry . '">' . $entry . '</option>');					
-								}
-							}
-							closedir($handle);
-						}
-					?>
-				</select>
 
-			</td>
-		</tr>
-	
 		<tr>
 			<td>
-				NW (long/lat), SE (long/lat):
+				Map Centre (latitude/longitude):
 			</td>
 			
 			<td>
 				(
-				<input type="text"	name="nw_lon"	id="nw_lon"	value="51.490"/>
+				<input type="text"	name="lat"	id="lat"	value="41.89007"/>
 				/ 
-				<input type="text"	name="nw_lat"	id="nw_lat"	value="-0.122"/>
-				)
-				,
-				(
-				<input type="text"	name="se_lon"	id="se_lon"	value="51.510"/>
-				/
-			 	<input type="text"	name="se_lat"	id="se_lat"	value="-0.078"/>
+				<input type="text"	name="lon"	id="lon"	value="12.49188"/>
 				)
 			</td>
 		</tr>
@@ -120,20 +88,24 @@
 				Story:
 			</td>
 			<td>
-				<select name="url" id="url">
+			
+			
+				<select name="page_id" id="page_id">
 				</select>
+				
+				
 			</td>
 		</tr>
 		
 		<tr>
 			<td>
-				Longitude, Latitude:
+				Latitude, Longitude:
 			</td>
 			
 			<td>
-				<input type="text"	name="lon"	id="lon"	value="-0.122"/>
+				<input type="text"	name="lat"	id="lat"	value="41.88541"/>
 				,
-				<input type="text"	name="lat"	id="lat"	value="51.510"/>
+				<input type="text"	name="lon"	id="lon"	value="12.47068"/>
 			</td>
 		</tr>
 		
@@ -141,7 +113,13 @@
 			<td colspan="2" style="text-align:right;">
 				<input type="hidden" name="id"		id="pointFormId"	value=""/>
 				<input type="hidden" name="map_id"	id="map_id"			value=""/>
+				
+				
+				<!--
 				<input type="hidden" name="title"	id="title"			value=""/>
+				-->
+				
+				
 				<input type="submit" class="addOrEditPoint"				value=""/>
 				<input type="submit" class="cancelAdd"					value="Cancel"/>
 			</td>
@@ -156,27 +134,37 @@
 	jQuery(document).ready(function(){
 		
 		function pointEdit(mapName, urlVal){
+			
+			alert("pointEdit(" + mapName  + ", " + urlVal + ")");
+			
 			jQuery.ajax({
 				url:		"eumap/map/data?slug=" + mapName,
 				dataType:	"json"
 				}).done(function ( data ) {
 					
 					
-					jQuery("#url")[0].options.length = 0;
+					jQuery("#page_id")[0].options.length = 0;
 					
 					var count = 0;
+					
 					jQuery.each( data, function(i, ob){
 						
-						if(i != "Themes"){
-							jQuery("#url")[0].options[count] = new Option(i, ob);
+						//alert(i + "\n\n" + JSON.stringify(ob) );
+						
+						if(i > 0){
+							
+							jQuery("#page_id")[0].options[count] = new Option(ob.title, ob.id);
+							
 						}
 						count ++;
 					});
 					
 					if(urlVal){
-						jQuery("#url").val(urlVal);
+						jQuery("#page_id").val(urlVal);
 					}
 					
+					/*
+					 
 					jQuery("#url").unbind("change");
 					jQuery("#url").bind("change", function(){
 						
@@ -187,6 +175,8 @@
 							}
 						});
 					});
+					*/
+					
 				});
 		}
 		
@@ -228,13 +218,10 @@
 			
 			jQuery("#mapFormId").val(id);
 			
-			jQuery("#nw_lon").val(	row.find(".nw_lon").html()	);
-			jQuery("#nw_lat").val(	row.find(".nw_lat").html()	);
-			jQuery("#se_lon").val(	row.find(".se_lon").html()	);
-			jQuery("#se_lat").val(	row.find(".se_lat").html()	);
+			jQuery("#lon").val(	row.find(".lon").html()	);
+			jQuery("#lat").val(	row.find(".lat").html()	);
 			
 			jQuery("#tag").val(	row.find(".tag").html() );
-			jQuery("#img").val(	row.find(".img").html() );
 			
 			jQuery(".addOrEditMap").val("Edit Existing Map");
 			jQuery("#pointForm").hide();
@@ -252,7 +239,7 @@
 			var mapName	=  jQuery(this).closest("table").closest('tr').prev('tr').find(".tag").html();
 			
 			
-			pointEdit(mapName, row.find(".url").html());
+			pointEdit(mapName, row.find(".page_id_val").html());
 			
 			jQuery("#map-name")		.html(mapName);
 			jQuery("#map_id")		.val(mapId);
@@ -280,8 +267,6 @@
 		});
 		
 		
-
-		
 	});
 </script>
 
@@ -296,20 +281,15 @@
 
 <table id="maps">
 	<col id="col-tag" />
-	<col id="col-nw-long" />
-	<col id="col-nw-lat" />
-	<col id="col-se-long" />
-	<col id="col-se-lat" />
+	<col id="col-lat" />
+	<col id="col-long" />
 	<col id="col-edit" />
 	<col id="col-delete" />
 	<thead>
 		<tr>
 			<th>Tag</th>
-			<th>Image</th>
-			<th>NW longitude</th>
-			<th>NW latitude</th>
-			<th>SE longitude</th>
-			<th>SE latitude</th>
+			<th>Latitude</th>
+			<th>Longitude</th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -321,16 +301,10 @@
 			<tr>
 				<td class="tag"
 					><?php echo html_escape( $map->tag);			?></td>
-				<td class="img"
-					><?php echo html_escape( $map->img);			?></td>
-				<td class="nw_lat"
-					><?php echo html_escape( $map->nw_lat);			?></td>
-				<td class="nw_lon"
-					><?php echo html_escape( $map->nw_lon);			?></td>
-				<td class="se_lon"
-					><?php echo html_escape( $map->se_lon);			?></td>
-				<td class="se_lat"
-					><?php echo html_escape( $map->se_lat);			?></td>
+				<td class="lat"
+					><?php echo html_escape( $map->lat);			?></td>
+				<td class="lon"
+					><?php echo html_escape( $map->lon);			?></td>
 				<td class="<?php echo $map->id	?>">
 					<a class="editMap">Edit</a>
 				</td>
@@ -357,9 +331,8 @@
 							<thead>
 								<tr>
 									<th>Title</th>
-									<th>Url</th>
-									<th>NW longitude</th>
-									<th>NW latitude</th>
+									<th>Latitude</th>
+									<th>Longitude</th>
 									<th></th>
 									<th></th>
 								</tr>
@@ -373,17 +346,25 @@
 						    
 								<tr class="<?php  echo($map->id); ?>">
 								
-									<td class="title"
-										><?php  echo($point->title); ?></td>
+									<td class="page_id"
+										><?php
+												
+											$pages = get_db()->fetchAll("SELECT * FROM `omeka_section_pages` where id = " . $point->page_id);
+											
+											if(count($pages)==1){
+												$page = reset($pages);
+												echo( $page['title']  );
+											}
+											
+											echo( '<span style="display:none;" class="page_id_val">' . $point->page_id . '</span>' );
+										
+										?></td>
 									
-									<td class="url"
-										><?php  echo($point->url); ?></td>
-									
-									<td class="lon"
-										><?php  echo($point->lon); ?></td>
-
 									<td class="lat"
 										><?php  echo($point->lat); ?></td>
+										
+									<td class="lon"
+										><?php  echo($point->lon); ?></td>
 
 									<td class="<?php echo $point->id	?>"
 										><a class="editPoint">Edit</a></td>

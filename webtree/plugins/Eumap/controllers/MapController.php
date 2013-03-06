@@ -93,7 +93,16 @@ class Eumap_MapController extends Omeka_Controller_Action
    	}
    	
    	
-   	// /admin/eumap/map/data
+
+   	/* For a given exhibition slug:
+   	 * 	- get the exhibition
+   	 * 		- loop each section
+   	 * 			- loop each section's pages
+   	 * 				- build json pairs array ["title" : "public-url"]
+   	 * 
+   	 * */
+   	
+   	// /admin/eumap/map/data?slug=xxxx
    	
    	public function dataAction(){
    	
@@ -115,20 +124,84 @@ class Eumap_MapController extends Omeka_Controller_Action
 			if ($exhibitSection->hasPages()) {
 
 				foreach ($exhibitSection->Pages as $page) {
-			  		$jsonPair = array('"' . $page -> title . '"', '"' . exhibit_builder_exhibit_uri($exhibit, $exhibitSection, $page) . '"');                		
-					$jsonPairs[] = $jsonPair;                	                		
+					$jsonPair	=  '{"id":"' . $page->id . '", "title" : "' . $page -> title . '", "url": "' . exhibit_builder_exhibit_uri($exhibit, $exhibitSection, $page) . '"}' ;
+					$jsonPairs[] = $jsonPair;                		
 				}
 			}
 		}
 
-        $jsonVals = array();
-        foreach ($jsonPairs as $jsonPair) {
-        	$jsonVals[] = implode(":", $jsonPair);
-        }
-        
-        $result =  '{' . implode(",", $jsonVals) . '}';
+		$result =  '[' . implode(",", $jsonPairs) . ']';
         echo $result;
    	}
+   	
 
+   	
+   	// test function: we need to get the page title, url and the 1st image - all from the page id - for use in the admin tool and in the markers
+   	
+   	// /admin/eumap/map/test?pageId=615
+   	
+   	public function testAction(){
+   	
+   		$this->_helper->viewRenderer->setNoRender();
+   		
+   		$pageId = $_GET['pageId'];
+   		
+   		$title  =	'';
+   		$url	= 	'';
+   		$imgUrl =	'';
+
+   		
+   		$page = get_db()->fetchOne("SELECT * FROM `omeka_section_pages` where id = " . $pageId);
+		
+		//if(count($pages)==1){
+			
+   		error_log("PAGE = " . $page);
+   		
+			//$page = reset($pages);
+			
+			$title		= $page['title'];
+			
+			
+			error_log("SET THE TITLE TO "  . $page->title);//   $page['title']);
+			
+			$section_id	= $page['section_id'];
+			
+			$section = get_db()->fetchOne("SELECT * FROM `omeka_sections` where id = " . $section_id);
+			
+			//if(count($sections)==1){
+				
+				//$section = reset($sections);
+				
+				
+				$exhibitTable = get_db()->getTable('Exhibit');
+				
+				error_log("EXHIBIT ID = " .  $section['exhibit_id']  );
+				
+				$exhibit = $exhibitTable -> find(26);// $section['exhibit_id'] );
+			
+				
+				
+				error_log('E' .  count($exhibit)  );
+				error_log('S' .  count($section)  );
+				error_log('P' .  count($page)  );
+				
+				// $url = 
+				exhibit_builder_exhibit_uri( $exhibit, $section, $page);
+				
+		//	}
+			
+			// exhibit_id
+			
+		//}
+
+		
+   	   		
+   		$result =	'RESULT FOR ' . $pageId . '<br/>TITLE: ' . $title . '<br/>URL: ' . $url . '<br/>IMG_URL: ' . $imgUrl;
+   		
+        echo $result;
+        
+   	}
+
+   	
 }
 
