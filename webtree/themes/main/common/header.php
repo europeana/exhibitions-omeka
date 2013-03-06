@@ -62,6 +62,7 @@
 	
 
 	<!--link rel="stylesheet" href="http://127.0.0.1/ombad/webtree/themes/main/css/foundation/stylesheets/foundation.css" /-->
+	
 	<link rel="stylesheet" href="themes/main/css/foundation/stylesheets/foundation.css" />
 	<link rel="stylesheet" href="themes/main/css/foundation-overrides.css" />
 	<link rel="stylesheet" href="splash/css/style.css" />
@@ -110,6 +111,11 @@
 	    <!-- Plugin Stuff -->
 	    <?php plugin_header(); ?>
 
+		<?php
+		    queue_css('jquery-ui', 	 'all');
+		?>
+
+	    
 	    <!-- Stylesheets -->
 	    <?php ve_set_exhibits_css();?>
 	    
