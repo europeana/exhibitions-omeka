@@ -151,7 +151,7 @@ class Eumap_MapController extends Omeka_Controller_Action
    		$imgUrl =	'';
 
    		
-   		$page = get_db()->fetchOne("SELECT * FROM `omeka_section_pages` where id = " . $pageId);
+   		$page = get_db()->fetchRow("SELECT * FROM `omeka_section_pages` where id = " . $pageId);
 		
 		//if(count($pages)==1){
 			
@@ -166,7 +166,7 @@ class Eumap_MapController extends Omeka_Controller_Action
 			
 			$section_id	= $page['section_id'];
 			
-			$section = get_db()->fetchOne("SELECT * FROM `omeka_sections` where id = " . $section_id);
+			$section = get_db()->fetchRow("SELECT * FROM `omeka_sections` where id = " . $section_id);
 			
 			//if(count($sections)==1){
 				
