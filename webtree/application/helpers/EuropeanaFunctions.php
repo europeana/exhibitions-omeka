@@ -20,6 +20,12 @@ function exhibit_has_map($exhibit){
 	if( class_exists('EUMap') ){	// make sure EUMaps plug-in is installed
 		
 		$tags = $exhibit->getTags();
+		
+		// debug
+		foreach ($tags as $tag) {
+			error_log("TAG = " . $tag);
+		}
+		
 		$mapTable = get_db()->getTable('EUMap');
 		$query = "SELECT * FROM omeka_eu_maps where tag in ("  . "'" . implode("', '", $tags) . "'" .  ")";
 		$maps = $mapTable->fetchObjects($query);

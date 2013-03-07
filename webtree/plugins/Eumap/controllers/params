@@ -1,0 +1,392 @@
+
+
+
+
+<!doctype html>
+	<head>
+
+
+	
+		
+
+	<meta charset="utf-8" />
+	
+	<meta http-equiv="X-UA-Compatible" value="IE=9" />
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <script type="text/javascript">var web_root = "http://localhost/webtree";</script>
+
+
+
+
+	<!--DEFAULT HEAD / BODY-->
+		<meta name="author" content="Andy MacLean" />
+
+
+		<title>Themes Map | Explore the World of Musical Instruments | Exhibitions</title>
+
+
+	    <!-- Meta -->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"/>
+	    <!--meta name="description" content=""/-->
+	    <link rel="alternate" type="application/rss+xml" title="Omeka RSS Feed" href="/webtree/items/browse?x=1&amp;output=rss2" /><link rel="alternate" type="application/atom+xml" title="Omeka Atom Feed" href="/webtree/items/browse?x=1&amp;output=atom" />
+	    <!-- Plugin Stuff -->
+	    <link rel="stylesheet" media="screen" href="http://localhost/webtree/plugins/ExhibitBuilder/views/shared/exhibit_layouts/europeana-theme-page/layout.css" /> 
+		
+	    
+	    <!-- Stylesheets -->
+	    <link href="http://localhost/webtree/plugins/Commenting/views/public/css/commenting.css" media="all" rel="stylesheet" type="text/css" >
+<link href="http://localhost/webtree/application/views/scripts/css/jquery-ui.css" media="all" rel="stylesheet" type="text/css" >
+<link href="http://localhost/webtree/themes/main/css/mediaelement-2.7/mediaelementplayer.css" media="all" rel="stylesheet" type="text/css" >
+<link href="http://localhost/webtree/themes/main/css/mediaelement-2.7/mejs-skins.css" media="all" rel="stylesheet" type="text/css" >
+<link href="http://localhost/webtree/themes/main/css/foundation/stylesheets/foundation.css" media="all" rel="stylesheet" type="text/css" >
+<link href="http://localhost/webtree/themes/main/css/foundation/stylesheets/app.css" media="all" rel="stylesheet" type="text/css" >
+<link href="http://localhost/webtree/themes/main/css/foundation-overrides.css" media="all" rel="stylesheet" type="text/css" >
+<link href="http://localhost/webtree/themes/main/css/reset.css" media="all" rel="stylesheet" type="text/css" >
+<link href="http://localhost/webtree/themes/main/css/text.css" media="all" rel="stylesheet" type="text/css" >
+<link href="http://localhost/webtree/themes/main/css/style.css" media="all" rel="stylesheet" type="text/css" >
+<link href="http://localhost/webtree/themes/main/css/commenting-overrides.css" media="all" rel="stylesheet" type="text/css" >
+<link href="http://localhost/webtree/themes/mimo/css/theme.css" media="all" rel="stylesheet" type="text/css" >
+<link href="http://localhost/webtree/themes/main/css/collapse_files/responsive.css" media="all" rel="stylesheet" type="text/css" >	    
+
+	    <!-- Stylesheets for map -->
+	    	    
+	    
+	    <!--BEGIN RESPONSIVE CODE-->
+	   	<style>
+		
+        @media all and (min-width: 320px){
+          .euresponsive {
+            width: 1px;
+          }
+        }
+
+        @media all and (min-width: 480px){
+          .euresponsive {
+            width: 2px;
+          }
+        }
+
+        @media all and (min-width: 600px){
+          .euresponsive {
+            width: 3px;
+          }
+        }
+
+        @media all and (min-width: 960px){
+          .euresponsive {
+            width: 4px;
+          }
+        }
+		</style>
+		
+		
+		
+		<script type="text/javascript" src="http://localhost/webtree/themes/main/javascripts/leaflet.js" charset="utf-8"></script>
+		<script type="text/javascript" src="http://localhost/webtree/themes/main/javascripts/euresponsive.js" charset="utf-8"></script>
+		
+		
+		<script type="text/javascript">
+
+			// ipad fix
+			if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+			    var viewportmeta = document.querySelector('meta[name="viewport"]');
+			    if (viewportmeta) {
+			        viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0';
+			        document.body.addEventListener('gesturestart', function () {
+			            viewportmeta.content = 'width=device-width, minimum-scale=0.25, maximum-scale=1.6';
+			        }, false);
+			    }
+			}
+
+		</script>
+	    <!--END RESPONSIVE CODE-->
+	    
+	    
+	    <!-- JavaScripts -->
+	    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<script type="text/javascript">
+    //<!--
+jQuery.noConflict();    //-->
+</script>
+<script type="text/javascript" src="http://localhost/webtree/plugins/Commenting/views/public/javascripts/commenting.js"></script><script type="text/javascript" src="http://localhost/webtree/themes/main/javascripts/jquery.cookie.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://localhost/webtree/themes/main/javascripts/jgestures.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://localhost/webtree/themes/main/javascripts/mediaelement-2.7/build/mediaelement-and-player.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://localhost/webtree/themes/main/javascripts/global.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://localhost/webtree/splash/js/splash.js" charset="utf-8"></script><script type="text/javascript" src="http://localhost/webtree/splash/js/jquery.isotope.min.js" charset="utf-8"></script>	</head>
+
+	<body id="exhibit" class="show">
+	<!--<div class="nav">Go to Europeana Portal</div>-->
+	<div class="container">
+		
+	    <div id="header" class="row">
+	        <div class="twelve columns">
+	        
+	        
+	        		        	
+		        	<div id="site-title" class="twelve columns">
+						<a href="http://localhost/webtree"><img alt="Europeana Exhibitions" src="http://localhost/webtree/themes/mimo/images/logo.png"></a>
+		        	</div>
+		        	
+	        		        	
+	        	
+		        <div id="secondary-branding" style="float:right;"><a href="http://www.mimo-project.eu/" target="_blank"><img alt="Partner" src="http://localhost/webtree/themes/mimo/images/logo-mimo.png"/></a></div>
+	        	
+	        </div>
+	    </div>
+		
+	    
+		<div id="top-navigation" class="row">
+		    <div class="twelve columns inner">
+			    <div id="main-breadcrumbs" style="float:left;">
+				    <div id="site-title-small">
+				        <a target="_blank"  href="http://localhost/webtree">
+				            <img alt="Europeana Exhibitions" src="http://localhost/webtree/themes/mimo/images/logo_no_text.png"/>
+				        </a>
+				    </div>
+			        <a href="http://localhost/webtree">Exhibitions</a> &gt; <a href="http://localhost/webtree/exhibits/show/musical-instruments-en">Explore the World of Musical Instruments</a> &gt; Themes Map			    </div>
+				<div id="standard_shares" style="float:right;"><script type="text/javascript">var _gaq = _gaq || [];
+_gaq.push(["_setAccount", "UA-12776629-3"]);
+_gaq.push(["_trackPageview"]);
+(function() {
+var ga = document.createElement("script");
+ga.type = "text/javascript";
+ga.async = true;
+ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(ga, s);
+})();
+</script><div class="addthis_toolbox addthis_default_style" style="float:right; display:inline;"><a class="addthis_button_facebook at300b" 					fb:like:layout="button_count" title="Send to Facebook_like"></a><a class="addthis_button_twitter at300b"></a><a class="addthis_button_google_plusone_share at300b" g:plusone:annotation="none" g:plusone:size="small"></a><a class="addthis_button_compact at300m"></a></div><script type="text/javascript">var addthis_config = {"ui_language": "en","ui_click": true,"pubid": "ra-4d70f66c15fff6d0","ui_cobrand": "Europeana","data_track_clickback": true,"data_ga_tracker": _gaq,data_ga_property: "UA-12776629-3",data_ga_social: true}</script></div>
+			</div>
+	     </div>
+	    
+		<div id="content" class="row" andy="header file ends here">
+		
+    
+	<div  class="twelve columns">
+		<script type="text/javascript">
+
+alert(
+
+	 "/webtree/exhibits/show/musical-instruments-en/themes-map"		
+);
+
+</script>
+<style type="text/css">
+
+	#map_container{
+		padding-left:	10%;
+		padding-right:	10%;
+		padding-bottom:	3em;
+	}
+	
+	#map{
+		height:		380px;
+		width:		80%;
+	}
+	
+	.slider {
+		margin:			1em 0;
+		width:			80%;
+		border-width:	2px;
+	}
+	
+</style>
+	
+
+<div class="row" style="text-align:center;">
+	<h1>TEST MAP</h1>
+</div>
+
+
+<div class="row">
+
+	<div id="map_container" class="twelve columns inner">
+		<div id="map">
+		</div>
+	</div>
+
+	
+	<script type="text/javascript">
+		var mapLatitude	= 41.8900;
+var mapLongitude	= 12.4918;
+var mapOverlays = [];
+var markers = [];
+markers[markers.length] = {"lat": "41.8854", "lon": "12.4706", "pageId":"349"}; 
+		
+	
+		jQuery(document).ready(function(){
+				var map			= new L.Map('map');
+				var osmUrl		= 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+				var osmAttrib	= 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+				
+				var osm = new L.TileLayer(osmUrl,
+						{
+							minZoom: 12,
+							maxZoom: 18,
+							attribution: osmAttrib
+						}
+				);
+				
+				map.setView(
+						new L.LatLng( mapLatitude, mapLongitude ),
+						13);
+				map.addLayer(osm);	
+
+									var popup = L.popup();
+					function onMapClick(e) {
+					    popup
+					        .setLatLng(e.latlng)
+					        .setContent("You clicked the map at " + e.latlng.toString())
+					        .openOn(map);
+					}
+					map.on('click', onMapClick);
+								
+				jQuery.each(mapOverlays, function(i, ob){
+					var imgOverlay = L.imageOverlay(ob.uri, [[ob.nwLat, ob.nwLon], [ob.seLat, ob.seLon]] ).addTo(map);
+
+					var sliderDiv = jQuery('<div class="slider">').appendTo('#map_container');
+					
+					sliderDiv.slider({
+			            value: 100,
+			            slide: function(e, ui) {
+							imgOverlay.setOpacity(ui.value / 100);
+			            }
+			        });
+			        
+				
+				});
+
+
+
+
+				jQuery.each(markers, function(i, ob){
+
+					var marker = L.marker(
+							[
+								parseFloat(ob.lat)
+									,
+								parseFloat(ob.lon)
+							]
+							)
+					marker.addTo(map);
+					
+
+		    		marker.bindPopup('<div style="min-width:180px;height:0px;">');
+		    		
+					marker.on('click', function(e){
+
+					jQuery.ajax({
+						url:		"http://localhost/webtree/eumap/map/test?pageId=" + ob.pageId,
+						dataType:	"json"
+						}).done(function ( data ) {
+							marker._popup.setContent('<a href="' + data.url + '"><h5>' + data.title + '</h5><img src="' + data.imgUrl + '"/></a>');
+						});
+					});
+				});
+		});
+	
+	</script>
+	
+	
+	
+</div>
+	
+<!-- leave row open for footer to close -->
+
+<div class="row">
+	<div id="mobile_shares" class="twelve columns">
+		<div class="theme-center-outer">
+			<div class="theme-center-middle">
+		    	<div class="theme-center-inner">
+					<script type="text/javascript">var _gaq = _gaq || [];
+_gaq.push(["_setAccount", "UA-12776629-3"]);
+_gaq.push(["_trackPageview"]);
+(function() {
+var ga = document.createElement("script");
+ga.type = "text/javascript";
+ga.async = true;
+ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(ga, s);
+})();
+</script><div id="wrapper" class="addthis addthis_32x32_style addthis_default_style"><a	class="addthis_button_facebook"href="http://www.addthis.com/bookmark.php?v=250&amp;username="></a><a	class="addthis_button_twitter"href="http://www.addthis.com/bookmark.php?v=250&amp;username="></a><a class="addthis_button_google_plusone_share at300b" tt=0" target="_blank" title="Send to Google+ Share"></a><a	class="addthis_button_compact"href="http://www.addthis.com/bookmark.php?v=250&amp;username="></a></div><script type="text/javascript">var addthis_config = {"ui_language": "en","ui_click": true,"pubid": "ra-4d70f66c15fff6d0","ui_cobrand": "Europeana","data_track_clickback": true,"data_ga_tracker": _gaq,data_ga_property: "UA-12776629-3",data_ga_social: true}</script>				</div>
+			</div>
+		</div>
+	</div> <!-- leave row open for footer to close -->
+	</div>
+
+<div class="clear"></div>
+
+
+
+<div class="row" id="bottom-navigation">
+	<div class="twelve columns">
+
+		<div class="wrap_at_320">
+			<a href="/webtree/contact">Contact</a>
+		</div>
+		
+					<div class="wrap_at_320">
+				<a class="return-to" rel="/webtree/exhibits/show/musical-instruments-en/themes-map"
+					href="/webtree/items/browse/?tags=musical-instruments&theme=mimo">Browse Items</a>
+		
+			</div>
+							<div class="wrap_at_320">
+					<a  class="return-to" rel="/webtree/exhibits/show/musical-instruments-en/themes-map" href="/webtree/credits-musical-instruments?theme=mimo">Credits</a>
+				</div>
+						
+		<div class="wrap_at_320">
+			<a href="/webtree/about-exhibitions">About Exhibitions</a>
+		</div>
+
+	<!-- Added in by Dean, this is an extra link to return to the Europeana portal-->
+
+		<div class="wrap_at_320">
+			<a href="http://www.europeana.eu" title="Click here to go to the Europeana portal" rel="me">Go to Europeana Portal</a>
+		</div>
+
+	</div>
+
+	
+	<!-- If this script tag is closed it makes the google icon bigger -->
+	<!-- php messes this up, so put outside of custom_ve_helper for now -->
+	<!--script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d70f66c15fff6d0"-->
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=ra-4d70f66c15fff6d0">
+	</script>
+            
+            
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" language="javascript">
+
+		// ipad fix for google docs iframe
+		if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+		    var viewportmeta = document.querySelector('meta[name="viewport"]');
+		    if (viewportmeta) {
+		        viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0';
+				jQuery(document).bind('orientationchange',
+					function () {
+						if(window.orientation == 180 || window.orientation == 0){
+							document.location.reload();
+						}
+					}
+				);
+		        
+		        
+		    }
+		}
+			
+
+</script>
+
+
+
+</div><!-- end container -->
+
+</body>

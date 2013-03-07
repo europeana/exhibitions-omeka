@@ -117,8 +117,12 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
                     else {
                     	
 //error_log("TEN");
-
-                        $navCrumbs[] =  $titleCrumbs[] = ve_translate('themes', 'Themes');
+                    	if($_SESSION['theme-map'] == true){
+                            $navCrumbs[] =  $titleCrumbs[] = ve_translate('themes-map', 'Themes Map');
+                    	}
+                    	else{
+                            $navCrumbs[] =  $titleCrumbs[] = ve_translate('themes', 'Themes');                    		
+                    	}
                     }
 
                 }
@@ -151,9 +155,16 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
                		 if($section->title == ve_translate('themes', 'Themes') ){
 
 //error_log("TWELVE   ");
-                         $navCrumbs[] = '<a href="' . WEB_ROOT . '/exhibits/show/' . $exhibit->slug . '">' . $exhibit->title . '</a>';
-                         $titleCrumbs[] = $exhibit->title;
-                         $navCrumbs[] = $titleCrumbs[] = $section->title;
+
+                        $navCrumbs[] = '<a href="' . WEB_ROOT . '/exhibits/show/' . $exhibit->slug . '">' . $exhibit->title . '</a>';
+                        $titleCrumbs[] = $exhibit->title;
+                         
+                      	if($_SESSION['theme-map'] == true){
+                      		$navCrumbs[] = $titleCrumbs[] = $section->title . ' Map';
+                    	}
+                    	else{
+                    		$navCrumbs[] = $titleCrumbs[] = $section->title;    
+                    	}
                 		 
                 	 }
                 	 else{
@@ -162,10 +173,20 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
 
 
                          $navCrumbs[] = '<a href="' . WEB_ROOT . '/exhibits/show/' . $exhibit->slug . '">' . $exhibit->title . '</a>';
-                         $navCrumbs[] = '<a href="' . $_SESSION['themes_uri']  . '">' . ve_translate('themes', 'Themes') . '</a>';  // used in mimo story intro & page
                          $titleCrumbs[] = $exhibit->title;
+
                          
-                         $titleCrumbs[] = ve_translate('themes', 'Themes');
+                     	if($_SESSION['theme-map'] == true){
+                            $navCrumbs[] = '<a href="' . $_SESSION['themes_uri']  . '-map">' . ve_translate('themes-map', 'Themes Map') . '</a>';
+                            $titleCrumbs[] = ve_translate('themes-map', 'Themes Map');
+
+                    	}
+                    	else{
+                            $navCrumbs[] = '<a href="' . $_SESSION['themes_uri']  . '">' . ve_translate('themes', 'Themes') . '</a>';
+                            $titleCrumbs[] = ve_translate('themes', 'Themes');
+                    	}
+
+                         
                          $navCrumbs[] = $titleCrumbs[] = $section->title;
                 		 
                 	 }
@@ -180,8 +201,13 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
 						$titleCrumbs[] =  $exhibit->title;
 
                          $navCrumbs[] = '<a href="' . WEB_ROOT . '/exhibits/show/' . $exhibit->slug . '">' . $exhibit->title . '</a>';
-                         $navCrumbs[] =  $titleCrumbs[] = ve_translate('themes', 'Themes');
 
+                       	if($_SESSION['theme-map'] == true){
+                       		$navCrumbs[] =  $titleCrumbs[] = ve_translate('themes', 'Themes') . ' Map';
+                    	}
+                    	else{
+                    		$navCrumbs[] =  $titleCrumbs[] = ve_translate('themes', 'Themes');
+                    	}
                 	 }
                  }
 

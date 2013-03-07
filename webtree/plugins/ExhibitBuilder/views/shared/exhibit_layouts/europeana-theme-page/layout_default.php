@@ -1,14 +1,10 @@
 <?php
 
-   // commented out by dan entous 2012-04-12
-   // error_log("ANDY: plugins/exhibitbuilder/views/shared/exhibit_layouts/layout.php");
+$_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 
-
-$_SESSION['themes_uri'] = uri();
-//$exhibit  = exhibit_builder_set_current_exhibit();
-//$page = exhibit_builder_set_current_page();
-//echo $page->title;
 ?>
+
+
 
 
 	<!--[if lte IE 8]>

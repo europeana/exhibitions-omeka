@@ -1,7 +1,7 @@
 <?php
 
 require_once 'EUMap.php';
-
+require_once 'EuMapStoryPoint.php';
 
 class Eumap_IndexController extends Omeka_Controller_Action
 {    

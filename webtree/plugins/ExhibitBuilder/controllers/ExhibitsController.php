@@ -128,14 +128,26 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_Action
         
         // EUROPEANA CHANGE
         
-        if( substr($sectionSlug, -strlen("themes-map")) == "themes-map" ){
+        if(
+        		substr($sectionSlug, -strlen("themes-map")) == "themes-map"
+        			||
+       			substr($sectionSlug, -strlen("themes-map")) == "theme-map"
+        ){
         	$_SESSION['theme-map'] = true;
         	$sectionSlug = substr($sectionSlug, 0, strlen($sectionSlug) - strlen("-map") );
         	
             error_log("Exhibits Controller: UPDATED sectionSlug = " . $sectionSlug);
-            
+
+            error_log("SESSION MAP TRUE " . $sectionSlug);
+
         }
-        else{
+        else if(
+        		substr($sectionSlug, -strlen("themes")) == "themes"
+        			||
+        		substr($sectionSlug, -strlen("theme")) == "theme" 
+        ){
+            error_log("SESSION MAP FALSE " . $sectionSlug);
+
         	$_SESSION['theme-map'] = false;	
         }
         

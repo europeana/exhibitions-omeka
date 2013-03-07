@@ -1,5 +1,8 @@
 <?php
 
+require_once 'EuMapStoryPoint.php';
+require_once 'ExhibitSectionTable.php';
+
 
 class Eumap_MapController extends Omeka_Controller_Action
 {
@@ -40,7 +43,7 @@ class Eumap_MapController extends Omeka_Controller_Action
    	public function editAction(){
    		
    		error_log("Edit action (".$_POST['id'].")");
-   		
+   		   	 
    		$mapTable = get_db()->getTable('EUMap');
 
         $eumap = $mapTable->find($_POST['id']);
@@ -108,30 +111,49 @@ class Eumap_MapController extends Omeka_Controller_Action
    	
    		$this->_helper->viewRenderer->setNoRender();
 
-   		$slug = $_GET['slug'];
-   		
-   		error_log( "slug =  " . $slug );
-   		
-		$exhibitTable = get_db()->getTable('Exhibit');
-		$exhibit = $exhibitTable -> findBySlug($slug);
+   		$tag	= $_GET['tag'];
+   		$tagId	= '';
+   		//error_log( "tag =  " . $tag );
 
-		error_log( "exhibit =  " . $exhibit -> title );
+   		
+   		// get items for exhibition that has tag (param)
+   		// exhibit id is 18
+   		
+
+		$tagTable = get_db()->getTable('Tag');
+		$tags = $tagTable->fetchObjects("select * from omeka_tags where name = '" . $tag . "'");
+
+		foreach ($tags as $tag) {
+			error_log('tag ' . $tag->name . ', id = ' . $tag->id);
+			$tagId = $tag->id; 
+		}
+
+
+		$taggingsTable = get_db()->getTable('Taggings');
+
+		$joinQuery = "SELECT relation_id FROM omeka_taggings where type = 'Exhibit' and tag_id = " . $tagId . "";
+
 		
-		foreach ($exhibit->Sections as $key => $exhibitSection) {
-			
-			error_log("  "  .   $exhibitSection->title );
-
-			if ($exhibitSection->hasPages()) {
-
-				foreach ($exhibitSection->Pages as $page) {
-					$jsonPair	=  '{"id":"' . $page->id . '", "title" : "' . $page -> title . '", "url": "' . exhibit_builder_exhibit_uri($exhibit, $exhibitSection, $page) . '"}' ;
-					$jsonPairs[] = $jsonPair;                		
+		$exhibitTable	= get_db()->getTable('Exhibit');
+		$exhibitQuery = 'select * from omeka_exhibits where id in (' . $taggingsTable->fetchOne($joinQuery) . ')';
+		$exhibits		= $exhibitTable->fetchObjects($exhibitQuery);
+				
+		foreach($exhibits as $exhibit){
+			foreach ($exhibit->Sections as $key => $exhibitSection){				
+				if ($exhibitSection->hasPages()) {
+					foreach ($exhibitSection->Pages as $page) {
+						error_log("    "  .   $page -> title );
+						$jsonPair	=  '{"id":"' . $page->id . '", "title" : "' . $page -> title . '", "url": "' . exhibit_builder_exhibit_uri($exhibit, $exhibitSection, $page) . '"}' ;
+						$jsonPairs[] = $jsonPair;                		
+					}
 				}
 			}
 		}
 
+
 		$result =  '[' . implode(",", $jsonPairs) . ']';
         echo $result;
+        
    	}
    	
 
@@ -151,57 +173,30 @@ class Eumap_MapController extends Omeka_Controller_Action
    		$imgUrl =	'';
 
    		
-   		$page = get_db()->fetchRow("SELECT * FROM `omeka_section_pages` where id = " . $pageId);
-		
-		//if(count($pages)==1){
-			
-   		error_log("PAGE = " . $page);
+   		// load
    		
-			//$page = reset($pages);
-			
-			$title		= $page['title'];
-			
-			
-			error_log("SET THE TITLE TO "  . $page->title);//   $page['title']);
-			
-			$section_id	= $page['section_id'];
-			
-			$section = get_db()->fetchRow("SELECT * FROM `omeka_sections` where id = " . $section_id);
-			
-			//if(count($sections)==1){
-				
-				//$section = reset($sections);
-				
-				
-				$exhibitTable = get_db()->getTable('Exhibit');
-				
-				error_log("EXHIBIT ID = " .  $section['exhibit_id']  );
-				
-				$exhibit = $exhibitTable -> find(26);// $section['exhibit_id'] );
-			
-				
-				
-				error_log('E' .  count($exhibit)  );
-				error_log('S' .  count($section)  );
-				error_log('P' .  count($page)  );
-				
-				// $url = 
-				exhibit_builder_exhibit_uri( $exhibit, $section, $page);
-				
-		//	}
-			
-			// exhibit_id
-			
-		//}
+   		$page		= get_db() -> getTable('ExhibitPage') -> find($pageId);
+		$section	= get_db() -> getTable('ExhibitSection') -> find($page->section_id);
+		$exhibit	= get_db() -> getTable('Exhibit') -> find($section->exhibit_id);
 
 		
-   	   		
+		// read
+		
+		$item_id	= reset($page -> getPageEntries()) -> item_id;
+		$file		= reset( get_db() -> getTable('Item') -> find($item_id) -> Files );
+		
+		
+		// write
+		
+		$title		= $page->title;
+		$url		= exhibit_builder_exhibit_uri( $exhibit, $section, $page);
+		$imgUrl		= file_display_uri($file, $format = 'square_thumbnail');
+		
    		$result =	'RESULT FOR ' . $pageId . '<br/>TITLE: ' . $title . '<br/>URL: ' . $url . '<br/>IMG_URL: ' . $imgUrl;
    		
-        echo $result;
-        
+        //echo $result;
+        echo '{"title":"' . $title . '","url":"' . $url . '", "imgUrl":"' . $imgUrl . '"}';
    	}
-
    	
 }
 

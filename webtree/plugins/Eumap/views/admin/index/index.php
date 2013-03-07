@@ -6,12 +6,30 @@
 <style type="text/css">
 
 	input[type=text]{
-		width:	50px;
+		width:	8em;
 	}
 	
 	#map-name,
-	.tag{
+	.tag,
+	.page_id{
 		font-weight:	bold;
+	}
+	
+	.page_id{
+		text-align:	right;
+	}
+	
+	.addNewMap,
+	.addNewPoint{
+		color:				#338899;
+		text-decoration:	underline;
+	}
+	
+	.deleteMap,
+	.deletePoint,
+	.editMap,
+	.editPoint{
+		color:	#CC5500;
 	}
 	
 </style>
@@ -31,7 +49,7 @@
 			<td>
 				<select name="tag" id="tag">
 					<?php
-							
+						/*
 						$table		= get_db() -> getTable('Exhibit');
 						$query		= $table -> getSelect() -> order("slug");
 					    $exhibits	= $table -> fetchObjects( $query);
@@ -40,6 +58,16 @@
 						foreach ($exhibits as $exhibit) {
 					    	echo('<option value="' . $exhibit->slug . '">' . $exhibit->slug . '</option>'); 
 					    }
+						*/
+						$table		= get_db() -> getTable('Tag');
+						$query		= $table -> getSelect() -> order("name");
+					    $tags		= $table -> fetchObjects( $query);
+					    
+					    echo('<option>Please select:</option>'); 
+						foreach ($tags as $tag) {
+					    	echo('<option value="' . $tag->name . '">' . $tag->name . '</option>'); 
+					    }
+
 						
 					?>
 				</select>
@@ -113,13 +141,6 @@
 			<td colspan="2" style="text-align:right;">
 				<input type="hidden" name="id"		id="pointFormId"	value=""/>
 				<input type="hidden" name="map_id"	id="map_id"			value=""/>
-				
-				
-				<!--
-				<input type="hidden" name="title"	id="title"			value=""/>
-				-->
-				
-				
 				<input type="submit" class="addOrEditPoint"				value=""/>
 				<input type="submit" class="cancelAdd"					value="Cancel"/>
 			</td>
@@ -134,55 +155,32 @@
 	jQuery(document).ready(function(){
 		
 		function pointEdit(mapName, urlVal){
-			
-			alert("pointEdit(" + mapName  + ", " + urlVal + ")");
-			
+			alert(mapName);
 			jQuery.ajax({
-				url:		"eumap/map/data?slug=" + mapName,
+				url:		"eumap/map/data?tag=" + mapName,
 				dataType:	"json"
 				}).done(function ( data ) {
-					
-					
-					jQuery("#page_id")[0].options.length = 0;
-					
-					var count = 0;
-					
-					jQuery.each( data, function(i, ob){
-						
-						//alert(i + "\n\n" + JSON.stringify(ob) );
-						
-						if(i > 0){
-							
-							jQuery("#page_id")[0].options[count] = new Option(ob.title, ob.id);
-							
-						}
-						count ++;
-					});
-					
-					if(urlVal){
-						jQuery("#page_id").val(urlVal);
+	
+				jQuery("#page_id")[0].options.length = 0;
+				
+				var count = 0;
+				
+				jQuery.each( data, function(i, ob){
+					if(i > 0){
+						jQuery("#page_id")[0].options[count] = new Option(ob.title, ob.id);
 					}
-					
-					/*
-					 
-					jQuery("#url").unbind("change");
-					jQuery("#url").bind("change", function(){
-						
-						var val = jQuery("#url").val();
-						jQuery.each( data, function(i, ob){
-							if(ob == val){
-								jQuery("#title").val(i);
-							}
-						});
-					});
-					*/
-					
+					count ++;
 				});
+				
+				if(urlVal){
+					jQuery("#page_id").val(urlVal);
+				}
+			});
 		}
+		
 		
 		jQuery('.addNewMap').click(function(){
 			jQuery("#mapFormId").val("");
-			
 			jQuery(".addOrEditMap").val("Add New Map");
 			jQuery("#pointForm").hide();
 			jQuery("#mapForm").attr('action', 'eumap/map/add');
@@ -193,8 +191,7 @@
 		jQuery('.addNewPoint').click(function(){
 			
 			var mapId	= jQuery(this).parent().attr("class");
-			
-			var mapName	=  jQuery(this).closest("table").closest('tr').prev('tr').find(".tag").html();
+			var mapName	=  jQuery(this).closest("tr").prevAll('tr.map').find(".tag").html();
 			
 			pointEdit(mapName);
 			
@@ -205,8 +202,6 @@
 			jQuery("#map_id").val(mapId);
 			jQuery("#mapForm").hide();
 			jQuery("#pointForm").attr('action', 'eumap/map/addPoint');
-			
-			
 			jQuery("#pointForm").show();
 			
 		});
@@ -231,14 +226,13 @@
 		});
 		
 		
-		
 		jQuery('.editPoint').click(function(){
+			
 			var row		= jQuery(this).parent().parent();
 			var id		= jQuery(this).parent().attr("class");
 			var mapId	= jQuery(this).closest("tr").attr("class");
-			var mapName	=  jQuery(this).closest("table").closest('tr').prev('tr').find(".tag").html();
-			
-			
+			var mapName	= jQuery(this).closest("tr").prevAll('tr.map').find(".tag").html();
+				
 			pointEdit(mapName, row.find(".page_id_val").html());
 			
 			jQuery("#map-name")		.html(mapName);
@@ -253,19 +247,14 @@
 			jQuery("#mapForm").hide();
 			jQuery("#pointForm").attr('action', 'eumap/map/editPoint');
 			jQuery("#pointForm").show();
-
+			
 		});
 
-		
-		
 		jQuery('.cancelAdd').click(function(e){
-			
 			jQuery("#mapForm").hide();
 			jQuery("#pointForm").hide();
 			e.preventDefault();
-			
 		});
-		
 		
 	});
 </script>
@@ -287,7 +276,7 @@
 	<col id="col-delete" />
 	<thead>
 		<tr>
-			<th>Tag</th>
+			<th>Tag &rarr; Page</th>
 			<th>Latitude</th>
 			<th>Longitude</th>
 			<th></th>
@@ -298,7 +287,7 @@
 		
 	<?php if( count($eumaps) > 0 ): ?>
 		<?php foreach($eumaps as $key=>$map): ?>
-			<tr>
+			<tr class="map">
 				<td class="tag"
 					><?php echo html_escape( $map->tag);			?></td>
 				<td class="lat"
@@ -311,88 +300,70 @@
 				<td>
 					<form method="post" action="eumap/map/delete">
 						<input type="hidden" name="id" value="<?php echo $map->id	?>" />
-						<a onClick="jQuery(this).parent().submit();">Delete</a>
+						<a class="deleteMap" onClick="jQuery(this).parent().submit();">Delete</a>
 					</form>
 				</td>
 
 			</tr>
-			
-			<tr>
-				<td></td>
-				<td colspan="7">
-					<table>
+						
+			<?php
+				$points = $map->getStoryPoints();
+	
+			    foreach ($points as $point): ?>
+	
+					<tr class="<?php  echo($map->id); ?>">
 					
-						<?php
-							
-							$points = $map->getStoryPoints();
-
-							if (count($points) > 0 ): ?>
-					    
-							<thead>
-								<tr>
-									<th>Title</th>
-									<th>Latitude</th>
-									<th>Longitude</th>
-									<th></th>
-									<th></th>
-								</tr>
-							</thead>
-						
-					    <?php endif; ?>
-
-						
-						<?php
-						    foreach ($points as $point): ?>
-						    
-								<tr class="<?php  echo($map->id); ?>">
-								
-									<td class="page_id"
-										><?php
-												
-											$pages = get_db()->fetchAll("SELECT * FROM `omeka_section_pages` where id = " . $point->page_id);
-											
-											if(count($pages)==1){
-												$page = reset($pages);
-												echo( $page['title']  );
-											}
-											
-											echo( '<span style="display:none;" class="page_id_val">' . $point->page_id . '</span>' );
-										
-										?></td>
+						<td class="page_id"
+							><?php
 									
-									<td class="lat"
-										><?php  echo($point->lat); ?></td>
-										
-									<td class="lon"
-										><?php  echo($point->lon); ?></td>
-
-									<td class="<?php echo $point->id	?>"
-										><a class="editPoint">Edit</a></td>
-									</td>
-
-									<td>
-										<form method="post" action="eumap/map/deletePoint" id="">
-											<input type="hidden" name="id" value="<?php echo $point->id	?>" />
-											<a onClick="jQuery(this).parent().submit();">Delete</a>
-										</form>
-									</td>
-								</tr>
+								$pages = get_db()->fetchAll("SELECT * FROM `omeka_section_pages` where id = " . $point->page_id);
 								
-						    <?php endforeach; ?>
-
-						<tr>
-							<td colspan="5" style="width:100%; text-align:right;" class="<?php echo $map->id	?>">
-								<a href="#form" class="addNewPoint">Add Point</a>
-							</td>
-						</tr>
-					</table>
+								if(count($pages)==1){
+									$page = reset($pages);
+									echo( $page['title']  );
+								}
+								
+								echo( '<span style="display:none;" class="page_id_val">' . $point->page_id . '</span>' );
+							
+							?></td>
+						
+						<td class="lat"
+							><?php  echo($point->lat); ?></td>
+							
+						<td class="lon"
+							><?php  echo($point->lon); ?></td>
+	
+						<td class="<?php echo $point->id	?>"
+							><a class="editPoint">Edit</a></td>
+						</td>
+	
+						<td>
+							<form method="post" action="eumap/map/deletePoint" id="">
+								<input type="hidden" name="id" value="<?php echo $point->id	?>" />
+								<a class="deletePoint" onClick="jQuery(this).parent().submit();">Delete</a>
+							</form>
+						</td>
+					</tr>
+					
+			    <?php endforeach; ?>
+	
+			<tr>
+				<td colspan="4"></td>
+				<td class="<?php echo $map->id	?>">
+					<a href="#form" class="addNewPoint">Add Point</a>
 				</td>
 			</tr>
-			
+
 		<?php endforeach; ?>	
 	<?php endif; ?>
-		
+
+		<tr>
+			<td colspan="4"></td>
+			<td style="text-align:right">
+				<a href="#form" class="addNewMap">Add map</a>
+			</td>
+		</tr>
 	</tbody>
 </table>
 
-<input type="submit" class="addNewMap" value="Add map"/>
+

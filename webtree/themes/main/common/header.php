@@ -121,7 +121,13 @@
 	    
 
 	    <!-- Stylesheets for map -->
-	    <?php if ( substr($pageURL, -strlen("themes-map")) == "themes-map" ): ?>
+	    <?php
+		    $pageURLNoParams = $pageURL;
+		    if ($pos_get = strpos($pageURLNoParams, '?')){
+		    	$pageURLNoParams = substr($pageURLNoParams, 0, $pos_get);
+		    }
+	    ?>
+	    <?php if ( substr($pageURLNoParams, -strlen("themes-map")) == "themes-map" ): ?>
 
     		<link rel="stylesheet" media="screen" href="<?php echo (WEB_ROOT . '/themes/main/javascripts/leaflet.css'); ?>" />
 		    <!--[if lte IE 8]>

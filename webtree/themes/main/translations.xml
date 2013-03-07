@@ -98,6 +98,9 @@
 		<ru>Темы</ru>
 		<sl>Teme</sl>
     </themes>
+    <themes-map>
+        <en>Themes Map</en>
+    </themes-map>
     <sections>
         <en>Sections</en>
         <nl>Afdelingen</nl>

@@ -194,7 +194,7 @@ $exhibit = get_current_exhibit();
 	    	<?php
 	    		if(exhibit_has_map(get_current_exhibit())){
 	    			echo ('<a class="widget" href="' . $themesUrl . '-map">');
-        			echo (		ve_translate('exhibit-start-map', 'Start Exhibition') );
+        			echo (		ve_translate('exhibit-start-map', 'Start Exhibition Map') );
         			echo (		'<img src="' . img('arrow-right.png') . '"/>');
         			echo ('</a>');
         			echo ('<br/>');

@@ -1,14 +1,23 @@
+<?php
+$_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
+?>
 
 <style type="text/css">
 
+	#map_container{
+		padding-left:	10%;
+		padding-right:	10%;
+		padding-bottom:	3em;
+	}
+	
 	#map{
 		height:		380px;
-		width:		100%;
+		width:		80%;
 	}
 	
 	.slider {
 		margin:			1em 0;
-		width:			100%;
+		width:			80%;
 		border-width:	2px;
 	}
 	
@@ -87,7 +96,7 @@
 			echo('var markers = [];' . PHP_EOL);
 			
 			foreach($map -> getStoryPoints() as $storyPoint) {
-				echo('markers[markers.length] = {"lat": "' . $storyPoint->lat . '", "lon": "' . $storyPoint->lon . '", "title":"' . $storyPoint->title . '", "url":"' . $storyPoint->url . '"}; ' . PHP_EOL);
+				echo('markers[markers.length] = {"lat": "' . $storyPoint->lat . '", "lon": "' . $storyPoint->lon . '", "pageId":"' . $storyPoint->page_id . '"}; ' . PHP_EOL);
 			}
 		?>
 		
@@ -99,7 +108,7 @@
 				
 				var osm = new L.TileLayer(osmUrl,
 						{
-							minZoom: 8,
+							minZoom: 12,
 							maxZoom: 18,
 							attribution: osmAttrib
 						}
@@ -136,40 +145,33 @@
 				
 				});
 
+
+
+
 				jQuery.each(markers, function(i, ob){
 
-					//alert(	parseFloat(ob.lon) + ", " + parseFloat(ob.lat)	);
-
-					L.marker(
+					var marker = L.marker(
 							[
 								parseFloat(ob.lat)
 									,
 								parseFloat(ob.lon)
 							]
 							)
-							.addTo(map)
-				          	.bindPopup(
-				          		'<h5>' + ob.title + '</h5><a href="' + ob.url + '"><p>1st img from story goes here</p></a>'
-							);
-				});
+					marker.addTo(map);
+					
 
-/*
-				
-				L.marker([51.5, -0.09]).addTo(map)
-					.bindPopup(
-						"<h2>Rome</h2><p>This is a place in Rome, you could add paragraphs of text if you like.</p>"
-					);
-				
-				L.circle([51.5, -0.1], 60, {
-							color: 'blue',
-							fillColor: 'blue',
-							fillOpacity: 0.3
-						})
-					.addTo(map)
-					.bindPopup(
-						"<h2>Rome</h2><p>This is a place in Rome, you could add paragraphs of text here if you like.</p>"
-					);
-				*/
+		    		marker.bindPopup('<div style="min-width:180px;height:0px;">');
+		    		
+					marker.on('click', function(e){
+
+					jQuery.ajax({
+						url:		"<?php echo(WEB_ROOT); ?>/eumap/map/test?pageId=" + ob.pageId,
+						dataType:	"json"
+						}).done(function ( data ) {
+							marker._popup.setContent('<a href="' + data.url + '"><h5>' + data.title + '</h5><img src="' + data.imgUrl + '"/></a>');
+						});
+					});
+				});
 		});
 	
 	</script>

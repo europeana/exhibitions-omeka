@@ -1,7 +1,10 @@
 <?php
 
+//require_once dirname(__FILE__) . 'EUMapStoryPoint.php';
+
 class EUMap extends Omeka_Record
 {
+	
     public $id;
     public $tag;
     public $lat;
