@@ -1,5 +1,7 @@
 <?php
 
+include 'EUMapStoryPoint.php';
+
 class Commenting_CommentController extends Omeka_Controller_Action
 {
     protected $_browseRecordsPerPage = 10;
