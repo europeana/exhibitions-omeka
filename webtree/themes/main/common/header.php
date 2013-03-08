@@ -129,9 +129,9 @@
 	    ?>
 	    <?php if ( substr($pageURLNoParams, -strlen("themes-map")) == "themes-map" ): ?>
 
-    		<link rel="stylesheet" media="screen" href="<?php echo (WEB_ROOT . '/themes/main/javascripts/leaflet.css'); ?>" />
+    		<link rel="stylesheet" media="screen" href="<?php echo (WEB_ROOT . '/themes/main/css/leaflet.css'); ?>" />
 		    <!--[if lte IE 8]>
-		    <link rel="stylesheet" media="screen" href="<?php echo (WEB_ROOT . '/themes/main/javascripts/leaflet.ie.css'); ?>" />
+		    <link rel="stylesheet" media="screen" href="<?php echo (WEB_ROOT . '/themes/main/css/leaflet.ie.css'); ?>" />
 		    <![endif]-->
 
 	    <?php endif; ?>
