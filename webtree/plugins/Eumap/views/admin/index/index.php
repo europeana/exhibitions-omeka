@@ -155,7 +155,7 @@
 	jQuery(document).ready(function(){
 		
 		function pointEdit(mapName, urlVal){
-			alert(mapName);
+			//alert(mapName);
 			jQuery.ajax({
 				url:		"eumap/map/data?tag=" + mapName,
 				dataType:	"json"
@@ -350,7 +350,7 @@
 			<tr>
 				<td colspan="4"></td>
 				<td class="<?php echo $map->id	?>">
-					<a href="#form" class="addNewPoint">Add Point</a>
+					<a href="#form" class="addNewPoint">Add Story Point</a>
 				</td>
 			</tr>
 
