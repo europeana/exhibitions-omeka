@@ -156,8 +156,12 @@
 		</style>
 		
 		
+	    <?php if ( substr($pageURLNoParams, -strlen("themes-map")) == "themes-map" ): ?>
+			<?php echo js('leaflet'); ?>
+			<?php echo js('jquery.imagesloaded.min'); ?>
+	    <?php endif; ?>
+
 		
-		<?php echo js('leaflet'); ?>
 		<?php echo js('euresponsive'); ?>
 		
 		
