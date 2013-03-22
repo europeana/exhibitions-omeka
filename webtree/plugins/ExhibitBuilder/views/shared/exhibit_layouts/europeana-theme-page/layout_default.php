@@ -90,12 +90,17 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
             $nrSections = sizeof($exhibit->Sections) - 1;
             
             
+            // initialise pairs of title / image / link
+            
             $themeTitle1	= '';
             $themeTitle2	= '';
+            
             $themeImage1	= '';
             $themeImage2	= '';
+            
             $themeLink1		= '';
             $themeLink2		= '';
+            
             $rowCount		= 0;
             $themeHTML		= '';
             
@@ -110,16 +115,19 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
             // Cycle through all the Exhibit sections and list them as Themes.
             foreach ($exhibit->Sections as $key => $exhibitSection) {
             	
+            	$rowCount = $rowCount +1;
 
-				$themeTitle	= html_escape($exhibitSection->title, $errors);
-				$themeImage	= ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors);
-				$themeLink	= html_escape(exhibit_builder_exhibit_uri($exhibit, $exhibitSection));
-            	
             	// skip the first one because this is the exhibit section (themes) we are currently on
             	if ($exhibitSection->hasPages() && ($exhibitSection->order > 1)) {
-
             		
-            		$themesCollapsed .=					'<li class="item-li">';
+            		$themesCollapsed .=					'<li class="item-li"';
+            		
+            		
+            		if($key%2==0 && $rowCount == count($exhibit->Sections)){		// odd number of themes fixed here
+            			$themesCollapsed .=					'style="width:100%;"';
+            		}
+            		
+            		$themesCollapsed .=					'>';
 					$themesCollapsed .=						'<div class="theme-center-outer">';
 					$themesCollapsed .=							'<div class="theme-center-middle">';
 					$themesCollapsed .=								'<div class="theme-center-inner">';
@@ -137,7 +145,10 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 					$themesCollapsed .=						'</a>';
             		$themesCollapsed .=					'</li>';
             		
-            		if($key%2==1){
+            		if($key%2==1){	
+            			
+            			error_log("key " . $key . " modulus 2 is 1, close ul-div.12-div.row, open new div.row-div.12-ul");
+            			
             			$themesCollapsed .=			'</ul>';
             			$themesCollapsed .=		'</div>';
             			$themesCollapsed .=	'</div>';
@@ -145,31 +156,32 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
             			$themesCollapsed .=		'<div class="twelve columns">';
             			$themesCollapsed .= 		'<ul class="block-grid two-up">';
             		}
-            	
+            		
+            		error_log("\n nrSections = " . $nrSections . " nrSections & 1 = " . ($nrSections & 1) );
             		// Even nr sections
-            		if (!($nrSections & 1)) {
-            			$colClass = '';
-            	
-            			if($key%2==1){
-            				$themeTitle2	= html_escape($exhibitSection->title, $errors);
-            				$themeImage2	= ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors);
-            				$themeLink2		= html_escape(exhibit_builder_exhibit_uri($exhibit, $exhibitSection));
-            			}
-            			else {
-            				$themeTitle1	= html_escape($exhibitSection->title, $errors);
-            				$themeImage1	= ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors);
-            				$themeLink1		= html_escape(exhibit_builder_exhibit_uri($exhibit, $exhibitSection));
-            			}
-            		}
+            		
+        			$colClass = '';
+        	
+        			if($key%2==1){
+        				$themeTitle2	= html_escape($exhibitSection->title, $errors);
+        				$themeImage2	= ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors);
+        				$themeLink2		= html_escape(exhibit_builder_exhibit_uri($exhibit, $exhibitSection));
+        			}
+        			else {
+        				$themeTitle1	= html_escape($exhibitSection->title, $errors);
+        				$themeImage1	= ve_get_theme_thumbnail($exhibitSection->slug, $exhibitSection->title ,$errors);
+        				$themeLink1		= html_escape(exhibit_builder_exhibit_uri($exhibit, $exhibitSection));
+        			}
 
             	}  
 
+ 
             	
             	// output here
-            	$rowCount = $rowCount +1;
-            	if($rowCount > 0 && $rowCount%2==1){
+            	
+            	if($rowCount%2==1){
             		
-					// expanded rows
+					// expanded rows (desktop view)
 					            		
             		$rowHTML = '';
             		$rowHTML .= '<div class="row theme-title-row-expanded">';
@@ -206,6 +218,34 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
             		
             		$themeHTML .= $rowHTML;
             	}
+            	else if($rowCount == count($exhibit->Sections)){ // odd number themes - centre the last theme 
+            		
+            		$rowHTML = '';
+            		$rowHTML .= '<div class="row theme-title-row-expanded">';
+            		
+            		$rowHTML .= 	'<div class="twelve columns">';
+            		$rowHTML .= 		'<div class="theme-item-wrapper">';
+            		$rowHTML .= 			'<a href="'.$themeLink1.'">';
+            		$rowHTML .= 				$themeImage1;
+            		$rowHTML .= 				'<div class="theme-img-overlay"></div>';
+            		$rowHTML .= 			'</a>';
+            		$rowHTML .= 		'</div>';
+            		$rowHTML .= 	'</div>';
+            		
+            		$rowHTML .= 	'<div class="twelve columns">';
+            		$rowHTML .= 		'<div class="theme-item-wrapper">';
+            		$rowHTML .= 			'<a href="'.$themeLink1.'" class="meta">';
+            		$rowHTML .= 				'<h2>'.$themeTitle1.'</h2>';
+            		$rowHTML .= 			'</a>';
+            		$rowHTML .= 		'</div>';
+            		$rowHTML .= 	'</div>';
+            		
+            		$rowHTML .= '</div>';
+            		
+            		$themeHTML .= $rowHTML;
+            		
+           		
+            	}
             }
             
             $themesCollapsed .= 		'</ul>';
@@ -228,11 +268,6 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
             
             ?>
     
-
-
-
-
-
 
     <?php
 try {
