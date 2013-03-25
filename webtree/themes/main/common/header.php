@@ -101,7 +101,14 @@
 
 		<title><?php echo ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null, $showAsTitle=true); ?></title>
 
+	    <?php
+		    $pageURLNoParams = $pageURL;
+		    if ($pos_get = strpos($pageURLNoParams, '?')){
+		    	$pageURLNoParams = substr($pageURLNoParams, 0, $pos_get);
+		    }
+	    ?>
 
+		
 	    <!-- Meta -->
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"/>
@@ -113,20 +120,17 @@
 
 		<?php
 		    queue_css('jquery-ui', 	 'all');
+			queue_css('Leaflet-MiniMap-master/src/Control.MiniMap');
+			queue_css('jquery-ui', 	 'all');
+			
 		?>
-
-	    
+		
+    	
 	    <!-- Stylesheets -->
 	    <?php ve_set_exhibits_css();?>
 	    
 
 	    <!-- Stylesheets for map -->
-	    <?php
-		    $pageURLNoParams = $pageURL;
-		    if ($pos_get = strpos($pageURLNoParams, '?')){
-		    	$pageURLNoParams = substr($pageURLNoParams, 0, $pos_get);
-		    }
-	    ?>
 	    <?php if ( substr($pageURLNoParams, -strlen("themes-map")) == "themes-map" ): ?>
 
     		<link rel="stylesheet" media="screen" href="<?php echo (WEB_ROOT . '/themes/main/css/leaflet.css'); ?>" />
@@ -156,11 +160,6 @@
 		</style>
 		
 		
-	    <?php if ( substr($pageURLNoParams, -strlen("themes-map")) == "themes-map" ): ?>
-			<?php echo js('leaflet'); ?>
-			<?php echo js('jquery.imagesloaded.min'); ?>
-	    <?php endif; ?>
-
 		
 		<?php echo js('euresponsive'); ?>
 		
@@ -182,8 +181,28 @@
 	    <!--END RESPONSIVE CODE-->
 	    
 	    
+	    
+	    
+	    
+	    
+	    
 	    <!-- JavaScripts -->
-	    <?php ve_set_exhibit_js(); ?>
+	    
+	    <?php if ( substr($pageURLNoParams, -strlen("themes-map")) == "themes-map" ): ?>
+	    
+    		<?php
+				queue_js('leaflet');
+    			queue_js('Leaflet-MiniMap-master/src/Control.MiniMap');
+				queue_js('jquery.imagesloaded.min');
+				queue_js('jquery-ui-touch-punch.min');
+			?>
+			
+		<?php endif; ?>
+
+		<?php ve_set_exhibit_js(); ?>
+	    
+		    
+		
 	</head>
 
 	<body<?php echo isset($bodyid) ? ' id="' . $bodyid . '"' : ''; ?><?php echo isset($bodyclass) ? ' class="' . $bodyclass . '"' : ''; ?>>
