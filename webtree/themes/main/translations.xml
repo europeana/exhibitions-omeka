@@ -463,5 +463,10 @@
         <it></it>
         <ru></ru>
     </comments-field-allowed-tags>
-    
+
+    <view-historical-map>
+        <en>View historical map</en>
+        <it>Guarda la carta storica</it>
+    </view-historical-map>
+        
 </translations>
