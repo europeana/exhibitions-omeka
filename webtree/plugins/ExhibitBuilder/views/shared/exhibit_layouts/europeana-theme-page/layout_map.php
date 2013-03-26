@@ -4,38 +4,69 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 
 <style type="text/css">
 
-	#map_container{
+	#map-container{
 		padding-bottom:	3em;
 		position:		relative;
 	}
 	
 	#map{
-		height:		380px;
+		height:		500px;
 		width:		100%;
 	}
 	
-	
-	#layer-control{
+	#europeana-ctrls{
 		position:			absolute;
-		top:				1em;
-		right:				1em;
+		top:				0;
+		right:				0;
 		padding:			1em;
-		background-color:	#373737;
 	}
 	
-	#layer-control div{
+	#layer-ctrl>div{
 		background-color:	#373737;
-		color:				red;
-	}
-		
-	#overlay-control{
-		position:			absolute;
-		top:				1em;
-		right:				1em;
-		padding:			1em;
-		background-color:	#373737;
-		
 		border-radius:		8px 8px 8px 8px;
+		margin-left:		1em;
+		float:				right;
+		padding:			0.5em;	
+	}
+	
+	#layer-ctrl>div.active{
+		font-weight:		bold;
+	}
+		
+	#overlay-ctrl{
+		background-color:	#373737;
+		border-radius:		8px 8px 8px 8px;
+		clear:				both;
+		display:			none;
+		float:				right;
+		margin-top:			1em;
+		padding:			0.5em 1em 1em 1em;
+		position:			relative;
+	}
+	
+	#overlay-ctrl.active{
+		display:			block;
+	}
+	
+	#overlay-toggle{
+		background-color:	#373737;
+		background-image:	url('<?php echo(WEB_ROOT); ?>/themes/main/javascripts/images/layers.png');
+		border-radius:		4px 4px 4px 4px;
+		border:				4px solid #373737;
+		cursor:				pointer;
+		float:				right;
+		height:				2em;
+		margin-top:			1em;
+		width:				2em;
+	}
+	
+	#overlay-toggle.active{
+		margin-right:		1em;	
+	}
+	
+	.overlay-label{
+		display:		block;
+		margin:			0 0 0.5em 0;
 	}
 	
 	.overlay-option{
@@ -43,11 +74,47 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 		margin:			0.25em 0;
 	}
 	
-	.slider {
+	.slider,
+	.slider-mobile{
 		margin:			1.5em 10% 1.5em 10%;
 		width:			80%;
 		border-width:	2px;
 		display:		none;
+	}
+	
+	.slider-mobile.active{
+		display:		block;
+	}
+	
+	.leaflet-control-minimap{
+		display:		none;
+	}
+	
+	#mobile-test{
+		width:		0px;
+		height:		0px;
+		display:	block;
+	}
+	
+	@media only screen and ( min-width:	48em ){
+		#mobile-test{
+			display:	none;
+		}
+		.slider.active{
+			display:	block;
+		}
+		.slider-mobile.active{
+			display:	none;
+		}
+		.leaflet-control-minimap{
+			display:	block;
+		}
+		#overlay-ctrl{		
+			display:	block;
+		}
+		#overlay-toggle{		
+			display:	none;
+		}
 	}
 	
 </style>
@@ -56,16 +123,18 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 
 <div class="row">
 
-	<div id="map_container" class="twelve columns inner">
+	<div id="mobile-test"></div>
+	<div id="map-container">
 		<div id="map"></div>
-		
-		<!-- 
-		<div id="overlay-control"><div class="slider"></div></div>
-		 -->
 	</div>
 
 	
 	<script type="text/javascript">
+
+		function isMobileView(){
+			return jQuery('#mobile-test').is(':visible');
+		}
+	
 		<?php  
 			if (!$exhibit) {
 				if (!($exhibit = exhibit_builder_get_current_exhibit())) {
@@ -82,8 +151,9 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 			
 			$map = exhibit_map_data($exhibit);
 			
-			echo('var mapLatitude	= ' . $map->lat . ';' . PHP_EOL);
-			echo('var mapLongitude	= ' . $map->lon . ';' . PHP_EOL);
+			echo('var mapOverlayLabel	= "' . ve_translate("view-historical-map", "") . '";' . PHP_EOL);
+			echo('var mapLatitude		= ' . $map->lat . ';' . PHP_EOL);
+			echo('var mapLongitude		= ' . $map->lon . ';' . PHP_EOL);
 			
 			/* 
 			 * Get overlay data from item metadata & write to json object:
@@ -135,6 +205,9 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 	
 		jQuery(document).ready(function(){
 
+
+			return;
+			
 			var osmAttrib	= '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
 			var mqTilesAttr = 'Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />';
 			
@@ -172,88 +245,75 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 			);
 			*/
 				
-
-			//var map = new L.Map('map');
-
 			var map = L.map('map', {
 			    center: new L.LatLng(mapLatitude, mapLongitude),
-			    zoom: 13,
-			    layers: [osm, mq]
+			    zoom: 13
 			});
-					
-//			map.setView(
-//					new L.LatLng( mapLatitude, mapLongitude ),
-//					13);
-			//map.addLayer(osm);
-			//map.addLayer(mqa);	
 
-//			map.addLayer(mq);	
 			
+			var europeanaCtrls = jQuery('<div id="europeana-ctrls">').appendTo('#map-container');
 
-/*
-			var baseMaps = {
-				"Open Street Map":	osm,
-				"Map Quest":		mq
-			};
-			L.control.layers(baseMaps).addTo(map);		
-*/
-
-
+			
 			var EuropeanaLayerControl = function(map, ops){
 
 				var self = this;
 				
 				self.ops = ops;
 				self.map = map;
+				self.grp = null;
 				 
-				
 				self._setLayer = function(index){
 					var layer = self.ops[index].layer;
-					self.map.clearLayers();
-					self.map.addLayer(layer);
+					self.grp.clearLayers();
+					self.grp.addLayer(layer);
+
+					jQuery(self.cmp.find("div")).removeClass('active');
+					jQuery(self.cmp.find("div").get(index)).addClass('active');
 				};
 
-				
-				var html = '';
+				var html	= '';
+				var layers	= [];
 				
 				jQuery.each(self.ops, function(i, ob){
 					html += '<div class="' + i + '">' + ob.title + '</div>';
+					layers[layers.length] = ob.layer;
 				});
-				
-				html = '<div id="layer-control">' + html + '</div>';
-				
-				self.cmp = jQuery(html);//.appendTo(self.map.getContainer());// jQuery(self.map.getContainer()).find('.leaflet-control-container') );
 
-				jQuery('#layer-control div').each(function(){
+				
+				self.cmp = jQuery('<div id="layer-ctrl">' + html + '</div>');
+
+				self.cmp.find("div").each(function(){
 					jQuery(this).click(function(){
-						alert( jQuery(this).attr('class') );
+						self._setLayer(parseInt(jQuery(this).attr('class')));
 					});
 				});
+
+				self.grp = L.layerGroup(layers);
+				self.grp.addTo(self.map);
+				self._setLayer(0);
+
 				
 				return {
 					getCmp : function(index){
-						return self.cmp; //self._setLayer(index);
+						return self.cmp;
 					} 
 				}
-			}
-			
-			var baseMaps = [
-				{
-					"title": "Open Street Map",
-					"layer": osm
-				},
-				{
-					"title": "Map Quest",
-					"layer": mq
-				}
-			];
-			new EuropeanaLayerControl(map, baseMaps);
-			//L.control.layers(baseMaps).addTo(map);		
-				
-
+			};
 
 			
-				
+			var ctrlLayer = new EuropeanaLayerControl(map,
+				[{
+				    "title":	"Open Street Map",
+					"layer":	osm
+			    },
+			    {
+				    "title":	"Map Quest",
+				    "layer":	mq
+			    }]		 
+			);
+			
+			europeanaCtrls.append(ctrlLayer.getCmp());
+			
 			
 			// Overview map - requires duplicate layer
 			//var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib });
@@ -301,20 +361,39 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 				
 				self.activeOverlay	= null;
 
-				var overlayControl	= jQuery('<div id="overlay-control">').appendTo(selector);
-				var sliderDiv		= jQuery('<div class="slider">').appendTo(overlayControl);
+				var overlayControl	= jQuery('<div id="overlay-ctrl">')		.appendTo(selector);
+				var overlayToggle	= jQuery('<div id="overlay-toggle">')	.appendTo(selector);
+				var sliderDiv		= jQuery('<div class="slider">')		.appendTo(overlayControl);
+
+				var sliderDivMobile	= jQuery('<div class="slider-mobile">');
+				jQuery(self.map.getContainer()).after(sliderDivMobile);
 				
-				self.sliderDiv		= sliderDiv.slider({
+//				var sliderDivMobile	= jQuery('<div class="slider-mobile">')	.appendTo(  selectorWrapper);
+				
+				//self.overlayToggle = overlayToggle;
+				//self.
+				overlayToggle.click(function(){
+					jQuery(this).toggleClass('active');
+					if(jQuery(this).hasClass('active')){
+						overlayControl.addClass('active');
+					}
+					else{
+						overlayControl.removeClass('active');
+					}
+				});
+				
+				
+				self.sliderDiv = sliderDiv.slider({
 		            value: 100,
 		            slide: function(e, ui) {
-			            
 		            	self.activeOverlay.setOpacity(ui.value / 100);
-
-		            	console.log("slide: " + ui.value);
-		            	//e.stopPropagation();
-		            	//e.preventDefault();
-		            	//e.stopImmediatePropagation();
-		                //e.cancelBubble = true;
+		            }
+		        });
+		        
+				self.sliderDivMobile = sliderDivMobile.slider({
+		            value: 100,
+		            slide: function(e, ui) {
+		            	self.activeOverlay.setOpacity(ui.value / 100);
 		            }
 		        });
 
@@ -327,7 +406,8 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 					var index		= parseInt( this.id.replace(/\D/g,'') );
 					
 					if(isNaN(index)){
-						self.sliderDiv.hide();
+						self.sliderDiv			.removeClass('active');
+						self.sliderDivMobile	.removeClass('active');
 					}
 					else{
 						var ob = null;	// restore or set new overlay
@@ -348,8 +428,11 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 						
 						jQuery(this).parent().after(self.sliderDiv);
 						
-						self.sliderDiv.slider('value', self.defaultOpacity);		// reposition the slider
-						self.sliderDiv.show();
+						self.sliderDiv.slider		('value', self.defaultOpacity);		// reposition the slider
+						self.sliderDivMobile.slider	('value', self.defaultOpacity);		// reposition the slider
+						
+						self.sliderDiv.addClass('active');
+						self.sliderDivMobile.addClass('active');
 					}
 				};
 
@@ -361,17 +444,18 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 				
 				self.mapOverlays = mapOverlays.sort(sortByTitle);
 				
-				jQuery('<div class="overlay-option"><input id="rd" name="overlay" type="radio" checked="checked"/><label for="rd">None</label></div>').appendTo(overlayControl);  //'#overlay-control');
+				jQuery('<span class="overlay-label">' + mapOverlayLabel + '</span><div class="overlay-option"><input id="rd" name="overlay" type="radio" checked="checked"/><label for="rd">None</label></div>').appendTo(overlayControl);
 
 				jQuery.each(mapOverlays, function(i, ob){
-					var overlayOption	= jQuery('<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>').appendTo(overlayControl);  //  '#overlay-control');
+					var overlayOption	= jQuery('<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>').appendTo(overlayControl);
 				});
 
 				jQuery('input[type="radio"]').bind('click', self.setActiveOverlay);
 						
 			}
 
-			new EuropeanaOverlayControl(map, '#map_container');
+			
+			new EuropeanaOverlayControl(map, europeanaCtrls);
 
 
 			
