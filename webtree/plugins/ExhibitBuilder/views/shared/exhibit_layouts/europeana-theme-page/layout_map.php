@@ -10,7 +10,7 @@
 	
 	.leaflet-container a.leaflet-popup-close-button{
 		color:		#999;
-		padding:	3px 3px 0 0;
+		padding:	2px 2px 0 0;
 	}
 	
 	.leaflet-popup-content{
@@ -406,18 +406,16 @@
 			<?php if (current_user()): ?>	// coordinates utility
 				var popup = L.popup();
 				function onMapClick(e) {
-				
-	return;
-					 var content = 
-					 
-					 	'<span style="color:black;">You clicked the map at ' + e.latlng.toString()
-					+	'<br/>'
-					+	'imgW = <input id="imgW" value="600">'
-					+	'<br/>'
-					+	'imgH = <input id="imgH" value="433">'
+					var content = ''
+					+ 	'<span style="color:black;">Calculate from NW coordinate:<br/>&nbsp;&nbsp;' + e.latlng.lat + ' / ' + e.latlng.lng
 					+	'<br/>'
 					+	'<br/>'
-					+	'<button id="imgCalc">compute</button>';
+					+	'<span style="display:inline-block; width:100px;">image width = </span><input id="imgW" value="600" style="width:100px;">'
+					+	'<br/>'
+					+	'<span style="display:inline-block; width:100px;">image height = </span><input id="imgH" value="433" style="width:100px;">'
+					+	'<br/>'
+					+	'<br/>'
+					+	'<button id="imgCalc" style="display:block; margin:auto;">compute</button>';
 				
 				    popup
 				        .setLatLng(e.latlng)
@@ -425,25 +423,21 @@
 				        .openOn(map);
 				        
 					jQuery('#imgCalc').click(function(){
-						var w = jQuery('#imgW').val();
-						var h = jQuery('#imgH').val();
+						var w = parseInt( jQuery('#imgW').val() );
+						var h = parseInt( jQuery('#imgH').val() );
+												
+						var p = map.latLngToContainerPoint(e.latlng);
+						var se = map.containerPointToLatLng(new L.Point(w + p.x, h + p.y))
 						
-						//  containerPointToLayerPoint
-						
-						var p = map.latLngToContainerPoint(
-								//map.latLngToLayerPoint(
-								e.latlng
-								//)
-							);
-						
-						var se = map.containerPointToLatLng(
-							new L.Point(w + p.x, h + p.y)
-							)
-						
-						var res = "w = " + w + ", h = " + h;
-						res += '\n\n' + JSON.stringify(se);
-						
-						alert(res);
+						popup.setContent(''
+							+ '<div>NW Latitude / Longitude</div>'
+							+ '<div style="color:#666;">' + e.latlng.lat + '</div>'
+							+ '<div style="color:#666;">' + e.latlng.lng + '</div>'
+							+ '<br>'
+							+ '<div>SE Latitude / Longitude</div>'
+							+ '<div style="color:#666;">' + se.lat + '</div>'
+							+ '<div style="color:#666;">' + se.lng + '</div>'
+						);
 					});
 				        
 				}
