@@ -6,7 +6,6 @@
 	
 	.leaflet-popup-content-wrapper{
 		border-radius:	1em;
-		XXXtext-align:		center;
 	}
 	
 	.leaflet-container a.leaflet-popup-close-button{
@@ -26,7 +25,7 @@
 	}
 	
 	#map{
-		height:		500px;
+		height:		200px;
 		width:		100%;
 	}
 
@@ -118,22 +117,76 @@
 		display:	block;
 	}
 	
-	@media only screen and ( min-width:	48em ){
-		#mobile-test{
-			display:	none;
+	/* hide the pan that appears in the mini-map */
+	
+	.leaflet-control-minimap .leaflet-control-pan.leaflet-control{
+		display:none;
+	}
+	
+	/* hide the pan, zoom and layer controls on phones */
+	
+	.leaflet-control-pan{
+		display:	none;
+	}
+
+	.leaflet-control-zoom{
+		display:	none;
+	}
+	
+	#layer-ctrl{
+		display:	none;
+	}
+		
+	
+	@media only screen and ( min-width:	30em ){
+		#map{
+			height:		300px;
 		}
+	}
+	
+	@media only screen and ( min-width:	40em ){
+		#map{
+			height:		400px;
+		}
+	}
+	
+	@media only screen and ( min-width:	48em ){
+		#map{
+			height:		500px;
+		}
+	}
+	
+
+	@media only screen and ( min-width:	48em ){
+	
+		.leaflet-control-pan{
+			display:	block;
+		}
+
+		.leaflet-control-zoom{
+			display:	block;
+		}
+
+		#layer-ctrl{
+			display:	block;
+		}
+		
 		.slider.active{
 			display:	block;
 		}
+		
 		.slider-mobile.active{
 			display:	none;
 		}
+		
 		.leaflet-control-minimap{
 			display:	block;
 		}
+		
 		#overlay-ctrl{		
 			display:	block;
 		}
+		
 		#overlay-toggle{		
 			display:	none;
 		}
@@ -145,7 +198,6 @@
 
 <div class="row">
 
-	<div id="mobile-test"></div>
 	<div id="map-container">
 		<div id="map"></div>
 	</div>
@@ -153,10 +205,6 @@
 	
 	<script type="text/javascript">
 
-		function isMobileView(){
-			return jQuery('#mobile-test').is(':visible');
-		}
-	
 		<?php  
 			if (!$exhibit) {
 				if (!($exhibit = exhibit_builder_get_current_exhibit())) {
@@ -269,6 +317,7 @@
 				
 			var map = L.map('map', {
 			    center: new L.LatLng(mapLatitude, mapLongitude),
+			    zoomControl: false,
 			    zoom: 13
 			});
 
@@ -352,12 +401,7 @@
 				{toggleDisplay: true }
 			).addTo(map);
 
-
-
-
-
-
-			
+			L.control.zoom().addTo(map);
 			
 			<?php if (current_user()): ?>	// coordinates utility
 				var popup = L.popup();
