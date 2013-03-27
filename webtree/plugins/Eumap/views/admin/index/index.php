@@ -32,6 +32,44 @@
 		color:	#CC5500;
 	}
 	
+	/* popup */
+	
+	#form-wrap{
+		background-color: 	#EAE9DB;
+		display:			inline-block;
+	}
+	
+	.overlaid-content{
+		position:	fixed;
+		width:		100%;
+		height:		100%;
+		display:	table;
+		top:		0;
+		left:		0;
+		visibility:	hidden;
+		text-align:	center;
+		z-index:	1000;
+	}
+	
+	.overlaid-content-inner{
+		background:			none repeat scroll 0 0 rgba(255, 255, 255, 0.898);
+		display:			table-cell;
+		text-align:			center;
+		vertical-align:		middle;
+	}
+
+	
+	.close{
+		background-image: url("http://europeana.eu/portal/themes/default/images/icons/close-lightbox.png");
+		cursor: pointer;
+		display: inline-block;
+		height: 35px;
+		margin-left: -2em;
+		margin-top: -2em;
+		position: absolute;
+		width: 35px;
+	}
+	
 </style>
 
 <form method="post" action="eumap/map/add" id="mapForm" style="display:none;">
@@ -182,9 +220,9 @@
 		jQuery('.addNewMap').click(function(){
 			jQuery("#mapFormId").val("");
 			jQuery(".addOrEditMap").val("Add New Map");
-			jQuery("#pointForm").hide();
+			hidePointForm();
 			jQuery("#mapForm").attr('action', 'eumap/map/add');
-			jQuery("#mapForm").show();
+			showMapForm();
 		});
 
 		
@@ -200,10 +238,9 @@
 			jQuery(".addOrEditPoint").val("Add New Story Point");
 			
 			jQuery("#map_id").val(mapId);
-			jQuery("#mapForm").hide();
+			hideMapForm();
 			jQuery("#pointForm").attr('action', 'eumap/map/addPoint');
-			jQuery("#pointForm").show();
-			
+			showPointForm();
 		});
 		
 		jQuery('.editMap').click(function(){
@@ -219,10 +256,9 @@
 			jQuery("#tag").val(	row.find(".tag").html() );
 			
 			jQuery(".addOrEditMap").val("Edit Existing Map");
-			jQuery("#pointForm").hide();
+			hidePointForm();
 			jQuery("#mapForm").attr('action', 'eumap/map/edit');
-			jQuery("#mapForm").show();
-
+			showMapForm();
 		});
 		
 		
@@ -244,17 +280,62 @@
 			jQuery("#lon").val(	row.find(".lon").html()	);
 			jQuery("#lat").val(	row.find(".lat").html()	);
 			
-			jQuery("#mapForm").hide();
+			hideMapForm();
 			jQuery("#pointForm").attr('action', 'eumap/map/editPoint');
-			jQuery("#pointForm").show();
-			
+			showPointForm();
 		});
 
 		jQuery('.cancelAdd').click(function(e){
-			jQuery("#mapForm").hide();
-			jQuery("#pointForm").hide();
+			hideMapForm();
+			hidePointForm();
 			e.preventDefault();
 		});
+		
+		
+		function getForm( form ){
+			var overlay 	 = jQuery('.overlaid-content');
+			var overlayInner = null;
+			
+			if(overlay.length==0){
+				overlay = jQuery('<div class="overlaid-content"><div class="overlaid-content-inner"><form id="form-wrap"></form><div class="close"></div></div></div>').appendTo('body');
+				jQuery('.overlaid-content').click(function(){
+					overlay.css('visibility', 'hidden');
+				});
+				jQuery('.close').click(function(){
+					overlay.css('visibility', 'hidden');
+				});
+			}
+			overlayForm = jQuery('#form-wrap');
+			overlayForm.click(function(e){
+				e.stopPropagation();
+			});
+			
+			overlayForm.append( form );
+			
+			overlay.css('visibility', 'visible');
+		}
+		
+		function showPointForm(){
+			getForm( jQuery("#pointForm") );
+			jQuery("#pointForm").show();
+		}
+		
+		function hidePointForm(){
+			getForm( jQuery("#pointForm") );
+			jQuery("#pointForm").hide();
+			jQuery('.overlaid-content').css('visibility', 'hidden');
+		}
+		
+		function showMapForm(){
+			getForm( jQuery("#mapForm") );
+			jQuery("#mapForm").show();			
+		}
+		
+		function hideMapForm(){
+			getForm( jQuery("#mapForm") );
+			jQuery("#mapForm").hide();
+			jQuery('.overlaid-content').css('visibility', 'hidden');
+		}
 		
 	});
 </script>
