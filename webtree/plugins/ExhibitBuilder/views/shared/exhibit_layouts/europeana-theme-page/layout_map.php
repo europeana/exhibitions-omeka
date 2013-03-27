@@ -1,8 +1,24 @@
-<?php
-$_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
-?>
+<?php $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri()); ?>
 
 <style type="text/css">
+
+	/* Leaflet overrides */
+	
+	.leaflet-popup-content-wrapper{
+		border-radius:	1em;
+		XXXtext-align:		center;
+	}
+	
+	.leaflet-container a.leaflet-popup-close-button{
+		color:		#999;
+		padding:	3px 3px 0 0;
+	}
+	
+	.leaflet-popup-content{
+		margin:	1em 1em;
+	}
+
+	/* End leaflet overrides */
 
 	#map-container{
 		padding-bottom:	3em;
@@ -13,12 +29,18 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 		height:		500px;
 		width:		100%;
 	}
+
+	.read-story-link{
+		display:	block;
+		
+	}
 	
 	#europeana-ctrls{
 		position:			absolute;
 		top:				0;
 		right:				0;
 		padding:			1em;
+		color:				#E3D6B6;
 	}
 	
 	#layer-ctrl>div{
@@ -152,6 +174,8 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 			$map = exhibit_map_data($exhibit);
 			
 			echo('var mapOverlayLabel	= "' . ve_translate("view-historical-map", "") . '";' . PHP_EOL);
+			echo('var mapStoryLinkLabel	= "' . ve_translate("read-story", "") . '";' . PHP_EOL);
+			
 			echo('var mapLatitude		= ' . $map->lat . ';' . PHP_EOL);
 			echo('var mapLongitude		= ' . $map->lon . ';' . PHP_EOL);
 			
@@ -206,8 +230,6 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 		jQuery(document).ready(function(){
 
 
-			return;
-			
 			var osmAttrib	= '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
 			var mqTilesAttr = 'Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />';
 			
@@ -481,8 +503,19 @@ $_SESSION['themes_uri'] = str_replace("themes-map", "themes", uri());
 						}).done(function ( data ) {
 
 							jQuery('<img src="' + data.imgUrl + '" />').appendTo('body').imagesLoaded(function($images, $proper, $broken){
+								
+								marker._popup.setContent(
+										'<a href="' + data.url + '">'
+									+		'<h5>' + data.title + '</h5>'
+									+	'</a>'
+									+	'<a href="' + data.url + '">'
+									+		'<img style="width:' + jQuery(this).width() + ';" src="' + data.imgUrl + '"/>'
+									+	'</a>'
+									+	'<a href="' + data.url + '" class="read-story-link">'
+									+		mapStoryLinkLabel
+									+	'</a>'
+								);
 								this.remove();
-								marker._popup.setContent('<a href="' + data.url + '"><h5>' + data.title + '</h5><img style="' + jQuery($images[0]).width() + '" src="' + data.imgUrl + '"/></a>');
 							});
 						
 					});
