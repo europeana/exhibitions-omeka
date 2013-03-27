@@ -1,76 +1,7 @@
 <?php head(array('title'=>'EU Maps', 'bodyclass'=>'eumaps')); ?>
 
-
 <h1>EU Maps</h1>
 
-<style type="text/css">
-
-	input[type=text]{
-		width:	8em;
-	}
-	
-	#map-name,
-	.tag,
-	.page_id{
-		font-weight:	bold;
-	}
-	
-	.page_id{
-		text-align:	right;
-	}
-	
-	.addNewMap,
-	.addNewPoint{
-		color:				#338899;
-		text-decoration:	underline;
-	}
-	
-	.deleteMap,
-	.deletePoint,
-	.editMap,
-	.editPoint{
-		color:	#CC5500;
-	}
-	
-	/* popup */
-	
-	#form-wrap{
-		background-color: 	#EAE9DB;
-		display:			inline-block;
-	}
-	
-	.overlaid-content{
-		position:	fixed;
-		width:		100%;
-		height:		100%;
-		display:	table;
-		top:		0;
-		left:		0;
-		visibility:	hidden;
-		text-align:	center;
-		z-index:	1000;
-	}
-	
-	.overlaid-content-inner{
-		background:			none repeat scroll 0 0 rgba(255, 255, 255, 0.898);
-		display:			table-cell;
-		text-align:			center;
-		vertical-align:		middle;
-	}
-
-	
-	.close{
-		background-image: url("http://europeana.eu/portal/themes/default/images/icons/close-lightbox.png");
-		cursor: pointer;
-		display: inline-block;
-		height: 35px;
-		margin-left: -2em;
-		margin-top: -2em;
-		position: absolute;
-		width: 35px;
-	}
-	
-</style>
 
 <form method="post" action="eumap/map/add" id="mapForm" style="display:none;">
 
@@ -194,6 +125,7 @@
 		
 		function pointEdit(mapName, urlVal){
 			//alert(mapName);
+			//alert("hi");
 			jQuery.ajax({
 				url:		"eumap/map/data?tag=" + mapName,
 				dataType:	"json"
