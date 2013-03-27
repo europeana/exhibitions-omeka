@@ -466,7 +466,10 @@
 
     <view-historical-map>
         <en>View historical map</en>
-        <it>Guarda la carta storica</it>
     </view-historical-map>
+
+    <read-story>
+        <en>Read story</en>
+    </read-story>
         
 </translations>
