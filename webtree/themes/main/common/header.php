@@ -118,12 +118,15 @@
 	    <!-- Plugin Stuff -->
 	    <?php plugin_header(); ?>
 
-		<?php
-		    queue_css('jquery-ui', 	 'all');
-			queue_css('Leaflet-MiniMap-master/src/Control.MiniMap');
-			queue_css('jquery-ui', 	 'all');
-			
-		?>
+	    <?php if ( substr($pageURLNoParams, -strlen("themes-map")) == "themes-map" ): ?>
+	    	<?php
+			    queue_css('jquery-ui', 	 'all');
+				queue_css('Leaflet-MiniMap-master/src/Control.MiniMap');
+				queue_css('Leaflet-Pan/L.Control.Pan');
+				//queue_css('Leaflet-Pan/L.Control.Pan.ie');
+				queue_css('jquery-ui', 	 'all');
+			?>
+		<?php endif; ?>
 		
     	
 	    <!-- Stylesheets -->
@@ -193,6 +196,7 @@
     		<?php
 				queue_js('leaflet');
     			queue_js('Leaflet-MiniMap-master/src/Control.MiniMap');
+				queue_js('Leaflet-Pan/L.Control.Pan');
 				queue_js('jquery.imagesloaded.min');
 				queue_js('jquery-ui-touch-punch.min');
 			?>
