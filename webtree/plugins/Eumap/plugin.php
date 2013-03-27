@@ -6,6 +6,7 @@ define('EUMAP_IMG_DIR_ADMIN',	PLUGIN_DIR . '/Eumap/views/public/');
 add_plugin_hook('install',			'eumap_install');
 add_plugin_hook('uninstall',		'eumap_uninstall');
 add_plugin_hook('define_routes',	'eumap_define_routes');
+add_plugin_hook('admin_theme_header', 'eumap_admin_header');
 
 
 add_filter('admin_navigation_main', 'eumap_admin_navigation_main');
@@ -81,3 +82,14 @@ function eumap_define_routes($router)
    	);
 
 }
+
+
+
+function eumap_admin_header($request)
+{   
+	error_log("request->getModuleName() "  .  $request->getModuleName());
+	error_log("request->getControllerName() "  .  $request->getControllerName());
+	
+    queue_css('eumaps', 'screen');
+}
+
