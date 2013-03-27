@@ -406,10 +406,46 @@
 			<?php if (current_user()): ?>	// coordinates utility
 				var popup = L.popup();
 				function onMapClick(e) {
+				
+	return;
+					 var content = 
+					 
+					 	'<span style="color:black;">You clicked the map at ' + e.latlng.toString()
+					+	'<br/>'
+					+	'imgW = <input id="imgW" value="600">'
+					+	'<br/>'
+					+	'imgH = <input id="imgH" value="433">'
+					+	'<br/>'
+					+	'<br/>'
+					+	'<button id="imgCalc">compute</button>';
+				
 				    popup
 				        .setLatLng(e.latlng)
-				        .setContent('<span style="color:black;">You clicked the map at ' + e.latlng.toString())
+				        .setContent(content)
 				        .openOn(map);
+				        
+					jQuery('#imgCalc').click(function(){
+						var w = jQuery('#imgW').val();
+						var h = jQuery('#imgH').val();
+						
+						//  containerPointToLayerPoint
+						
+						var p = map.latLngToContainerPoint(
+								//map.latLngToLayerPoint(
+								e.latlng
+								//)
+							);
+						
+						var se = map.containerPointToLatLng(
+							new L.Point(w + p.x, h + p.y)
+							)
+						
+						var res = "w = " + w + ", h = " + h;
+						res += '\n\n' + JSON.stringify(se);
+						
+						alert(res);
+					});
+				        
 				}
 				map.on('click', onMapClick);
 			<?php endif; ?>
