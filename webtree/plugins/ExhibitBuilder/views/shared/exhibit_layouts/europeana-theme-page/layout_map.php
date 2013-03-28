@@ -505,9 +505,9 @@
 					+ 	'<span style="color:black;">Calculate from NW coordinate:<br/>&nbsp;&nbsp;' + e.latlng.lat + ' / ' + e.latlng.lng
 					+	'<br/>'
 					+	'<br/>'
-					+	'<span style="display:inline-block; width:100px;">image width = </span><input id="imgW" value="600" style="width:100px;">'
+					+	'<span style="display:inline-block; width:100px;">image width = </span><input id="imgW"  style="width:100px;">'
 					+	'<br/>'
-					+	'<span style="display:inline-block; width:100px;">image height = </span><input id="imgH" value="433" style="width:100px;">'
+					+	'<span style="display:inline-block; width:100px;">image height = </span><input id="imgH" style="width:100px;">'
 					+	'<br/>'
 					+	'<br/>'
 					+	'<button id="imgCalc" style="display:block; margin:auto;">compute</button>';
