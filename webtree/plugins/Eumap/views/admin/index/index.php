@@ -363,7 +363,7 @@
 			<tr>
 				<td colspan="4"></td>
 				<td class="<?php echo $map->id	?>">
-					<a href="#form" class="addNewPoint">Add Story Point</a>
+					<a class="addNewPoint">Add Story Point</a>
 				</td>
 			</tr>
 
@@ -373,7 +373,7 @@
 		<tr>
 			<td colspan="4"></td>
 			<td style="text-align:right">
-				<a href="#form" class="addNewMap">Add map</a>
+				<a class="addNewMap">Add map</a>
 			</td>
 		</tr>
 	</tbody>
