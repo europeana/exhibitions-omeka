@@ -50,9 +50,9 @@
 			
 			<td>
 				(
-				<input type="text"	name="lat"	id="lat"	value="41.89007"/>
+				<input type="text"	name="lat"	id="lat"	xvalue="41.89007"/>
 				/ 
-				<input type="text"	name="lon"	id="lon"	value="12.49188"/>
+				<input type="text"	name="lon"	id="lon"	xvalue="12.49188"/>
 				)
 			</td>
 		</tr>
@@ -100,9 +100,9 @@
 			</td>
 			
 			<td>
-				<input type="text"	name="lat"	id="lat"	value="41.88541"/>
+				<input type="text"	name="lat"	id="lat"	xvalue="41.88541"/>
 				,
-				<input type="text"	name="lon"	id="lon"	value="12.47068"/>
+				<input type="text"	name="lon"	id="lon"	xvalue="12.47068"/>
 			</td>
 		</tr>
 		
