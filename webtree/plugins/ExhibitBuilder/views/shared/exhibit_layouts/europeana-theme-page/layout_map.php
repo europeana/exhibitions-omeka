@@ -39,6 +39,11 @@
 		overflow-y:	auto;
 	}
 
+	.overlay-option,
+	.overlay-label{
+		line-height:	2.4em;
+	}
+
 	
 	@media only screen and ( min-width:	35em ){
 		#map{
@@ -106,11 +111,16 @@
 	}
 	
 	#layer-ctrl>div{
-		background-color:	#373737;
-		border-radius:		8px 8px 8px 8px;
+	
 		margin-left:		1em;
 		float:				right;
-		padding:			0.5em;	
+		padding:			0.5em;
+		
+		background-color:	rgba(255, 255, 255, 0.8);
+		border:				1px solid #888888;
+		border-radius:		5px 5px 5px 5px;
+		box-shadow:			0 0 8px rgba(0, 0, 0, 0.4);
+		color:				#000;
 	}
 	
 	#layer-ctrl>div.active{
@@ -118,14 +128,22 @@
 	}
 		
 	#overlay-ctrl{
-		background-color:	#373737;
-		border-radius:		8px 8px 8px 8px;
+
 		clear:				both;
 		display:			none;
 		float:				right;
 		margin-top:			1em;
 		padding:			0.5em 1em 1em 1em;
 		position:			relative;
+		
+
+		background-color:	rgba(255, 255, 255, 0.8);
+		border:				1px solid #888888;
+		border-radius:		5px 5px 5px 5px;
+		box-shadow:			0 0 8px rgba(0, 0, 0, 0.4);
+		color:				#000;
+		
+		
 	}
 	
 	#overlay-ctrl.active{
@@ -218,13 +236,7 @@
 
 	@media only screen and ( min-width:	48em ){
 	
-		.leaflet-control-pan{
-			display:	block;
-		}
-
-		.leaflet-control-zoom{
-			display:	block;
-		}
+		/* show controls */
 
 		#layer-ctrl{
 			display:	block;
@@ -252,6 +264,26 @@
 			display:	none;
 		}
 	}
+	
+	@media only screen and ( min-width:	65em ){
+	
+		/* show pan & zoom controls on anything wider than an ipad (landscape orientation) */
+	
+		.leaflet-control-pan{
+			display:	block;
+		}
+
+		.leaflet-control-zoom{
+			display:	block;
+		}
+
+		.overlay-option,
+		.overlay-label{
+			line-height:	1.48em;
+		}
+		
+	}
+	
 	
 </style>
 	
@@ -493,11 +525,11 @@
 						var se = map.containerPointToLatLng(new L.Point(w + p.x, h + p.y))
 						
 						popup.setContent(''
-							+ '<div>NW Latitude / Longitude</div>'
+							+ '<div style="color:#000;">NW Latitude / Longitude</div>'
 							+ '<div style="color:#666;">' + e.latlng.lat + '</div>'
 							+ '<div style="color:#666;">' + e.latlng.lng + '</div>'
 							+ '<br>'
-							+ '<div>SE Latitude / Longitude</div>'
+							+ '<div style="color:#000;">SE Latitude / Longitude</div>'
 							+ '<div style="color:#666;">' + se.lat + '</div>'
 							+ '<div style="color:#666;">' + se.lng + '</div>'
 						);
@@ -567,6 +599,8 @@
 					if(isNaN(index)){
 						self.sliderDiv			.removeClass('active');
 						self.sliderDivMobile	.removeClass('active');
+						sliderLabel				.removeClass('active');
+						sliderLabelMobile		.removeClass('active');
 					}
 					else{
 						var ob = null;	// restore or set new overlay
@@ -614,14 +648,7 @@
 				
 				var optionHtml = '<div class="overlay-options">';
 				jQuery.each(mapOverlays, function(i, ob){
-					//var overlayOption	= jQuery('<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>').appendTo(overlayControl);
-					//overlayOption	= jQuery('<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>').appendTo(overlayControl);
-					//overlayOption	= jQuery('<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>').appendTo(overlayControl);
-
 					optionHtml += '<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>';
-					optionHtml += '<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>';
-					optionHtml += '<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>';
-					
 				});
 				optionHtml += '</div>';
 				jQuery(optionHtml).appendTo(overlayControl);
