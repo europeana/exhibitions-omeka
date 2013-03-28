@@ -472,4 +472,8 @@
         <en>Read story</en>
     </read-story>
         
+    <control-transparency>
+        <en>Control transparency</en>
+    </control-transparency>
+        
 </translations>

@@ -24,11 +24,74 @@
 		position:		relative;
 	}
 	
+	
+	/* #map object default height & breakpoint heights need to be tracked by height for #overlay-ctrl  */
+	
 	#map{
-		height:		200px;
+		height:		28em;
 		width:		100%;
 	}
+	
+	/*  #overlay-ctrl{}  */
+	
+	.overlay-options{
+		max-height:	15em;
+		overflow-y:	auto;
+	}
 
+	
+	@media only screen and ( min-width:	35em ){
+		#map{
+			height:		34em;
+		}
+		
+		.overlay-options{
+			max-height:	21em;		/* increase max-height */
+			overflow-y:	auto;
+		}
+	}
+	
+	@media only screen and ( min-width:	48em ){
+		#map{
+			height:		42em;
+		}
+		
+		.overlay-options{
+			max-height:	13em;		/* mini-map has appeared, so lessen max-height */
+			overflow-y:	auto;
+		}
+		
+	}
+	
+	@media only screen and ( min-width:	54em ){
+		#map{
+			height:		45em;
+		}
+		
+		.overlay-options{
+			max-height:	16em;		/* mini-map has appeared, so lessen max-height */
+			overflow-y:	auto;
+		}
+		
+	}
+	
+	
+	@media only screen and ( min-width:	60em ){
+		#map{
+			height:		50em;
+		}
+		
+		.overlay-options{
+			max-height:	21em;		/* mini-map has appeared, so lessen max-height */
+			overflow-y:	auto;
+		}
+		
+	}
+	
+	
+	
+	
+	
 	.read-story-link{
 		display:	block;
 		
@@ -85,24 +148,37 @@
 		margin-right:		1em;	
 	}
 	
+	
+	
+	.overlay-option,
 	.overlay-label{
 		display:		block;
-		margin:			0 0 0.5em 0;
+		white-space:	nowrap;
+		margin:			0.25em 0.25em 0.25em 0;
+	}
+
+	.overlay-label{
+		margin-bottom:	0.5em;
+		margin-right:	1em;
 	}
 	
-	.overlay-option{
-		display:		block;
-		margin:			0.25em 0;
-	}
+	
+	.slider-label,
+	.slider-label-mobile{
+		text-align:	center;
+	}	
 	
 	.slider,
-	.slider-mobile{
+	.slider-label,
+	.slider-mobile,
+	.slider-label-mobile{
 		margin:			1.5em 10% 1.5em 10%;
 		width:			80%;
 		border-width:	2px;
 		display:		none;
 	}
 	
+	.slider-label-mobile.active,
 	.slider-mobile.active{
 		display:		block;
 	}
@@ -137,25 +213,8 @@
 		display:	none;
 	}
 		
-	
-	@media only screen and ( min-width:	30em ){
-		#map{
-			height:		300px;
-		}
-	}
-	
-	@media only screen and ( min-width:	40em ){
-		#map{
-			height:		400px;
-		}
-	}
-	
-	@media only screen and ( min-width:	48em ){
-		#map{
-			height:		500px;
-		}
-	}
-	
+
+
 
 	@media only screen and ( min-width:	48em ){
 	
@@ -171,10 +230,12 @@
 			display:	block;
 		}
 		
+		.slider-label.active,
 		.slider.active{
 			display:	block;
 		}
 		
+		.slider-label-mobile.active,
 		.slider-mobile.active{
 			display:	none;
 		}
@@ -221,8 +282,9 @@
 			
 			$map = exhibit_map_data($exhibit);
 			
-			echo('var mapOverlayLabel	= "' . ve_translate("view-historical-map", "") . '";' . PHP_EOL);
-			echo('var mapStoryLinkLabel	= "' . ve_translate("read-story", "") . '";' . PHP_EOL);
+			echo('var mapOverlayLabel		= "' . ve_translate("view-historical-map", "") . '";' . PHP_EOL);
+			echo('var mapStoryLinkLabel		= "' . ve_translate("read-story", "") . '";' . PHP_EOL);
+			echo('var mapTransparencyLabel	= "' . ve_translate("control-transparency", "") . '";' . PHP_EOL);
 			
 			echo('var mapLatitude		= ' . $map->lat . ';' . PHP_EOL);
 			echo('var mapLongitude		= ' . $map->lon . ';' . PHP_EOL);
@@ -258,10 +320,11 @@
 					if( count($current->Files) > 0){
 						$uri = str_replace("/fullsize/", "/files/", file_display_uri($current->Files[0]));
 						echo('mapOverlays[mapOverlays.length] = {"title":"' . $title .  '",  "nwLat":"' . $nwLat . '", "nwLon":"' . $nwLon . '", "seLat":"' . $seLat . '", "seLon":"' . $seLon . '", "uri":"' . $uri . '" };' . PHP_EOL);
-					} 
+					}
 				}
 			}
-
+			
+			
 			/*
 			 *	Get marker data from story_points database table
 			 * 
@@ -457,17 +520,17 @@
 				
 				self.activeOverlay	= null;
 
-				var overlayControl	= jQuery('<div id="overlay-ctrl">')		.appendTo(selector);
-				var overlayToggle	= jQuery('<div id="overlay-toggle">')	.appendTo(selector);
-				var sliderDiv		= jQuery('<div class="slider">')		.appendTo(overlayControl);
+				var overlayControl	= jQuery('<div id="overlay-ctrl">')											.appendTo(selector);
+				var overlayToggle	= jQuery('<div id="overlay-toggle">')										.appendTo(selector);
+				var sliderDiv		= jQuery('<div class="slider">')											.appendTo(overlayControl);
+				var sliderLabel		= jQuery('<div class="slider-label">' + mapTransparencyLabel + '</div>')	.appendTo(overlayControl);
 
-				var sliderDivMobile	= jQuery('<div class="slider-mobile">');
+				var sliderDivMobile		= jQuery('<div class="slider-mobile">');
+				var sliderLabelMobile	= jQuery('<div class="slider-label-mobile">' + mapTransparencyLabel + '</div>');
+				jQuery(self.map.getContainer()).after(sliderLabelMobile);
 				jQuery(self.map.getContainer()).after(sliderDivMobile);
+
 				
-//				var sliderDivMobile	= jQuery('<div class="slider-mobile">')	.appendTo(  selectorWrapper);
-				
-				//self.overlayToggle = overlayToggle;
-				//self.
 				overlayToggle.click(function(){
 					jQuery(this).toggleClass('active');
 					if(jQuery(this).hasClass('active')){
@@ -522,13 +585,17 @@
 							self.activeOverlay = ob;
 						}
 						
+						jQuery(this).parent().after(sliderLabel);
 						jQuery(this).parent().after(self.sliderDiv);
+
 						
 						self.sliderDiv.slider		('value', self.defaultOpacity);		// reposition the slider
 						self.sliderDivMobile.slider	('value', self.defaultOpacity);		// reposition the slider
 						
 						self.sliderDiv.addClass('active');
 						self.sliderDivMobile.addClass('active');
+						sliderLabel.addClass('active');
+						sliderLabelMobile.addClass('active');
 					}
 				};
 
@@ -538,13 +605,26 @@
 					return ((aTitle < bTitle) ? -1 : ((aTitle > bTitle) ? 1 : 0));
 				}
 				
+				
 				self.mapOverlays = mapOverlays.sort(sortByTitle);
 				
 				jQuery('<span class="overlay-label">' + mapOverlayLabel + '</span><div class="overlay-option"><input id="rd" name="overlay" type="radio" checked="checked"/><label for="rd">None</label></div>').appendTo(overlayControl);
 
+				
+				
+				var optionHtml = '<div class="overlay-options">';
 				jQuery.each(mapOverlays, function(i, ob){
-					var overlayOption	= jQuery('<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>').appendTo(overlayControl);
+					//var overlayOption	= jQuery('<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>').appendTo(overlayControl);
+					//overlayOption	= jQuery('<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>').appendTo(overlayControl);
+					//overlayOption	= jQuery('<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>').appendTo(overlayControl);
+
+					optionHtml += '<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>';
+					optionHtml += '<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>';
+					optionHtml += '<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>';
+					
 				});
+				optionHtml += '</div>';
+				jQuery(optionHtml).appendTo(overlayControl);
 
 				jQuery('input[type="radio"]').bind('click', self.setActiveOverlay);
 						
