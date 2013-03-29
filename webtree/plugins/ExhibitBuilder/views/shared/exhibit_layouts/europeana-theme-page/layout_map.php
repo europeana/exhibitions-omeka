@@ -151,19 +151,24 @@
 	}
 	
 	#overlay-toggle{
-		background-color:	#373737;
-		background-image:	url('<?php echo(WEB_ROOT); ?>/themes/main/javascripts/images/layers.png');
-		border-radius:		4px 4px 4px 4px;
-		border:				4px solid #373737;
-		cursor:				pointer;
-		float:				right;
-		height:				2em;
-		margin-top:			1em;
-		width:				2em;
+		background-color:		rgba(255, 255, 255, 0.8);
+		background-image:		url('<?php echo(WEB_ROOT); ?>/themes/main/javascripts/images/layers.png');
+		border-radius:			5px 5px 5px 5px;
+		border:					1px solid #888888;
+		box-shadow:				0 0 8px rgba(0, 0, 0, 0.4);
+		cursor:					pointer;
+		float:					right;
+		height:					2em;
+		margin-top:				1em;
+		padding:				3px;
+		width:					2em;
+		
+		background-position:	3px 3px;
+		background-repeat:		no-repeat;
 	}
 	
 	#overlay-toggle.active{
-		margin-right:		1em;	
+		Xmargin-right:		1em;	
 	}
 	
 	
@@ -502,9 +507,14 @@
 			
 			<?php if (current_user()): ?>	// coordinates utility
 			
-
-				function onMapClick(e) {
+				var adminMarker = null;
 				
+				function onMapClick(e) {
+					
+					if(adminMarker){
+						map.removeLayer(adminMarker);
+					}
+						
 					var popup = new L.popup();
 								
 					var content = ''
@@ -528,7 +538,7 @@
 
 						// end popup 1
 						
-						var marker = L.marker(
+						adminMarker = L.marker(
 							[
 								parseFloat(e.latlng.lat)
 									,
@@ -540,14 +550,14 @@
 						);
 						
 						
-						var origCloseFn = marker.closePopup;
+						var origCloseFn = adminMarker.closePopup;
 						var img		= null;
 						var imgW	= null;
 						var imgH	= null;
 						
-						marker.closePopup = function(){return this;}
+						adminMarker.closePopup = function(){return this;}
 						
-						marker.on('dragstart', function(){
+						adminMarker.on('dragstart', function(){
 							img = jQuery('#imgHelp');
 							imgW =  img.width();
 							imgH =	img.height();
@@ -555,13 +565,13 @@
 						});
 						
 						
-						marker.on('dragend', function(){
+						adminMarker.on('dragend', function(){
 							setupImgPopup(imgW, imgH);
 							fitBubble(img);
 						});
 
 						
-						marker.addTo(map);
+						adminMarker.addTo(map);
 						
 						var fitBubble = function(img){
 							img.closest('.leaflet-popup-content').width(img.width() + 'px');
@@ -571,9 +581,9 @@
 						}
 						
 						var setupImgPopup = function(w, h){
-							popup2 = marker.bindPopup('<img id="imgHelp" src="' + path + '">');
+							adminMarker.bindPopup('<img id="imgHelp" src="' + path + '">');
 							
-							marker.openPopup();
+							adminMarker.openPopup();
 							img = jQuery('#imgHelp');
 							img.closest('.leaflet-popup-content').css('margin', '0');
 							img.imagesLoaded(function($images, $proper, $broken){
@@ -588,7 +598,7 @@
 									var info = '';
 									
 									
-									var p = map.latLngToContainerPoint(marker.getLatLng());
+									var p = map.latLngToContainerPoint(adminMarker.getLatLng());
 									
 									var x = p.x;
 									var y = p.y;
