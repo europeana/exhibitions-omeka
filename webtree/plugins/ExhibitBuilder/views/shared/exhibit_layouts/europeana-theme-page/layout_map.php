@@ -498,46 +498,125 @@
 
 			L.control.zoom().addTo(map);
 			
+			
+			
 			<?php if (current_user()): ?>	// coordinates utility
-				var popup = L.popup();
+			
+
 				function onMapClick(e) {
-					var content = ''
-					+ 	'<span style="color:black;">Calculate from NW coordinate:<br/>&nbsp;&nbsp;' + e.latlng.lat + ' / ' + e.latlng.lng
-					+	'<br/>'
-					+	'<br/>'
-					+	'<span style="display:inline-block; width:100px;">image width = </span><input id="imgW"  style="width:100px;">'
-					+	'<br/>'
-					+	'<span style="display:inline-block; width:100px;">image height = </span><input id="imgH" style="width:100px;">'
-					+	'<br/>'
-					+	'<br/>'
-					+	'<button id="imgCalc" style="display:block; margin:auto;">compute</button>';
 				
-				    popup
-				        .setLatLng(e.latlng)
-				        .setContent(content)
-				        .openOn(map);
+					var popup = new L.popup();
+								
+					var content = ''
+					+ 	'<span style="color:black;">Clicked on coordinate:<br/>&nbsp;&nbsp;' + e.latlng.lat + ' / ' + e.latlng.lng
+					+	'<br/>'
+					+	'<br/>'
+					+	'Image url:'
+					+	'<br/>'
+					+	'<input id="imgPath" style="width:100%;" value="http://news.nationalgeographic.com/news/2007/08/photogalleries/rome-reborn/images/primary/1_461.jpg">'
+					+	'<br/>'
+					+	'<br/>'
+					+	'<button id="imgCalc" style="display:block; margin:auto;">load image...</button>';
+				
+				    popup.setLatLng(e.latlng).setContent(content);
+					popup = map.openPopup(popup);
 				        
 					jQuery('#imgCalc').click(function(){
-						var w = parseInt( jQuery('#imgW').val() );
-						var h = parseInt( jQuery('#imgH').val() );
-												
-						var p = map.latLngToContainerPoint(e.latlng);
-						var se = map.containerPointToLatLng(new L.Point(w + p.x, h + p.y))
+					
+						var path = jQuery("#imgPath").val();
+						map.closePopup();
+
+						// end popup 1
 						
-						popup.setContent(''
-							+ '<div style="color:#000;">NW Latitude / Longitude</div>'
-							+ '<div style="color:#666;">' + e.latlng.lat + '</div>'
-							+ '<div style="color:#666;">' + e.latlng.lng + '</div>'
-							+ '<br>'
-							+ '<div style="color:#000;">SE Latitude / Longitude</div>'
-							+ '<div style="color:#666;">' + se.lat + '</div>'
-							+ '<div style="color:#666;">' + se.lng + '</div>'
+						var marker = L.marker(
+							[
+								parseFloat(e.latlng.lat)
+									,
+								parseFloat(e.latlng.lng)
+							],
+							{
+								draggable:true
+							}
 						);
+						
+						
+						var origCloseFn = marker.closePopup;
+						var img		= null;
+						var imgW	= null;
+						var imgH	= null;
+						
+						marker.closePopup = function(){return this;}
+						
+						marker.on('dragstart', function(){
+							img = jQuery('#imgHelp');
+							imgW =  img.width();
+							imgH =	img.height();
+							jQuery(img).resizable('destroy');
+						});
+						
+						
+						marker.on('dragend', function(){
+							setupImgPopup(imgW, imgH);
+							fitBubble(img);
+						});
+
+						
+						marker.addTo(map);
+						
+						var fitBubble = function(img){
+							img.closest('.leaflet-popup-content').width(img.width() + 'px');
+							img.closest('.leaflet-popup-content').height(img.height() + 'px');
+							var popupDiv = img.closest('.leaflet-popup');
+							popupDiv.css('left', '-' + popupDiv.width()/2 + 'px');
+						}
+						
+						var setupImgPopup = function(w, h){
+							popup2 = marker.bindPopup('<img id="imgHelp" src="' + path + '">');
+							
+							marker.openPopup();
+							img = jQuery('#imgHelp');
+							img.closest('.leaflet-popup-content').css('margin', '0');
+							img.imagesLoaded(function($images, $proper, $broken){
+								img.resizable({ 
+									aspectRatio: true,
+									stop: function( event, ui ) {
+										fitBubble(img);
+									}
+								});
+								img.click(function(){
+								
+									var info = '';
+									
+									
+									var p = map.latLngToContainerPoint(marker.getLatLng());
+									
+									var x = p.x;
+									var y = p.y;
+									
+									y -= 48;
+									y -= img.height();
+									x -= img.width()/2;
+									
+									var nw = map.containerPointToLatLng(new L.Point(x, y));
+									var se = map.containerPointToLatLng(new L.Point(x + img.width(), y + img.height() ));
+									
+									info += nw.lat + "\n/\n" + nw.lng + "\n\n" + se.lat + "\n/\n" + se.lng;
+								
+									alert(info);
+								});
+							});
+							if(w && h){
+								img.width(w	+ "px");
+								img.height(h	+ "px");
+							}
+						}
+						setupImgPopup();
 					});
-				        
 				}
 				map.on('click', onMapClick);
-			<?php endif; ?>
+				
+				
+			<?php endif; ?>  	// end of coordinates utility
 
 			
 			// Overlay control
