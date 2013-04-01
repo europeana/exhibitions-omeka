@@ -517,7 +517,7 @@
 					+	'<br/>'
 					+	'Image url:'
 					+	'<br/>'
-					+	'<input id="imgPath" style="width:100%;" value="http://news.nationalgeographic.com/news/2007/08/photogalleries/rome-reborn/images/primary/1_461.jpg">'
+					+	'<input id="imgPath" style="width:100%;" />'
 					+	'<br/>'
 					+	'<br/>'
 					+	'<button id="imgCalc" style="display:block; margin:auto;">load image...</button>';
@@ -528,6 +528,11 @@
 					jQuery('#imgCalc').click(function(){
 					
 						var path = jQuery("#imgPath").val();
+						
+						if(path.length==0){
+							return;
+						}
+						
 						map.closePopup();
 
 						// end popup 1
