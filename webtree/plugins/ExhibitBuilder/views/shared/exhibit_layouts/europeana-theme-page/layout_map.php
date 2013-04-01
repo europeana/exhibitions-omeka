@@ -167,12 +167,6 @@
 		background-repeat:		no-repeat;
 	}
 	
-	#overlay-toggle.active{
-		Xmargin-right:		1em;	
-	}
-	
-	
-	
 	.overlay-option,
 	.overlay-label{
 		display:		block;
@@ -562,6 +556,7 @@
 							imgW =  img.width();
 							imgH =	img.height();
 							jQuery(img).resizable('destroy');
+							setupImgPopup(imgW, imgH);
 						});
 						
 						
@@ -581,7 +576,8 @@
 						}
 						
 						var setupImgPopup = function(w, h){
-							adminMarker.bindPopup('<img id="imgHelp" src="' + path + '">');
+							//adminMarker.bindPopup('<img id="imgHelp" src="' + path + '">');
+							adminMarker.bindPopup('<img id="imgHelp" src="' + path + '" style="width:' + w + 'px; height:' + h + 'px;">');
 							
 							adminMarker.openPopup();
 							img = jQuery('#imgHelp');
