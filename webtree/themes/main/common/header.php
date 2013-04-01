@@ -122,7 +122,7 @@
 	    	<?php
 			    queue_css('jquery-ui', 	 'all');
 				queue_css('Leaflet-MiniMap-master/src/Control.MiniMap');
-				queue_css('Leaflet-Pan/L.Control.Pan');
+				queue_css('Leaflet-Pan/L.Control.Pan.min');
 				//queue_css('Leaflet-Pan/L.Control.Pan.ie');
 				queue_css('jquery-ui', 	 'all');
 			?>
