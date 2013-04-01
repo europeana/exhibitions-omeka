@@ -136,7 +136,7 @@
 	    <!-- Stylesheets for map -->
 	    <?php if ( substr($pageURLNoParams, -strlen("themes-map")) == "themes-map" ): ?>
 
-    		<link rel="stylesheet" media="screen" href="<?php echo (WEB_ROOT . '/themes/main/css/leaflet.css'); ?>" />
+    		<link rel="stylesheet" media="screen" href="<?php echo (WEB_ROOT . '/themes/main/css/leaflet.min.css'); ?>" />
 		    <!--[if lte IE 8]>
 		    <link rel="stylesheet" media="screen" href="<?php echo (WEB_ROOT . '/themes/main/css/leaflet.ie.css'); ?>" />
 		    <![endif]-->
