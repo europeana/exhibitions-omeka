@@ -381,7 +381,7 @@
 
 		jQuery.holdReady(true);
 	
-		jQuery.getScript('<?php echo (WEB_ROOT . '/themes/main/javascripts/jquery.imagesloaded.min.js'); ?>', function() {
+		jQuery.getScript('<?php echo (WEB_ROOT . '/themes/main/javascripts/jquery.imagesloaded.js'); ?>', function() {
 			jQuery.holdReady(false);
 		});
 	
