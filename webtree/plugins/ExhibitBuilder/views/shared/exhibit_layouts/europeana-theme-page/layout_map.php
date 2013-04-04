@@ -111,6 +111,8 @@
 		right:				0;
 		padding:			1em;
 		color:				#E3D6B6;
+		
+		z-index:			1000; /* ie9 */
 	}
 	
 	#layer-ctrl>div{
@@ -831,7 +833,8 @@
 						dataType:	"json"
 						}).done(function ( data ) {
 
-							jQuery('<img src="' + data.imgUrl + '" />').appendTo('body').imagesLoaded(function($images, $proper, $broken){
+							var imgCheck = jQuery('<img src="' + data.imgUrl + '" />').appendTo('body');
+							imgCheck.imagesLoaded(function($images, $proper, $broken){
 								
 								marker._popup.setContent(
 										'<a href="' + data.url + '#' + ob.hash + '">'
