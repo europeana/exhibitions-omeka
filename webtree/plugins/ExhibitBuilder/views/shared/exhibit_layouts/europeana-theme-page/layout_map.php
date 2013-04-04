@@ -834,6 +834,8 @@
 					var callback = function(data){
 						var imgCheck = jQuery('<img src="' + data.imgUrl + '">').appendTo('body');
 						
+						alert(  jQuery.fn.imagesLoaded  )
+						
 						imgCheck.imagesLoaded(function($images, $proper, $broken){
 								
 							marker._popup.setContent(
