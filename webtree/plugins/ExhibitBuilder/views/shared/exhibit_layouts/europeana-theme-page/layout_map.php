@@ -8,6 +8,9 @@
 		border-radius:	1em;
 	}
 	
+	.leaflet-popup-content-wrapper h5{
+		color: #1C1C1A;
+	}
 	.leaflet-container a.leaflet-popup-close-button{
 		color:		#999;
 		padding:	2px 2px 0 0;
@@ -364,7 +367,7 @@
 			echo('var markers = [];' . PHP_EOL);
 			
 			foreach($map -> getStoryPoints() as $storyPoint) {
-				echo('markers[markers.length] = {"lat": "' . $storyPoint->lat . '", "lon": "' . $storyPoint->lon . '", "pageId":"' . $storyPoint->page_id . '"}; ' . PHP_EOL);
+				echo('markers[markers.length] = {"lat": "' . $storyPoint->lat . '", "lon": "' . $storyPoint->lon . '", "pageId":"' . $storyPoint->page_id . '", "hash":"' . $storyPoint->hash . '"}; ' . PHP_EOL);
 			}
 		?>
 		
@@ -751,6 +754,11 @@
 			new EuropeanaOverlayControl(map, europeanaCtrls);
 
 
+			var openMarkerId;
+			var openMarker;
+			if(window.location.href.indexOf('#')>0){
+				openMarkerId =  window.location.href.substring(window.location.href.indexOf('#')+1, window.location.href.length);
+			}
 			
 			// Markers
 			
@@ -765,9 +773,17 @@
 						]
 				);
 				
+				if(ob.hash == openMarkerId){
+					openMarker = marker;
+				}
+				
 				marker.addTo(map);
 	    		marker.bindPopup('<div style="min-width:180px;height:0px;">');
 				marker.on('click', function(e){
+				
+					//document.location.hash = ob.pageId;
+					document.location.hash = ob.hash;
+					
 					jQuery.ajax({
 						url:		"<?php echo(WEB_ROOT); ?>/eumap/map/test?pageId=" + ob.pageId,
 						dataType:	"json"
@@ -776,13 +792,13 @@
 							jQuery('<img src="' + data.imgUrl + '" />').appendTo('body').imagesLoaded(function($images, $proper, $broken){
 								
 								marker._popup.setContent(
-										'<a href="' + data.url + '">'
+										'<a href="' + data.url + '#' + ob.hash + '">'
 									+		'<h5>' + data.title + '</h5>'
 									+	'</a>'
-									+	'<a href="' + data.url + '">'
+									+	'<a href="' + data.url + '#' + ob.hash + '">'
 									+		'<img style="width:' + jQuery(this).width() + ';" src="' + data.imgUrl + '"/>'
 									+	'</a>'
-									+	'<a href="' + data.url + '" class="read-story-link">'
+									+	'<a href="' + data.url + '#' + ob.hash + '" class="read-story-link">'
 									+		mapStoryLinkLabel
 									+	'</a>'
 								);
@@ -792,6 +808,12 @@
 					});
 				});
 			});
+			
+			if(openMarker){
+				openMarker.fire('click');
+			}
+			
+			
 		});
 	
 	</script>

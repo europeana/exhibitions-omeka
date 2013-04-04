@@ -57,9 +57,14 @@ class Eumap_MapController extends Omeka_Controller_Action
    	
    	public function addpointAction(){
 
-        $eumapSP = new EUMapStoryPoint();
-        $eumapSP->setArray($_POST);
-        $eumapSP->save();
+   		$point = new EUMapStoryPoint();
+   		$point->setArray($_POST);
+        
+   		$hash			= explode("/", $_POST['hash'] );
+   		$hash			= $hash[count($hash)-2] . '/' . $hash[count($hash)-1];
+        $point['hash']	= $hash;
+
+        $point->save();
 
    		$this->redirect->gotoUrl('eumap');
    	}
@@ -82,13 +87,19 @@ class Eumap_MapController extends Omeka_Controller_Action
    	
    	public function editpointAction(){
    		
-   		error_log("Edit point action (".$_POST['id'].")");
+   		error_log("Edit point action (".$_POST['id'].")"  . "    " . $_POST['hash']);
    		
    		$pointTable = get_db()->getTable('EUMapStoryPoint');
 
         $point = $pointTable->find($_POST['id']);
 
         $point->setArray($_POST);
+        
+   		$hash	= explode("/", $_POST['hash'] );
+   		$hash	= $hash[count($hash)-2] . '/' . $hash[count($hash)-1];
+        $point['hash'] = $hash;
+        
+        
         $point->save();
    		
    		$this->redirect->gotoUrl('eumap');
@@ -190,12 +201,16 @@ class Eumap_MapController extends Omeka_Controller_Action
 		
 		$title		= $page->title;
 		$url		= exhibit_builder_exhibit_uri( $exhibit, $section, $page);
+		
+		$hash		= explode("/", $url);
+		$hash		= $hash[count($hash)-2] . '/' . $hash[count($hash)-1];
+		
 		$imgUrl		= file_display_uri($file, $format = 'square_thumbnail');
 		
    		$result =	'RESULT FOR ' . $pageId . '<br/>TITLE: ' . $title . '<br/>URL: ' . $url . '<br/>IMG_URL: ' . $imgUrl;
    		
         //echo $result;
-        echo '{"title":"' . $title . '","url":"' . $url . '", "imgUrl":"' . $imgUrl . '"}';
+        echo '{"title":"' . $title . '","url":"' . $url . '", "imgUrl":"' . $imgUrl . '", "hash": "' . $hash .'"}';
    	}
    	
 }

@@ -1,6 +1,5 @@
 <?php
 /**
- * Created by Eric van der Meulen, Delving B.V. http:www.delving.eu
  * Date: 5/23/2011
  * Time: 17:41 PM
  */
@@ -177,7 +176,12 @@ function ve_exhibit_breadcrumbs($pageId = null, $exhibit = null, $section = null
 
                          
                      	if($_SESSION['theme-map'] == true){
-                            $navCrumbs[] = '<a href="' . $_SESSION['themes_uri']  . '-map">' . ve_translate('themes-map', 'Themes Map') . '</a>';
+                     		
+                     		$hash = $_SERVER["REQUEST_URI"];
+                       		$hash	= explode("/", $hash);
+                       		$hash	= $hash[count($hash)-2] . '/' . $hash[count($hash)-1];
+                       		
+                            $navCrumbs[] = '<a href="' . $_SESSION['themes_uri']  . '-map' . '#' . $hash . '">' . ve_translate('themes-map', 'Themes Map') . '</a>';
                             $titleCrumbs[] = ve_translate('themes-map', 'Themes Map');
 
                     	}

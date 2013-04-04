@@ -90,6 +90,7 @@
 				<select name="page_id" id="page_id">
 				</select>
 				
+				<input type="hidden" name="hash" id="hash"/>
 				
 			</td>
 		</tr>
@@ -121,11 +122,11 @@
 
 
 <script type="text/javascript">
+
 	jQuery(document).ready(function(){
 		
 		function pointEdit(mapName, urlVal){
-			//alert(mapName);
-			//alert("hi");
+
 			jQuery.ajax({
 				url:		"eumap/map/data?tag=" + mapName,
 				dataType:	"json"
@@ -134,17 +135,27 @@
 				jQuery("#page_id")[0].options.length = 0;
 				
 				var count = 0;
-				
+				var urlMap = {};
 				jQuery.each( data, function(i, ob){
 					if(i > 0){
 						jQuery("#page_id")[0].options[count] = new Option(ob.title, ob.id);
 					}
+					urlMap[ob.id] = ob.url;
 					count ++;
 				});
 				
+				jQuery("#page_id").unbind('change');
+				jQuery("#page_id").change(function(){
+					var val = jQuery(this).val();
+					jQuery("#hash").val(urlMap[val]);
+				});
+
+				
 				if(urlVal){
 					jQuery("#page_id").val(urlVal);
+					jQuery("#hash").val(urlMap[urlVal]);
 				}
+				
 			});
 		}
 		
@@ -177,6 +188,7 @@
 			hideMapForm();
 			jQuery("#pointForm").attr('action', 'eumap/map/addPoint');
 			showPointForm();
+
 		});
 		
 		jQuery('.editMap').click(function(){

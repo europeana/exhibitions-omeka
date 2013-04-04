@@ -33,20 +33,16 @@ function eumap_install()
     ";
     $db->exec($sql);
     
-//          `url`				varchar(255)	NOT NULL,
-//          `title`			varchar(255)	NOT NULL,
     
     $sql = "
    		CREATE TABLE IF NOT EXISTS `$db->EUMapStoryPoints` (
+          `hash`			varchar(100)		NOT NULL,
           `id`				int(10)			unsigned NOT NULL AUTO_INCREMENT,
           `map_id`			int(10)			unsigned NOT NULL,
           `lat`				varchar(7)		NOT NULL,
           `lon`				varchar(7)		NOT NULL,
-          
-          
+
           `page_id`			int(10)			unsigned NOT NULL,
-          
-          
           
           
           PRIMARY KEY (`id`)
