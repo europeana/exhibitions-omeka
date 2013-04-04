@@ -371,9 +371,19 @@
 			}
 		?>
 		
+		jQuery.holdReady(true);
+		
+
+		jQuery.getScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js', function() {
+			jQuery.holdReady(false);
+		});
+	
+		jQuery.getScript('<?php echo (WEB_ROOT . '/themes/main/javascripts/jquery.imagesloaded.min.js'); ?>', function() {
+			jQuery.holdReady(false);
+		});
+	
 	
 		jQuery(document).ready(function(){
-
 
 			var osmAttrib	= '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
 			var mqTilesAttr = 'Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />';
