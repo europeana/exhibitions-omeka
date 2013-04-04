@@ -828,15 +828,15 @@
 					//document.location.hash = ob.pageId;
 					document.location.hash = ob.hash;
 					
-					jQuery.ajax({
-						url:		"<?php echo(WEB_ROOT); ?>/eumap/map/test?pageId=" + ob.pageId,
-						dataType:	"json"
-						}).done(function ( data ) {
-
-							var imgCheck = jQuery('<img src="' + data.imgUrl + '" />').appendTo('body');
-							imgCheck.imagesLoaded(function($images, $proper, $broken){
+					
+					
+					
+					var callback = function(data){
+						var imgCheck = jQuery('<img src="' + data.imgUrl + '">').appendTo('body');
+						
+						imgCheck.imagesLoaded(function($images, $proper, $broken){
 								
-								marker._popup.setContent(
+							marker._popup.setContent(
 										'<a href="' + data.url + '#' + ob.hash + '">'
 									+		'<h5>' + data.title + '</h5>'
 									+	'</a>'
@@ -846,11 +846,21 @@
 									+	'<a href="' + data.url + '#' + ob.hash + '" class="read-story-link">'
 									+		mapStoryLinkLabel
 									+	'</a>'
-								);
-								this.remove();
-							});
+							);
+							this.remove();
+						});
 						
-					});
+					};
+					
+					
+					jQuery.ajax({
+						url:		"<?php echo(WEB_ROOT); ?>/eumap/map/test?pageId=" + ob.pageId,
+						dataType:	"json"
+						}).done(function ( data ) {
+							callback(data);
+						});
+						
+					// });
 				});
 			});
 			
