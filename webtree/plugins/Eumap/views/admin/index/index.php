@@ -170,6 +170,10 @@
 			jQuery(".addOrEditPoint").val("Add New Story Point");
 			
 			jQuery("#map_id").val(mapId);
+			jQuery('#pointForm').find("#lat").val("");
+			jQuery('#pointForm').find("#lon").val("");
+
+			
 			hideMapForm();
 			jQuery("#pointForm").attr('action', 'eumap/map/addPoint');
 			showPointForm();
@@ -182,8 +186,8 @@
 			
 			jQuery("#mapFormId").val(id);
 			
-			jQuery("#lon").val(	row.find(".lon").html()	);
-			jQuery("#lat").val(	row.find(".lat").html()	);
+			jQuery("#mapForm").find("#lon").val(	row.find(".lon").html()	);
+			jQuery("#mapForm").find("#lat").val(	row.find(".lat").html()	);
 			
 			jQuery("#tag").val(	row.find(".tag").html() );
 			
@@ -209,8 +213,8 @@
 
 			jQuery(".addOrEditPoint").val("Edit Story Point")
 			
-			jQuery("#lon").val(	row.find(".lon").html()	);
-			jQuery("#lat").val(	row.find(".lat").html()	);
+			jQuery('#pointForm').find("#lon").val(	row.find(".lon").html()	);
+			jQuery('#pointForm').find("#lat").val(	row.find(".lat").html()	);
 			
 			hideMapForm();
 			jQuery("#pointForm").attr('action', 'eumap/map/editPoint');
