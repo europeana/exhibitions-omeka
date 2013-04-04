@@ -583,8 +583,26 @@
 							popupDiv.css('left', '-' + popupDiv.width()/2 + 'px');
 						}
 						
+						var reduceDim = function(w, h){
+						
+							var maxW	= jQuery('#map-container').width() * 0.75;
+							var res		= {"w": w ? w : '', "h": h ? h : ''};
+							 
+							if(w > maxW){
+								var ratio = maxW / w;
+								res.w = maxW;
+								res.h = h * ratio; 
+							}
+							console.log(JSON.stringify(res));
+							return res;
+						};
+						
 						var setupImgPopup = function(w, h){
-							//adminMarker.bindPopup('<img id="imgHelp" src="' + path + '">');
+						
+							var reduced = reduceDim(w, h);
+							w = reduced.w;
+							h = reduced.h;
+						
 							adminMarker.bindPopup('<img id="imgHelp" src="' + path + '" style="width:' + w + 'px; height:' + h + 'px;">');
 							
 							adminMarker.openPopup();
@@ -624,7 +642,20 @@
 								img.height(h	+ "px");
 							}
 						}
-						setupImgPopup();
+						
+						
+						jQuery('<img src="' + path + '">').appendTo( jQuery('body') ).imagesLoaded(function(){
+							var $this = jQuery(this);
+							if($this.width()){
+								setupImgPopup($this.width(), $this.height());
+							}
+							$this.remove();
+						});
+						
+						
+						
+						
+						
 					});
 				}
 				map.on('click', onMapClick);
