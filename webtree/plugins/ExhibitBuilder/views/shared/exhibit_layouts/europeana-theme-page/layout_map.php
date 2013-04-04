@@ -381,7 +381,7 @@
 
 		jQuery.holdReady(true);
 	
-		jQuery.getScript('<?php echo (WEB_ROOT . '/themes/main/javascripts/jquery.imagesloaded.js'); ?>', function() {
+		jQuery.getScript('<?php echo (WEB_ROOT . '/themes/main/javascripts/jquery.imagesloaded.min.js'); ?>', function() {
 			jQuery.holdReady(false);
 		});
 	
@@ -829,36 +829,24 @@
 					document.location.hash = ob.hash;
 					
 					
-					
-					
-					var callback = function(data){
-						var imgCheck = jQuery('<img src="' + data.imgUrl + '">').appendTo('body');
-						
-						
-						imgCheck.imagesLoaded(function($images, $proper, $broken){
-								
-							marker._popup.setContent(
-										'<a href="' + data.url + '#' + ob.hash + '">'
-									+		'<h5>' + data.title + '</h5>'
-									+	'</a>'
-									+	'<a href="' + data.url + '#' + ob.hash + '">'
-									+		'<img style="width:' + jQuery(this).width() + ';" src="' + data.imgUrl + '"/>'
-									+	'</a>'
-									+	'<a href="' + data.url + '#' + ob.hash + '" class="read-story-link">'
-									+		mapStoryLinkLabel
-									+	'</a>'
-							);
-							this.remove();
-						});
-						
-					};
-					
+				
 					
 					jQuery.ajax({
 						url:		"<?php echo(WEB_ROOT); ?>/eumap/map/test?pageId=" + ob.pageId,
 						dataType:	"json"
 						}).done(function ( data ) {
-							callback(data);
+							marker._popup.setContent(
+										'<a href="' + data.url + '#' + ob.hash + '">'
+									+		'<h5>' + data.title + '</h5>'
+									+	'</a>'
+									+	'<a href="' + data.url + '#' + ob.hash + '">'
+									+		'<img style="width:100px;" src="' + data.imgUrl + '"/>'
+									+	'</a>'
+									+	'<a href="' + data.url + '#' + ob.hash + '" class="read-story-link">'
+									+		mapStoryLinkLabel
+									+	'</a>'
+							);
+
 						});
 						
 					// });
