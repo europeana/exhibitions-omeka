@@ -155,7 +155,7 @@
 		
 		
 	}
-	
+
 	#overlay-ctrl.active{
 		display:			block;
 	}
@@ -303,9 +303,89 @@
 		}
 		
 	}
+</style>
+	
+
+	
+<!--[if IE 8]>
+<style type="text/css">
+
+		#layer-ctrl span,
+		#overlay-ctrl,
+		#overlay-toggle,
+		.leaflet-control-pan a,
+		.leaflet-control-zoom-in,
+		.leaflet-control-zoom-out  {
+			background-color:none;
+			-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF,endColorstr=#CCFFFFFF);
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF,endColorstr=#CCFFFFFF);
+			zoom: 1;		
+		}
+
+
+		/* copied */
+
+		#map{
+			height:		50em;
+		}
+		
+		.overlay-options{
+			max-height:	21em;		/* mini-map has appeared, so lessen max-height */
+			overflow-y:	auto;
+		}
+		
+		/* show controls */
+
+		#layer-ctrl{
+			display:	block;
+		}
+		
+		.slider-label.active,
+		.slider.active{
+			display:	block;
+		}
+		
+		.slider-label-mobile.active,
+		.slider-mobile.active{
+			display:	none;
+		}
+		
+		.leaflet-control-minimap{
+			display:	block;
+		}
+		
+		#overlay-ctrl{		
+			display:	block;
+		}
+		
+		#overlay-toggle{		
+			display:	none;
+		}
+
+	.leaflet-control-pan{
+		display:	block;
+	}
+	
+	.leaflet-control-pan a:focus,
+	.leaflet-control-zoom a:focus{
+		background-color:	#fff;
+		box-shadow:			0 0 8px rgba(0, 0, 0, 0.8);
+	}
+
+	.leaflet-control-zoom{
+		display:	block;
+	}
+
+	.overlay-option,
+	.overlay-label{
+		line-height:	1.48em;
+	}
+	
 	
 	
 </style>
+<![endif]-->
+	
 	
 
 
