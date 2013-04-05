@@ -21,10 +21,7 @@
 			<div class="wrap_at_320">
 				<a class="return-to" rel="<?php echo uri(); ?>"
 					href="<?php echo uri('items/browse') . '/?tags=' . ve_get_exhibit_name_from_slug($exhibit->slug) . '&theme=' . $currentExhibit->theme; ?>"><?php echo ve_translate("items-browse", "Browse items");?></a>
-		
 			</div>
-			
-			
 			
 			
        		<?php if (!isset($GLOBALS['themesUrl'] ) && is_null($GLOBALS['themesUrl'] ) ): ?>

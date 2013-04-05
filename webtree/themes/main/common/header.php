@@ -198,7 +198,7 @@
     			queue_js('Leaflet-MiniMap-master/src/Control.MiniMap');
 				queue_js('Leaflet-Pan/L.Control.Pan');
 				//queue_js('jquery.imagesloaded.min');
-				queue_js('jquery-ui-touch-punch.min');
+				//queue_js('jquery-ui-touch-punch.min');
 			?>
 			
 		<?php endif; ?>

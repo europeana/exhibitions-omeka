@@ -394,7 +394,9 @@
 		jQuery.holdReady(true);
 		
 		jQuery.getScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js', function() {
-			jQuery.holdReady(false);
+			jQuery.getScript('<?php echo WEB_ROOT; ?>/themes/main/javascripts/jquery-ui-touch-punch.min.js', function() {
+				jQuery.holdReady(false);
+			});
 		});
 
 		jQuery.holdReady(true);
