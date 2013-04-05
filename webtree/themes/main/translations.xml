@@ -468,6 +468,11 @@
         <en>View historical map</en>
     </view-historical-map>
 
+    <browse-story-map>
+        <en>Browse items on a map</en>
+    </browse-story-map>
+		
+
     <read-story>
         <en>Read story</en>
     </read-story>
