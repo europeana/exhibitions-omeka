@@ -27,11 +27,18 @@ $exhibit = get_current_exhibit();
 		width:	768px;
 	}
 
+	
 </style>
 
 <![endif]-->
 
-
+<style type="text/css">
+	#map-themes-link{
+		display:		block;
+		margin-top:		1em;
+		margin-bottom:	0.5em;
+	}
+</style>
 
 
 <div class="row">
@@ -193,13 +200,11 @@ $exhibit = get_current_exhibit();
 				
 	    	<?php
 	    		if(exhibit_has_map(get_current_exhibit())){
-	    			echo ('<br/>');
-	    			echo ('<a class="widget" href="' . $themesUrl . '-map">');
+
+	    			echo ('<a id="map-themes-link" class="widget" href="' . $themesUrl . '-map">');
         			echo (		ve_translate('exhibit-start-map', 'Start Exhibition Map') );
         			echo (		'<img src="' . img('arrow-right.png') . '"/>');
         			echo ('</a>');
-        			echo ('<br/>');
-        			echo ('<br/>');
 	    		}
 			?>
 			
