@@ -116,16 +116,15 @@
 	}
 	
 	#layer-ctrl>div{
-	
-		margin-left:		1em;
-		float:				right;
-		padding:			0.5em;
-		
 		background-color:	rgba(255, 255, 255, 0.8);
 		border:				1px solid #888888;
 		border-radius:		5px 5px 5px 5px;
 		box-shadow:			0 0 8px rgba(0, 0, 0, 0.4);
 		color:				#000;
+		cursor:				pointer;
+		float:				right;
+		margin-left:		1em;
+		padding:			0.5em;
 	}
 	
 	#layer-ctrl>div.active{
@@ -177,6 +176,11 @@
 		display:		block;
 		white-space:	nowrap;
 		margin:			0.25em 0.25em 0.25em 0;
+	}
+
+	.overlay-option input,
+	.overlay-option label{
+		cursor:		pointer;
 	}
 
 	.overlay-label{
@@ -275,6 +279,12 @@
 	
 		.leaflet-control-pan{
 			display:	block;
+		}
+		
+		.leaflet-control-pan a:focus,
+		.leaflet-control-zoom a:focus{
+			background-color:	#fff;
+			box-shadow:			0 0 8px rgba(0, 0, 0, 0.8);
 		}
 
 		.leaflet-control-zoom{
