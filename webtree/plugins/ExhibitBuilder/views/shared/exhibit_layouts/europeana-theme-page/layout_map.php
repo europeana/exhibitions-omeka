@@ -115,7 +115,7 @@
 		z-index:			1000; /* ie9 */
 	}
 	
-	#layer-ctrl>div{
+	#layer-ctrl span{
 		background-color:	rgba(255, 255, 255, 0.8);
 		border:				1px solid #888888;
 		border-radius:		5px 5px 5px 5px;
@@ -127,7 +127,12 @@
 		padding:			0.5em;
 	}
 	
-	#layer-ctrl>div.active{
+	#layer-ctrl a:focus{
+		background-color:	#fff;
+		box-shadow:			0 0 8px rgba(0, 0, 0, 0.8);
+	}
+	
+	#layer-ctrl span.active{
 		font-weight:		bold;
 	}
 		
@@ -309,7 +314,9 @@
 		<div id="map"></div>
 	</div>
 
-	
+	<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+	<script type="text/javascript" src="<?php echo WEB_ROOT; ?>/themes/main/javascripts/leaflet-plugins-master/layer/tile/Google.js"></script>
+	    
 	<script type="text/javascript">
 
 		<?php  
@@ -398,9 +405,10 @@
 	
 		jQuery(document).ready(function(){
 
-			var osmAttrib	= '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
+			//var osmAttrib	= '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
 			var mqTilesAttr = 'Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />';
-			
+
+			/*
 			var osm = new L.TileLayer(
 				'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 				{
@@ -409,6 +417,7 @@
 					attribution: osmAttrib
 				}
 			);
+			*/
 
 			// map quest
 			var mq = new L.TileLayer(
@@ -422,7 +431,7 @@
 				}
 			);
 			
-
+			
 			// map quest aerial	
 			/*		
 			var mqa = new L.TileLayer(
@@ -442,7 +451,7 @@
 			});
 
 			
-			var europeanaCtrls = jQuery('<div id="europeana-ctrls">').appendTo('#map-container');
+			var europeanaCtrls = jQuery('<div id="europeana-ctrls">').prependTo('#map-container');
 
 			
 			var EuropeanaLayerControl = function(map, ops){
@@ -458,22 +467,22 @@
 					self.grp.clearLayers();
 					self.grp.addLayer(layer);
 
-					jQuery(self.cmp.find("div")).removeClass('active');
-					jQuery(self.cmp.find("div").get(index)).addClass('active');
+					jQuery(self.cmp.find("span")).removeClass('active');
+					jQuery(self.cmp.find("span").get(index)).addClass('active');
 				};
 
 				var html	= '';
 				var layers	= [];
 				
 				jQuery.each(self.ops, function(i, ob){
-					html += '<div class="' + i + '">' + ob.title + '</div>';
+					html += '<a href="#' + ob.title + '"><span class="' + i + '">' + ob.title + '</span></a>';
 					layers[layers.length] = ob.layer;
 				});
 
 				
 				self.cmp = jQuery('<div id="layer-ctrl">' + html + '</div>');
 
-				self.cmp.find("div").each(function(){
+				self.cmp.find("span").each(function(){
 					jQuery(this).click(function(){
 						self._setLayer(parseInt(jQuery(this).attr('class')));
 					});
@@ -491,16 +500,20 @@
 				}
 			};
 
+			var ggl = new L.Google();
+			map.addLayer(ggl);
 			
 			var ctrlLayer = new EuropeanaLayerControl(map,
-				[{
-				    "title":	"Open Street Map",
-					"layer":	osm
-			    },
-			    {
-				    "title":	"Map Quest",
-				    "layer":	mq
-			    }]		 
+				[
+					{
+					    "title":	"Map",
+					    "layer":	mq
+				    },
+				    {
+					    "title":	"Satellite",
+					    "layer":	ggl
+				    }
+			    ]		 
 			);
 			
 			europeanaCtrls.append(ctrlLayer.getCmp());
