@@ -866,7 +866,7 @@
 									+		'<h5>' + data.title + '</h5>'
 									+	'</a>'
 									+	'<a href="' + data.url + '#' + ob.hash + '">'
-									+		'<img style="width:100px;min-width:100px;" src="' + data.imgUrl + '"/>'
+									+		'<img style="width:100px;min-width:100px;height:100px;min-height:100px;" src="' + data.imgUrl + '"/>'
 									+	'</a>'
 									+	'<a href="' + data.url + '#' + ob.hash + '" class="read-story-link">'
 									+		mapStoryLinkLabel
