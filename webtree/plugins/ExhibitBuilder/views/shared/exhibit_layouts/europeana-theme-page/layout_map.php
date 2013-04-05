@@ -18,6 +18,7 @@
 	
 	.leaflet-popup-content{
 		margin:	1em 1em;
+		min-width:100px;
 	}
 
 	/* End leaflet overrides */
@@ -845,7 +846,7 @@
 				}
 				
 				marker.addTo(map);
-	    		marker.bindPopup('<div style="min-width:180px;height:0px;">');
+	    		marker.bindPopup('<div></div>');
 				marker.on('click', function(e){
 				
 					//document.location.hash = ob.pageId;
@@ -863,7 +864,7 @@
 									+		'<h5>' + data.title + '</h5>'
 									+	'</a>'
 									+	'<a href="' + data.url + '#' + ob.hash + '">'
-									+		'<img style="width:100px;" src="' + data.imgUrl + '"/>'
+									+		'<img style="width:100px;min-width:100px;" src="' + data.imgUrl + '"/>'
 									+	'</a>'
 									+	'<a href="' + data.url + '#' + ob.hash + '" class="read-story-link">'
 									+		mapStoryLinkLabel
