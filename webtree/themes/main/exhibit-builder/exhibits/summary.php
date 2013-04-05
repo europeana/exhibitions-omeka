@@ -56,7 +56,9 @@ $exhibit = get_current_exhibit();
             <?php if (exhibit_builder_section_has_pages()): ?>
             	<?php $firstpage = true; ?>
             	
-            	<?php $themesUrl = exhibit_builder_exhibit_uri(get_current_exhibit(), get_current_exhibit_section()); ?>
+            	<?php $themesUrl = exhibit_builder_exhibit_uri(get_current_exhibit(), get_current_exhibit_section()); 
+					$GLOBALS['themesUrl'] = $themesUrl;
+            	?>
             	
             <?php endif; ?>
         <?php endwhile; ?>
