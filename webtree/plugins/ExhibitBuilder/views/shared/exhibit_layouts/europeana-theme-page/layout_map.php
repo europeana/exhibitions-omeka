@@ -882,22 +882,26 @@
 					return ((aTitle < bTitle) ? -1 : ((aTitle > bTitle) ? 1 : 0));
 				}
 				
+				if(mapOverlays.length > 0){
 				
-				self.mapOverlays = mapOverlays.sort(sortByTitle);
-				
-				jQuery('<span class="overlay-label">' + mapOverlayLabel + '</span><div class="overlay-option"><input id="rd" name="overlay" type="radio" checked="checked"/><label for="rd">None</label></div>').appendTo(overlayControl);
-
-				
-				
-				var optionHtml = '<div class="overlay-options">';
-				jQuery.each(mapOverlays, function(i, ob){
-					optionHtml += '<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>';
-				});
-				optionHtml += '</div>';
-				jQuery(optionHtml).appendTo(overlayControl);
-
-				jQuery('input[type="radio"]').bind('click', self.setActiveOverlay);
-						
+					self.mapOverlays = mapOverlays.sort(sortByTitle);
+					
+					jQuery('<span class="overlay-label">' + mapOverlayLabel + '</span><div class="overlay-option"><input id="rd" name="overlay" type="radio" checked="checked"/><label for="rd">None</label></div>').appendTo(overlayControl);
+	
+					
+					var optionHtml = '<div class="overlay-options">';
+					jQuery.each(mapOverlays, function(i, ob){
+						optionHtml += '<div class="overlay-option"><input id="rd' + i + '" name="overlay" type="radio"/><label for="rd' + i + '">' + ob.title + '</label></div>';
+					});
+					optionHtml += '</div>';
+					jQuery(optionHtml).appendTo(overlayControl);
+	
+					jQuery('input[type="radio"]').bind('click', self.setActiveOverlay);
+				}
+				else{
+					overlayControl.hide();
+					jQuery('#overlay-toggle').hide();
+				}
 			}
 
 			
