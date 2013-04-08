@@ -3,7 +3,7 @@
 <h1>EU Maps</h1>
 
 
-<form method="post" action="eumap/map/add" id="mapForm" style="display:none;">
+<form method="post" action="eumap/map/add" id="mapForm" style="display:none;" onSubmit="return validate();">
 
 	<table style="width:100%; margin-bottom:5em;">
 		<tr>
@@ -60,7 +60,7 @@
 		<tr>
 			<td colspan="2" style="text-align:right;">
 				<input type="hidden" name="id"	id="mapFormId" value=""/>
-				<input type="submit" class="addOrEditMap"	/>
+				<input type="submit" class="addOrEditMap"/>
 				<input type="submit" class="cancelAdd"		value="Cancel"/>
 			</td>
 		</tr>
@@ -71,7 +71,7 @@
 
 
 
-<form method="post" id="pointForm" style="display:none;">
+<form method="post" id="pointForm" style="display:none;" onSubmit="return validate();">
 	<table style="width:100%; margin-bottom:5em;">
 	
 		<tr>
@@ -286,6 +286,38 @@
 		}
 		
 	});
+	
+	// end ready
+	
+	// validation
+	
+	function validate(){
+		var form = jQuery('#mapForm').is(':visible') ? jQuery('#mapForm') : jQuery('#pointForm');
+		var select = jQuery('#tag').is(':visible') ? jQuery('#tag') : jQuery('#page_id');
+		
+		var lon = form.find('#lon').val();
+		var lat = form.find('#lat').val();
+		var pattern = /^[-]?(\d+\.\d+)/;
+		var error = "";
+
+		if(!select.val().length || select.val()=="Please select:"){
+			error += "\nselect an option";
+		}
+		if(!pattern.test(lon)){
+			error += "\ninvalid longitude";
+		}
+		if(!pattern.test(lat)){
+			error += "\ninvalid latitude";
+		}
+		
+		if(error.length>0){
+			alert(error);
+			return false;
+		}
+		return true;
+	}
+
+	
 </script>
 
 
@@ -329,7 +361,7 @@
 				<td>
 					<form method="post" action="eumap/map/delete">
 						<input type="hidden" name="id" value="<?php echo $map->id	?>" />
-						<a class="deleteMap" onClick="jQuery(this).parent().submit();">Delete</a>
+						<a class="deleteMap" onClick="if(confirm('delete map?')){jQuery(this).parent().submit();}">Delete</a>
 					</form>
 				</td>
 
@@ -369,7 +401,7 @@
 						<td>
 							<form method="post" action="eumap/map/deletePoint" id="">
 								<input type="hidden" name="id" value="<?php echo $point->id	?>" />
-								<a class="deletePoint" onClick="jQuery(this).parent().submit();">Delete</a>
+								<a class="deletePoint" onClick="if(confirm('delete point?')){jQuery(this).parent().submit();}">Delete</a>
 							</form>
 						</td>
 					</tr>
