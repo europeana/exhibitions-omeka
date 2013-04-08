@@ -115,6 +115,23 @@ $story = $page->title
 				<?php echo $theme . ' - ' . $story; ?>
 			</h1>
 		</div>
+		
+		<script type="text/javascript">
+		
+			var breadcrumbs = jQuery('#main-breadcrumbs');
+			var last		= breadcrumbs.find('a:last');
+			if(last){
+				var html = ''
+				+ '<div class="return-nav">'
+				+   '<div style="float:left;">'
+				+     '<a href="' + last.attr('href') + '" class="widget"><img src="http://localhost/webtree/themes/wiki/images/arrow-left.png" class="arrow-left">Return to map</a>'
+				+   '</div>'
+				+ '</div>';
+				jQuery('#exhibit-section-title').prepend(html);
+			}
+			
+		</script>
+		
 		<div class="exhibit-text">
 			<div id="exhibit-section-title-small">
 				<h3>
