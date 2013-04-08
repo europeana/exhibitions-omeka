@@ -21,7 +21,7 @@ $story = $page->title;
 	
 	var breadcrumbs = jQuery('#main-breadcrumbs');
 	var last		= breadcrumbs.find('a:last');
-	if(last){
+	if(last && last.attr('href').indexOf('#')>0){
 		var html = ''
 		+ '<div class="return-nav">'
 		+   '<div style="float:left;">'
