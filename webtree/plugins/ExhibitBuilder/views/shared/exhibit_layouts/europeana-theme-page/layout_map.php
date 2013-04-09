@@ -506,7 +506,7 @@
 			var mq = new L.TileLayer(
 				'http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.png',
 				{
-					minZoom: 12,
+					minZoom: 4,
 					maxZoom: 18,
 					attribution: mqTilesAttr,
 					subdomains: '1234',
