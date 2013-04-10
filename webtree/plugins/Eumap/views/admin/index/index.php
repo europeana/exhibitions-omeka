@@ -50,10 +50,20 @@
 			
 			<td>
 				(
-				<input type="text"	name="lat"	id="lat"	xvalue="41.89007"/>
+				<input type="text"	name="lat"	id="lat"/>
 				/ 
-				<input type="text"	name="lon"	id="lon"	xvalue="12.49188"/>
+				<input type="text"	name="lon"	id="lon"/>
 				)
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				Map Zoom level (4 -> 18):
+			</td>
+			
+			<td>
+				<input type="text"	name="zoomlevel" id="zoomlevel"/>
 			</td>
 		</tr>
 		
@@ -198,8 +208,9 @@
 			
 			jQuery("#mapFormId").val(id);
 			
-			jQuery("#mapForm").find("#lon").val(	row.find(".lon").html()	);
-			jQuery("#mapForm").find("#lat").val(	row.find(".lat").html()	);
+			jQuery("#mapForm").find("#lon")			.val(	row.find(".lon").html()	);
+			jQuery("#mapForm").find("#lat")			.val(	row.find(".lat").html()	);
+			jQuery("#mapForm").find("#zoomlevel")	.val(	row.find(".zoomlevel").html()	);
 			
 			jQuery("#tag").val(	row.find(".tag").html() );
 			
@@ -309,6 +320,14 @@
 		if(!pattern.test(lat)){
 			error += "\ninvalid latitude";
 		}
+
+
+		if(jQuery('#zoomlevel').is(':visible') ){
+			var zoomLevel = jQuery('#zoomlevel').val();
+			if(!zoomLevel.length || isNaN(zoomLevel)){
+				error += "\nzoom level must be numeric";
+			} 
+		}  
 		
 		if(error.length>0){
 			alert(error);
@@ -338,6 +357,7 @@
 	<thead>
 		<tr>
 			<th>Tag &rarr; Page</th>
+			<th>Zoom</th>
 			<th>Latitude</th>
 			<th>Longitude</th>
 			<th></th>
@@ -351,6 +371,8 @@
 			<tr class="map">
 				<td class="tag"
 					><?php echo html_escape( $map->tag);			?></td>
+				<td class="zoomlevel"
+					><?php echo html_escape( $map->zoomlevel);			?></td>
 				<td class="lat"
 					><?php echo html_escape( $map->lat);			?></td>
 				<td class="lon"
@@ -373,7 +395,7 @@
 			    foreach ($points as $point): ?>
 	
 					<tr class="<?php  echo($map->id); ?>">
-					
+						<td></td>
 						<td class="page_id"
 							><?php
 									
@@ -409,7 +431,7 @@
 			    <?php endforeach; ?>
 	
 			<tr>
-				<td colspan="4"></td>
+				<td colspan="5"></td>
 				<td class="<?php echo $map->id	?>">
 					<a class="addNewPoint">Add Story Point</a>
 				</td>
@@ -419,7 +441,7 @@
 	<?php endif; ?>
 
 		<tr>
-			<td colspan="4"></td>
+			<td colspan="5"></td>
 			<td style="text-align:right">
 				<a class="addNewMap">Add map</a>
 			</td>
