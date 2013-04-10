@@ -4,7 +4,8 @@ var splashData = function(){
 		/* glam */
 
 		var glam = {
-				"contextmenu" : "wiki-loves-glam" "featured": true,
+				"contextmenu" : "wiki-loves-glam",
+				"featured": true,
 				"img": "splash/img/sports.jpg",
 				"overlay": "splash/logos/logo-white.png",
 				"name": "Wiki Loves Glam",
