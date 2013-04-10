@@ -9,6 +9,7 @@ class EUMap extends Omeka_Record
     public $tag;
     public $lat;
     public $lon;
+    public $zoomlevel;
 
     
     public function getStoryPoints() 
