@@ -1,6 +1,30 @@
 var splashData = function(){
 
-			/* dpla migration exhibition */
+	
+		/* glam */
+
+		var glam = {
+				"contextmenu" : "wiki-loves-glam" "featured": true,
+				"img": "splash/img/sports.jpg",
+				"overlay": "splash/logos/logo-white.png",
+				"name": "Wiki Loves Glam",
+				"menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif",
+					"items":[
+					    {	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+					    	 "goto": "//twitter.com/intent/tweet?text=European Sports: http://exhibitions.europeana.eu/exhibits/show/wiki-loves-glam" },
+					    	 
+					    {	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+					    	"goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/wiki-loves-glam" } ] }, 
+				
+				"languages":[
+			             {"langClass":"language-en-main", "link":"exhibits/show/wiki-loves-glam", "label":"English"}
+	             ]   
+	
+		}; 
+
+
+	
+		/* dpla migration exhibition */
 
 		var migration = {
 				"contextmenu" : "migration",
