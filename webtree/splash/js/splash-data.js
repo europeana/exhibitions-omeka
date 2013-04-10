@@ -6,7 +6,8 @@ var splashData = function(){
 		var glam = {
 				"contextmenu" : "wiki-loves-glam",
 				"featured": true,
-				"img": "splash/img/sports.jpg",
+				
+				"img": "splash/img/UniversityLibraryBucharest.jpg",
 				"overlay": "splash/logos/logo-white.png",
 				"name": "Wiki Loves Glam",
 				"menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif",
@@ -29,7 +30,7 @@ var splashData = function(){
 
 		var migration = {
 				"contextmenu" : "migration",
-				"featured": true,
+				"featured": false,
 				"img": "splash/img/migration.jpg",
 				"overlay": "splash/logos/logo-white.png",
 				"partner_overlay":"splash/logos/logo-dpla.png",
