@@ -124,7 +124,10 @@ $story = $page->title
 				var html = ''
 				+ '<div class="return-nav">'
 				+   '<div style="float:left;">'
-				+     '<a href="' + last.attr('href') + '" class="widget"><img src="http://localhost/webtree/themes/wiki/images/arrow-left.png" class="arrow-left">Return to map</a>'
+				+		'<a href="' + last.attr('href') + '" class="widget">'
+				+			'<img src="<?php echo(img("arrow-left.png")); ?>" class="arrow-left" />'
+				+ 			'<?php echo(ve_translate("return-to-map", "Return to Map")); ?>'
+				+		'</a>'
 				+   '</div>'
 				+ '</div>';
 				jQuery('#exhibit-section-title').prepend(html);

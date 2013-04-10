@@ -386,7 +386,10 @@
 </style>
 <![endif]-->
 	
-	
+
+<link rel="stylesheet" href="<?php echo WEB_ROOT; ?>/themes/main/javascripts/Leaflet.markercluster-master/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="<?php echo WEB_ROOT; ?>/themes/main/javascripts/Leaflet.markercluster-master/dist/MarkerCluster.Default.css" />
+
 
 
 <div class="row">
@@ -397,6 +400,7 @@
 
 	<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
 	<script type="text/javascript" src="<?php echo WEB_ROOT; ?>/themes/main/javascripts/leaflet-plugins-master/layer/tile/Google.js"></script>
+	<script type="text/javascript" src="<?php echo WEB_ROOT; ?>/themes/main/javascripts/Leaflet.markercluster-master/dist/leaflet.markercluster.js"></script>
 	    
 	<script type="text/javascript">
 
@@ -487,20 +491,7 @@
 	
 	
 		jQuery(document).ready(function(){
-
-			//var osmAttrib	= '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
 			var mqTilesAttr = 'Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />';
-
-			/*
-			var osm = new L.TileLayer(
-				'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-				{
-					minZoom: 12,
-					maxZoom: 18,
-					attribution: osmAttrib
-				}
-			);
-			*/
 
 			// map quest
 			var mq = new L.TileLayer(
@@ -513,19 +504,6 @@
 					type: 'osm'
 				}
 			);
-			
-			
-			// map quest aerial	
-			/*		
-			var mqa = new L.TileLayer(
-				'http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.png',
-				{
-					attribution: 'Imagery &copy; NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency, ' + mqTilesAttr,
-					subdomains: '1234',
-					type: 'sat'
-				}
-			);
-			*/
 				
 			var map = L.map('map', {
 			    center: new L.LatLng(mapLatitude, mapLongitude),
@@ -916,6 +894,7 @@
 			
 			// Markers
 			
+			var markerGroup = new L.MarkerClusterGroup();
 			
 			jQuery.each(markers, function(i, ob){
 
@@ -926,21 +905,19 @@
 							parseFloat(ob.lon)
 						]
 				);
+
+				markerGroup.addLayer(marker);
 				
 				if(ob.hash == openMarkerId){
 					openMarker = marker;
 				}
 				
-				marker.addTo(map);
+				
 	    		marker.bindPopup('<div></div>');
 				marker.on('click', function(e){
-				
-					//document.location.hash = ob.pageId;
+
 					document.location.hash = ob.hash;
-					
-					
 				
-					
 					jQuery.ajax({
 						url:		"<?php echo(WEB_ROOT); ?>/eumap/map/test?pageId=" + ob.pageId,
 						dataType:	"json"
@@ -959,14 +936,14 @@
 
 						});
 						
-					// });
 				});
 			});
+
+			map.addLayer(markerGroup);
 			
 			if(openMarker){
 				openMarker.fire('click');
 			}
-			
 			
 		});
 	
