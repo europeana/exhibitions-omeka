@@ -20,6 +20,8 @@ function eumap_admin_navigation_main($nav)
 
 function eumap_install()
 {
+	// ALTER TABLE omeka_eu_maps ADD zoomlevel int(10);
+	
 	error_log("Create EUMap database.....");
     $db = get_db();
     $sql = "
@@ -28,6 +30,7 @@ function eumap_install()
           `tag`				varchar(255) NOT NULL,
           `lat`				varchar(7) NOT NULL,
           `lon`				varchar(7) NOT NULL,
+          `zoomlevel`		int(10) NOT NULL,
           PRIMARY KEY (`id`)
         ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
     ";
