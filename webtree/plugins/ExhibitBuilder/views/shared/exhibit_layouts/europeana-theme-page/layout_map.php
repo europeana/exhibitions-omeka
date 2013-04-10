@@ -389,7 +389,9 @@
 
 <link rel="stylesheet" href="<?php echo WEB_ROOT; ?>/themes/main/javascripts/Leaflet.markercluster-master/dist/MarkerCluster.css" />
 <link rel="stylesheet" href="<?php echo WEB_ROOT; ?>/themes/main/javascripts/Leaflet.markercluster-master/dist/MarkerCluster.Default.css" />
-
+<!--[if lte IE 8]>
+	<link rel="stylesheet" href="<?php echo WEB_ROOT; ?>/themes/main/javascripts/Leaflet.markercluster-master/dist/MarkerCluster.Default.ie.css" />
+<![endif]-->
 
 
 <div class="row">
@@ -426,6 +428,7 @@
 			
 			echo('var mapLatitude		= ' . $map->lat . ';' . PHP_EOL);
 			echo('var mapLongitude		= ' . $map->lon . ';' . PHP_EOL);
+			echo('var mapZoom			= ' . $map->zoomlevel . ';' . PHP_EOL);
 			
 			/* 
 			 * Get overlay data from item metadata & write to json object:
@@ -508,7 +511,7 @@
 			var map = L.map('map', {
 			    center: new L.LatLng(mapLatitude, mapLongitude),
 			    zoomControl: false,
-			    zoom: 13
+			    zoom: mapZoom
 			});
 
 			
@@ -894,7 +897,16 @@
 			
 			// Markers
 			
-			var markerGroup = new L.MarkerClusterGroup();
+			var markerGroup = new L.MarkerClusterGroup({
+				spiderfyOnMaxZoom:		false,
+				showCoverageOnHover:	false,
+				zoomToBoundsOnClick:	false,
+				maxClusterRadius:		20
+			});
+
+			markerGroup.on('clusterclick', function (a) {
+				a.layer.spiderfy();
+			});
 			
 			jQuery.each(markers, function(i, ob){
 
