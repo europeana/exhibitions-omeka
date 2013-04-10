@@ -373,6 +373,7 @@ var splashData = function(){
 			
 			
 		return [
+		        glam,
 				migration,
 				royalbookcollections,
 		        sports,
