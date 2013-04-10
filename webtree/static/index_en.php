@@ -37,6 +37,8 @@ img{
     
     
     
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/wiki-loves-glam">Wiki Loves Glam</a></h2>
+    
     <h2><a href="http://exhibitions.europeana.eu/exhibits/show/europe-america-en">Leaving Europe: A new life in America (English)</a></h2>
     <h2><a href="http://exhibitions.europeana.eu/exhibits/show/europe-america-fr">Leaving Europe: A new life in America (French)</a></h2>
     
