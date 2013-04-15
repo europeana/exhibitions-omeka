@@ -44,11 +44,16 @@
 	            
 	        <?php endif; ?>
 	            
-	            
-			<div class="wrap_at_320">
-				<a class="return-to" rel="<?php echo uri(); ?>"
-					href="<?php echo $GLOBALS['themesUrl'] . '-map' ?>"><?php echo ve_translate("browse-story-map", "Browse items on map");?></a>
-			</div>
+			
+	    	<?php
+	    		if(exhibit_has_map(get_current_exhibit())){
+        			echo ('<div class="wrap_at_320">');
+        			echo (	'<a class="return-to" rel="' . uri() . '" ');
+        			echo (		' href="' .  $GLOBALS['themesUrl'] . '-map">' . ve_translate("browse-story-map", "Browse items on map") . '</a>');
+        			echo ('</div>');
+	    		}
+			?>
+			
 			
 			<?php if ($creditsPage):?>
 				<div class="wrap_at_320">
@@ -95,8 +100,6 @@
 						}
 					}
 				);
-		        
-		        
 		    }
 		}
 			
