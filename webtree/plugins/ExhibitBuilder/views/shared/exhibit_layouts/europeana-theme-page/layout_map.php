@@ -955,6 +955,7 @@
 			
 			if(openMarker){
 				openMarker.fire('click');
+				markerGroup.zoomToShowLayer(openMarker, function(){ openMarker.fire('click'); });
 			}
 			
 		});
