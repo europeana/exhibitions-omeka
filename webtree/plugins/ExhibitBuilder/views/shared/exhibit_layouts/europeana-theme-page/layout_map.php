@@ -954,8 +954,19 @@
 			map.addLayer(markerGroup);
 			
 			if(openMarker){
-				openMarker.fire('click');
-				markerGroup.zoomToShowLayer(openMarker, function(){ openMarker.fire('click'); });
+			
+			    jQuery('html, body').animate({
+                	scrollTop: jQuery("#map").offset().top
+           		}, 1200,
+           		
+           			function(){
+           				openMarker.fire('click');
+						markerGroup.zoomToShowLayer(openMarker, function(){ openMarker.fire('click'); });
+           			
+           			}
+           		
+           		);
+			
 			}
 			
 		});
