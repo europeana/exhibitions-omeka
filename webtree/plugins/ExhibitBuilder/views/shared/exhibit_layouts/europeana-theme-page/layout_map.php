@@ -460,7 +460,7 @@
 				if( strlen($nwLat) > 0 && strlen($nwLon) > 0 && strlen($seLat) > 0 && strlen($seLon) > 0){
 					if( count($current->Files) > 0){
 						$uri = str_replace("/fullsize/", "/files/", file_display_uri($current->Files[0]));
-						echo('mapOverlays[mapOverlays.length] = {"title":"' . $title .  '",  "nwLat":"' . $nwLat . '", "nwLon":"' . $nwLon . '", "seLat":"' . $seLat . '", "seLon":"' . $seLon . '", "uri":"' . $uri . '" };' . PHP_EOL);
+						echo('mapOverlays[mapOverlays.length] = {"title":"' . $title .  '",  "nwLat":"' . $nwLat . '", "nwLon":"' . $nwLon . '", "seLat":"' . $seLat . '", "seLon":"' . $seLon . '", "uri":"' . $uri . '"};' . PHP_EOL);
 					}
 				}
 			}
@@ -834,14 +834,23 @@
 						}
 						else{
 							ob = mapOverlays[index];
-							ob = L.imageOverlay(ob.uri, [[ob.nwLat, ob.nwLon], [ob.seLat, ob.seLon]] ).addTo(self.map);
+
+							var zoom = ob.zoom;
+							var bounds = [[ob.nwLat, ob.nwLon], [ob.seLat, ob.seLon]];
+
+							ob = L.imageOverlay(ob.uri, bounds).addTo(self.map);
+							ob.europeana = {
+								"bounds" : bounds
+							}
 							self.addedOverlays["" + index] = ob;
 						}
 
 						if(ob != null){
 							ob.setOpacity(self.defaultOpacity/100);
 							self.activeOverlay = ob;
+							map.fitBounds(ob.europeana.bounds);
 						}
+						else{alert("WTF???");}
 						
 						jQuery(this).parent().after(sliderLabel);
 						jQuery(this).parent().after(self.sliderDiv);
