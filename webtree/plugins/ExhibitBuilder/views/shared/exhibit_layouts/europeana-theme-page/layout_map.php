@@ -753,9 +753,6 @@
 						});
 						
 						
-						
-						
-						
 					});
 				}
 				map.on('click', onMapClick);
@@ -840,7 +837,7 @@
 
 							ob = L.imageOverlay(ob.uri, bounds).addTo(self.map);
 							ob.europeana = {
-								"bounds" : bounds
+								"bounds" : new L.Bounds(bounds)
 							}
 							self.addedOverlays["" + index] = ob;
 						}
@@ -848,9 +845,38 @@
 						if(ob != null){
 							ob.setOpacity(self.defaultOpacity/100);
 							self.activeOverlay = ob;
-							map.fitBounds(ob.europeana.bounds);
+
+							// force animation by using "panBy" then fit to bounds after delay
+							
+							var bounds = ob.europeana.bounds;	
+							var centre = bounds.getCenter();
+							var mapCentre = map.getBounds().getCenter();
+					
+							var p		= map.latLngToContainerPoint([centre.x, centre.y]);
+							var mapP	= map.latLngToContainerPoint(mapCentre);
+							var tgtP	= [p.x-mapP.x, p.y-mapP.y];
+					
+							map.panBy(tgtP);
+
+							var nw = bounds.min,
+								se = bounds.max;
+
+							setTimeout(function(){
+									map.fitBounds([[nw.x , nw.y ],[se.x , se.y ]]);
+								},
+								400
+							);
+
+							/*
+							
+							// straight forward fit bounds
+							 
+							var nw = ob.europeana.bounds.min,
+								se = ob.europeana.bounds.max;
+							map.fitBounds([[nw.x , nw.y ],[se.x , se.y ]]);
+							
+							*/
 						}
-						else{alert("WTF???");}
 						
 						jQuery(this).parent().after(sliderLabel);
 						jQuery(this).parent().after(self.sliderDiv);
