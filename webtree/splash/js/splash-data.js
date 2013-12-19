@@ -1,11 +1,30 @@
 var splashData = function(){
 
-	
+		/* past not as ypu know it */
+
+                var pnayki = {
+			"context-menu" : "past-not-as-you-know",
+   			"img" : "splash/img/pig.jpg",
+                        "featured" : true,
+			"name" : "The Past But Not As You Know It",
+                        "overlay" : "splash/logos/logo-white.png",
+                        "menu" : {"label": "Share on...", "icon":"splash/img/share_icon.gif", "items":
+[
+                                            {   "label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+                                                 "goto": "//twitter.com/intent/tweet?text=European Sports: http://exhibitions.europeana.eu/exhibits/show/past-not-as-you-know" },
+
+                                            {   "label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+                                                "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/past-not-as-you-know" } ]
+
+                         },
+			"languages" : [{"langClass" : "language-en-main", "link":"exhibits/show/past-not-as-you-know", "label":"English"}]
+		}	
+
 		/* glam */
 
 		var glam = {
 				"contextmenu" : "wiki-loves-glam",
-				"featured": true,
+				"featured": false,
 				
 				"img": "splash/img/UniversityLibraryBucharest.jpg",
 				"overlay": "splash/logos/logo-white.png",
@@ -375,6 +394,7 @@ var splashData = function(){
 			
 			
 		return [
+    			pnayki,
 		        glam,
 				migration,
 				royalbookcollections,
