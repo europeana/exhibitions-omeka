@@ -152,7 +152,7 @@ function ve_exhibit_secondary_logo($exhibit = null)
     try {
         $logoSrc = img(ve_get_providers_key($exhibit->credits, 'logo'));
         $targetUrl = ve_get_providers_key($exhibit->credits, 'url');
-
+        
         if (isset($logoSrc) && isset($targetUrl)) {
             return '<a href="' . $targetUrl . '" target="_blank"><img alt="Partner" src="' . $logoSrc . '"/></a>';
         }
@@ -163,5 +163,7 @@ function ve_exhibit_secondary_logo($exhibit = null)
     catch (Exception $e) {
         // do nothing
     }
+    
+    
 }
 

@@ -1,5 +1,22 @@
 var splashData = function(){
 
+
+
+
+		/* German site WWI */
+
+                var firstWorldWar = {
+			"context-menu" : "past-not-as-you-know",
+   			"img" : "splash/img/world-war-one.jpg",
+                        "featured" : true,
+			"name" : "Der Erste Weltkrieg - Orte des &#220;bergangs",
+                        "overlay" : "splash/logos/logo-white.png",
+			"languages" : [{"langClass" : "language-de-main", "link":"exhibits/show/collections14-18-de", "label":"Deutsch"}]
+		}
+
+
+
+
 		/* past not as ypu know it */
 
                 var pnayki = {
@@ -106,6 +123,8 @@ var splashData = function(){
 
 
 		/* wiki loves art nouveau */
+
+
 
 		var wikiLoves = { "contextmenu" : "wiki-loves-artnouveau", "featured": false, "img": "splash/img/img21.jpg", "overlay": "splash/logos/logo-white.png", "partner_overlay":"splash/logos/logo_wiki_loves_monuments.png", "name": "Wiki Loves Art Nouveau", "menu":{ "label" : "Share on...", "icon": "splash/img/share_icon.gif", "items":[{"label": "Twitter", "icon": "splash/img/twitter_icon.gif", "goto": "//twitter.com/intent/tweet?text=Wiki Loves Art Nouveau: http://exhibitions.europeana.eu/exhibits/show/wiki-loves-art-nouveau" }, {"label": "Facebook", "icon": "splash/img/facebook_icon.gif", "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/wiki-loves-art-nouveau" } ] }, "languages":[{"langClass":"language-en-main", "link":"exhibits/show/wiki-loves-art-nouveau", "label":"English"}, {"langClass":"language-ru-main", "link":"exhibits/show/wiki-loves-art-ru", "label":"Russian"}]   };
 
@@ -394,7 +413,8 @@ var splashData = function(){
 			
 			
 		return [
-    			pnayki,
+			firstWorldWar,
+    			//pnayki,
 		        glam,
 				migration,
 				royalbookcollections,

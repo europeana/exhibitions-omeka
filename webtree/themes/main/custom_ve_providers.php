@@ -62,6 +62,10 @@ $providers['Wiki Loves Monuments']['exhibit'] ='Wiki Loves Monuments';
 $providers['Europeana 1914-1918']['collection'] = 'Europeana 1914-1918';
 $providers['Europeana 1914-1918']['exhibit'] ='Europeana 1914-1918';
 
+$providers['Europeana 1914-1918']['url'] = 'http://www.europeana1914-1918.eu/';
+$providers['Europeana 1914-1918']['logo'] = 'logo-1418.png';
+
+
 //$providers['Royal Book Collections']['url'] = 'http://www.europeanaregia.eu/';
 //$providers['Royal Book Collections']['logo'] = 'logo_europeana_regia.png';
 $providers['Royal Book Collections']['collection'] = 'Royal Book Collections';
@@ -71,3 +75,7 @@ $providers['DPLA']['url'] = 'http://dp.la/';
 $providers['DPLA']['logo'] = 'logo_dpla.png';
 $providers['DPLA']['collection'] = 'Leaving Europe: A new life in America';
 $providers['DPLA']['exhibit'] = 'Leaving Europe: A new life in America';
+
+
+
+

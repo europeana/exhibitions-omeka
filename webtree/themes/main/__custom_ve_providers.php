@@ -42,3 +42,10 @@ $providers['mimo']['logo'] = 'logo-mimo.png';
 $providers['mimo']['comments'] = false;
 $providers['mimo']['collection'] = 'MIMO';
 $providers['mimo']['exhibit'] ='Explore the World of Musical Instruments';
+
+$providers['Europeana 1914-1918']['url'] = 'http://www.europeana1914-1918.eu/';
+$providers['Europeana 1914-1918']['logo'] = 'logo-1418.png';
+$providers['Europeana 1914-1918']['comments'] = false;
+//$providers['Europeana 1914-1918']['collection'] = 'Judaica';
+//$providers['Europeana 1914-1918']['exhibit'] = 'From Dada to Surrealism';
+
