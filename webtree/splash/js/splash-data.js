@@ -6,12 +6,12 @@ var splashData = function(){
 		/* German site WWI */
 
                 var firstWorldWar = {
-			"context-menu" : "past-not-as-you-know",
+			"context-menu" : "",
    			"img" : "splash/img/world-war-one.jpg",
                         "featured" : true,
 			"name" : "Der Erste Weltkrieg - Orte des &#220;bergangs",
                         "overlay" : "splash/logos/logo-white.png",
-			"languages" : [{"langClass" : "language-de-main", "link":"exhibits/show/collections14-18-de", "label":"Deutsch"}]
+			"languages" : [{"langClass" : "language-de-main", "link":"exhibits/show/14-18-collections-de", "label":"Deutsch"}]
 		}
 
 
