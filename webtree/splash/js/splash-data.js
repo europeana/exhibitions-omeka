@@ -413,8 +413,8 @@ var splashData = function(){
 			
 			
 		return [
+    			pnayki,
 			firstWorldWar,
-    			//pnayki,
 		        glam,
 				migration,
 				royalbookcollections,
