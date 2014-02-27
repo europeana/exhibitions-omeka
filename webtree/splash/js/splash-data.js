@@ -2,6 +2,17 @@ var splashData = function(){
 
 
 
+                var romeInFesta = {
+			"context-menu" : "",
+   			"img" : "splash/img/Rome.jpg",
+                        "featured" : true,
+			"name" : "Rome in Festa",
+                        "overlay" : "splash/logos/logo-white.png",
+			"languages" : [{"langClass" : "language-en-main", "link":"exhibits/show/festa-in-roma", "label":"English"}]
+		}
+
+
+
 
 		/* German site WWI */
 
@@ -413,6 +424,7 @@ var splashData = function(){
 			
 			
 		return [
+			romeInFesta,
     			pnayki,
 			firstWorldWar,
 		        glam,
