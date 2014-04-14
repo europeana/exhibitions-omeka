@@ -9,9 +9,9 @@ var splashData = function(){
         "overlay" : "splash/logos/logo-white.png",
         "partner_overlay":"splash/logos/ateneu-logo.png",
         "languages" : [
-		      {"langClass" : "language-en-main", "link":"exhibits/show/darwin-en", "label":"English"},
-		      {"langClass" : "language-es-main", "link":"exhibits/show/darwin-es", "label":"Spanish"},
-		      {"langClass" : "language-es-main", "link":"exhibits/show/darwin-ca", "label":"Catalan"}
+		      {"langClass" : "language-en-main", "link":"exhibits/show/darwin-darwinism", "label":"English"},
+		      {"langClass" : "language-es-main", "link":"exhibits/show/darwin-darwinism-es", "label":"Spanish"},
+		      {"langClass" : "language-es-main", "link":"exhibits/show/darwin-darwinism-ca", "label":"Catalan"}
 	      ]
 	}
 
