@@ -35,9 +35,16 @@ img{
     <h1>Europeana Exhibitions</h1>
     
     
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/darwin-darwinism">Darwinism: Reception in Spain and Catalonia (English)</a></h2>
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/darwin-darwinism-es">Darwinism: Reception in Spain and Catalonia (Spanish)</a></h2>
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/darwin-darwinism-ca">Darwinism: Reception in Spain and Catalonia (Catalan)</a></h2>
+    
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/festa-in-roma"></a>Rome in Festa</h2>
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/past-not-as-you-know">The Past But Not As You Know It (English)</a></h2>
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/14-18-collections-de">Der Erste Weltkrieg - Orte des Übergangs (German)</a></h2>    
     
     
-    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/wiki-loves-glam">Wiki Loves Glam</a></h2>
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/wiki-loves-glam">Wiki Loves Glam (English)</a></h2>
     
     <h2><a href="http://exhibitions.europeana.eu/exhibits/show/europe-america-en">Leaving Europe: A new life in America (English)</a></h2>
     <h2><a href="http://exhibitions.europeana.eu/exhibits/show/europe-america-fr">Leaving Europe: A new life in America (French)</a></h2>
