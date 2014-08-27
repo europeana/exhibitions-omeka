@@ -1,0 +1,38 @@
+=====   Quick instructions to get this running on a linux style system.   ====
+
+version: 2014-04-30 jaclu
+
+
+#
+# Do this outside your home dir, homes sometimes have restrictive rights that would block apache 
+# user from writing to its file tree
+#
+# (unpacked size around 460MB)
+git clone https://github.com/europeana/exhibitions.git
+
+# create a mysqldb and a user (or empty it if you are reusing)
+
+cd exhibitions
+cp db.ini.sample webtree/db.ini
+# edit db.ini to point to useable mysql privs
+
+
+# (as root)
+mkdir exhibitions/webtree/archive
+chown www-data: exhibitions/webtree/archive
+
+
+
+
+# store the apache.conf within the project, and do a soft-link to it from
+# /etc/apache2/sites-enabled to keep everything in one place
+# you obviously need to edit apache.conf before it is useable
+
+cp apache-sample.conf apache.conf
+sudo ln -s `pwd`/apache.conf /etc/apache2/sites-enabled/myomeka
+
+# restart apache
+# go to http://jacexhib.eanadev.org/install/
+# after running install, rm -r webtree/install
+
+# your system should now be operational!

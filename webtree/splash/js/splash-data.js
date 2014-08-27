@@ -1,15 +1,30 @@
+alert('test: in splash data');
 var splashData = function(){
 
 
+    var darwin = {
+		"context-menu" : "",
+		"img" : "splash/img/darwin.jpg",
+                    "featured" : true,
+		"name" : "Darwinism: Reception in Spain and Catalonia",
+        "overlay" : "splash/logos/logo-white.png",
+        "partner_overlay":"splash/logos/ateneu-logo.png",
+        "languages" : [
+		      {"langClass" : "language-en-main", "link":"exhibits/show/darwin-darwinism", "label":"English"},
+		      {"langClass" : "language-es-main", "link":"exhibits/show/darwin-darwinism-es", "label":"Spanish"},
+		      {"langClass" : "language-es-main", "link":"exhibits/show/darwin-darwinism-ca", "label":"Catalan"}
+	      ]
+	}
 
-                var romeInFesta = {
-			"context-menu" : "",
-   			"img" : "splash/img/Rome.jpg",
-                        "featured" : true,
-			"name" : "Rome in Festa",
-                        "overlay" : "splash/logos/logo-white.png",
-			"languages" : [{"langClass" : "language-en-main", "link":"exhibits/show/festa-in-roma", "label":"English"}]
-		}
+
+    var romeInFesta = {
+		"context-menu" : "",
+		"img" : "splash/img/Rome.jpg",
+                    "featured" : true,
+		"name" : "Rome in Festa",
+                    "overlay" : "splash/logos/logo-white.png",
+		"languages" : [{"langClass" : "language-en-main", "link":"exhibits/show/festa-in-roma", "label":"English"}]
+	}
 
 
 
@@ -19,7 +34,7 @@ var splashData = function(){
                 var firstWorldWar = {
 			"context-menu" : "",
    			"img" : "splash/img/world-war-one.jpg",
-                        "featured" : true,
+                        "featured" : false,
 			"name" : "Der Erste Weltkrieg - Orte des &#220;bergangs",
                         "overlay" : "splash/logos/logo-white.png",
 			"languages" : [{"langClass" : "language-de-main", "link":"exhibits/show/14-18-collections-de", "label":"Deutsch"}]
@@ -424,6 +439,7 @@ var splashData = function(){
 			
 			
 		return [
+		    darwin,
 			romeInFesta,
     			pnayki,
 			firstWorldWar,
