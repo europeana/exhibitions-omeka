@@ -1,3 +1,7 @@
+var goTo = function(url){
+  window.location = url;	
+};
+
 var splashData = function(){
 
     var toMyPeoples = {
@@ -15,6 +19,7 @@ var splashData = function(){
 	var picasso = {
 		"img" : "splash/img/picasso.jpg",
 		"featured" : false,
+		"overlay" : "splash/logos/hazu_logo02.png",
 		"name" : "Pablo Picasso",
 		"languages" : [
 			{"langClass" : "language-en-main", "link":"http://dizbi.hazu.hr/picasso/", "label":"Open partner exhibition"}
@@ -56,11 +61,12 @@ var splashData = function(){
 			"context-menu" : "",
    			"img" : "splash/img/world-war-one.jpg",
                         "featured" : false,
-			"name" : "Der Erste Weltkrieg - Orte des &#220;bergangs",
+			"OLDname" : "Der Erste Weltkrieg - Orte des &#220;bergangs",
+                        "name" : "The First World War - Places of Transit",
                         "overlay" : "splash/logos/logo-white.png",
 			"languages" : [
-				{"langClass" : "language-de-main", "link":"exhibits/show/14-18-collections-de", "label":"Deutsch"},
-				{"langClass" : "language-en-main", "link":"exhibits/show/14-18-collections-en", "label":"English"}
+				{"langClass" : "language-en-main", "link":"exhibits/show/14-18-collections-en", "label":"English"},
+				{"langClass" : "language-de-main", "link":"exhibits/show/14-18-collections-de", "label":"Deutsch"}
 			]
 		}
 
