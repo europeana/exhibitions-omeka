@@ -1,3 +1,4 @@
+alert('test: in splash data');
 var splashData = function(){
 
 
