@@ -1,5 +1,28 @@
-alert('test: in splash data');
 var splashData = function(){
+
+    var toMyPeoples = {
+		"context-menu" : "",
+		"img" : "splash/img/AnMeineVolker-tile.jpg",
+		"featured" : true,
+		"name" : "To My Peoples",
+		"overlay" : "splash/logos/logo-white.png",
+		"partner_overlay":"splash/logos/logo-ONB.png",
+		"languages" : [
+			{"langClass" : "language-en-main", "link":"https://www.google.com/culturalinstitute/exhibit/to-my-peoples/gQyspHgL?hl=en-GB", "label":"English"},
+			{"langClass" : "language-de-main", "link":"https://www.google.com/culturalinstitute/exhibit/to-my-peoples/gQyspHgL?hl=de", "label":"German"}
+		]
+	}
+	
+	var picasso = {
+		"context-menu" : "",
+		"img" : "splash/img/picasso.jpg",
+		"featured" : false,
+		"name" : "Pablo Picasso",
+		"languages" : [
+			{"langClass" : "language-en-main", "link":"http://dizbi.hazu.hr/picasso/", "label":"Open partner exhibition"}
+		]
+	}
+
 
 
     var darwin = {
@@ -20,7 +43,7 @@ var splashData = function(){
     var romeInFesta = {
 		"context-menu" : "",
 		"img" : "splash/img/Rome.jpg",
-                    "featured" : true,
+                    "featured" : false,
 		"name" : "Rome in Festa",
                     "overlay" : "splash/logos/logo-white.png",
 		"languages" : [{"langClass" : "language-en-main", "link":"exhibits/show/festa-in-roma", "label":"English"}]
@@ -37,7 +60,10 @@ var splashData = function(){
                         "featured" : false,
 			"name" : "Der Erste Weltkrieg - Orte des &#220;bergangs",
                         "overlay" : "splash/logos/logo-white.png",
-			"languages" : [{"langClass" : "language-de-main", "link":"exhibits/show/14-18-collections-de", "label":"Deutsch"}]
+			"languages" : [
+				{"langClass" : "language-de-main", "link":"exhibits/show/14-18-collections-de", "label":"Deutsch"},
+				{"langClass" : "language-en-main", "link":"exhibits/show/14-18-collections-en", "label":"English"}
+			]
 		}
 
 
@@ -439,7 +465,8 @@ var splashData = function(){
 			
 			
 		return [
-		    darwin,
+			toMyPeoples,
+			darwin,
 			romeInFesta,
     			pnayki,
 			firstWorldWar,
@@ -454,7 +481,8 @@ var splashData = function(){
 		        mimo,
 		        yiddish,
 		        nouveau,
-
+			
+			picasso,
 		        winterSports,
 		        hungarianMusicAndDance,
 		        theEuro,
