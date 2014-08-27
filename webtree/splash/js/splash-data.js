@@ -1,7 +1,6 @@
 var splashData = function(){
 
     var toMyPeoples = {
-		"context-menu" : "",
 		"img" : "splash/img/AnMeineVolker-tile.jpg",
 		"featured" : true,
 		"name" : "To My Peoples",
@@ -14,7 +13,6 @@ var splashData = function(){
 	}
 	
 	var picasso = {
-		"context-menu" : "",
 		"img" : "splash/img/picasso.jpg",
 		"featured" : false,
 		"name" : "Pablo Picasso",
