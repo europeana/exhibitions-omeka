@@ -10,6 +10,19 @@ var splashData = function(){
 		"name" : "To My Peoples",
 		"overlay" : "splash/logos/logo-white.png",
 		"partner_overlay":"splash/logos/logo-ONB.png",
+	        "menu" : {"label": "Share on...", "icon":"splash/img/share_icon.gif", "items":
+			[
+                        	{
+                        	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+                            	"goto": "//twitter.com/intent/tweet?text=To My Peoples: https://www.google.com/culturalinstitute/exhibit/to-my-peoples/gQyspHgL?hl=en-GB"
+                        	},
+                        	{
+                        	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+                            	"goto": "//facebook.com/sharer/sharer.php?u=https://www.google.com/culturalinstitute/exhibit/to-my-peoples/gQyspHgL?hl=en-GB"
+	                        }
+        	        ]
+        	},
+
 		"languages" : [
 			{"langClass" : "language-en-main", "link":"https://www.google.com/culturalinstitute/exhibit/to-my-peoples/gQyspHgL?hl=en-GB", "label":"English"},
 			{"langClass" : "language-de-main", "link":"https://www.google.com/culturalinstitute/exhibit/to-my-peoples/gQyspHgL?hl=de", "label":"German"}
@@ -20,6 +33,18 @@ var splashData = function(){
 		"img" : "splash/img/picasso.jpg",
 		"featured" : false,
 		"overlay" : "splash/logos/hazu_logo02.png",
+	        "menu" : {"label": "Share on...", "icon":"splash/img/share_icon.gif", "items":
+			[
+                        	{
+                        	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+                            	"goto": "//twitter.com/intent/tweet?text=Picasso: http://dizbi.hazu.hr/picasso/"
+                        	},
+                        	{
+                        	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+                            	"goto": "//facebook.com/sharer/sharer.php?u=http://dizbi.hazu.hr/picasso/"
+	                        }
+        	        ]
+        	},
 		"name" : "Pablo Picasso",
 		"languages" : [
 			{"langClass" : "language-en-main", "link":"http://dizbi.hazu.hr/picasso/", "label":"Open partner exhibition"}
@@ -34,6 +59,16 @@ var splashData = function(){
                     "featured" : true,
 		"name" : "Darwinism: Reception in Spain and Catalonia",
         "overlay" : "splash/logos/logo-white.png",
+        "menu" : {"label": "Share on...", "icon":"splash/img/share_icon.gif", "items":
+		[
+                        {   "label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+                            "goto": "//twitter.com/intent/tweet?text=Rome in Festa: http://exhibitions.europeana.eu/exhibits/show/darwin-darwinism"
+                        },
+                        {   "label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+                            "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/darwin-darwinism"
+                        }
+                ]
+        },
         "partner_overlay":"splash/logos/ateneu-logo.png",
         "languages" : [
 		      {"langClass" : "language-en-main", "link":"exhibits/show/darwin-darwinism", "label":"English"},
@@ -46,9 +81,19 @@ var splashData = function(){
     var romeInFesta = {
 		"context-menu" : "",
 		"img" : "splash/img/Rome.jpg",
-                    "featured" : false,
+                "featured" : false,
 		"name" : "Rome in Festa",
-                    "overlay" : "splash/logos/logo-white.png",
+                "overlay" : "splash/logos/logo-white.png",
+                "menu" : {"label": "Share on...", "icon":"splash/img/share_icon.gif", "items":
+			[
+                                {   "label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+                                    "goto": "//twitter.com/intent/tweet?text=Rome in Festa: http://exhibitions.europeana.eu/exhibits/show/festa-in-roma"
+                                },
+                                {   "label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+                                    "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/festa-in-roma"
+                                }
+                        ]
+                },
 		"languages" : [{"langClass" : "language-en-main", "link":"exhibits/show/festa-in-roma", "label":"English"}]
 	}
 
@@ -64,6 +109,17 @@ var splashData = function(){
 			"OLDname" : "Der Erste Weltkrieg - Orte des &#220;bergangs",
                         "name" : "The First World War - Places of Transit",
                         "overlay" : "splash/logos/logo-white.png",
+                        "menu" : {"label": "Share on...", "icon":"splash/img/share_icon.gif", "items":
+				[
+                                            {   "label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+                                                 "goto": "//twitter.com/intent/tweet?text=The First World War - Places of Transit: http://exhibitions.europeana.eu/exhibits/show/exhibits/show/14-18-collections-en"
+                                            },
+                                            {   "label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+                                                "goto": "//facebook.com/sharer/sharer.php?u=http://exhibitions.europeana.eu/exhibits/show/exhibits/show/14-18-collections-en"
+                                            }
+                                ]
+                        },
+
 			"languages" : [
 				{"langClass" : "language-en-main", "link":"exhibits/show/14-18-collections-en", "label":"English"},
 				{"langClass" : "language-de-main", "link":"exhibits/show/14-18-collections-de", "label":"Deutsch"}
