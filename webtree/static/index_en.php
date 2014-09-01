@@ -35,13 +35,18 @@ img{
     <h1>Europeana Exhibitions</h1>
     
     
+    <h2><a href="https://www.google.com/culturalinstitute/exhibit/to-my-peoples/gQyspHgL?hl=en-GB">To My Peoples</a></h2>
+    <h2><a href="https://www.google.com/culturalinstitute/exhibit/to-my-peoples/gQyspHgL?hl=de">An Meine Völker</a></h2>
+
     <h2><a href="http://exhibitions.europeana.eu/exhibits/show/darwin-darwinism">Darwinism: Reception in Spain and Catalonia (English)</a></h2>
     <h2><a href="http://exhibitions.europeana.eu/exhibits/show/darwin-darwinism-es">Darwinism: Reception in Spain and Catalonia (Spanish)</a></h2>
     <h2><a href="http://exhibitions.europeana.eu/exhibits/show/darwin-darwinism-ca">Darwinism: Reception in Spain and Catalonia (Catalan)</a></h2>
     
     <h2><a href="http://exhibitions.europeana.eu/exhibits/show/festa-in-roma"></a>Rome in Festa</h2>
     <h2><a href="http://exhibitions.europeana.eu/exhibits/show/past-not-as-you-know">The Past But Not As You Know It (English)</a></h2>
+
     <h2><a href="http://exhibitions.europeana.eu/exhibits/show/14-18-collections-de">Der Erste Weltkrieg - Orte des Übergangs (German)</a></h2>    
+    <h2><a href="http://exhibitions.europeana.eu/exhibits/show/14-18-collections-en">The First World War - Places of Transit</a></h2>
     
     
     <h2><a href="http://exhibitions.europeana.eu/exhibits/show/wiki-loves-glam">Wiki Loves Glam (English)</a></h2>
@@ -100,6 +105,7 @@ img{
 	<h2><a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-es">Art Nouveau (Spanish)</a></h2>
 	<h2><a href="http://exhibitions.europeana.eu/exhibits/show/art-nouveau-lv">Art Nouveau (Latvian)</a></h2>
 	
+	<h2><a href="http://dizbi.hazu.hr/picasso/">Pablo Picasso</a></h2>
 	
 	<!-- eu screen stuff -->
 	
