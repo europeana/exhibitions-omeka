@@ -254,7 +254,9 @@ p {
 /* ----- exhibition top page ----- */
 
 .tmp-img{
+	/*
 	visibility: hidden;	
+	*/
 }
 
 .single-item .tmp-img{
