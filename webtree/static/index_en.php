@@ -223,7 +223,7 @@ var splashData = function(){
 			[
                         	{
                         	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
-                            	"goto": "//twitter.com/intent/tweet?text=To My Peoples: http://exhibitions.europeana.eu/exhibits/show/1514-book-2014"
+                            	"goto": "//twitter.com/intent/tweet?text=Books: http://exhibitions.europeana.eu/exhibits/show/1514-book-2014"
                         	},
                         	{
                         	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
@@ -241,7 +241,7 @@ var splashData = function(){
 
     var toMyPeoples = {
 		"img" : "splash/img/AnMeineVolker-tile.jpg",
-		"featured" : true,
+		"featured" : false,
 		"name" : "To My Peoples",
 		"overlay" : "splash/logos/logo-white.png",
 		"partner_overlay":"splash/logos/logo-ONB.png",
