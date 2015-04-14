@@ -188,7 +188,7 @@ var splashData = function(){
 
     var photographySilverPlate = {
 
-		"img" : "splash/img/PhotoVE.jpg",
+		"img" : "splash/img/photography-on-a-silver-plate.jpg",
 		"featured" : true,
 		"name" : "Photography on a Silver Plate",
 		"overlay" : "splash/logos/White_trans_small.png",
