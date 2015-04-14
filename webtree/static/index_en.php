@@ -1,4 +1,5 @@
 
+
   
 
 </div> <!--close simple pages div -->
@@ -34,6 +35,10 @@ img{
     
     <!-- this will be replaced, but copy the links (defined in splash.js) here for SEO purposes -->
     <h1>Europeana Exhibitions</h1>
+
+
+    <h2><a href="https://www.google.com/culturalinstitute/exhibit/photography-on-a-silver-plate/gQxWH0VE?hl">Photography on a Silver Plate</a></h2>
+    <h2><a href="http://exhibition.europeanfilmgateway.eu/efg1914/welcome">European Film and the First World War</a></h2>
     
     <h2><a href="http://exhibitions.europeana.eu/exhibits/show/1514-book-2014">1514. Book. 2014</a></h2>
     <h2><a href="http://exhibitions.europeana.eu/exhibits/show/1514-gramata-2014">1514. Grāmata. 2014</a></h2>
@@ -181,11 +186,37 @@ var goTo = function(url){
 
 var splashData = function(){
 
+    var photographySilverPlate = {
+
+		"img" : "splash/img/PhotoVE.jpg",
+		"featured" : true,
+		"name" : "Photography on a Silver Plate",
+		"overlay" : "splash/logos/White_trans_small.png",
+	        "menu" : {"label": "Share on...", "icon":"splash/img/share_icon.gif", "items":
+			[
+                        	{
+                        	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+                            	"goto": "//twitter.com/intent/tweet?text=European Film and World War I: http://exhibition.europeanfilmgateway.eu/efg1914/welcome"
+                        	},
+                        	{
+                        	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+                            	"goto": "//facebook.com/sharer/sharer.php?u=http://exhibition.europeanfilmgateway.eu/efg1914/welcome"
+	                        }
+        	        ]
+        	},
+
+		"languages" : [
+			{"langClass": "language-en-main",  "link":"https://www.google.com/culturalinstitute/exhibit/photography-on-a-silver-plate/gQxWH0VE?hl", "label":"English"},
+			{"langClass": "language-it-music", "link":"https://www.google.com/culturalinstitute/exhibit/photography-on-a-silver-plate/gQxWH0VE?hl=it ", "label":"Italiano"}
+		]
+
+    }
+
 
     var books = {
 
 		"img" : "http://exhibitions.europeana.eu/archive/fullsize/4d3ac60db81c0935e97aff5e8449128c.jpg",
-		"featured" : true,
+		"featured" : false,
 		"name" : "1514. Book. 2014",
 		"overlay" : "splash/logos/logo-white.png",
 	        "menu" : {"label": "Share on...", "icon":"splash/img/share_icon.gif", "items":
@@ -255,12 +286,36 @@ var splashData = function(){
 		]
 	}
 
+    var filmWWI = {
+
+		"img" : "splash/img/Slg_Wolfgang_Filzinger_11_VE_EFG1914.jpg",
+		"featured" : true,
+		"name" : "European Film and the First World War",
+		"overlay" : "splash/logos/efg_logo.png",
+	        "menu" : {"label": "Share on...", "icon":"splash/img/share_icon.gif", "items":
+			[
+                        	{
+                        	"label": "Twitter", "icon": "splash/img/twitter_icon.gif",
+                            	"goto": "//twitter.com/intent/tweet?text=European Film and World War I: http://exhibition.europeanfilmgateway.eu/efg1914/welcome"
+                        	},
+                        	{
+                        	"label": "Facebook", "icon": "splash/img/facebook_icon.gif",
+                            	"goto": "//facebook.com/sharer/sharer.php?u=http://exhibition.europeanfilmgateway.eu/efg1914/welcome"
+	                        }
+        	        ]
+        	},
+
+		"languages" : [
+			{"langClass" : "language-en-main", "link":"http://exhibition.europeanfilmgateway.eu/efg1914/welcome", "label":"English"}
+		]
+    }
+
 
 
     var darwin = {
 		"context-menu" : "",
 		"img" : "splash/img/darwin.jpg",
-                    "featured" : true,
+                    "featured" : false,
 		"name" : "Darwinism: Reception in Spain and Catalonia",
         "overlay" : "splash/logos/logo-white.png",
         "menu" : {"label": "Share on...", "icon":"splash/img/share_icon.gif", "items":
@@ -729,6 +784,7 @@ var splashData = function(){
 			
 			
 		return [
+                        photographySilverPlate,
                         books,
 			toMyPeoples,
 			darwin,
@@ -748,6 +804,7 @@ var splashData = function(){
 		        nouveau,
 			
 			picasso,
+			filmWWI,
 		        winterSports,
 		        hungarianMusicAndDance,
 		        theEuro,
