@@ -1,7 +1,3 @@
-
-
-  
-
 </div> <!--close simple pages div -->
 
 
@@ -306,7 +302,7 @@ var splashData = function(){
         	},
 
 		"languages" : [
-			{"langClass" : "language-en-main", "link":"http://exhibition.europeanfilmgateway.eu/efg1914/welcome", "label":"English"}
+			{"langClass" : "language-en-main", "link":"http://exhibition.europeanfilmgateway.eu/efg1914/welcome", "label":"Open partner exhibition"}
 		]
     }
 
